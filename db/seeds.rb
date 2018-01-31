@@ -5,3 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+# p = Playlist.new(title: 'love songs', description: 'the staple of every library', author_id: 1)
+# Playlist.create(title: 'rock stuff', description: 'oldies but awesome', author_id: 1)
+# Playlist.create(title: 'christmas party', description: 'warm and fuzzy', author_id: 1)

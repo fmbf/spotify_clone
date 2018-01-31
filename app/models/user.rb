@@ -6,6 +6,10 @@ class User < ApplicationRecord
 
   attr_reader :password
 
+  has_many :playlists,
+  foreign_key: :author_id,
+  class_name: :Playlist
+
   def self.find_by_credentials(credential, password)
     user = User.find_by(username: credential) || User.find_by(email: credential)
     return nil unless user && user.valid_password?(password)
