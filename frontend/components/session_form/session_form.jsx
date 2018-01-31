@@ -36,9 +36,9 @@ class SessionForm extends React.Component {
 
   navLink() {
     if (this.props.formType === 'login') {
-      return <Link to="/signup">Sign Up</Link>;
+      return <Link to="/signup" className='green-link'>Sign Up</Link>;
     } else {
-      return <Link to="/login">Log In</Link>;
+      return <Link to="/login" className='green-link'>Log In</Link>;
     }
   }
 
@@ -61,16 +61,15 @@ class SessionForm extends React.Component {
   }
 
   render() {
+    let formAlternative = this.props.formType !== 'login' ? 'Already have an account' : "Don't have an account";
 
     let emailInput = (
-
       <input type="text"
         placeholder="Email"
         value={this.state.email}
         onChange={this.update('email')}
         className="login-input"
       />
-
     );
 
     if(this.props.formType === 'login') {
@@ -79,18 +78,25 @@ class SessionForm extends React.Component {
 
 
     return (
+
       <div className="login-form-container">
-        <form onSubmit={this.handleSubmit} className="login-form-box">
 
-          Welcome to Spotify!
-
-          <br/>
-
-          Please {this.props.formType.toUpperCase()} or {this.navLink()}
-          {this.renderErrors()}
+        <div class="modal-header">
+          <Link to="/" >
+            <img src="./assets/Spotify_Logo_CMYK_Black.png"/>
+          </Link>
+        </div>
 
 
-          <div className="login-form">
+
+        <form onSubmit={this.handleSubmit} className="login-form">
+          <div className="login-form-inner-box">
+
+            <div className='form-type-title'>
+              <h3 >
+                {this.props.formType}
+              </h3>
+            </div>
 
             {emailInput}
 
@@ -118,12 +124,19 @@ class SessionForm extends React.Component {
 
             <br/>
 
-            <input type="submit" value="Submit" />
+            <div className='button-container'>
 
-            <button className="demo-user"
-                    onClick={this.handleDemoLogin}>
-              DEMO USER
-            </button>
+              <button className="button-green" type="submit">{this.props.formType.toUpperCase()}</button>
+
+              <button className="demo-user button-mono"
+                      onClick={this.handleDemoLogin}>
+                DEMO USER
+              </button>
+            </div>
+
+            <div clasName='form-type-option'>
+              <h3>{formAlternative}? {this.navLink()}</h3>
+            </div>
 
           </div>
         </form>
