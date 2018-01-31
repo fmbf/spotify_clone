@@ -1,0 +1,143 @@
+html, body, header, nav,
+ul, strong, main, button, i,
+section, img, div, p, form,
+fieldset, label, input, textarea,
+span, article, footer, time, small {
+  font-family: 'Montserrat', sans-serif;
+  /* color: white; */
+  background: transparent;
+  /* padding: 10px 10px 10px 10px; */
+  justify-content: center;
+
+  /* border: 1px solid red; */
+}
+
+body {
+  /* background: #191414; */
+}
+
+/* .grad {
+  background: linear-gradient(#a0a0a0, #191414);
+} */
+
+h1 {
+  margin-top: 140px;
+  margin-bottom: 0;
+  font-size: 38px;
+}
+
+
+h3 {
+  margin: 0;
+  margin-bottom: 20px;
+  font-size: 12px;
+  font-weight: 200;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+  cursor: default;
+}
+
+
+button {
+  /*
+  Get rid of native styling. Read more here:
+  http://css-tricks.com/almanac/properties/a/appearance/
+  */
+  margin: 6px;
+  padding: 0px;
+  /* border: 0; */
+  height: 30px;
+  width: 80px;
+  /* background-color: #2ab759; */
+
+  color: #a0a0a0;
+  /* background-color: red; */
+
+  /* border: none; */
+  border: 1px solid #a0a0a0;
+  border-radius: 14px;
+
+  transition: background-color 0.5s ease;
+  transition: font-size 0.3s ease;
+
+}
+
+.splash-main {
+  display: flex;
+  justify-content: center;
+}
+
+.splash-main-text {
+  display: block;
+}
+
+.header-button-play {
+  background-color: #1bc156;
+  color: white;
+  border: none;
+}
+
+.header-button-play:hover{
+  /* background-color: #2ed664; */
+  background-color: #1ED760;
+  font-size: 10px;
+}
+
+
+.header-button-save {
+  color: #a0a0a0;
+  border: 1px solid #a0a0a0;
+  background-color: white;
+  transition: border-color 0.5s ease;
+  transition: font-size 0.3s ease;
+
+}
+
+.header-button-save:hover{
+  /* background-color: #2ed664; */
+  color: #191414;
+  /* border-color: #191414; */
+  border: 1px solid #090404;
+  /* background-color: #191414; */
+  font-size: 10px;
+}
+
+img {
+  display: block;
+  padding: 10px;
+  width: 280px;
+  height: 280px;
+}
+
+
+/* NEW */
+.albums-grid {
+  display: flex;
+}
+
+.profile-info {
+  display: block;
+  /* padding: 20px; */
+}
+
+.profile-button-box {
+  display: flex;
+}
+
+
+/* When you mouse over the navigation links, change their color */
+a:hover {
+    color: #535353;
+    text-decoration: underline;
+}
+
+
+.banner {
+  /*uigradients.com*/
+  background: #ff4b1f;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #ff9068, #ff4b1f);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #ff9068, #ff4b1f); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
