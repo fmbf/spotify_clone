@@ -13,7 +13,20 @@ class SessionForm extends React.Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDemoLogin = this.handleDemoLogin.bind(this);
+    this.history = this.props.history;
   }
+
+
+    componentWillReceiveProps(newProps) {
+      if (this.props.errors.length){
+        this.props.clearErrors();
+      }
+    }
+
+    componentWillUnmount() {
+      this.props.clearErrors();
+    }
+
 
   update(field) {
     return e => this.setState({
@@ -48,7 +61,7 @@ class SessionForm extends React.Component {
         <ul>
           {
             this.props.errors.map((error, i) => (
-            <li key={`error-${i}`}>
+            <li key={`error-${i}`} className='error-display'>
               {error}
             </li>
             ))
@@ -81,7 +94,7 @@ class SessionForm extends React.Component {
 
       <div className="login-form-container">
 
-        <div class="modal-header">
+        <div className="modal-header">
           <Link to="/" >
             <img src="./assets/Spotify_Logo_CMYK_Black.png"/>
           </Link>
@@ -134,8 +147,14 @@ class SessionForm extends React.Component {
               </button>
             </div>
 
-            <div clasName='form-type-option'>
+            <div className='form-type-option'>
               <h3>{formAlternative}? {this.navLink()}</h3>
+            </div>
+
+            <div className='session-errors-div'>
+              <h3>
+                {this.renderErrors()}
+              </h3>
             </div>
 
           </div>
