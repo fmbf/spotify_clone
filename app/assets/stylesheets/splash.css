@@ -26,6 +26,10 @@ h1 {
   font-size: 38px;
 }
 
+span {
+  font-size: 38px;
+}
+
 
 h3 {
   margin: 0;
@@ -46,6 +50,7 @@ button {
   Get rid of native styling. Read more here:
   http://css-tricks.com/almanac/properties/a/appearance/
   */
+  outline: none;
   margin: 6px;
   padding: 0px;
   /* border: 0; */
@@ -116,6 +121,7 @@ img {
 /* NEW */
 .albums-grid {
   display: flex;
+  margin-top: 30px;
 }
 
 .profile-info {
@@ -140,4 +146,15 @@ a:hover {
   background: #ff4b1f;  /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #ff9068, #ff4b1f);  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #ff9068, #ff4b1f); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+
+
+/* USER AVATAR */
+
+.user-avatar {
+  height: 50px;
+  width: 50px;
+  border: 1px solid #a0a0a0;
+  border-radius: 500px
 }

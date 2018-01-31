@@ -9,7 +9,7 @@ import {
 } from 'react-router-dom';
 
 import SessionFormContainer from './session_form/session_form_container';
-import test from './test';
+import testContainer from './test_container';
 import welcomeComponent from './welcome';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
@@ -19,7 +19,7 @@ const App = () => (
       <AuthRoute exact path="/" component={welcomeComponent}/>
       <AuthRoute exact path="/login" component={SessionFormContainer} />
       <AuthRoute exact path="/signup" component={SessionFormContainer} />
-      <ProtectedRoute exact path="/browse" component={test}/>
+      <ProtectedRoute exact path="/library/playlists" component={testContainer}/>
     </Switch>
   </div>
 );

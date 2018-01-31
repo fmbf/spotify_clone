@@ -12,6 +12,7 @@ class SessionForm extends React.Component {
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleDemoLogin = this.handleDemoLogin.bind(this);
   }
 
   update(field) {
@@ -25,6 +26,12 @@ class SessionForm extends React.Component {
 
     const user = this.state;
     this.props.processForm(user);
+  }
+
+  handleDemoLogin(e) {
+    e.preventDefault();
+    const demoUser = {username: "guest_user25", password:"password123"};
+    this.props.login(demoUser).then(this.props.history.push('/library/playlists'));
   }
 
   navLink() {
@@ -109,6 +116,12 @@ class SessionForm extends React.Component {
             <br/>
 
             <input type="submit" value="Submit" />
+
+            <button className="demo-user"
+                    onClick={this.handleDemoLogin}>
+              DEMO USER
+            </button>
+
           </div>
         </form>
       </div>
