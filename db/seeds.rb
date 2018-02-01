@@ -7,9 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-User.create(username: "bobby_tables", email: "robtables@tables.com", password_digest: "tables")
-User.create(username: "solo_han", email: "falconflyer@space.com", password_digest: "password")
-User.create(username: "guest_user25", email: "demo_spotifyx@email.com", password_digest: "password123")
+User.create(username: "bobby_tables", email: "robtables@tables.com", password: "tables")
+User.create(username: "solo_han", email: "falconflyer@space.com", password: "password")
+User.create(username: "guest_user25", email: "demo_spotifyx@email.com", password: "password123")
 
 
 Playlist.create(title: 'love songs', description: 'the staple of every library', author_id: 1)
