@@ -99,7 +99,7 @@ class SessionForm extends React.Component {
 
         <div className="modal-header">
           <Link to="/" >
-            <img src="./assets/Spotify_Logo_CMYK_Black.png"/>
+            <img src={ window.staticImages.spotifyLogoBlack }/>
           </Link>
         </div>
 
