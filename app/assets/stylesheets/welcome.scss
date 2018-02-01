@@ -1,5 +1,14 @@
-// #pic-2 {
-//   -vendor-animation-duration: 3s;
-//   -vendor-animation-delay: 2s;
-//   -vendor-animation-iteration-count: infinite;
-// }
+#pic-1 {
+  -moz-animation-duration: 0.5s;
+  -webkit-animation-duration: 0.5s;
+}
+
+#pic-2 {
+  -moz-animation-duration: 0.7s;
+  -webkit-animation-duration: 0.7s;
+}
+
+#pic-3 {
+  -moz-animation-duration: 1s;
+  -webkit-animation-duration: 1s;
+}
