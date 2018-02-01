@@ -1,0 +1,244 @@
+html, body, header, nav,
+ul, strong, main, button, i,
+section, img, div, p, form,
+fieldset, label, input, textarea,
+span, article, footer, time, small {
+  font-family: 'Montserrat', sans-serif;
+  /* color: white; */
+  /* background: transparent; */
+  padding: 0 10px 10px 10px;
+
+  /* border: 1px solid red; */
+}
+
+body {
+  /* background: #191414; */
+}
+
+/* .grad {
+  background: linear-gradient(#a0a0a0, #191414);
+} */
+
+.profile-info h1 {
+  font-size: 38px;
+  margin-top: 1px;
+}
+
+
+h3 {
+  font-size: 12px;
+  font-weight: 200;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+.song-list {
+  /* Disable horizontal scroll */
+  border: 1px solid #f3f3f3;
+  overflow-x: scroll;
+  height: 260px;
+}
+
+li {
+  background-color: white;
+  transition: background-color 0.2s ease;
+}
+
+li:hover {
+  text-decoration: none;
+  background-color: white;
+
+}
+
+li {
+  padding: 6px;
+  border-top: 1px solid #ddd;
+}
+
+li:hover {
+  background: #eee;
+}
+
+.user-session-nav{
+  display: flex;
+  flex-direction: column;
+  // justify-content: center;
+  align-items: center;
+}
+
+.current-user-avatar {
+  height: 30px;
+  width: 30px;
+  border: 1px solid #ddd;
+  border-radius: 800px;
+  transition: border-color 0.5s ease;
+}
+
+.current-user-avatar:hover {
+  border-color: #222;
+}
+
+
+button {
+  /*
+  Get rid of native styling. Read more here:
+  http://css-tricks.com/almanac/properties/a/appearance/
+  */
+  margin: 6px;
+  padding: 0px;
+  /* border: 0; */
+  height: 30px;
+  width: 80px;
+  /* background-color: #2ab759; */
+
+  color: #a0a0a0;
+  /* background-color: red; */
+
+  /* border: none; */
+  border: 1px solid #a0a0a0;
+  border-radius: 14px;
+
+  transition: background-color 0.5s ease;
+  transition: font-size 0.3s ease;
+
+}
+
+
+.header-button-play {
+  background-color: #1bc156;
+  color: white;
+  border: none;
+}
+
+.header-button-play:hover{
+  /* background-color: #2ed664; */
+  background-color: #1ED760;
+  font-size: 12px;
+}
+
+
+.header-button-save {
+  color: #a0a0a0;
+  border: 1px solid #a0a0a0;
+  background-color: white;
+  transition: border-color 0.5s ease;
+  transition: font-size 0.3s ease;
+
+}
+
+.header-button-save:hover{
+  /* background-color: #2ed664; */
+  color: #191414;
+  /* border-color: #191414; */
+  border: 1px solid #090404;
+  /* background-color: #191414; */
+  font-size: 12px;
+}
+
+img {
+  display: block;
+  padding: 10px;
+  width: 280px;
+  height: 280px;
+}
+
+
+/* NEW */
+.profile-header {
+  display: flex;
+  justify-content: left;
+}
+
+.profile-info {
+  display: block;
+  padding: 20px;
+}
+
+.profile-button-box {
+  display: flex;
+}
+
+.song-list {
+  margin-left: 60px;
+}
+
+
+/* FOOTER */
+footer {
+  position:absolute;
+  bottom: 0;
+  padding-right: 10px;
+  margin: 0;
+  width:100%;
+  height:120px;   /* Height of the footer */
+  border-top: 1px solid #a0a0a0;
+}
+
+.footer-all {
+  display: flex;
+  justify-content: space-between;
+}
+
+.play-controls {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.footer-left img {
+  width: 60px;
+  height: 60px;
+}
+
+.footer-right img {
+  width: 60px;
+  height: 60px;
+}
+
+
+
+
+/* The sidebar menu */
+.sidenav {
+    height: 100%; /* Full-height: remove this if you want "auto" height */
+    width: 160px; /* Set the width of the sidebar */
+    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+    z-index: 0; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 20px;
+    border-right: 1px solid black;
+}
+
+/* The navigation menu links */
+.sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    /* font-size: 25px; */
+    /* color: #818181; */
+    display: block;
+}
+
+/* When you mouse over the navigation links, change their color */
+a:hover {
+    color: #535353;
+    text-decoration: underline;
+}
+
+
+
+/* Style page content */
+.main {
+    margin-left: 160px; /* Same as the width of the sidebar */
+    padding: 0px 10px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
