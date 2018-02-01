@@ -5,12 +5,20 @@
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
-    <link rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <%= javascript_include_tag 'application' %>
+
+
+    <script type="text/javascript">
+      window.staticImages = {
+    	  spotifyLogoBlack: "<%= asset_url "Spotify_Logo_CMYK_Black.png" %>"
+      }
+    </script>
   </head>
 
   <body>
     <%= yield %>
   </body>
+
+
 </html>
