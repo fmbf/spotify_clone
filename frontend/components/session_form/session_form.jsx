@@ -18,8 +18,11 @@ class SessionForm extends React.Component {
 
 
     componentWillReceiveProps(newProps) {
-      if (this.props.errors.length){
-        this.props.clearErrors();
+
+      if (this.props.location.pathname !== newProps.location.pathname) {
+        if (this.props.errors && this.props.errors.length){
+          this.props.clearErrors();
+        }
       }
     }
 
@@ -151,7 +154,7 @@ class SessionForm extends React.Component {
               <h3>{formAlternative}? {this.navLink()}</h3>
             </div>
 
-            <div className='session-errors-div'>
+            <div className='session-errors-div animated fadeInUp'>
               <h3>
                 {this.renderErrors()}
               </h3>
