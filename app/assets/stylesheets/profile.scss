@@ -42,6 +42,10 @@ a {
   height: 260px;
 }
 
+.song-list li:first-child{
+  border-top: 0;
+}
+
 li {
   background-color: white;
   transition: background-color 0.2s ease;
@@ -62,16 +66,18 @@ li:hover {
   background: #eee;
 }
 
-.user-session-nav{
+.user-session-nav {
   display: flex;
   flex-direction: column;
   // justify-content: center;
   align-items: center;
+  margin-left: 150px;
 }
 
 .current-user-avatar {
   height: 30px;
   width: 30px;
+  margin: 20px;
   border: 1px solid #ddd;
   border-radius: 800px;
   transition: border-color 0.5s ease;
@@ -236,6 +242,7 @@ a:hover {
     margin-left: 160px; /* Same as the width of the sidebar */
     padding: 0px 10px;
 }
+
 
 /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
 @media screen and (max-height: 450px) {

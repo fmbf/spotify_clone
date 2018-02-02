@@ -1,8 +1,11 @@
 class Api::PlaylistsController < ApplicationController
   def index
-    @playlists = Playlist.all
-    # @playlists = Playlist.where('author_id = ?', )
-    
+    # @playlists = Playlist.all
+    # @user = User.find_by(id: params[:user_id])
+
+    @playlists = Playlist.where('author_id = ?', params[:user_id])
+    # @playlists = Playlist.find_by(author_id: params[:user_id])
+
   end
 
   def create

@@ -8,18 +8,20 @@ import {
   HashRouter
 } from 'react-router-dom';
 
-import SessionFormContainer from './session_form/session_form_container';
-import testContainer from './test_container';
-import profileContainer from './profile/profile_container';
-import welcomeComponent from './welcome';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
+import welcomeComponent from './welcome';
+import SessionFormContainer from './session_form/session_form_container';
+
+import profileContainer from './profile/profile_container';
+import entityIndexContainer from './entity_index_container';
 
 const App = () => (
   <div>
     <Switch>
+      <ProtectedRoute exact path="/library/playlists" component={profileContainer}/>
+      <ProtectedRoute exact path="/library/playlists/:playlistId" component={profileContainer}/>
       <AuthRoute exact path="/login" component={SessionFormContainer} />
       <AuthRoute exact path="/signup" component={SessionFormContainer} />
-      <ProtectedRoute exact path="/library/playlists" component={profileContainer}/>
       <AuthRoute path="/" component={welcomeComponent}/>
     </Switch>
   </div>

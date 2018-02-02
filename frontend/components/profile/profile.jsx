@@ -1,5 +1,7 @@
 import React from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { Link, withRouter, Redirect } from 'react-router-dom';
+
+import EntityIndexContainer from '../entity_index_container';
 
 
 class profile extends React.Component {
@@ -7,10 +9,10 @@ class profile extends React.Component {
     super(props);
     this.currentUser = this.props.currentUser;
     this.logout = this.logout.bind(this);
+    this.profilePic = "https://is2-ssl.mzstatic.com/image/thumb/Music127/v4/36/42/af/3642afa1-26ec-ea06-8ecd-59b38ea5ed1f/UMG_cvrart_00602557684964_01_RGB72_1800x1800_17UMGIM97853.jpg/1200x630bb.jpg";
   }
 
   componentDidMount() {
-    this.currentUser = this.props.currentUser;
   }
 
 
@@ -18,7 +20,12 @@ class profile extends React.Component {
     this.props.logout();
   }
 
-  render(){
+  render() {
+    let randomTime = () => Math.floor(Math.random()*49 + 10).toString();
+    let nameTitle;
+    if (this.props.playlists[this.props.match.params.playlistId]) {
+      this.profilePic = this.props.playlists[this.props.match.params.playlistId].img_path;
+    }
 
     return (
 
@@ -41,7 +48,7 @@ class profile extends React.Component {
 
         <div className="main-window main">
           <header className="profile-header">
-            <img src="https://is2-ssl.mzstatic.com/image/thumb/Music127/v4/36/42/af/3642afa1-26ec-ea06-8ecd-59b38ea5ed1f/UMG_cvrart_00602557684964_01_RGB72_1800x1800_17UMGIM97853.jpg/1200x630bb.jpg"/>
+            <img src={this.profilePic}/>
 
             <div className="profile-info">
 
@@ -58,50 +65,37 @@ class profile extends React.Component {
             </div>
 
             <div className='user-session-nav'>
-              <img className='current-user-avatar' src={this.currentUser.img_path}/>
-              <h3>{this.currentUser.username}</h3>
+              <img className='current-user-avatar' src={this.props.currentUser.img_path}/>
+              <h3>{this.props.currentUser.username}</h3>
               <button onClick={this.logout} className='button-mono'>LOG OUT</button>
             </div>
           </header>
 
           <ol className='song-list'>
             <li><a href="#">Cut To Black | 4:49</a></li>
-            <li><a href="#">Closer | 4:49</a></li>
-            <li><a href="#">Continuum | 4:49</a></li>
-            <li><a href="#">Higher | 4:49</a></li>
-            <li><a href="#">Blue Shift | 4:49</a></li>
-            <li><a href="#">Stepping Stone | 4:49</a></li>
-            <li><a href="#">Time To Realize | 4:49</a></li>
-            <li><a href="#">We Got U | 4:49</a></li>
-            <li><a href="#">Last Night On Earth | 4:49</a></li>
-            <li><a href="#">Playing To Lose | 4:49</a></li>
+            <li><a href="#">Closer | 4:{randomTime()}</a></li>
+            <li><a href="#">Continuum | 4:{randomTime()}</a></li>
+            <li><a href="#">Higher | 1:{randomTime()}</a></li>
+            <li><a href="#">Blue Shift | 2:49</a></li>
+            <li><a href="#">Stepping Stone | 4:{randomTime()}</a></li>
+            <li><a href="#">Time To Realize | 3:{randomTime()}</a></li>
+            <li><a href="#">We Got U | 2:49</a></li>
+            <li><a href="#">Last Night On Earth | 4:{randomTime()}</a></li>
+            <li><a href="#">Playing To Lose | 3:{randomTime()}</a></li>
 
-            <li><a href="#">Cut To Black | 4:49</a></li>
-            <li><a href="#">Closer | 4:49</a></li>
+            <li><a href="#">Cut To Black | 4:{randomTime()}</a></li>
+            <li><a href="#">Closer | 2:{randomTime()}</a></li>
             <li><a href="#">Continuum | 4:49</a></li>
-            <li><a href="#">Higher | 4:49</a></li>
+            <li><a href="#">Higher | 3:{randomTime()}</a></li>
           </ol>
         </div>
 
-        <footer>
-          <div className="footer-all">
+        <center><h1>Playlists</h1></center>
+        <br/>
 
-            <div className="footer-left">
-              <img src="https://is2-ssl.mzstatic.com/image/thumb/Music127/v4/36/42/af/3642afa1-26ec-ea06-8ecd-59b38ea5ed1f/UMG_cvrart_00602557684964_01_RGB72_1800x1800_17UMGIM97853.jpg/1200x630bb.jpg"/>
-            </div>
+        <EntityIndexContainer/>
 
 
-            <div className="play-controls">
-              <p>Playback Controls</p>
-            </div>
-
-            <div className="footer-right">
-              <p>Volume Controls</p>
-
-            </div>
-
-          </div>
-        </footer>
 
 
 

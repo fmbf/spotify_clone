@@ -9,6 +9,6 @@ Rails.application.routes.draw do
       resources :playlists, only: [:index, :show]
     end
 
-    resources :playlists, only: [:show, :update, :destroy]
+    resources :playlists, only: [:show, :update, :destroy, :create]
   end
 end

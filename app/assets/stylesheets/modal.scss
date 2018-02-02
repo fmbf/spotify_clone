@@ -116,10 +116,14 @@ h3:first-child {
   width: 100%;
   border-bottom: 1px solid #a0a0a0;
   margin-bottom: 10px;
+  // padding-bottom: 0;
 }
 
 .form-type-title h3 {
   display: flex;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  font-size: 20px;
   justify-content: center;
 }
 

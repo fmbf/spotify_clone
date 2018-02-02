@@ -88,8 +88,11 @@ class SessionForm extends React.Component {
       />
     );
 
+    let buttonText = 'Sign Up'
+
     if(this.props.formType === 'login') {
       emailInput = null;
+      buttonText = 'Log In'
     }
 
 
@@ -142,7 +145,7 @@ class SessionForm extends React.Component {
 
             <div className='button-container'>
 
-              <button className="button-green" type="submit">{this.props.formType.toUpperCase()}</button>
+              <button className="button-green" type="submit">{buttonText.toUpperCase()}</button>
 
               <button className="demo-user button-mono"
                       onClick={this.handleDemoLogin}>

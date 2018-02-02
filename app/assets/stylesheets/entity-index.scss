@@ -1,0 +1,55 @@
+.entity-index {
+  display: flex;
+  margin-left: 160px;
+  width: 80%;
+  flex-wrap: wrap;
+
+}
+
+
+.entity-index-item-img {
+  height: 80px;
+  width: 80px;
+  margin: 5px;
+  border: 1px solid #ddd;
+  border-radius: 800px;
+  transition: border-color 0.3s ease;
+  transition: opacity 0.3s ease;
+}
+
+.entity-index-item-img:hover {
+  // border-color: #1bc156;
+  // opacity: 0.5;
+}
+
+.entity-index-item, .entity-index-item-hide {
+  display: flex;
+  flex-direction: column;
+}
+
+.entity-index-item-title {
+  // font-weight: 700;
+  margin: auto;
+  // flex-wrap: wrap;
+  h3 {
+    margin-bottom: 0;
+  }
+}
+.entity-index-item-followcount {
+  // display: flex;
+  margin: auto;
+  color: #aaa;
+}
+
+.fa {
+  position: absolute;
+  z-index: 1;
+  margin-left: 25px;
+  margin-top: 5px;
+}
+
+.hidden{
+  // visibility: hidden;
+  transition: opacity 0.3s ease;
+  opacity: 0;
+}
