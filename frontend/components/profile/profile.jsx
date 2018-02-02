@@ -82,11 +82,6 @@ class profile extends React.Component {
             <li><a href="#">We Got U | 2:49</a></li>
             <li><a href="#">Last Night On Earth | 4:{randomTime()}</a></li>
             <li><a href="#">Playing To Lose | 3:{randomTime()}</a></li>
-
-            <li><a href="#">Cut To Black | 4:{randomTime()}</a></li>
-            <li><a href="#">Closer | 2:{randomTime()}</a></li>
-            <li><a href="#">Continuum | 4:49</a></li>
-            <li><a href="#">Higher | 3:{randomTime()}</a></li>
           </ol>
         </div>
 

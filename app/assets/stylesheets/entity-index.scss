@@ -13,8 +13,9 @@
   margin: 5px;
   border: 1px solid #ddd;
   border-radius: 800px;
-  transition: border-color 0.3s ease;
-  transition: opacity 0.3s ease;
+  transition: border-color 0.9s ease;
+  transition: background-color 0.9s ease;
+  transition: opacity 0.9s ease;
 }
 
 .entity-index-item-img:hover {
@@ -41,15 +42,36 @@
   color: #aaa;
 }
 
-.fa {
-  position: absolute;
-  z-index: 1;
-  margin-left: 25px;
-  margin-top: 5px;
+// .fa {
+//   position: absolute;
+//   z-index: 1;
+//   margin-left: 34px;
+//   margin-top: -15px;
+// }
+
+.hidden {
+  // position: absolute;
+  // z-index: 1;
+  // margin-left: 20px;
+  // margin-top: -14px;
+  // border: 1px solid red;
 }
 
 .hidden{
   // visibility: hidden;
-  transition: opacity 0.3s ease;
+  border-radius: 800px;
+  padding: 0;
+  color: #000;
+  transition: opacity 0.9s ease;
+  transition: color 0.9s ease;
   opacity: 0;
+}
+
+.playlist-ball-play-button{
+  border: 0;
+  position: absolute;
+  z-index: 1;
+  width: 40px;
+  margin-left: 35px;
+  margin-top: -1px;
 }
