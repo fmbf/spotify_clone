@@ -73,6 +73,12 @@ class playlistProfile extends React.Component {
         </div>
 
         <div className="main-window main">
+          <div className='user-session-nav'>
+            <img className='current-user-avatar' src={this.props.currentUser.img_path}/>
+            <h3>{this.props.currentUser.username}</h3>
+            <button onClick={this.logout} className='button-mono'>LOG OUT</button>
+          </div>
+
           <header className="profile-header">
 
             <div id='profile-pic-div'>
@@ -94,11 +100,7 @@ class playlistProfile extends React.Component {
 
             </div>
 
-            <div className='user-session-nav'>
-              <img className='current-user-avatar' src={this.props.currentUser.img_path}/>
-              <h3>{this.props.currentUser.username}</h3>
-              <button onClick={this.logout} className='button-mono'>LOG OUT</button>
-            </div>
+
           </header>
 
           <ol className='song-list'>
@@ -106,6 +108,18 @@ class playlistProfile extends React.Component {
             <li><a href="#">Closer | 4:{randomTime()}</a></li>
             <li><a href="#">Continuum | 4:{randomTime()}</a></li>
             <li><a href="#">Higher | 1:{randomTime()}</a></li>
+            <li><a href="#">Blue Shift | 2:49</a></li>
+            <li><a href="#">Stepping Stone | 4:{randomTime()}</a></li>
+            <li><a href="#">Time To Realize | 3:{randomTime()}</a></li>
+            <li><a href="#">We Got U | 2:49</a></li>
+            <li><a href="#">Last Night On Earth | 4:{randomTime()}</a></li>
+            <li><a href="#">Playing To Lose | 3:{randomTime()}</a></li>
+            <li><a href="#">Blue Shift | 2:49</a></li>
+            <li><a href="#">Stepping Stone | 4:{randomTime()}</a></li>
+            <li><a href="#">Time To Realize | 3:{randomTime()}</a></li>
+            <li><a href="#">We Got U | 2:49</a></li>
+            <li><a href="#">Last Night On Earth | 4:{randomTime()}</a></li>
+            <li><a href="#">Playing To Lose | 3:{randomTime()}</a></li>
             <li><a href="#">Blue Shift | 2:49</a></li>
             <li><a href="#">Stepping Stone | 4:{randomTime()}</a></li>
             <li><a href="#">Time To Realize | 3:{randomTime()}</a></li>

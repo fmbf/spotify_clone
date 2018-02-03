@@ -39,7 +39,8 @@ a {
   /* Disable horizontal scroll */
   border: 1px solid #f3f3f3;
   overflow-x: scroll;
-  height: 260px;
+  // height: 260px;
+  height: 100%;
 }
 
 .song-list li:first-child{
@@ -68,16 +69,19 @@ li:hover {
 
 .user-session-nav {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   // justify-content: center;
   align-items: center;
-  margin-left: 150px;
+  // margin-left: 150px;
+  h3 {
+    margin: 0;
+  }
 }
 
 .current-user-avatar {
   height: 30px;
   width: 30px;
-  margin: 20px;
+  margin: 5px;
   border: 1px solid #ddd;
   border-radius: 800px;
   transition: border-color 0.5s ease;
@@ -189,11 +193,16 @@ img {
 .profile-header {
   display: flex;
   justify-content: left;
+  width: 800px;
+  border: 1px solid purple;
+
 }
 
 .profile-info {
   display: block;
   padding: 20px;
+  border: 1px solid red;
+  width: 100%;
 }
 
 .profile-button-box {

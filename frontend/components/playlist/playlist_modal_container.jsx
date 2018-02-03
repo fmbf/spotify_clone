@@ -5,18 +5,35 @@ import { createPlaylist, updatePlaylist, deletePlaylist } from '../../actions/pl
 import playlistModal from './playlist_modal';
 
 
-const mapStateToProps = (state, ownProps) => ({
-  clickedOpen: ownProps.clickedNewPlaylist,
-});
+const mapStateToProps = (state, ownProps) => {
+  let playlist = { title: ``, image: ``, description: ``};
+  let formType = ownProps.formType;
+  let author;
+
+  if (ownProps.match.path == "/posts/:playlistId") {
+    author = state.entities.playlists[ownProps.match.params.playlistId].author;
+
+    if (state.session.currentUser === author) {
+      playlist = state.entities.playlists[ownProps.match.params.playlistId];
+      formType = "edit";
+    }
+  }
+
+
+  return {
+    clickedOpen: ownProps.clickedNewPlaylist,
+    playlist,
+    formType,
+  };
+};
 
 const mapDispatchToProps = (dispatch, ownProps) => {
 
   let formType = ownProps.formType;
-
   const processForm = formType === 'edit' ? updatePlaylist : createPlaylist;
 
   return {
-    processForm: playlist => dispatch(processForm(playlist)),
+    processForm: formPlaylist => dispatch(processForm(formPlaylist)),
     formType
   };
 };
