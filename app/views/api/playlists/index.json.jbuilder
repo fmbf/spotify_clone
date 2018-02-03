@@ -5,6 +5,7 @@
   json.set! playlist.id do
     json.extract! playlist, :id, :title, :description, :img_path
     json.author_id playlist.author.id
+    json.author playlist.author.username
 
     # fture stuff
     json.current_user_owns playlist.author == current_user

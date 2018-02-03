@@ -7,7 +7,7 @@ import PlayerMain from '../main_player';
 import PlaylistModalContainer from '../playlist/playlist_modal_container';
 
 
-class profile extends React.Component {
+class playlistProfile extends React.Component {
   constructor(props) {
     super(props);
     this.currentUser = this.props.currentUser;
@@ -21,7 +21,7 @@ class profile extends React.Component {
 
 
   componentDidMount() {
-
+    this.playlist = this.props.playlists[this.props.match.params.playlistId];
   }
 
   modalToggle() {
@@ -44,6 +44,8 @@ class profile extends React.Component {
 
     if (this.props.playlists[this.props.match.params.playlistId]) {
       this.profilePic = this.props.playlists[this.props.match.params.playlistId].img_path;
+      this.profileTitle = this.props.playlists[this.props.match.params.playlistId].title || 'PLAYLIST';
+      this.profileAuthor = this.props.playlists[this.props.match.params.playlistId].author || 'Loading';
     }
 
     return (
@@ -81,8 +83,8 @@ class profile extends React.Component {
             <div className="profile-info">
 
               <h3>ALBUM</h3>
-              <h1>PLAYLIST 1</h1>
-              <h3>by <strong><a href="#">Lemaitre</a></strong>  |  14 songs, 55min </h3>
+              <h1>{this.profileTitle}</h1>
+              <h3>by <strong><a href="#">{this.profileAuthor}</a></strong>  |  14 songs, 55min </h3>
 
               <div className="profile-button-box">
                 <button type="button" name="button" className='header-button-play'>PLAY</button>
@@ -133,4 +135,4 @@ class profile extends React.Component {
 
 }
 
-export default withRouter(profile);
+export default withRouter(playlistProfile);

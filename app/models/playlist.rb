@@ -11,6 +11,6 @@ class Playlist < ApplicationRecord
 
   private
   def ensure_img
-    # self.img_path ||= "https://picsum.photos/200/200/?image=#{rand(100)}"
+    self.img_path ||= "https://picsum.photos/200/200/?image=#{rand(100)}"
   end
 end

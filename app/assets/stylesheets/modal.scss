@@ -86,7 +86,8 @@ input:focus {
 .button-mono {
   color: #a0a0a0;
   border: 1px solid #a0a0a0;
-  background-color: white;
+  // background-color: white;
+  background-color: transparent;
   transition: border-color 0.5s ease;
   transition: color 0.5s ease;
   /* transition: font-size 0.3s ease; */

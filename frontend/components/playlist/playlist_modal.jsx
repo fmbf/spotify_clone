@@ -10,14 +10,16 @@ const customStyles = {
     right                 : 'auto',
     bottom                : 'auto',
     marginRight           : '-50%',
-    transform             : 'translate(-50%, -50%)'
+    transform             : 'translate(-50%, -50%)',
+    // backgroundColor       : 'rgb(22, 30, 40)',
+    // color                 : '#fff'
   }
 };
 
 class PlaylistModal extends React.Component {
   constructor(props) {
     super(props);
-
+    debugger
     this.state = {
       title: ``,
       image: '',

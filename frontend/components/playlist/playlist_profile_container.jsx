@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import profile from './profile';
+import playlistProfile from './playlist_profile';
 
 import { fetchPlaylist } from '../../actions/playlists_actions';
 import { logout } from '../../actions/session_actions';
@@ -19,4 +19,4 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 });
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(profile);
+export default connect(mapStateToProps, mapDispatchToProps)(playlistProfile);

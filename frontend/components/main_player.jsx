@@ -16,7 +16,7 @@ const mainPlayer = () => {
         <div className="play-controls-main">
 
           <button className='main-BACK'>
-            <i className="fas fa-step-backward"></i>
+            <i className="fas fa-step-backward fa-lg"></i>
           </button>
 
           <button className='main-PLAY'>
@@ -24,7 +24,7 @@ const mainPlayer = () => {
           </button>
 
           <button className='main-FORWARD'>
-            <i className="fas fa-step-forward"></i>
+            <i className="fas fa-step-forward fa-lg"></i>
           </button>
 
         </div>

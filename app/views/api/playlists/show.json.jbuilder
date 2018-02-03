@@ -1,6 +1,7 @@
 
 json.extract! @playlist, :id, :title, :description, :img_path
 json.author_id @playlist.author.id
+json.author @playlist.author.username
 # current_user_follows: true,
 # current_user_owns: true,
 # songs_ids: [60, 231, 22, 18, 371],

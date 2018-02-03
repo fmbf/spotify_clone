@@ -14,7 +14,6 @@ class welcomeComponent extends React.Component {
   render() {
     return (
       <div>
-
         <Redirect to="/" />
         <div className="splash-main">
           {/*<img src={}></img>*/}
@@ -23,7 +22,7 @@ class welcomeComponent extends React.Component {
             <h1>Music for everyone.</h1>
 
             <h3>A clone by<strong className='splash-fmbf'>FMBF</strong>|
-              <a href="https://github.com/fmbf"><i class="fab fa-github"></i></a>
+              <a href="https://github.com/fmbf"><i className="fab fa-github"></i></a>
             </h3>
 
             <div className="profile-button-box">

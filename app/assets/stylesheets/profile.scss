@@ -129,7 +129,8 @@ button {
 .header-button-save {
   color: #a0a0a0;
   border: 1px solid #a0a0a0;
-  background-color: white;
+  // background-color: white;
+  background-color: transparent;
   transition: border-color 0.5s ease;
   transition: font-size 0.3s ease;
 
@@ -166,7 +167,7 @@ img {
   border-radius: 800px;
   justify-content: center;
   // background: image_url("watercolor1.jpg") -47px -50px;
-  background: image_url("water2.png") -57px -0px;
+  // background: image_url("water2.png") -57px -0px;
 }
 
 #profile-pic {
@@ -177,7 +178,8 @@ img {
   width: 280px;
   height: 280px;
   // border-radius: 800px;
-  border: 0 !important;
+  // border: 100px solid white !important;
+  border: 0;
   margin: auto;
 
 }
@@ -200,6 +202,7 @@ img {
 
 .song-list {
   margin-left: 60px;
+  background-color: transparent;
 }
 
 
