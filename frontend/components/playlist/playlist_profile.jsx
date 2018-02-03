@@ -94,9 +94,9 @@ class playlistProfile extends React.Component {
               <h3>Created by: <strong><a href="#">{this.profileAuthor}</a></strong>  |  14 songs, 55min </h3>
 
               <div className="profile-button-box">
-                <button type="button" name="button" className='header-button-play'>PLAY</button>
-                <button type="button" name="button" className='header-button-save'>SAVE</button>
-                <button type="button" name="button">...</button>
+                <button className='button-green'>PLAY</button>
+                <button className='button-mono'>SAVE</button>
+                <button className='button-mono header-button-more'>+</button>
               </div>
 
             </div>

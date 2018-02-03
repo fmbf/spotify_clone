@@ -45,6 +45,17 @@ class PlaylistModal extends React.Component {
     if (newProps) {
       this.setState({modalIsOpen: newProps.open});
     }
+
+    // Clear Errors
+    if (this.props.location.pathname !== newProps.location.pathname) {
+      if (this.props.errors && this.props.errors.length){
+        this.props.clearErrors();
+      }
+    }
+  }
+
+  componentWillUnmount() {
+    this.props.clearErrors();
   }
 
   componentWillUpdate() {
@@ -63,6 +74,7 @@ class PlaylistModal extends React.Component {
 
   closeModal() {
     this.setState({modalIsOpen: false}, this.props.modalToggle);
+    this.props.clearErrors();
   }
 
 
@@ -82,15 +94,19 @@ class PlaylistModal extends React.Component {
   renderErrors() {
     if (this.props.errors && this.props.errors.length){
       return(
-        <ul className='errors-ul'>
-          {
-            this.props.errors.map((error, i) => (
-            <li key={`error-${i}`} className='error-display'>
-              {error}
-            </li>
-            ))
-          }
-        </ul>
+        <div className='playlist-errors-div animated fadeInUp'>
+          <h3>
+            <ul className='errors-ul'>
+              {
+                this.props.errors.map((error, i) => (
+                <li key={`error-${i}`} className='error-display'>
+                  {error}
+                </li>
+                ))
+              }
+            </ul>
+          </h3>
+        </div>
       );
     }
 
@@ -124,11 +140,8 @@ class PlaylistModal extends React.Component {
               <h2 className='form-title-text'>{this.props.formType} playlist</h2>
             </div>
 
-            <div className='session-errors-div animated fadeInUp'>
-              <h3>
-                {this.renderErrors()}
-              </h3>
-            </div>
+            {this.renderErrors()}
+
 
             <br/>
 

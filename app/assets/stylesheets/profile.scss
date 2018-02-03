@@ -95,64 +95,12 @@ a {
   border-color: #222;
 }
 
-
-button {
-  /*
-  Get rid of native styling. Read more here:
-  http://css-tricks.com/almanac/properties/a/appearance/
-  */
-  margin: 6px;
-  padding: 0px;
-  /* border: 0; */
-  height: 30px;
-  width: 80px;
-  /* background-color: #2ab759; */
-
-  color: #a0a0a0;
-  /* background-color: red; */
-
-  /* border: none; */
-  border: 1px solid #a0a0a0;
-  border-radius: 14px;
-
-  transition: background-color 0.5s ease;
-  transition: font-size 0.3s ease;
-
+.header-button-more {
+  font-size: 20px;
+  // font-weight: 700;
+  width: 30px;
 }
 
-
-.header-button-play {
-  margin-left: 0;
-  background-color: #1bc156;
-  color: white;
-  border: none;
-}
-
-.header-button-play:hover{
-  /* background-color: #2ed664; */
-  background-color: #1ED760;
-  font-size: 12px;
-}
-
-
-.header-button-save {
-  color: #a0a0a0;
-  border: 1px solid #a0a0a0;
-  // background-color: white;
-  background-color: transparent;
-  transition: border-color 0.5s ease;
-  transition: font-size 0.3s ease;
-
-}
-
-.header-button-save:hover{
-  /* background-color: #2ed664; */
-  color: #191414;
-  /* border-color: #191414; */
-  border: 1px solid #090404;
-  /* background-color: #191414; */
-  font-size: 12px;
-}
 
 img {
   display: block;
@@ -218,6 +166,10 @@ img {
   padding: 0;
   display: flex;
   justify-content: left;
+  // background-color: red;
+  button {
+    // font-weight: 700;
+  }
 }
 
 .song-list {

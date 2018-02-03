@@ -38,6 +38,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 
   return {
     processForm: formPlaylist => dispatch(processForm(formPlaylist)),
+    clearErrors: () => dispatch(receiveErrors([])),
     formType
   };
 };

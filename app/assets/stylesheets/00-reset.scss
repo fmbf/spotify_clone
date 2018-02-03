@@ -28,6 +28,11 @@ body { // to offset player footer!!! must correspond to same size
 button {
   font-weight: 400;
   letter-spacing: 1px;
+
+  -moz-transition: all .5s ease-in;
+  -o-transition: all .5s ease-in;
+  -webkit-transition: all .5s ease-in;
+  transition: all .5s ease-in;
 }
 
 ul {

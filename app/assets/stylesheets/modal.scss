@@ -87,7 +87,6 @@ input:focus {
   background-color: #1bc156;
   color: white;
   border: none;
-  transition: background-color 0.5s ease;
 }
 
 .button-green:hover{
@@ -96,20 +95,18 @@ input:focus {
 }
 
 .button-mono {
-  color: #a0a0a0;
-  border: 1px solid #a0a0a0;
+  color: #aaa;
+  border: 1px solid #aaa;
   // background-color: white;
   background-color: transparent;
-  transition: border-color 0.5s ease;
-  transition: color 0.5s ease;
-  /* transition: font-size 0.3s ease; */
 }
 
 .button-mono:hover{
-  color: #191414;
-  border: 1px solid #090404;
+  color: #222;
+  border-color: #222;
   /* font-size: 10px; */
 }
+
 
 h3:first-child {
   display: block;
@@ -150,6 +147,7 @@ h3:first-child {
 }
 
 .error-display {
+  font-weight: 400;
   color: red;
 }
 
