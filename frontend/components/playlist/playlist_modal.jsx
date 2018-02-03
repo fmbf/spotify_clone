@@ -76,16 +76,13 @@ class PlaylistModal extends React.Component {
     e.preventDefault();
 
     const playlist = this.state;
-    this.props.processForm(playlist);
-    if (this.props.errors && !this.props.errors.length) {
-      this.closeModal();
-    }
+    this.props.processForm(playlist).then(() => this.closeModal());
   }
 
   renderErrors() {
-    if (this.props.errors){
+    if (this.props.errors && this.props.errors.length){
       return(
-        <ul>
+        <ul className='errors-ul'>
           {
             this.props.errors.map((error, i) => (
             <li key={`error-${i}`} className='error-display'>
@@ -124,8 +121,13 @@ class PlaylistModal extends React.Component {
           <div className="playlist-form-inner-box">
 
             <div className='form-type-title'>
-
               <h2 className='form-title-text'>{this.props.formType} playlist</h2>
+            </div>
+
+            <div className='session-errors-div animated fadeInUp'>
+              <h3>
+                {this.renderErrors()}
+              </h3>
             </div>
 
             <br/>
@@ -162,11 +164,7 @@ class PlaylistModal extends React.Component {
               </button>
             </div>
 
-            <div className='session-errors-div animated fadeInUp'>
-              <h3>
-                {this.renderErrors()}
-              </h3>
-            </div>
+
 
           </div>
         </form>

@@ -52,23 +52,22 @@ a {
   border-top: 0;
 }
 
-li {
-  background-color: white;
-  transition: background-color 0.2s ease;
-}
+// li {
+//   background-color: white;
+//   transition: background-color 0.2s ease;
+// }
+//
+// li:hover {
+//   text-decoration: none;
+//   background-color: white;
+// }
 
-li:hover {
-  text-decoration: none;
-  background-color: white;
-
-}
-
-li {
+.song-list li {
   padding: 6px;
   border-top: 1px solid #ddd;
 }
 
-li:hover {
+.song-list li:hover {
   background: #eee;
 }
 

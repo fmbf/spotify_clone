@@ -6,17 +6,17 @@ export const REMOVE_PLAYLIST = "REMOVE_PLAYLIST";
 export const RECEIVE_PLAYLIST_ERRORS = 'RECEIVE_PLAYLIST_ERRORS';
 
 
-const receiveAllPlaylists = playlists => ({
+export const receiveAllPlaylists = playlists => ({
   type: RECEIVE_ALL_PLAYLISTS,
   playlists
 });
 
-const receivePlaylist = playlist => ({
+export const receivePlaylist = playlist => ({
   type: RECEIVE_PLAYLIST,
   playlist
 });
 
-const removePlaylist = playlistId => ({
+export const removePlaylist = playlistId => ({
   type: REMOVE_PLAYLIST,
   playlistId
 });

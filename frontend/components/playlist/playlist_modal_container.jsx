@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import { Link, withRouter } from 'react-router-dom';
 
 import { createPlaylist, updatePlaylist, deletePlaylist } from '../../actions/playlists_actions';
+import { receiveErrors } from '../../actions/playlists_actions';
 import playlistModal from './playlist_modal';
 
 
@@ -26,7 +27,7 @@ const mapStateToProps = (state, ownProps) => {
     clickedOpen: ownProps.clickedNewPlaylist,
     playlist,
     formType,
-    errors: state.errors.session
+    errors: state.errors.playlist
   };
 };
 
