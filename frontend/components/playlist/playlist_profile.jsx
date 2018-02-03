@@ -44,8 +44,9 @@ class playlistProfile extends React.Component {
 
     if (this.props.playlists[this.props.match.params.playlistId]) {
       this.profilePic = this.props.playlists[this.props.match.params.playlistId].img_path;
-      this.profileTitle = this.props.playlists[this.props.match.params.playlistId].title || 'PLAYLIST';
-      this.profileAuthor = this.props.playlists[this.props.match.params.playlistId].author || 'Loading';
+      this.profileTitle = this.props.playlists[this.props.match.params.playlistId].title;
+      this.profileDescription = this.props.playlists[this.props.match.params.playlistId].description;
+      this.profileAuthor = this.props.playlists[this.props.match.params.playlistId].author;
     }
 
     return (
@@ -78,7 +79,6 @@ class playlistProfile extends React.Component {
             <h3>{this.props.currentUser.username}</h3>
             <button onClick={this.logout} className='button-mono'>LOG OUT</button>
           </div>
-
           <header className="profile-header">
 
             <div id='profile-pic-div'>
@@ -88,9 +88,10 @@ class playlistProfile extends React.Component {
 
             <div className="profile-info">
 
-              <h3>ALBUM</h3>
+              <h3>PLAYLIST</h3>
               <h1>{this.profileTitle}</h1>
-              <h3>by <strong><a href="#">{this.profileAuthor}</a></strong>  |  14 songs, 55min </h3>
+              <h3 className='profile-description'>{this.profileDescription}</h3>
+              <h3>Created by: <strong><a href="#">{this.profileAuthor}</a></strong>  |  14 songs, 55min </h3>
 
               <div className="profile-button-box">
                 <button type="button" name="button" className='header-button-play'>PLAY</button>
@@ -108,18 +109,6 @@ class playlistProfile extends React.Component {
             <li><a href="#">Closer | 4:{randomTime()}</a></li>
             <li><a href="#">Continuum | 4:{randomTime()}</a></li>
             <li><a href="#">Higher | 1:{randomTime()}</a></li>
-            <li><a href="#">Blue Shift | 2:49</a></li>
-            <li><a href="#">Stepping Stone | 4:{randomTime()}</a></li>
-            <li><a href="#">Time To Realize | 3:{randomTime()}</a></li>
-            <li><a href="#">We Got U | 2:49</a></li>
-            <li><a href="#">Last Night On Earth | 4:{randomTime()}</a></li>
-            <li><a href="#">Playing To Lose | 3:{randomTime()}</a></li>
-            <li><a href="#">Blue Shift | 2:49</a></li>
-            <li><a href="#">Stepping Stone | 4:{randomTime()}</a></li>
-            <li><a href="#">Time To Realize | 3:{randomTime()}</a></li>
-            <li><a href="#">We Got U | 2:49</a></li>
-            <li><a href="#">Last Night On Earth | 4:{randomTime()}</a></li>
-            <li><a href="#">Playing To Lose | 3:{randomTime()}</a></li>
             <li><a href="#">Blue Shift | 2:49</a></li>
             <li><a href="#">Stepping Stone | 4:{randomTime()}</a></li>
             <li><a href="#">Time To Realize | 3:{randomTime()}</a></li>

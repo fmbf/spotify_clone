@@ -6,7 +6,7 @@ span, article, footer, time, small {
   font-family: 'Montserrat', sans-serif;
   /* color: white; */
   /* background: transparent; */
-  padding: 0 10px 10px 10px;
+  // padding: 0 10px 10px 10px;
 
   /* border: 1px solid red; */
 }
@@ -15,6 +15,7 @@ body {
   /* background: #191414; */
 }
 
+
 /* .grad {
   background: linear-gradient(#a0a0a0, #191414);
 } */
@@ -22,6 +23,10 @@ body {
 .profile-info h1 {
   font-size: 38px;
   margin-top: 1px;
+}
+
+.profile-info h3 {
+  margin-bottom: 0;
 }
 
 
@@ -118,6 +123,7 @@ button {
 
 
 .header-button-play {
+  margin-left: 0;
   background-color: #1bc156;
   color: white;
   border: none;
@@ -166,6 +172,7 @@ img {
   // border: 1px solid #eee;
   padding: 0px;
   margin: 0;
+  margin-right: 50px;
   width: 290px;
   height: 290px;
   border-radius: 800px;
@@ -179,13 +186,14 @@ img {
   // z-index: -1;
   padding: 0px;
   margin-top: -50px;
-  width: 280px;
-  height: 280px;
+  width: 240px;
+  height: 240px;
   // border-radius: 800px;
   // border: 100px solid white !important;
   border: 0;
   margin: auto;
 
+  box-shadow: 1px 1px 100px #ddd;// asana #161e28;
 }
 
 
@@ -193,25 +201,33 @@ img {
 .profile-header {
   display: flex;
   justify-content: left;
-  width: 800px;
-  border: 1px solid purple;
+  // width: 100%;
+  width: 1000px;
+  // border: 1px solid purple;
 
 }
 
 .profile-info {
   display: block;
   padding: 20px;
-  border: 1px solid red;
+  // border: 1px solid red;
   width: 100%;
 }
 
 .profile-button-box {
+  margin-top: 5px;
+  padding: 0;
   display: flex;
+  justify-content: left;
 }
 
 .song-list {
+  border: 0;
   margin-left: 60px;
   background-color: transparent;
+  li {
+    background-color: transparent;
+  }
 }
 
 
@@ -253,7 +269,7 @@ footer {
 /* The sidebar menu */
 .sidenav {
     height: 100%; /* Full-height: remove this if you want "auto" height */
-    width: 160px; /* Set the width of the sidebar */
+    width: 180px; /* Set the width of the sidebar */
     position: fixed; /* Fixed Sidebar (stay in place on scroll) */
     z-index: 0; /* Stay on top */
     top: 0; /* Stay at the top */
@@ -286,6 +302,10 @@ a:hover {
     padding: 0px 10px;
 }
 
+.profile-description {
+  padding-bottom: 4px;
+  // border: 1px solid red;
+}
 
 /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
 @media screen and (max-height: 450px) {

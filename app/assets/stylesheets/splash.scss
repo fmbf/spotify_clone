@@ -6,7 +6,6 @@ span, article, footer, time, small {
   font-family: 'Montserrat', sans-serif;
   /* color: white; */
   background: transparent;
-  /* padding: 10px 10px 10px 10px; */
   justify-content: center;
 
 }
@@ -23,7 +22,7 @@ strong {
   padding: 4px;
 }
 
-h1 {
+.welcome-h1 h1 {
   margin-top: 140px;
   margin-bottom: 0;
   font-size: 38px;
@@ -76,6 +75,7 @@ button {
 .splash-main {
   display: flex;
   justify-content: center;
+  margin-left: 0;
 }
 
 .splash-main-text {

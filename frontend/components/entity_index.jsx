@@ -16,7 +16,7 @@ class entityIndex extends React.Component {
   componentWillReceiveProps(newProps){
     if (newProps && newProps.location) {
       if (newProps.location.pathname !== this.props.location.pathname){
-        return window.scrollTo(0, 0);
+        {/*return window.scrollTo(0, 0);*/}
       }
     }
   }

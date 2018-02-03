@@ -19,7 +19,7 @@ class welcomeComponent extends React.Component {
           {/*<img src={}></img>*/}
           <div className="splash-main-text">
 
-            <h1>Music for everyone.</h1>
+            <h1 className='welcome-h1'>Music for everyone.</h1>
 
             <h3>A clone by<strong className='splash-fmbf'>FMBF</strong>|
               <a href="https://github.com/fmbf"><i className="fab fa-github"></i></a>
@@ -48,7 +48,7 @@ class welcomeComponent extends React.Component {
         </div>
 
 
-        <div className="main-window main">
+        <div>
           <div className="albums-grid">
             <img className="animated fadeInUp"
               id='pic-1'
