@@ -26,6 +26,14 @@
   margin-top: 50px;
 }
 
+.playlist-form-inner-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin-top: 2px;
+}
+
 .login-form {
   display: flex;
   /* margin-top: 50px; */

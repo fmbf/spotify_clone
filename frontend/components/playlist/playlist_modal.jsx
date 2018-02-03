@@ -13,6 +13,9 @@ const customStyles = {
     transform             : 'translate(-50%, -50%)',
     // backgroundColor       : 'rgb(22, 30, 40)',
     // color                 : '#fff'
+  },
+  overlay : {
+    backgroundColor   : 'rgba(40, 40, 40, 0.75)'
   }
 };
 
@@ -20,9 +23,9 @@ class PlaylistModal extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: ``,
+      title: props.playlist.title,
       image: '',
-      description: '',
+      description: props.playlist.description,
       /*modalIsOpen: true*/
       modalIsOpen: props.open
 
@@ -73,8 +76,28 @@ class PlaylistModal extends React.Component {
     e.preventDefault();
 
     const playlist = this.state;
-    this.closeModal();
     this.props.processForm(playlist);
+    if (this.props.errors && !this.props.errors.length) {
+      this.closeModal();
+    }
+  }
+
+  renderErrors() {
+    if (this.props.errors){
+      return(
+        <ul>
+          {
+            this.props.errors.map((error, i) => (
+            <li key={`error-${i}`} className='error-display'>
+              {error}
+            </li>
+            ))
+          }
+        </ul>
+      );
+    }
+
+    return null;
   }
 
 
@@ -95,19 +118,17 @@ class PlaylistModal extends React.Component {
           onAfterOpen={this.afterOpenModal}
           onRequestClose={this.closeModal}
           style={customStyles}
-          contentLabel="Example Modal"
         >
 
         <form onSubmit={this.handleSubmit} className="login-form">
-          <div className="login-form-inner-box">
+          <div className="playlist-form-inner-box">
 
             <div className='form-type-title'>
 
-              <h2 className='form-title-text'>{this.props.formType}</h2>
+              <h2 className='form-title-text'>{this.props.formType} playlist</h2>
             </div>
 
             <br/>
-
 
             <input type="text"
               placeholder="New Playlist"
@@ -141,7 +162,11 @@ class PlaylistModal extends React.Component {
               </button>
             </div>
 
-
+            <div className='session-errors-div animated fadeInUp'>
+              <h3>
+                {this.renderErrors()}
+              </h3>
+            </div>
 
           </div>
         </form>

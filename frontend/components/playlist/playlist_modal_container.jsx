@@ -10,9 +10,11 @@ const mapStateToProps = (state, ownProps) => {
   let formType = ownProps.formType;
   let author;
 
-  if (ownProps.match.path == "/posts/:playlistId") {
+  if (ownProps.match.path === "/posts/:playlistId") {
+    // Find the author of this playlistId
     author = state.entities.playlists[ownProps.match.params.playlistId].author;
 
+    // only allow edit if you are author
     if (state.session.currentUser === author) {
       playlist = state.entities.playlists[ownProps.match.params.playlistId];
       formType = "edit";
@@ -24,6 +26,7 @@ const mapStateToProps = (state, ownProps) => {
     clickedOpen: ownProps.clickedNewPlaylist,
     playlist,
     formType,
+    errors: state.errors.session
   };
 };
 
