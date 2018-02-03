@@ -9,7 +9,6 @@ span, article, footer, time, small {
   /* padding: 10px 10px 10px 10px; */
   justify-content: center;
 
-  /* border: 1px solid red; */
 }
 
 body {
@@ -167,3 +166,15 @@ a:hover {
 /* .form-label {
   visibility: hidden;
 } */
+
+.fa-github {
+  margin-left: 5px;
+}
+
+.watercolor {
+  z-index: 3;
+  background: image_url("water2.png");
+  transform: rotate(7deg);
+  background-repeat: no-repeat;
+
+}

@@ -19,6 +19,10 @@ span, article, footer, time, small {
   background: transparent;
 }
 
+body { // to offset player footer!!! must correspond to same size
+  margin: 80px;
+}
+
 button {
   font-weight: 400;
   letter-spacing: 1px;
@@ -30,7 +34,7 @@ ul {
 
 img {
   display: block;
-  width: 100%;
+  // width: 100%;
   height: auto;
 }
 

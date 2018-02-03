@@ -146,9 +146,40 @@ button {
 
 img {
   display: block;
+  // z-index: -1;
+  border: 0;
   padding: 10px;
   width: 280px;
   height: 280px;
+  // border-radius: 800px;
+  // background: image_url("watercolor1.jpg") 0 0;
+}
+
+#profile-pic-div {
+  display: flex;
+  // z-index: -1;
+  // border: 1px solid #eee;
+  padding: 0px;
+  margin: 0;
+  width: 290px;
+  height: 290px;
+  border-radius: 800px;
+  justify-content: center;
+  // background: image_url("watercolor1.jpg") -47px -50px;
+  background: image_url("water2.png") -57px -0px;
+}
+
+#profile-pic {
+  // display: block;
+  // z-index: -1;
+  padding: 0px;
+  margin-top: -50px;
+  width: 280px;
+  height: 280px;
+  // border-radius: 800px;
+  border: 0 !important;
+  margin: auto;
+
 }
 
 

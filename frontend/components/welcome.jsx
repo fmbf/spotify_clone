@@ -5,8 +5,8 @@ import { Link, withRouter, Redirect } from 'react-router-dom';
 
 class welcomeComponent extends React.Component {
 
-  componentWillReceiveProps(){
-    if (this.props.location !== "/"){
+  componentWillReceiveProps(newProps){
+    if (newProps.location.pathname !== "/" || this.props.location.pathname !== "/"){
       return <Redirect to="/" />;
     }
   }
@@ -17,12 +17,13 @@ class welcomeComponent extends React.Component {
 
         <Redirect to="/" />
         <div className="splash-main">
+          {/*<img src={}></img>*/}
           <div className="splash-main-text">
 
             <h1>Music for everyone.</h1>
 
             <h3>A clone by<strong className='splash-fmbf'>FMBF</strong>|
-              <a href="https://github.com/fmbf"><i className="fa fa-github" aria-hidden="true"></i></a>
+              <a href="https://github.com/fmbf"><i class="fab fa-github"></i></a>
             </h3>
 
             <div className="profile-button-box">

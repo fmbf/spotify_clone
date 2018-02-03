@@ -1,7 +1,10 @@
 import React from 'react';
+import Modal from 'react-modal';
 import { Link, withRouter, Redirect } from 'react-router-dom';
 
 import EntityIndexContainer from '../entity_index_container';
+import PlayerMain from '../main_player';
+import PlaylistModalContainer from '../playlist/playlist_modal_container';
 
 
 class profile extends React.Component {
@@ -9,10 +12,14 @@ class profile extends React.Component {
     super(props);
     this.currentUser = this.props.currentUser;
     this.logout = this.logout.bind(this);
-    this.profilePic = "https://is2-ssl.mzstatic.com/image/thumb/Music127/v4/36/42/af/3642afa1-26ec-ea06-8ecd-59b38ea5ed1f/UMG_cvrart_00602557684964_01_RGB72_1800x1800_17UMGIM97853.jpg/1200x630bb.jpg";
+    // this.profilePic = "https://is2-ssl.mzstatic.com/image/thumb/Music127/v4/36/42/af/3642afa1-26ec-ea06-8ecd-59b38ea5ed1f/UMG_cvrart_00602557684964_01_RGB72_1800x1800_17UMGIM97853.jpg/1200x630bb.jpg";
+    this.profilePic = null;
+    this.modalToggle = this.modalToggle.bind(this);
+    this.state = {clickedNewPlaylist: false};
   }
 
-  componentDidMount() {
+  modalToggle() {
+    this.setState({clickedNewPlaylist: !this.state.clickedNewPlaylist});
   }
 
 
@@ -23,6 +30,12 @@ class profile extends React.Component {
   render() {
     let randomTime = () => Math.floor(Math.random()*49 + 10).toString();
     let nameTitle;
+    let profilePicDiv;
+
+    /*if(!this.profilePic) {
+      profilePicDiv = document.getElementById('profile-pic');
+    } */
+
     if (this.props.playlists[this.props.match.params.playlistId]) {
       this.profilePic = this.props.playlists[this.props.match.params.playlistId].img_path;
     }
@@ -44,11 +57,20 @@ class profile extends React.Component {
           <a href="#">Workout Playlist</a>
           <a href="#">House Party</a>
 
+
+          <button onClick={() => this.modalToggle()} className='button-mono'>
+            New Playlist
+          </button>
+
         </div>
 
         <div className="main-window main">
           <header className="profile-header">
-            <img src={this.profilePic}/>
+
+            <div id='profile-pic-div'>
+              <img id='profile-pic' src={this.profilePic}/>
+            </div>
+
 
             <div className="profile-info">
 
@@ -91,8 +113,10 @@ class profile extends React.Component {
         <EntityIndexContainer/>
 
 
+        <PlaylistModalContainer formType='create' open={this.state.clickedNewPlaylist} modalToggle={this.modalToggle}/>
 
 
+        <PlayerMain/>
 
 
       </div>

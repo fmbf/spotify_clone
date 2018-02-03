@@ -40,6 +40,7 @@
   font-size: 12px;
 }
 
+
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
   color: #a0a0a0;
 }
@@ -127,6 +128,25 @@ h3:first-child {
   justify-content: center;
 }
 
+.form-type-title h2 {
+  display: flex;
+
+  justify-content: center;
+
+  border-bottom: 0;
+}
+
 .error-display {
   color: red;
 }
+
+/// PLAYLIST ADD-ON
+
+#playlist-description {
+  resize: none;
+  height: 100px;
+}
+
+// .login-form #playlist-form-inner-box {
+//   margin-top: 0;
+// }

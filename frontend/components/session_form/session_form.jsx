@@ -47,7 +47,7 @@ class SessionForm extends React.Component {
   handleDemoLogin(e) {
     e.preventDefault();
     const demoUser = {username: "guest_user25", password:"password123"};
-    this.props.login(demoUser).then(this.props.history.push('/library/playlists'));
+    this.props.login(demoUser).then(() => this.props.history.push('/library/playlists'));
   }
 
   navLink() {
