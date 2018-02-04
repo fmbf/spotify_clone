@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, withRouter, Redirect } from 'react-router-dom';
+import UserSessionNavContainer from './user_session_nav/user_session_nav_container';
 
 class artistsIndex extends React.Component {
   constructor(props) {
@@ -47,6 +48,9 @@ class artistsIndex extends React.Component {
 
     return (
       <section className='entity-index-container'>
+
+        <UserSessionNavContainer/>
+
         <h1>Artists</h1>
         <br/>
         <ul className='entity-index'>

@@ -238,9 +238,13 @@ img {
 }
 
 .sidenav-content{
+  margin-top: 20px;
   // display: flex;
   // flex-direction: column;
   // height: 620px;
+  h3 {
+    margin: 0;
+  }
 }
 
 .sidebar-playlists {

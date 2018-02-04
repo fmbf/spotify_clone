@@ -28,13 +28,13 @@ class Sidebar extends React.Component {
     return (
       <div className="sidenav">
         <div className="sidenav-content">
-          <a href="/#/library/playlists">Search</a>
-          <h3>------------------</h3>
-          <a href="/#/library/playlists">Home</a>
-          <h3>------------------</h3>
-          <a href="/#/library/playlists">Songs</a>
-          <a href="/#/library/artists">Artists</a>
-          <a href="/#/library/playlists">Albums</a>
+
+          <a className='sidebar-title'>YOUR LIBRARY</a>
+          <ul>
+            <a href="/#/library/playlists"><h3>Songs</h3></a>
+            <a href="/#/library/artists"><h3>Artists</h3></a>
+            <a href="/#/library/playlists"><h3>Albums</h3></a>
+          </ul>
 
           <br/>
           <a className='sidebar-title'>PLAYLISTS</a>
