@@ -17,6 +17,7 @@ class Sidebar extends React.Component {
 
   componentDidMount() {
     this.props.fetchPlaylists(this.currentUser.id);
+    this.props.fetchArtists(this.currentUser.id);
   }
 
   modalToggle() {
@@ -32,7 +33,7 @@ class Sidebar extends React.Component {
           <a href="/#/library/playlists">Home</a>
           <h3>------------------</h3>
           <a href="/#/library/playlists">Songs</a>
-          <a href="/#/library/playlists">Artists</a>
+          <a href="/#/library/artists">Artists</a>
           <a href="/#/library/playlists">Albums</a>
 
           <br/>
@@ -43,8 +44,8 @@ class Sidebar extends React.Component {
                 this.props.playlists.map(playlist => {
 
                   let abbreviatedTitle = playlist.title;
-                  if (abbreviatedTitle && abbreviatedTitle.length > 23) {
-                    abbreviatedTitle = `${abbreviatedTitle.slice(0, 23)}...`;
+                  if (abbreviatedTitle && abbreviatedTitle.length > 19) {
+                    abbreviatedTitle = `${abbreviatedTitle.slice(0, 19)}...`;
                   }
                   return (
                   <div className='sidebar-playlist-index-item' key={playlist.id}>

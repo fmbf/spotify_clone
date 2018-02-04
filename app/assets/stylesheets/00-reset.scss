@@ -19,6 +19,7 @@ span, article, footer, time, small {
   vertical-align: inherit;
   box-sizing: inherit;
   background: transparent;
+  scroll-behavior: smooth;
 }
 
 
@@ -55,6 +56,8 @@ li {
   display: flex;
   flex-direction: row;
   min-height: 100vh;
+
+  // background-color: rgb(24, 24, 24); color-flip
 }
 /*------------------SIDEBAR----------------*/
 #sidebar-parent {

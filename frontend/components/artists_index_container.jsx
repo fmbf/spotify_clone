@@ -1,20 +1,17 @@
 import { connect } from 'react-redux';
-import sidebar from './sidebar';
+import artistsIndex from './artists_index';
 
-import { fetchPlaylist, fetchPlaylists } from '../actions/playlists_actions';
 import { fetchArtist, fetchArtists } from '../actions/artists_actions';
 
-
 const mapStateToProps = (state, ownProps) => ({
-  playlists: Object.values(state.entities.playlists),
+  artists: Object.values(state.entities.artists),
   currentUser: state.session.currentUser
 });
 
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  fetchPlaylists: (userId) => dispatch(fetchPlaylists(userId)),
   fetchArtists: (userId) => dispatch(fetchArtists(userId)),
+  fetchArtist: (artistId) => dispatch(fetchArtist(artistId)),
 });
 
-
-export default connect(mapStateToProps, mapDispatchToProps)(sidebar);
+export default connect(mapStateToProps, mapDispatchToProps)(artistsIndex);

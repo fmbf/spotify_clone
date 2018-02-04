@@ -19,6 +19,7 @@ import welcomeComponent from './welcome';
 import SessionFormContainer from './session_form/session_form_container';
 import playlistProfileContainer from './playlist/playlist_profile_container';
 import entityIndexContainer from './entity_index_container';
+import artistsIndexContainer from './artists_index_container';
 
 const App = () => (
   <div>
@@ -36,6 +37,7 @@ const App = () => (
         <main id="browse-parent">
           <div id='browse-content'>
             <Switch>
+              <ProtectedRoute exact path="/library/artists" component={artistsIndexContainer}/>
               <ProtectedRoute exact path="/library/playlists" component={playlistProfileContainer}/>
               <ProtectedRoute exact path="/library/playlists/:playlistId" component={playlistProfileContainer}/>
               <AuthRoute exact path="/login" component={SessionFormContainer} />
