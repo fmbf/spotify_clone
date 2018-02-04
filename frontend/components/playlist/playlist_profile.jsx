@@ -81,7 +81,7 @@ class playlistProfile extends React.Component {
           </header>
 
           <span className='song-list-fields'><h3>TITLE</h3><h3>ARTIST</h3><h3>ALBUM</h3></span>
-          <li className='song-list'>
+          <ul className='song-list'>
             <li><a>Cut To Black | 4:49</a></li>
             <li><a>Closer | 4:{randomTime()}</a></li>
             <li><a>Continuum | 4:{randomTime()}</a></li>
@@ -92,7 +92,7 @@ class playlistProfile extends React.Component {
             <li><a>We Got U | 2:49</a></li>
             <li><a>Last Night On Earth | 4:{randomTime()}</a></li>
             <li><a>Playing To Lose | 3:{randomTime()}</a></li>
-          </li>
+          </ul>
         </div>
 
         <br/>

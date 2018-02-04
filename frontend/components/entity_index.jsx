@@ -22,7 +22,7 @@ class entityIndex extends React.Component {
   }
 
   playBubble(playlistId){
-    console.log(`now playing playlis ${playlistId}`);
+    console.log(`now playing playlist ${playlistId}`);
   }
 
   hideSwitch(action, id) {
@@ -60,7 +60,7 @@ class entityIndex extends React.Component {
                   onMouseOut={() => this.hideSwitch('hide', playlist.id)}>
 
                   <button className='playlist-ball-play-button' onClick={() => this.playBubble(playlist.id)}>
-                    <i className="fa fa-play-circle fa-3x hidden"id={`hidden-${playlist.id}`}></i>
+                    <i className="fa fa-play-circle fa-3x hidden" id={`hidden-${playlist.id}`}></i>
                   </button>
 
                   <img className='entity-index-item-img'

@@ -34,7 +34,7 @@ class Sidebar extends React.Component {
           <a href="#">Workout Playlist</a>
           <a href="#">House Party</a>
         </div>
-        
+
         <div className='new-playlist'>
           <button onClick={() => this.modalToggle()} className='button-mono new-playlist'>
             + New Playlist

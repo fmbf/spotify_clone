@@ -3,7 +3,7 @@
   position: fixed;
   left: 0;
   bottom: 0;
-  width: 100%;
+  width: 99%;
   height: 80px;
   //
   display: flex;
@@ -14,11 +14,22 @@
   background-color: #282828;
 
   color: #fff;
+
+
+
+  border: 2px solid green;
 }
 
 .footer-left img {
   width: 60px;
   height: 60px;
+}
+
+.footer-right {
+  margin-right: 40px;
+  p {
+    color: #fff;
+  }
 }
 
 .footer-right img {
@@ -27,6 +38,7 @@
 }
 
 .play-controls-main {
+  margin-left: 60px; // to center with entity-index, optional
 }
 
 .main-PLAY{

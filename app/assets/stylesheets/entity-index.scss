@@ -1,12 +1,15 @@
 .entity-index-container {
   margin-left: 60px;
-
+  a:hover {
+    text-decoration: underline;
+  }
 }
 
 
 .entity-index {
   display: flex;
-  width: 80%;
+  width: 100%;
+  justify-content: center;
   flex-wrap: wrap;
 }
 
@@ -63,7 +66,6 @@
 }
 
 .hidden{
-  // visibility: hidden;
   border-radius: 800px;
   padding: 0;
   color: #000;
