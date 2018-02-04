@@ -58,9 +58,17 @@ li {
 }
 /*------------------SIDEBAR----------------*/
 #sidebar-parent {
-  // border: 1px solid blue;
+  // border: 5px solid blue;
+  // background-color: blue;
+
   flex: 0 0 12em;
   border-right: 1px solid #181313;
+
+  //-----------from profile .sidenav------//
+  width: 200px; /* Set the width of the sidebar */
+  overflow: scroll;
+
+
 }
 
 /*------------------BROWSE----------------*/

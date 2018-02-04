@@ -1,19 +1,18 @@
 import { connect } from 'react-redux';
 import sidebar from './sidebar';
 
-import { fetchPlaylist } from '../actions/playlists_actions';
+import { fetchPlaylist, fetchPlaylists } from '../actions/playlists_actions';
 
 let path = "/library/playlists/:playlistId";
 
 const mapStateToProps = (state, ownProps) => ({
-  songs: [1, 2, 3, 4, 5, 6, 7],
-  playlists: state.entities.playlists,
+  playlists: Object.values(state.entities.playlists),
   currentUser: state.session.currentUser
 });
 
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  fetchPlaylist: (id) => dispatch(fetchPlaylist(id)),
+  fetchPlaylists: (userId) => dispatch(fetchPlaylists(userId)),
 });
 
 

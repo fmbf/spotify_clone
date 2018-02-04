@@ -202,14 +202,24 @@ img {
 /* The sidebar menu */
 .sidenav {
     // height: 100%; /* Full-height: remove this if you want "auto" height */
-    // width: 180px; /* Set the width of the sidebar */
+    // height: 100%; /* Full-height: remove this if you want "auto" height */
+    // width: 200px; /* Set the width of the sidebar */
     position: fixed; /* Fixed Sidebar (stay in place on scroll) */
     // z-index: 0; /* Stay on top */
-    // top: 0; /* Stay at the top */
-    // left: 0;
+    top: 0; /* Stay at the top */
+    left: 0;
+    bottom: 142px;
     // overflow-x: hidden; /* Disable horizontal scroll */
+    // overflow-x: scroll;
+    overflow: scroll;
     // padding-top: 20px;
-    // border-right: 1px solid black;
+
+
+    // border-right: 5px solid green;
+    // background-color: #f9f9f9;
+    background-color: #fff;
+    // background-color: red;
+
 }
 
 /* The navigation menu links */
@@ -219,6 +229,17 @@ img {
     /* font-size: 25px; */
     // color: #818181;
     display: block;
+}
+
+.sidenav-content{
+  // display: flex;
+  // flex-direction: column;
+  // height: 620px;
+}
+
+.sidebar-playlists {
+  // display: flex;
+  // overflow: hidden;
 }
 
 /* When you mouse over the navigation links, change their color */
@@ -234,13 +255,15 @@ a:hover {
   bottom: 110px;
   // right: 100%;
   // right: 100px;
+  // width: 100%;
+  // flex-basis: 100%;
   // width: 180px;
+  // width: 200px;
   width: 192px;
 
   margin: 0;
   border-width: 1px 0px 0px 0px;
   padding: 0;
-  // width: 100%;
   border-radius: 0;
 }
 .new-playlist:hover{
