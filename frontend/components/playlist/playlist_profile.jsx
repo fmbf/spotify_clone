@@ -2,6 +2,8 @@ import React from 'react';
 import { Link, withRouter, Redirect } from 'react-router-dom';
 
 import EntityIndexContainer from '../entity_index_container';
+import UserSessionNavContainer from '../user_session_nav/user_session_nav_container';
+
 
 
 class playlistProfile extends React.Component {
@@ -50,11 +52,7 @@ class playlistProfile extends React.Component {
 
       <div>
         <div className="main-window main">
-          <div className='user-session-nav'>
-            <img className='current-user-avatar' src={this.props.currentUser.img_path}/>
-            <h3>{this.props.currentUser.username}</h3>
-            <button onClick={this.logout} className='button-mono'>LOG OUT</button>
-          </div>
+          <UserSessionNavContainer/>
           <header className="profile-header">
 
             <div id='profile-pic-div'>
