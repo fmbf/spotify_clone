@@ -25,11 +25,11 @@ class welcomeComponent extends React.Component {
               <a href="https://github.com/fmbf"><i className="fab fa-github"></i></a>
             </h3>
 
-            <div className="profile-button-box">
+            <div className="button-container">
               <Link to={"/login"}>
                 <button type="button"
                         name="button"
-                        className='header-button-play'>
+                        className='button-green'>
                   LOG IN
                 </button>
               </Link>
@@ -38,7 +38,7 @@ class welcomeComponent extends React.Component {
               <Link to={"/signup"}>
                 <button type="button"
                         name="button"
-                        className='header-button-save'>
+                        className='button-mono'>
                   SIGN UP
                 </button>
               </Link>
@@ -50,15 +50,12 @@ class welcomeComponent extends React.Component {
 
         <div>
           <div className="albums-grid">
-            <img className="animated fadeInUp"
-              id='pic-1'
-                 src="http://payload170.cargocollective.com/1/12/391611/5705300/10271482_711133358945257_7454391078460532252_n.jpg"/>
-               <img className="animated fadeInUp"
-                 id='pic-2'
-                 src="https://charts-static.billboard.com/img/1840/12/drake-zwl.jpg"/>
-               <img className="animated fadeInUp"
-                 id='pic-3'
-              src="https://upload.wikimedia.org/wikipedia/en/2/20/Dua_Lipa_%28album%29.png"/>
+            <img className="speed-1 animated fadeInUp"
+                src="http://payload170.cargocollective.com/1/12/391611/5705300/10271482_711133358945257_7454391078460532252_n.jpg"/>
+            <img className="speed-2 animated fadeInUp"
+                src="https://charts-static.billboard.com/img/1840/12/drake-zwl.jpg"/>
+            <img className="speed-3 animated fadeInUp"
+                src="https://upload.wikimedia.org/wikipedia/en/2/20/Dua_Lipa_%28album%29.png"/>
           </div>
         </div>
 

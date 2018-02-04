@@ -66,10 +66,12 @@ class playlistProfile extends React.Component {
           <a href="#">Workout Playlist</a>
           <a href="#">House Party</a>
 
+          <div className='new-playlist'>
+            <button onClick={() => this.modalToggle()} className='button-mono new-playlist'>
+              + New Playlist
+            </button>
+          </div>
 
-          <button onClick={() => this.modalToggle()} className='button-mono'>
-            New Playlist
-          </button>
 
         </div>
 

@@ -96,7 +96,7 @@ a {
 }
 
 .header-button-more {
-  font-size: 20px;
+  font-size: 14px;
   // font-weight: 700;
   width: 30px;
 }
@@ -242,10 +242,24 @@ footer {
 /* When you mouse over the navigation links, change their color */
 a:hover {
     color: #535353;
-    text-decoration: underline;
+    text-decoration: none;
+    // text-decoration: underline;
 }
 
+.new-playlist {
+  position: fixed;
+  left: 0;
+  bottom: 110px;
+  // right: 100%;
+  // right: 100px;
+  width: 180px;
 
+  margin: 0;
+  border-width: 1px 0px 0px 0px;
+  padding: 0;
+  // width: 100%;
+  border-radius: 0;
+}
 
 /* Style page content */
 .main {
