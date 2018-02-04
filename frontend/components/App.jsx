@@ -34,13 +34,15 @@ const App = () => (
 
 
         <main id="browse-parent">
-          <Switch>
-            <ProtectedRoute exact path="/library/playlists/:playlistId" component={playlistProfileContainer}/>
-            <ProtectedRoute exact path="/library/playlists" component={playlistProfileContainer}/>
-            <AuthRoute exact path="/login" component={SessionFormContainer} />
-            <AuthRoute exact path="/signup" component={SessionFormContainer} />
-            <AuthRoute path="/welcome" component={welcomeComponent}/>
-          </Switch>
+          <div id='browse-content'>
+            <Switch>
+              <ProtectedRoute exact path="/library/playlists/:playlistId" component={playlistProfileContainer}/>
+              <ProtectedRoute exact path="/library/playlists" component={playlistProfileContainer}/>
+              <AuthRoute exact path="/login" component={SessionFormContainer} />
+              <AuthRoute exact path="/signup" component={SessionFormContainer} />
+              <AuthRoute path="/welcome" component={welcomeComponent}/>
+            </Switch>
+          </div>
         </main>
       </div>
 

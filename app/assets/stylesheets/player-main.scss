@@ -1,34 +1,35 @@
 
 .footer-all {
-  // z-index: 3;
   position: fixed;
   left: 0;
   bottom: 0;
   width: 100%;
   height: 80px;
-
+  //
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 12px;
+  padding: 16px;
 
   background-color: #282828;
-  // background-color: #161e28; //asanablack
-  // asanablack #161e28
+
   color: #fff;
+}
 
-  div {
-    // margin: auto;
-  }
+.footer-left img {
+  width: 60px;
+  height: 60px;
+}
 
+.footer-right img {
+  width: 60px;
+  height: 60px;
 }
 
 .play-controls-main {
-  // margin: auto;
 }
 
 .main-PLAY{
-  // color: red;
   width: 32px;
   height: 32px;
   color: #fff;
@@ -40,7 +41,6 @@
   width: 20px;
   height: 20px;
   color: #b3b3b3;
-  // border: 1px solid red;
   border: 0;
 
   transition: color 0.5s ease;

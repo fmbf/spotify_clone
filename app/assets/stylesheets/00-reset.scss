@@ -12,8 +12,8 @@ span, article, footer, time, small {
   font-family: 'Montserrat', sans-serif;
   /* font: inherit; */
   // color: inherit;
-  color: #161e28; //asanablack
-  // color: #181313; //spotify logo black
+  // color: #161e28; //asanablack
+  color: #181313; //spotify logo black
   text-align: inherit;
   text-decoration: inherit;
   vertical-align: inherit;
@@ -21,9 +21,76 @@ span, article, footer, time, small {
   background: transparent;
 }
 
-body { // to offset player footer!!! must correspond to same size
-  margin: 80px;
+
+
+/*=======================================================*/
+/*------------------WINDOW----------------*/
+html, body {
+  height: 99.9%;
+  width: 99.9%;
+  margin: 0;
 }
+
+html {
+  overflow: hidden; //try to prevent scroll bounce
+}
+
+body {
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+
+#full-browser-window {
+  // border: 2px solid purple;
+  height: 99.9%;
+  width: 99.9%;
+  min-height: 99%;
+}
+/*------------------NONPLAYER----------------*/
+#sidebar-and-browse-common-parent {
+  display: flex;
+  flex-direction: row;
+  min-height: 100vh;
+}
+/*------------------SIDEBAR----------------*/
+#sidebar-parent {
+  // border: 1px solid blue;
+  flex: 0 0 12em;
+  border-right: 1px solid #181313;
+}
+
+/*------------------BROWSE----------------*/
+#browse-parent {
+  // border: 2px solid red;
+  flex: 1;
+  // margin-bottom: 116px; //80 from player + 36 margin
+}
+#browse-content{
+  max-height: 100%;
+  overflow: scroll;
+
+  margin-bottom: 136px; //80 from player + margin
+
+}
+
+/*------------------PLAYER----------------*/
+#player {
+  // border: 2px solid green;
+
+
+  // position: absolute;
+  // right: 0;
+  // bottom: 0;
+  // left: 0;
+  // height: 80px;
+}
+/*=======================================================*/
+
+//
+// body { // to offset player footer!!! must correspond to same size
+//   margin: 80px;
+// }
 
 button {
   font-weight: 400;
