@@ -101,7 +101,7 @@ class SessionForm extends React.Component {
       <div className="login-form-container">
 
         <div className="modal-header">
-          <Link to="/" >
+          <Link to="/welcome" >
             <img src={ window.staticImages.spotifyLogoBlack }/>
           </Link>
         </div>

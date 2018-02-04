@@ -9,21 +9,45 @@ import {
 } from 'react-router-dom';
 
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
+
+// MAIN COMPONENTS
+import PlayerMain from './main_player';
+import SidebarContainer from './sidebar_container';
+//--------------------------------------------------//
+
 import welcomeComponent from './welcome';
 import SessionFormContainer from './session_form/session_form_container';
-
 import playlistProfileContainer from './playlist/playlist_profile_container';
 import entityIndexContainer from './entity_index_container';
 
 const App = () => (
   <div>
-    <Switch>
-      <ProtectedRoute exact path="/library/playlists/:playlistId" component={playlistProfileContainer}/>
-      <ProtectedRoute exact path="/library/playlists" component={playlistProfileContainer}/>
-      <AuthRoute exact path="/login" component={SessionFormContainer} />
-      <AuthRoute exact path="/signup" component={SessionFormContainer} />
-      <AuthRoute path="/" component={welcomeComponent}/>
-    </Switch>
+    <div id="full-browser-window">
+
+
+
+
+      <div id="sidebar-and-browse-common-parent">
+        <aside id="sidebar-parent">
+          <SidebarContainer />
+        </aside>
+
+
+        <main id="browse-parent">
+          <Switch>
+            <ProtectedRoute exact path="/library/playlists/:playlistId" component={playlistProfileContainer}/>
+            <ProtectedRoute exact path="/library/playlists" component={playlistProfileContainer}/>
+            <AuthRoute exact path="/login" component={SessionFormContainer} />
+            <AuthRoute exact path="/signup" component={SessionFormContainer} />
+            <AuthRoute path="/welcome" component={welcomeComponent}/>
+          </Switch>
+        </main>
+      </div>
+
+
+      <PlayerMain id="player"/>
+
+    </div>
   </div>
 );
 

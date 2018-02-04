@@ -1,10 +1,7 @@
 import React from 'react';
-import Modal from 'react-modal';
 import { Link, withRouter, Redirect } from 'react-router-dom';
 
 import EntityIndexContainer from '../entity_index_container';
-import PlayerMain from '../main_player';
-import PlaylistModalContainer from '../playlist/playlist_modal_container';
 
 
 class playlistProfile extends React.Component {
@@ -52,29 +49,6 @@ class playlistProfile extends React.Component {
     return (
 
       <div>
-
-        <div className="sidenav">
-          <a href="#">Search</a>
-          <h3>------------------</h3>
-          <a href="#">Home</a>
-          <h3>------------------</h3>
-          <a href="#">Songs</a>
-          <a href="#">Artists</a>
-          <a href="#">Albums</a>
-          <h3>------------------</h3>
-          <a href="#">TGIF</a>
-          <a href="#">Workout Playlist</a>
-          <a href="#">House Party</a>
-
-          <div className='new-playlist'>
-            <button onClick={() => this.modalToggle()} className='button-mono new-playlist'>
-              + New Playlist
-            </button>
-          </div>
-
-
-        </div>
-
         <div className="main-window main">
           <div className='user-session-nav'>
             <img className='current-user-avatar' src={this.props.currentUser.img_path}/>
@@ -126,10 +100,9 @@ class playlistProfile extends React.Component {
         <EntityIndexContainer/>
 
 
-        <PlaylistModalContainer formType='create' open={this.state.clickedNewPlaylist} modalToggle={this.modalToggle}/>
+        {/*<PlaylistModalContainer formType='create' open={this.state.clickedNewPlaylist} modalToggle={this.modalToggle}/>*/}
 
 
-        <PlayerMain/>
 
 
       </div>
