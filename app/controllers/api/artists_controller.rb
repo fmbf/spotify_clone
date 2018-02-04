@@ -1,7 +1,10 @@
 class Api::ArtistsController < ApplicationController
   def index
+    @artists = Artist.all
+
+    # FIXME:
     # should ony fetch the artist current user follows
-    @artists = Artist.where('author_id = ?', params[:user_id])
+    # @artists = Artist.where('follower_id = ?', params[:user_id])
   end
 
   def show
