@@ -1,24 +1,4 @@
-html, body, header, nav,
-ul, strong, main, button, i,
-section, img, div, p, form,
-fieldset, label, input, textarea,
-span, article, footer, time, small {
-  font-family: 'Montserrat', sans-serif;
-  /* color: white; */
-  /* background: transparent; */
-  // padding: 0 10px 10px 10px;
 
-  /* border: 1px solid red; */
-}
-
-body {
-  /* background: #191414; */
-}
-
-
-/* .grad {
-  background: linear-gradient(#a0a0a0, #191414);
-} */
 
 .profile-info h1 {
   font-size: 38px;
@@ -67,7 +47,8 @@ a {
   border-top: 1px solid #ddd;
 }
 
-.song-list li:hover {
+.song-list li:hover, .song-list a:hover {
+  letter-spacing: 0;
   background: #eee;
 }
 
@@ -156,7 +137,7 @@ img {
   // width: 100%;
   width: 1000px;
   // border: 1px solid purple;
-
+  margin-left: 90px;
 }
 
 .profile-info {
@@ -175,6 +156,12 @@ img {
   button {
     // font-weight: 700;
   }
+}
+
+.song-list-fields {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 60px;
 }
 
 .song-list {
@@ -226,11 +213,11 @@ img {
 }
 
 /* The navigation menu links */
-.sidenav a {
+.sidenav-content a {
     padding: 6px 8px 6px 16px;
     text-decoration: none;
     /* font-size: 25px; */
-    /* color: #818181; */
+    // color: #818181;
     display: block;
 }
 
@@ -247,7 +234,8 @@ a:hover {
   bottom: 110px;
   // right: 100%;
   // right: 100px;
-  width: 180px;
+  // width: 180px;
+  width: 192px;
 
   margin: 0;
   border-width: 1px 0px 0px 0px;
@@ -255,12 +243,10 @@ a:hover {
   // width: 100%;
   border-radius: 0;
 }
+.new-playlist:hover{
+  border-color: #aaa;
+}
 
-/* Style page content */
-// .main {
-//     margin-left: 160px; /* Same as the width of the sidebar */
-//     padding: 0px 10px;
-// }
 
 .profile-description {
   padding-bottom: 4px;

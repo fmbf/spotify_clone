@@ -80,21 +80,21 @@ class playlistProfile extends React.Component {
 
           </header>
 
-          <ol className='song-list'>
-            <li><a href="#">Cut To Black | 4:49</a></li>
-            <li><a href="#">Closer | 4:{randomTime()}</a></li>
-            <li><a href="#">Continuum | 4:{randomTime()}</a></li>
-            <li><a href="#">Higher | 1:{randomTime()}</a></li>
-            <li><a href="#">Blue Shift | 2:49</a></li>
-            <li><a href="#">Stepping Stone | 4:{randomTime()}</a></li>
-            <li><a href="#">Time To Realize | 3:{randomTime()}</a></li>
-            <li><a href="#">We Got U | 2:49</a></li>
-            <li><a href="#">Last Night On Earth | 4:{randomTime()}</a></li>
-            <li><a href="#">Playing To Lose | 3:{randomTime()}</a></li>
-          </ol>
+          <span className='song-list-fields'><h3>TITLE</h3><h3>ARTIST</h3><h3>ALBUM</h3></span>
+          <li className='song-list'>
+            <li><a>Cut To Black | 4:49</a></li>
+            <li><a>Closer | 4:{randomTime()}</a></li>
+            <li><a>Continuum | 4:{randomTime()}</a></li>
+            <li><a>Higher | 1:{randomTime()}</a></li>
+            <li><a>Blue Shift | 2:49</a></li>
+            <li><a>Stepping Stone | 4:{randomTime()}</a></li>
+            <li><a>Time To Realize | 3:{randomTime()}</a></li>
+            <li><a>We Got U | 2:49</a></li>
+            <li><a>Last Night On Earth | 4:{randomTime()}</a></li>
+            <li><a>Playing To Lose | 3:{randomTime()}</a></li>
+          </li>
         </div>
 
-        <center><h1>Playlists</h1></center>
         <br/>
 
         <EntityIndexContainer/>

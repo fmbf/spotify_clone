@@ -40,6 +40,9 @@ body {
   -webkit-overflow-scrolling: touch;
 }
 
+li {
+  list-style-type: none;
+}
 
 #full-browser-window {
   // border: 2px solid purple;
@@ -64,14 +67,15 @@ body {
 #browse-parent {
   // border: 2px solid red;
   flex: 1;
-  // margin-bottom: 116px; //80 from player + 36 margin
+  margin-bottom: 136px; //80 from player + margin
+
 }
 #browse-content{
   max-height: 100%;
   overflow: scroll;
 
-  margin-bottom: 136px; //80 from player + margin
-
+  // margin-bottom: 136px; //80 from player + margin
+  margin-right: 70px;
 }
 
 /*------------------PLAYER----------------*/
@@ -101,8 +105,21 @@ button {
   -webkit-transition: all .2s ease-in;
   transition: all .2s ease-in;
 }
+
+button:hover {
+  letter-spacing: 1.5px;
+}
+
+a {
+  -moz-transition: all .2s ease-in;
+  -o-transition: all .2s ease-in;
+  -webkit-transition: all .2s ease-in;
+  transition: all .2s ease-in;
+}
+
 a:hover {
   text-decoration: underline;
+  letter-spacing: 0.2px;
 }
 
 a:hover button {

@@ -1,9 +1,13 @@
+.entity-index-container {
+  margin-left: 60px;
+
+}
+
+
 .entity-index {
   display: flex;
-  margin-left: 160px;
   width: 80%;
   flex-wrap: wrap;
-
 }
 
 
@@ -16,7 +20,7 @@
   transition: border-color 0.5s ease;
   transition: background-color 0.5s ease;
   transition: opacity 0.5s ease;
-  
+
 }
 
 .entity-index-item-img:hover {

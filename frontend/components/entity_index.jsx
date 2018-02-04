@@ -42,7 +42,9 @@ class entityIndex extends React.Component {
 
   render() {
     return (
-      <section>
+      <section className='entity-index-container'>
+        <h1>Playlists</h1>
+        <br/>
         <ul className='entity-index animated fadeInUp'>
           {
             this.props.playlists.map(playlist => {

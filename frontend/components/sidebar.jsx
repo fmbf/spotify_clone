@@ -21,18 +21,20 @@ class Sidebar extends React.Component {
   render() {
     return (
       <div className="sidenav">
-        <a href="#">Search</a>
-        <h3>------------------</h3>
-        <a href="#">Home</a>
-        <h3>------------------</h3>
-        <a href="#">Songs</a>
-        <a href="#">Artists</a>
-        <a href="#">Albums</a>
-        <h3>------------------</h3>
-        <a href="#">TGIF</a>
-        <a href="#">Workout Playlist</a>
-        <a href="#">House Party</a>
-
+        <div className="sidenav-content">
+          <a href="#">Search</a>
+          <h3>------------------</h3>
+          <a href="#">Home</a>
+          <h3>------------------</h3>
+          <a href="#">Songs</a>
+          <a href="#">Artists</a>
+          <a href="#">Albums</a>
+          <h3>------------------</h3>
+          <a href="#">TGIF</a>
+          <a href="#">Workout Playlist</a>
+          <a href="#">House Party</a>
+        </div>
+        
         <div className='new-playlist'>
           <button onClick={() => this.modalToggle()} className='button-mono new-playlist'>
             + New Playlist
