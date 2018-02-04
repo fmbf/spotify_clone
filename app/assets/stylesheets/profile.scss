@@ -208,7 +208,8 @@ img {
     // z-index: 0; /* Stay on top */
     top: 0; /* Stay at the top */
     left: 0;
-    bottom: 142px;
+    bottom: 140px;
+    width: 186px;
     // overflow-x: hidden; /* Disable horizontal scroll */
     // overflow-x: scroll;
     overflow: scroll;
@@ -216,9 +217,11 @@ img {
 
 
     // border-right: 5px solid green;
+    border-right: 1px solid #181313;
     // background-color: #f9f9f9;
     background-color: #fff;
     // background-color: red;
+    // box-shadow: 1px 0px 200px 50px #eee;
 
 }
 
@@ -253,18 +256,15 @@ a:hover {
   position: fixed;
   left: 0;
   bottom: 110px;
-  // right: 100%;
-  // right: 100px;
-  // width: 100%;
-  // flex-basis: 100%;
-  // width: 180px;
-  // width: 200px;
-  width: 192px;
 
+  width: 187px;
   margin: 0;
   border-width: 1px 0px 0px 0px;
+  border-right: 1px solid #181313;
   padding: 0;
   border-radius: 0;
+  background-color: #fff;
+
 }
 .new-playlist:hover{
   border-color: #aaa;

@@ -4,7 +4,10 @@ import Root from './components/root';
 import configureStore from './store/store';
 
 import { logout } from './actions/session_actions';
-import { fetchPlaylists, fetchPlaylist, createPlaylist } from './actions/playlists_actions';
+import {
+  fetchPlaylists, fetchPlaylist, createPlaylist,
+  updatePlaylist, deletePlaylist
+} from './actions/playlists_actions';
 
 
 
@@ -32,6 +35,8 @@ document.addEventListener('DOMContentLoaded', () => {
     window.logout = () => store.dispatch(logout());
     window.fetchPlaylists = (userId) => store.dispatch(fetchPlaylists(userId));
     window.createPlaylist = (playlist) => store.dispatch(createPlaylist(playlist));
+    window.updatePlaylist = (playlist) => store.dispatch(updatePlaylist(playlist));
+    window.deletePlaylist = (playlistId) => store.dispatch(deletePlaylist(playlistId));
 
   //-----------------------------------------//
 
