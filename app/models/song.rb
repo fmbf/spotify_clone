@@ -1,6 +1,6 @@
 class Song < ApplicationRecord
   validates :title, :artist_id, :album_id, presence: true
-  after_initialize :ensure_song_path
+  after_initialize :ensure_song_path, :ensure_img
 
 
   belongs_to :artist
@@ -9,5 +9,9 @@ class Song < ApplicationRecord
 
   private
   def ensure_song_path
+  end
+
+  def ensure_img
+    self.img_path ||= self.album.img_path
   end
 end

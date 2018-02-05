@@ -7,10 +7,11 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 #========================================Users=======================================#
-User.create(username: "bobby_tables", email: "robtables@tables.com", password: "tables")
-User.create(username: "solo_han", email: "falconflyer@space.com", password: "password")
+User.create(username: "bobby_tables", email: "robotables@tables.com", password: "tables")
 User.create(username: Faker::Internet.user_name, email: Faker::Internet.email, password: "password")
-User.create(username: "guest_user25", email: "demo_spotifyx@email.com", password: "password123")
+User.create(username: Faker::Internet.user_name, email: Faker::Internet.email, password: "password")
+# User.create(username: "guest_user25", email: "demo_spotifyx@email.com", password: "password123")
+User.create(username: "solo_han13", email: "falconflyer@space.com", password: "falcon")
 
 30.times do
   User.create(username: Faker::Internet.user_name, email: Faker::Internet.email, password: "password")
@@ -78,6 +79,51 @@ Artist.create(name: 'Porter Robinson', img_path: 'https://storage.googleapis.com
 Artist.create(name: 'Rihanna', img_path: 'https://static01.nyt.com/images/2015/10/16/nytnow/the-week-on-instagram-slide-H5V3/the-week-on-instagram-slide-H5V3-superJumbo.jpg')
 Artist.create(name: 'The Weeknd', img_path: 'https://vignette.wikia.nocookie.net/the-weeknd/images/d/dd/Photo-1.jpg/revision/latest?cb=20170501130321')
 
+#=====================================Albums=======================================#
+
+Album.create(title: 'Discovery', artist_id: 4, img_path: 'https://upload.wikimedia.org/wikipedia/en/a/ae/Daft_Punk_-_Discovery.jpg')
+Album.create(title: 'Human After All', artist_id: 4, img_path: 'https://upload.wikimedia.org/wikipedia/en/0/0d/Humanafterall.jpg')
+Album.create(title: 'Random Access Memories', artist_id: 4, img_path: 'https://upload.wikimedia.org/wikipedia/en/a/a7/Random_Access_Memories.jpg')
+
+Album.create(title: 'American IV: The Man Comes Around', artist_id: 9, img_path: 'https://upload.wikimedia.org/wikipedia/en/e/e0/AmericanIV.jpg')
+
+Album.create(title: 'Giant Steps', artist_id: 10, img_path: 'https://upload.wikimedia.org/wikipedia/en/2/2a/Coltrane_Giant_Steps.jpg')
+
+Album.create(title: 'Continuum', artist_id: 11, img_path: 'https://upload.wikimedia.org/wikipedia/en/8/82/Continuum_%28album%29.png')
+
+Album.create(title: 'Believe', artist_id: 12, img_path: 'https://upload.wikimedia.org/wikipedia/en/0/01/Believe-JB-Album.jpg')
+Album.create(title: 'Purpose', artist_id: 12, img_path: 'https://upload.wikimedia.org/wikipedia/en/2/27/Justin_Bieber_-_Purpose_%28Official_Album_Cover%29.png')
+
+Album.create(title: 'Bitches Brew', artist_id: 13, img_path: 'https://upload.wikimedia.org/wikipedia/en/7/72/Bitches_brew.jpg')
+Album.create(title: 'Blue Period', artist_id: 13, img_path: 'https://upload.wikimedia.org/wikipedia/en/0/01/Blue_period.jpg')
+
+Album.create(title: 'Red', artist_id: 14, img_path: 'https://upload.wikimedia.org/wikipedia/en/e/e8/Taylor_Swift_-_Red.png')
+Album.create(title: '1989', artist_id: 14, img_path: 'https://upload.wikimedia.org/wikipedia/en/f/f6/Taylor_Swift_-_1989.png')
+Album.create(title: 'Reputation', artist_id: 14, img_path: 'https://upload.wikimedia.org/wikipedia/en/f/f2/Taylor_Swift_-_Reputation.png')
+
+Album.create(title: 'Thief - Single', artist_id: 15, img_path: 'https://i1.sndcdn.com/artworks-000151175619-7ach1w-t500x500.jpg')
+
+Album.create(title: 'Worlds', artist_id: 16, img_path: 'https://upload.wikimedia.org/wikipedia/en/e/eb/Porter_Robinson_-_Worlds.jpg')
+
+Album.create(title: 'Loud', artist_id: 17, img_path: 'https://upload.wikimedia.org/wikipedia/en/d/d1/Rihanna_-_Loud.png')
+Album.create(title: 'Talk That Talk', artist_id: 17, img_path: 'https://upload.wikimedia.org/wikipedia/en/8/8e/Rihanna_-_Talk_That_Talk_%28standard%29.png')
+Album.create(title: 'Unapologetic', artist_id: 17, img_path: 'https://upload.wikimedia.org/wikipedia/en/9/9b/Unapologetic_-_Rihanna.png')
+Album.create(title: 'Anti', artist_id: 17, img_path: 'https://upload.wikimedia.org/wikipedia/en/3/32/Rihanna_-_Anti.png')
+
+Album.create(title: 'Beauty Behind The Madness', artist_id: 18, img_path: 'https://upload.wikimedia.org/wikipedia/en/b/bd/The_Weeknd_-_Beauty_Behind_the_Madness.png')
+Album.create(title: 'Starboy', artist_id: 18, img_path: 'https://upload.wikimedia.org/wikipedia/en/3/39/The_Weeknd_-_Starboy.png')
+
+Album.create(title: '21', artist_id: 1, img_path: 'https://upload.wikimedia.org/wikipedia/en/1/1b/Adele_-_21.png')
+Album.create(title: '25', artist_id: 1, img_path: 'https://upload.wikimedia.org/wikipedia/en/9/96/Adele_-_25_%28Official_Album_Cover%29.png')
+
+Album.create(title: 'Beyoncé', artist_id: 2, img_path: 'https://upload.wikimedia.org/wikipedia/commons/2/21/Beyonc%C3%A9_-_Beyonc%C3%A9.svg')
+Album.create(title: 'Lemonade', artist_id: 2, img_path: 'https://upload.wikimedia.org/wikipedia/en/5/53/Beyonce_-_Lemonade_%28Official_Album_Cover%29.png')
+
+Album.create(title: 'Unorthodox Jukebox', artist_id: 3, img_path: 'https://upload.wikimedia.org/wikipedia/en/7/77/BrunoMarsUJAlbumCover.png')
+Album.create(title: '24K Magic', artist_id: 3, img_path: 'https://upload.wikimedia.org/wikipedia/en/2/2b/Bruno_Mars_-_24K_Magic_%28Official_Album_Cover%29.png')
+
+Album.create(title: 'Nothing Was The Same', artist_id: 6, img_path: 'https://upload.wikimedia.org/wikipedia/en/b/b9/Nothing_Was_the_Same_cover_2.png')
+Album.create(title: 'Views', artist_id: 6, img_path: 'https://upload.wikimedia.org/wikipedia/en/a/af/Drake_-_Views_cover.jpg')
 
 # 20.times do
 #   Artist.create(name: Faker::Hipster.word.titleize, img_path: "https://picsum.photos/200/200/?image=#{rand(100)}")
@@ -85,8 +131,44 @@ Artist.create(name: 'The Weeknd', img_path: 'https://vignette.wikia.nocookie.net
 
 # Artist.create(name: '', img_path: '')
 
-#=====================================Albums=======================================#
+#=====================================Songs=======================================#
 
+#---------------------------------------Daft_Punk----------------------------------------#
+Song.create(title: 'One More Time', artist_id: 4, album_id: 1)
+Song.create(title: 'Aerodynamic', artist_id: 4, album_id: 1)
+Song.create(title: 'Digital Love', artist_id: 4, album_id: 1)
+Song.create(title: "Harder, Better, Faster, Stronger", artist_id: 4, album_id: 1)
+Song.create(title: 'Nightvision', artist_id: 4, album_id: 1)
+Song.create(title: 'Superheroes', artist_id: 4, album_id: 1)
+Song.create(title: 'High Life', artist_id: 4, album_id: 1)
+Song.create(title: 'Something About Us', artist_id: 4, album_id: 1)
+Song.create(title: 'Voyager', artist_id: 4, album_id: 1)
+Song.create(title: 'Verdis Quo', artist_id: 4, album_id: 1)
+Song.create(title: 'Short Circuit', artist_id: 4, album_id: 1)
+Song.create(title: 'Face to Face', artist_id: 4, album_id: 1)
+Song.create(title: 'Too Long', artist_id: 4, album_id: 1)
+
+Song.create(title: 'Human After All', artist_id: 4, album_id: 2)
+Song.create(title: 'The Prime Time of Your Life', artist_id: 4, album_id: 2)
+Song.create(title: 'Robot Rock', artist_id: 4, album_id: 2)
+Song.create(title: 'Steam Machine', artist_id: 4, album_id: 2)
+Song.create(title: 'Make Love', artist_id: 4, album_id: 2)
+Song.create(title: 'The Brainwasher', artist_id: 4, album_id: 2)
+Song.create(title: 'Television Rules the Nation', artist_id: 4, album_id: 2)
+Song.create(title: 'Technologic', artist_id: 4, album_id: 2)
+Song.create(title: 'Emotion', artist_id: 4, album_id: 2)
+
+Song.create(title: "Give Life Back to Music", artist_id: 4, album_id: 3)
+Song.create(title: "Giorgio by Moroder", artist_id: 4, album_id: 3)
+Song.create(title: "Lose Yourself to Dance", artist_id: 4, album_id: 3)
+Song.create(title: 'Get Lucky', artist_id: 4, album_id: 3)
+Song.create(title: "Doin' It Right", artist_id: 4, album_id: 3)
+
+#---------------------------------------Daft_Punk----------------------------------------#
+
+
+
+# Song.create(title: 'You da One', artist_id: 17, album_id:,  img_path: 'https://upload.wikimedia.org/wikipedia/en/8/8e/Rihanna_-_Talk_That_Talk_%28standard%29.png')
 
 
 
