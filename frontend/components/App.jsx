@@ -38,6 +38,7 @@ const App = () => (
           <div id='browse-content'>
             <Switch>
               <ProtectedRoute exact path="/library/artists" component={artistsIndexContainer}/>
+              <ProtectedRoute exact path="/library/artists/:artistId" component={playlistProfileContainer}/>
               <ProtectedRoute exact path="/library/playlists" component={playlistProfileContainer}/>
               <ProtectedRoute exact path="/library/playlists/:playlistId" component={playlistProfileContainer}/>
               <AuthRoute exact path="/login" component={SessionFormContainer} />

@@ -1,11 +1,29 @@
 Rails.application.routes.draw do
-  namespace :api do
-    get 'songs/index'
-  end
+  # namespace :api do
+  #   get 'songs/index'
+  # end
+  #
+  # namespace :api do
+  #   get 'songs/show'
+  # end
+  #
+  # namespace :api do
+  #   get 'songs/index_by_artist'
+  # end
+  # namespace :api do
+  #   get 'artists/album_index'
+  # end
 
-  namespace :api do
-    get 'songs/show'
-  end
+namespace :api, defaults: {format: :json} do
+  # Search by Artist:
+  get 'artists/:id/albums', to: 'artists#album_index', as: 'artist_albums'
+  get 'artists/:id/songs', to: 'artists#song_index', as: 'artist_songs'
+
+  # Search songs by Album:
+  get 'albums/:id/songs', to: 'albums#song_index', as: 'album_songs'
+end
+
+
 
   root to: 'static_pages#root'
 
@@ -21,25 +39,20 @@ Rails.application.routes.draw do
     end
 
     # Search entitites by Artist:
-    resources :artists, only: [:show] do
-      resources :albums, only: [:index, :index_by_artist]
-      resources :songs, only: [:index]
-    end
 
-    # Search entitites by Album:
-    resources :albums, only: [:show] do
-      resources :songs, only: [:index_by_album]
-    end
+
+
 
     resources :playlists, only: [:show, :update, :destroy, :create] do
-      resources :songs, only: [:index]
+      # resources :songs, only: [:index]
     end
 
     # Search entitites by ID:
-    resources :songs, only: [:show]
 
 
     # resources :playlists, only: [:show, :update, :destroy, :create]
-    # resources :artists, only: [:show]
+    resources :songs, only: [:show, :index]
+    resources :artists, only: [:show, :index]
+    resources :albums, only: [:show, :index]
   end
 end

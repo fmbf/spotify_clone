@@ -12,6 +12,6 @@ class Song < ApplicationRecord
   end
 
   def ensure_img
-    self.img_path ||= self.album.img_path
+    # self.img_path ||= self.album.img_path
   end
 end
