@@ -9,7 +9,12 @@
 #========================================Users=======================================#
 User.create(username: "bobby_tables", email: "robtables@tables.com", password: "tables")
 User.create(username: "solo_han", email: "falconflyer@space.com", password: "password")
+User.create(username: Faker::Internet.user_name, email: Faker::Internet.email, password: "password")
 User.create(username: "guest_user25", email: "demo_spotifyx@email.com", password: "password123")
+
+30.times do
+  User.create(username: Faker::Internet.user_name, email: Faker::Internet.email, password: "password")
+end
 #=====================================================================================#
 
 
@@ -27,37 +32,31 @@ Playlist.create(title: 'Day At The Beach', img_path: "https://picsum.photos/200/
 Playlist.create(title: 'Rainy Day Jams', img_path: "https://picsum.photos/200/200/?image=#{rand(100)}", description: 'drip drop', author_id: 1)
 Playlist.create(title: 'Workout', img_path: "https://picsum.photos/200/200/?image=#{rand(100)}", description: 'For da gym!', author_id: 1)
 
+7.times do
+  Playlist.create(title: Faker::Book.title,
+    img_path: "https://picsum.photos/200/200/?image=#{rand(100)}",
+    description: Faker::Hipster.paragraph(1), author_id: 1)
+end
+
 #---------------------------------------User_2----------------------------------------#
-Playlist.create(title: Faker::Book.title, img_path: "https://picsum.photos/200/200/?image=#{rand(100)}", description: Faker::Hipster.paragraph(1), author_id: 2)
-Playlist.create(title: Faker::Book.title, img_path: "https://picsum.photos/200/200/?image=#{rand(100)}", description: Faker::Hipster.paragraph(1), author_id: 2)
-Playlist.create(title: Faker::Book.title, img_path: "https://picsum.photos/200/200/?image=#{rand(100)}", description: Faker::Hipster.paragraph(1), author_id: 2)
-Playlist.create(title: Faker::Book.title, img_path: "https://picsum.photos/200/200/?image=#{rand(100)}", description: Faker::Hipster.paragraph(1), author_id: 2)
-Playlist.create(title: Faker::Book.title, img_path: "https://picsum.photos/200/200/?image=#{rand(100)}", description: Faker::Hipster.paragraph(1), author_id: 2)
-Playlist.create(title: Faker::Book.title, img_path: "https://picsum.photos/200/200/?image=#{rand(100)}", description: Faker::Hipster.paragraph(1), author_id: 2)
-Playlist.create(title: Faker::Book.title, img_path: "https://picsum.photos/200/200/?image=#{rand(100)}", description: Faker::Hipster.paragraph(1), author_id: 2)
-Playlist.create(title: Faker::Book.title, img_path: "https://picsum.photos/200/200/?image=#{rand(100)}", description: Faker::Hipster.paragraph(1), author_id: 2)
-
+12.times do
+  Playlist.create(title: Faker::Book.title,
+    img_path: "https://picsum.photos/200/200/?image=#{rand(100)}",
+    description: Faker::Hipster.paragraph(1), author_id: 2)
+end
 #---------------------------------------User_3----------------------------------------#
-Playlist.create(title: Faker::Book.title, img_path: "https://picsum.photos/200/200/?image=#{rand(100)}", description: Faker::Hipster.paragraph(1), author_id: 3)
-Playlist.create(title: Faker::Book.title, img_path: "https://picsum.photos/200/200/?image=#{rand(100)}", description: Faker::Hipster.paragraph(1), author_id: 3)
-Playlist.create(title: Faker::Book.title, img_path: "https://picsum.photos/200/200/?image=#{rand(100)}", description: Faker::Hipster.paragraph(1), author_id: 3)
-Playlist.create(title: Faker::Book.title, img_path: "https://picsum.photos/200/200/?image=#{rand(100)}", description: Faker::Hipster.paragraph(1), author_id: 3)
-Playlist.create(title: Faker::Book.title, img_path: "https://picsum.photos/200/200/?image=#{rand(100)}", description: Faker::Hipster.paragraph(1), author_id: 3)
-Playlist.create(title: Faker::Book.title, img_path: "https://picsum.photos/200/200/?image=#{rand(100)}", description: Faker::Hipster.paragraph(1), author_id: 3)
-Playlist.create(title: Faker::Book.title, img_path: "https://picsum.photos/200/200/?image=#{rand(100)}", description: Faker::Hipster.paragraph(1), author_id: 3)
-Playlist.create(title: Faker::Book.title, img_path: "https://picsum.photos/200/200/?image=#{rand(100)}", description: Faker::Hipster.paragraph(1), author_id: 3)
-
+12.times do
+  Playlist.create(title: Faker::Book.title,
+    img_path: "https://picsum.photos/200/200/?image=#{rand(100)}",
+    description: Faker::Hipster.paragraph(1),
+    author_id: 3)
+end
 #---------------------------------------User_4----------------------------------------#
-Playlist.create(title: Faker::Book.title, img_path: "https://picsum.photos/200/200/?image=#{rand(100)}", description: Faker::Hipster.paragraph(1), author_id: 4)
-Playlist.create(title: Faker::Book.title, img_path: "https://picsum.photos/200/200/?image=#{rand(100)}", description: Faker::Hipster.paragraph(1), author_id: 4)
-Playlist.create(title: Faker::Book.title, img_path: "https://picsum.photos/200/200/?image=#{rand(100)}", description: Faker::Hipster.paragraph(1), author_id: 4)
-Playlist.create(title: Faker::Book.title, img_path: "https://picsum.photos/200/200/?image=#{rand(100)}", description: Faker::Hipster.paragraph(1), author_id: 4)
-Playlist.create(title: Faker::Book.title, img_path: "https://picsum.photos/200/200/?image=#{rand(100)}", description: Faker::Hipster.paragraph(1), author_id: 4)
-Playlist.create(title: Faker::Book.title, img_path: "https://picsum.photos/200/200/?image=#{rand(100)}", description: Faker::Hipster.paragraph(1), author_id: 4)
-Playlist.create(title: Faker::Book.title, img_path: "https://picsum.photos/200/200/?image=#{rand(100)}", description: Faker::Hipster.paragraph(1), author_id: 4)
-Playlist.create(title: Faker::Book.title, img_path: "https://picsum.photos/200/200/?image=#{rand(100)}", description: Faker::Hipster.paragraph(1), author_id: 4)
-
-
+12.times do
+  Playlist.create(title: Faker::Book.title,
+    img_path: "https://picsum.photos/200/200/?image=#{rand(100)}",
+    description: Faker::Hipster.paragraph(1), author_id: 4)
+end
 
 #=====================================Artists=======================================#
 Artist.create(name: 'Adele', img_path: 'http://cdn.beggars.com.s3-eu-west-1.amazonaws.com/adele/wp-content/uploads/2015/10/01091631/adele-25-packshot.jpg')
@@ -86,6 +85,7 @@ Artist.create(name: 'The Weeknd', img_path: 'https://vignette.wikia.nocookie.net
 
 # Artist.create(name: '', img_path: '')
 
+#=====================================Albums=======================================#
 
 
 
