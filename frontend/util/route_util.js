@@ -7,7 +7,7 @@ const Auth = ({ component: ComponentToRender, path, loggedIn, exact }) => (
     !loggedIn ? (
       <ComponentToRender {...props} />
     ) : (
-      <Redirect to="/library/playlists" />
+      <Redirect to="/library/artists" />
     )
   )} />
 );

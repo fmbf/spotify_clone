@@ -71,8 +71,11 @@ class artistsIndex extends React.Component {
               if (abbreviatedTitle && abbreviatedTitle.length > 14) {
                 abbreviatedTitle = `${abbreviatedTitle.slice(0, 10)}...`;
               }
+
+              let randomAnimateSpeed = Math.floor(Math.random() * 5) + 1;
+
               return (
-              <div className={`entity-index-item animated fadeInUp speed-${artist.id%6+1}`} key={artist.id}>
+              <div className={`entity-index-item animated fadeInUp speed-${randomAnimateSpeed}`} key={artist.id}>
                 <div className='entity-index-item-hide'
                   onMouseOver={() => this.hideSwitch('show', artist.id)}
                   onMouseOut={() => this.hideSwitch('hide', artist.id)}>
@@ -86,7 +89,7 @@ class artistsIndex extends React.Component {
                   />
                 </div>
 
-                <Link to={`/library/artists/${artist.id}`} className='entity-index-item-title'>
+                <Link to={`/library/artists/${artist.id}/albums`} className='entity-index-item-title'>
                   <h3>{abbreviatedTitle}</h3>
                 </Link>
 

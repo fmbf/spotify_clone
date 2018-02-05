@@ -6,8 +6,9 @@ import { fetchAlbum } from '../../actions/albums_actions';
 
 
 const mapStateToProps = (state, ownProps) => ({
-  songs: [1, 2, 3, 4, 5, 6, 7],
+  // songs: [1, 2, 3, 4, 5, 6, 7],
   album: state.entities.albums[ownProps.match.params.albumId],
+  albums: Object.values(state.entities.albums),
   currentUser: state.session.currentUser
 });
 

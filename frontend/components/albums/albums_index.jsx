@@ -11,8 +11,13 @@ class albumsIndex extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchUserAlbums(this.currentUser.id);
-    // this.props.fetchArtistAlbums(this.currentUser.id);
+    if (this.props.match.path === '/library/albums') {
+      this.props.fetchUserAlbums(this.currentUser.id);
+    }
+    // debugger
+    if (this.props.match.path === '/library/artists/:artistId/albums') {
+      this.props.fetchArtistAlbums(this.props.match.params.artistId);
+    }
   }
 
   componentWillReceiveProps(newProps){
@@ -59,18 +64,21 @@ class albumsIndex extends React.Component {
           <UserSessionNavContainer/>
         </header>
 
-        <h1>Artists</h1>
+        <h1>Albums</h1>
         <br/>
         <ul className='entity-index'>
           {
             this.props.albums.map(album => {
 
-              let abbreviatedTitle = album.name;
+              let abbreviatedTitle = album.title;
               if (abbreviatedTitle && abbreviatedTitle.length > 14) {
                 abbreviatedTitle = `${abbreviatedTitle.slice(0, 10)}...`;
               }
+
+              let randomAnimateSpeed = Math.floor(Math.random() * 5) + 1;
+              
               return (
-              <div className={`entity-index-item animated fadeInUp speed-${album.id%6+1}`} key={album.id}>
+              <div className={`entity-index-item animated fadeInUp speed-${randomAnimateSpeed}`} key={album.id}>
                 <div className='entity-index-item-hide'
                   onMouseOver={() => this.hideSwitch('show', album.id)}
                   onMouseOut={() => this.hideSwitch('hide', album.id)}>

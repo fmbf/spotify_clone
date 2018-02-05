@@ -13,13 +13,14 @@ class albumProfile extends React.Component {
     this.modalToggle = this.modalToggle.bind(this);
     this.state = {
       clickedNewPlaylist: false,
-      album: {}
+      // album: {}
     };
   }
 
   componentDidMount() {
-    this.props.fetchAlbum(this.props.match.params.albumId)
-      .then(serverAlbum => this.setState(this.state.album = serverAlbum));
+    if (!this.props.albums[this.props.match.params.albumId]){
+      this.props.fetchAlbum(this.props.match.params.albumId);
+    }
   }
 
   modalToggle() {
@@ -30,12 +31,14 @@ class albumProfile extends React.Component {
     let randomTime = () => Math.floor(Math.random()*49 + 10).toString();
 
 
-    if(!this.params || !this.params.album) {
+    if(!this.props || !this.props.album) {
       return null;
     }
-    this.profilePic = this.params.album[this.props.match.params.albumId].img_path;
-    this.profileTitle = this.params.album[this.props.match.params.albumId].title;
-    this.profileAuthor = this.params.album[this.props.match.params.albumId].artist;
+
+    this.profilePic = this.props.album.img_path;
+    this.profileTitle = this.props.album.title;
+    this.profileAuthor = this.props.album.artist;
+    debugger
 
     return (
       <div>
@@ -76,6 +79,11 @@ class albumProfile extends React.Component {
 
           <span className='song-list-fields'><h3>TITLE</h3><h3>ARTIST</h3><h3>ALBUM</h3></span>
           <ul className='song-list'>
+
+            this.props.album.songs.map(song => {
+              <li><a>TEST | 4:49</a></li>
+            })
+
             <li><a>Cut To Black | 4:49</a></li>
             <li><a>Closer | 4:{randomTime()}</a></li>
             <li><a>Continuum | 4:{randomTime()}</a></li>

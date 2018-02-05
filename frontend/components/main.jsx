@@ -40,11 +40,15 @@ const main = () => (
         <main id="browse-parent">
           <div id='browse-content'>
             <Switch>
+              <ProtectedRoute exact path="/library/artists/:artistId/albums"
+                              component={albumIndexContainer}
+              />
+
               <ProtectedRoute exact path="/library/artists"
                               component={artistsIndexContainer}
               />
 
-            <ProtectedRoute exact path="/library/albums"
+              <ProtectedRoute exact path="/library/albums"
                               component={albumIndexContainer}
               />
 

@@ -20,6 +20,9 @@ span, article, footer, time, small {
   box-sizing: inherit;
   background: transparent;
   scroll-behavior: smooth;
+
+  -webkit-appearance: none;
+
   -moz-transition: all .3s ease-in;
   -o-transition: all .3s ease-in;
   -webkit-transition: all .3s ease-in;
