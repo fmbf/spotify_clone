@@ -4,12 +4,6 @@ class Api::AlbumsController < ApplicationController
   end
 
 
-
-  # 
-  # def index_by_artist
-  #   @albums = Album.where('artist_id = ?', params[:id])
-  # end
-
   def song_index
     @songs = Song.where('album_id = ?', params[:id])
   end
