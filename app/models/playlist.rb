@@ -9,6 +9,8 @@ class Playlist < ApplicationRecord
   foreign_key: :author_id,
   class_name: :User
 
+  # has_many :songs
+
   private
   def ensure_img
     self.img_path ||= "https://picsum.photos/200/200/?image=#{rand(100)}"

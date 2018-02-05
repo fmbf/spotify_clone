@@ -3,6 +3,7 @@ class Album < ApplicationRecord
   after_initialize :ensure_img
 
   belongs_to :artist
+  has_many :songs
 
   private
   def ensure_img
