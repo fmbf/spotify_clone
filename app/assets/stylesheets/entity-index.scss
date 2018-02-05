@@ -23,22 +23,30 @@
   flex-direction: column;
   position: relative;
 }
+.entity-index-item {
+
+}
 
 .entity-index-item-img {
   height: 80px;
   width: 80px;
   margin: 5px;
-  border: 1px solid #ddd;
+  // border: 1px solid #ddd;
+  border: 1px solid #fff;
   border-radius: 800px;
-  transition: border-color 0.5s ease;
-  transition: background-color 0.5s ease;
-  transition: opacity 0.5s ease;
+  // transition: border-color 0.5s ease;
+  // transition: background-color 0.5s ease;
+  // -webkit-backface-visibility: hidden; // fix wiggle
+  // -webkit-transform: translateZ(0) scale(1.0, 1.0);
+  // transform: translateZ(0);
 
 }
 
 .entity-index-item-img:hover {
   // border-color: #1bc156;
   // opacity: 0.5;
+  // transition: filter .4s ease;
+  // filter: blur(2px);
 }
 
 .index-img-big {
@@ -105,7 +113,9 @@
   width: 99px;
   margin-left: 56px;
   margin-top: -1px;
+  transition: opacity
   i {
     // margin-left: 100px;
   }
+  transition: opacity .9s ease;
 }

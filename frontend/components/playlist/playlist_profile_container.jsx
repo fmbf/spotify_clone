@@ -4,7 +4,7 @@ import playlistProfile from './playlist_profile';
 import { fetchPlaylist } from '../../actions/playlists_actions';
 import { logout } from '../../actions/session_actions';
 
-let path = "/library/playlists/:playlistId";
+// let path = "/library/playlists/:playlistId";
 
 const mapStateToProps = (state, ownProps) => ({
   songs: [1, 2, 3, 4, 5, 6, 7],

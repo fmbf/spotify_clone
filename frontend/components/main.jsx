@@ -15,7 +15,6 @@ import PlayerMain from './main_player';
 import SidebarContainer from './sidebar_container';
 //--------------------------------------------------//
 
-import welcomeComponent from './welcome';
 import SessionFormContainer from './session_form/session_form_container';
 
 import playlistProfileContainer from './playlist/playlist_profile_container';
@@ -24,7 +23,7 @@ import albumProfileContainer from './albums/album_profile_container';
 import entityIndexContainer from './entity_index_container';
 import artistsIndexContainer from './artists_index_container';
 
-const App = () => (
+const main = () => (
   <div>
     <div id="full-browser-window">
 
@@ -40,13 +39,23 @@ const App = () => (
         <main id="browse-parent">
           <div id='browse-content'>
             <Switch>
-              <ProtectedRoute exact path="/library/artists" component={artistsIndexContainer}/>
-              <ProtectedRoute exact path="/library/artists/:artistId" component={playlistProfileContainer}/>
-              <ProtectedRoute exact path="/library/playlists" component={playlistProfileContainer}/>
-              <ProtectedRoute exact path="/library/playlists/:playlistId" component={playlistProfileContainer}/>
-              <AuthRoute exact path="/login" component={SessionFormContainer} />
-              <AuthRoute exact path="/signup" component={SessionFormContainer} />
-              <AuthRoute path="/welcome" component={welcomeComponent}/>
+              <ProtectedRoute exact path="/library/artists"
+                              component={artistsIndexContainer}
+              />
+
+              <ProtectedRoute exact path="/library/albums/:albumId"
+                              component={albumProfileContainer}
+              />
+
+              <ProtectedRoute exact path="/library/playlists"
+                              component={playlistProfileContainer}
+              />
+
+
+              <ProtectedRoute exact path="/library/playlists/:playlistId"
+                              component={playlistProfileContainer}
+              />
+
             </Switch>
           </div>
         </main>
@@ -59,4 +68,4 @@ const App = () => (
   </div>
 );
 
-export default App;
+export default main;

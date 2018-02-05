@@ -9,6 +9,7 @@ import {
   updatePlaylist, deletePlaylist
 } from './actions/playlists_actions';
 
+import { fetchAlbum } from './actions/albums_actions';
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -34,6 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.dispatch = store.dispatch;
     window.logout = () => store.dispatch(logout());
     window.fetchPlaylists = (userId) => store.dispatch(fetchPlaylists(userId));
+    window.fetchAlbum = (albumId) => store.dispatch(fetchAlbum(albumId));
     window.createPlaylist = (playlist) => store.dispatch(createPlaylist(playlist));
     window.updatePlaylist = (playlist) => store.dispatch(updatePlaylist(playlist));
     window.deletePlaylist = (playlistId) => store.dispatch(deletePlaylist(playlistId));

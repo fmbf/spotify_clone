@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link, withRouter, Redirect } from 'react-router-dom';
-import UserSessionNavContainer from './user_session_nav/user_session_nav_container';
+import UserSessionNavContainer from '../user_session_nav/user_session_nav_container';
 
-class artistsIndex extends React.Component {
+class albumsIndex extends React.Component {
   constructor(props) {
     super(props);
     this.currentUser = this.props.currentUser;
@@ -11,7 +11,7 @@ class artistsIndex extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchArtists(this.currentUser.id);
+    this.props.fetchAlbums(this.currentUser.id);
   }
 
   componentWillReceiveProps(newProps){
@@ -34,18 +34,15 @@ class artistsIndex extends React.Component {
       playButton.style.opacity = '1.0';
       img.style.borderColor = '#1bc156';
       img.style.opacity = '0.5';
-      // img.style.filter = 'blur(3px);';
     } else {
       playButton.style.opacity = '0.0';
-      // img.style.borderColor = '#ddd';
-      img.style.borderColor = '#fff';
+      img.style.borderColor = '#ddd';
       img.style.opacity = '1.0';
-      // img.style.filter = 'blur(0px);';
     }
   }
 
   render() {
-    if (!this.props.artists) {
+    if (!this.props.albums) {
       return null;
     }
 
@@ -65,28 +62,28 @@ class artistsIndex extends React.Component {
         <br/>
         <ul className='entity-index'>
           {
-            this.props.artists.map(artist => {
+            this.props.albums.map(album => {
 
-              let abbreviatedTitle = artist.name;
+              let abbreviatedTitle = album.name;
               if (abbreviatedTitle && abbreviatedTitle.length > 14) {
                 abbreviatedTitle = `${abbreviatedTitle.slice(0, 10)}...`;
               }
               return (
-              <div className={`entity-index-item animated fadeInUp speed-${artist.id%6+1}`} key={artist.id}>
+              <div className={`entity-index-item animated fadeInUp speed-${album.id%6+1}`} key={album.id}>
                 <div className='entity-index-item-hide'
-                  onMouseOver={() => this.hideSwitch('show', artist.id)}
-                  onMouseOut={() => this.hideSwitch('hide', artist.id)}>
+                  onMouseOver={() => this.hideSwitch('show', album.id)}
+                  onMouseOut={() => this.hideSwitch('hide', album.id)}>
 
-                  <button className='playlist-ball-play-button-big' onClick={() => this.playBubble(artist.id)}>
-                    <i className="fa fa-play-circle fa-3x hidden" id={`hidden-${artist.id}`}></i>
+                  <button className='playlist-ball-play-button-big' onClick={() => this.playBubble(album.id)}>
+                    <i className="fa fa-play-circle fa-3x hidden" id={`hidden-${album.id}`}></i>
                   </button>
 
                   <img className='entity-index-item-img index-img-big'
-                       src={artist.img_path} id={artist.id}
+                       src={album.img_path} id={album.id}
                   />
                 </div>
 
-                <Link to={`/library/artists/${artist.id}`} className='entity-index-item-title'>
+                <Link to={`/library/albums/${album.id}`} className='entity-index-item-title'>
                   <h3>{abbreviatedTitle}</h3>
                 </Link>
 
@@ -104,4 +101,4 @@ class artistsIndex extends React.Component {
 }
 
 
-export default artistsIndex;
+export default albumsIndex;

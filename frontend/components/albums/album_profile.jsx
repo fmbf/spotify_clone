@@ -5,43 +5,39 @@ import EntityIndexContainer from '../entity_index_container';
 import UserSessionNavContainer from '../user_session_nav/user_session_nav_container';
 
 
-
-class playlistProfile extends React.Component {
+class albumProfile extends React.Component {
   constructor(props) {
     super(props);
     this.currentUser = this.props.currentUser;
-    this.logout = this.logout.bind(this);
 
     this.modalToggle = this.modalToggle.bind(this);
-    this.state = {clickedNewPlaylist: false};
+    this.state = {
+      clickedNewPlaylist: false,
+      album: {}
+    };
   }
 
-
   componentDidMount() {
-    this.playlist = this.props.playlists[this.props.match.params.playlistId];
+    this.props.fetchAlbum(this.props.match.params.albumId)
+      .then(serverAlbum => this.setState(this.state.album = serverAlbum));
   }
 
   modalToggle() {
     this.setState({clickedNewPlaylist: !this.state.clickedNewPlaylist});
   }
 
-
-  logout() {
-    this.props.logout();
-  }
-
   render() {
     let randomTime = () => Math.floor(Math.random()*49 + 10).toString();
 
-    if (this.props.playlists[this.props.match.params.playlistId]) {
-      this.profilePic = this.props.playlists[this.props.match.params.playlistId].img_path;
-      this.profileTitle = this.props.playlists[this.props.match.params.playlistId].title;
-      this.profileDescription = this.props.playlists[this.props.match.params.playlistId].description;
-      this.profileAuthor = this.props.playlists[this.props.match.params.playlistId].author;
+
+    if(!this.params || !this.params.album) {
+      return null;
     }
+    this.profilePic = this.params.album[this.props.match.params.albumId].img_path;
+    this.profileTitle = this.params.album[this.props.match.params.albumId].title;
+    this.profileAuthor = this.params.album[this.props.match.params.albumId].artist;
 
     return (
-
       <div>
         <div className="main-window main">
           <header id='main-header'>
@@ -96,19 +92,14 @@ class playlistProfile extends React.Component {
         <br/>
 
         <EntityIndexContainer/>
-
-
-        {/*<PlaylistModalContainer formType='create' open={this.state.clickedNewPlaylist} modalToggle={this.modalToggle}/>*/}
-
-
-
-
       </div>
     );
+
+
 
   }
 
 
 }
 
-export default withRouter(playlistProfile);
+export default withRouter(albumProfile);

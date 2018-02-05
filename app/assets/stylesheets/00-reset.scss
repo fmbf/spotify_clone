@@ -20,6 +20,10 @@ span, article, footer, time, small {
   box-sizing: inherit;
   background: transparent;
   scroll-behavior: smooth;
+  -moz-transition: all .3s ease-in;
+  -o-transition: all .3s ease-in;
+  -webkit-transition: all .3s ease-in;
+  transition: all .3s ease-in;
 }
 
 
@@ -80,7 +84,7 @@ li {
   flex: 1;
   margin-bottom: 136px; //80 from player + margin
   margin-top: 50px; //80 from header + margin
-
+  overflow-x:hidden;
 }
 #browse-content{
   max-height: 100%;
@@ -88,6 +92,7 @@ li {
 
   // margin-bottom: 136px; //80 from player + margin
   margin-right: 70px;
+  overflow-x:hidden;
 }
 
 /*------------------PLAYER----------------*/
@@ -104,22 +109,49 @@ li {
 
 
 /*------------------HEADER----------------*/
+// #main-header {
+//
+//   display: flex;
+//   justify-content: space-between;
+//   z-index: 2;
+//   position: fixed;
+//
+//   min-width: 100%;
+//   min-height: 40px;
+//
+//   top: 0; /* Stay at the top */
+//   left: 187px;
+//   background: #fff;
+//
+//   // background-color: red;
+//   border-bottom: 1px solid #a0a0a0;
+// }
+
 #main-header {
 
   display: flex;
   justify-content: space-between;
-  z-index: 2;
+  z-index: 7;
   position: fixed;
 
-  min-width: 100%;
-  min-height: 40px;
+  align-items: center;
+  // padding: 5px;
 
-  top: 0; /* Stay at the top */
+  top: 0;
   left: 187px;
-  background: #fff;
+  background-color: rgba(255,255,255, 0.6);
 
-  // background-color: red;
-  border-bottom: 1px solid #a0a0a0;
+  // border-bottom: 1px solid #eee;
+
+  min-width: 100%;
+  height: 40px;
+  //   background: #fff;
+  // filter: blur(5px);
+
+  -webkit-box-shadow: 0px 15px 100px 0px rgba(250, 250, 250, 0.4);  /* Safari 3-4, iOS 4.0.2 - 4.2 Android 2.3+ */
+  -moz-box-shadow:    0px 15px 100px 0px rgba(250, 250, 250, 0.4);  /* Firefox 3.5 - 3.6 */
+  box-shadow:         0px 15px 100px 0px rgba(250, 250, 250, 0.4);  /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
+
 }
 
 #header-search-parent{
@@ -134,6 +166,8 @@ li {
 
   border: 1px solid #a0a0a0;
   border-radius: 800px;
+  background: #fff;
+
 
   .fa-search {
     color: #535353;
