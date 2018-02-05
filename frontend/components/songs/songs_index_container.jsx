@@ -3,12 +3,15 @@ import songsIndex from './songs_index';
 
 
 
-const mapStateToProps = (state, ownProps) => ({
-  // songs: state.entities.songs[ownProps.match.params.albumId],
-  // album: state.entities.albums[ownProps.match.params.albumId],
-  // albums: Object.values(state.entities.albums),
-  currentUser: state.session.currentUser
-});
+const mapStateToProps = (state, ownProps) => {
+  debugger
+  return {
+    songs: Object.values(state.entities.songs).filter(song => song.album_id === parseInt(ownProps.album.id)),
+    album: ownProps.album,
+    // albums: Object.values(state.entities.albums),
+    currentUser: state.session.currentUser
+  };
+};
 
 
 const mapDispatchToProps = (dispatch, ownProps) => ({

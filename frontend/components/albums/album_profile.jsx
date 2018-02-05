@@ -12,11 +12,11 @@ class albumProfile extends React.Component {
     super(props);
     this.currentUser = this.props.currentUser;
 
-    this.state = {
-      clickedNewPlaylist: false,
-      album: this.props.album,
-      songs: this.props.songs
-    };
+    // this.state = {
+    //   clickedNewPlaylist: false,
+    //   album: this.props.album,
+    //   songs: this.props.songs
+    // };
   }
 
   componentDidMount() {
@@ -25,17 +25,20 @@ class albumProfile extends React.Component {
 
     this.props.fetchAlbumSongs(this.props.match.params.albumId);
       // .then(newSongs => this.setState({songs: newSongs}));
+    // debugger
   }
 
-  // componentWillReceiveProps(newProps) {
-  //   if(this.props.match.location !== newProps.match.location) {
-  //     this.props.fetchAlbum(newProps.match.params.albumId)
-  //       .then(newAlbum => this.setState({album: newAlbum}));
-  //
-  //     this.props.fetchAlbumSongs(newProps.match.params.albumId)
-  //       .then(newSongs => this.setState({songs: newSongs}));
-  //   }
-  // }
+
+
+  componentWillReceiveProps(newProps) {
+    if(this.props.match.params.albumId !== newProps.match.params.albumId) {
+      this.props.fetchAlbum(newProps.match.params.albumId);
+        // .then(newAlbum => this.setState({album: newAlbum}));
+
+      this.props.fetchAlbumSongs(newProps.match.params.albumId);
+        // .then(newSongs => this.setState({songs: newSongs}));
+    }
+  }
 
 
   render() {
@@ -46,6 +49,7 @@ class albumProfile extends React.Component {
     if (!this.props.songs) {
       this.songs = [];
     } else {
+      // debugger
       this.songs = this.props.songs;
     }
 
@@ -92,7 +96,7 @@ class albumProfile extends React.Component {
 
           <span className='song-list-fields'><h3>TITLE</h3><h3>ARTIST</h3><h3>ALBUM</h3></span>
 
-          <SongsIndexContainer album={this.props.album} songs={this.songs}/>
+          <SongsIndexContainer album={this.props.album} songs={this.props.songs}/>
 
         </div>
 

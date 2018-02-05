@@ -14,6 +14,12 @@ export const receiveAlbum = album => ({
   album
 });
 
+// export const receiveAlbum = data => ({
+//   type: RECEIVE_ALBUM,
+//   album: data.album,
+//   songs: data.songs
+// });
+
 export const fetchUserAlbums = (userId) => dispatch => (
   AlbumApiUtil.fetchUserAlbums(userId)
     .then(serverAlbums => dispatch(receiveAlbums(serverAlbums)))
@@ -24,7 +30,7 @@ export const fetchArtistAlbums = (artistId) => dispatch => (
     .then(serverAlbums => dispatch(receiveAlbums(serverAlbums)))
 );
 
-export const fetchAlbum = id => dispatch => (
-  AlbumApiUtil.fetchAlbum(id)
-    .then(serverAlbum => dispatch(receiveAlbum(serverAlbum)))
-);
+export const fetchAlbum = id => dispatch => {
+  return AlbumApiUtil.fetchAlbum(id)
+    .then(serverAlbum => dispatch(receiveAlbum(serverAlbum)));
+};

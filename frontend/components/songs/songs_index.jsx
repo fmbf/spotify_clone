@@ -10,16 +10,17 @@ class songsIndex extends React.Component {
   }
 
   render() {
-    if (!this.songs) {
+    if (!this.props.songs) {
+
       return [];
     }
 
     return (
       <ul className='song-list'>
         {
-          this.songs.map(albumSong => (
+          this.props.songs.map(albumSong => (
             <li key={albumSong.id}>
-              <a>albumSong.title | 4:00</a>
+              <a>{albumSong.title} | 4:00</a>
             </li>
           ))
         }
