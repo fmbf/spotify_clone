@@ -15,12 +15,12 @@ export const receiveAlbum = album => ({
 });
 
 export const fetchUserAlbums = (userId) => dispatch => (
-  AlbumApiUtil.fetchArtists(userId)
+  AlbumApiUtil.fetchUserAlbums(userId)
     .then(serverArtists => dispatch(receiveAlbums(serverArtists)))
 );
 
 export const fetchArtistAlbums = (artistId) => dispatch => (
-  AlbumApiUtil.fetchArtists(artistId)
+  AlbumApiUtil.fetchArtistAlbums(artistId)
     .then(serverArtists => dispatch(receiveAlbums(serverArtists)))
 );
 

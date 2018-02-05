@@ -18,6 +18,8 @@ class Sidebar extends React.Component {
   componentDidMount() {
     this.props.fetchPlaylists(this.currentUser.id);
     this.props.fetchArtists(this.currentUser.id);
+    // this.props.fetchUserAlbums(this.currentUser.id);
+    this.props.fetchArtistAlbums(this.currentUser.id);
   }
 
   modalToggle() {
@@ -33,7 +35,7 @@ class Sidebar extends React.Component {
           <ul>
             <a href="/#/library/playlists"><h3 className='sidebar-library-items'>Songs</h3></a>
             <a href="/#/library/artists"><h3 className='sidebar-library-items'>Artists</h3></a>
-            <a href="/#/library/playlists"><h3 className='sidebar-library-items'>Albums</h3></a>
+            <a href="/#/library/albums"><h3 className='sidebar-library-items'>Albums</h3></a>
           </ul>
 
           <br/>

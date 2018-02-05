@@ -11,7 +11,8 @@ class albumsIndex extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchAlbums(this.currentUser.id);
+    this.props.fetchUserAlbums(this.currentUser.id);
+    // this.props.fetchArtistAlbums(this.currentUser.id);
   }
 
   componentWillReceiveProps(newProps){

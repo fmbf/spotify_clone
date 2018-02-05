@@ -22,6 +22,7 @@ import albumProfileContainer from './albums/album_profile_container';
 
 import entityIndexContainer from './entity_index_container';
 import artistsIndexContainer from './artists_index_container';
+import albumIndexContainer from './albums/album_index_container';
 
 const main = () => (
   <div>
@@ -41,6 +42,10 @@ const main = () => (
             <Switch>
               <ProtectedRoute exact path="/library/artists"
                               component={artistsIndexContainer}
+              />
+
+            <ProtectedRoute exact path="/library/albums"
+                              component={albumIndexContainer}
               />
 
               <ProtectedRoute exact path="/library/albums/:albumId"
