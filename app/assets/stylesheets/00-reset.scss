@@ -118,7 +118,39 @@ li {
   left: 187px;
   background: #fff;
 
-  padding: 5px;
+  // background-color: red;
+  border-bottom: 1px solid #a0a0a0;
+}
+
+#header-search-parent{
+  display: flex;
+  align-items: center;
+  height: 24px;
+  margin: 8px;
+  margin-left: 30px;
+  // padding: 2px;
+  padding-left: 8px;
+
+  border: 1px solid #a0a0a0;
+  border-radius: 800px;
+
+  .fa-search {
+    color: #535353;
+  }
+}
+
+
+#header-search {
+  height: 18px;
+  width: 126px;
+  padding: 0px;
+  margin: 0;
+  margin-left: 6px;
+  border: 0;
+  // padding-left: 4px;
+  font-size: 12px;
+
+  // border-radius: 800px;
 }
 
 // .widget {

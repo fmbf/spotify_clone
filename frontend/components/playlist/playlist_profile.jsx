@@ -53,12 +53,14 @@ class playlistProfile extends React.Component {
       <div>
         <div className="main-window main">
           <header id='main-header'>
-            <div className='header-search-parent'>
-              SEARCH
+            <div id='header-search-parent'>
+              <i className="fas fa-search fa-sm"></i>
+              <input type='search' placeholder=" search" className="login-input" id='header-search'/>
             </div>
 
             <UserSessionNavContainer/>
           </header>
+          
           <header className="profile-header">
 
             <div id='profile-pic-div'>
