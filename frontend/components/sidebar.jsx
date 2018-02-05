@@ -29,11 +29,11 @@ class Sidebar extends React.Component {
       <div className="sidenav">
         <div className="sidenav-content">
 
-          <a className='sidebar-title'>YOUR LIBRARY</a>
+          <a className='sidebar-title' >YOUR LIBRARY</a>
           <ul>
-            <a href="/#/library/playlists"><h3>Songs</h3></a>
-            <a href="/#/library/artists"><h3>Artists</h3></a>
-            <a href="/#/library/playlists"><h3>Albums</h3></a>
+            <a href="/#/library/playlists"><h3 className='sidebar-library-items'>Songs</h3></a>
+            <a href="/#/library/artists"><h3 className='sidebar-library-items'>Artists</h3></a>
+            <a href="/#/library/playlists"><h3 className='sidebar-library-items'>Albums</h3></a>
           </ul>
 
           <br/>
