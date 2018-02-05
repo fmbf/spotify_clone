@@ -21,6 +21,10 @@ class albumProfile extends React.Component {
     if (!this.props.albums[this.props.match.params.albumId]){
       this.props.fetchAlbum(this.props.match.params.albumId);
     }
+
+
+    this.props.fetchAlbumSongs(this.props.match.params.albumId);
+
   }
 
   modalToggle() {
@@ -31,7 +35,7 @@ class albumProfile extends React.Component {
     let randomTime = () => Math.floor(Math.random()*49 + 10).toString();
 
 
-    if(!this.props || !this.props.album) {
+    if(!this.props || !this.props.album || !this.props.songs) {
       return null;
     }
 
@@ -80,9 +84,6 @@ class albumProfile extends React.Component {
           <span className='song-list-fields'><h3>TITLE</h3><h3>ARTIST</h3><h3>ALBUM</h3></span>
           <ul className='song-list'>
 
-            this.props.album.songs.map(song => {
-              <li><a>TEST | 4:49</a></li>
-            })
 
             <li><a>Cut To Black | 4:49</a></li>
             <li><a>Closer | 4:{randomTime()}</a></li>

@@ -19,8 +19,13 @@ export const fetchUserSongs = (userId) => dispatch => (
     .then(serverSongs => dispatch(receiveSongs(serverSongs)))
 );
 
-export const fetchSongSongs = (artistId) => dispatch => (
-  SongApiUtil.fetchSongSongs(artistId)
+export const fetchArtistSongs = (artistId) => dispatch => (
+  SongApiUtil.fetchArtistSongs(artistId)
+    .then(serverSongs => dispatch(receiveSongs(serverSongs)))
+);
+
+export const fetchAlbumSongs = (albumId) => dispatch => (
+  SongApiUtil.fetchAlbumSongs(albumId)
     .then(serverSongs => dispatch(receiveSongs(serverSongs)))
 );
 
