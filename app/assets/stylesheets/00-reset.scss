@@ -79,6 +79,7 @@ li {
   // border: 2px solid red;
   flex: 1;
   margin-bottom: 136px; //80 from player + margin
+  margin-top: 50px; //80 from header + margin
 
 }
 #browse-content{
@@ -100,6 +101,49 @@ li {
   // left: 0;
   // height: 80px;
 }
+
+
+/*------------------HEADER----------------*/
+#main-header {
+
+  display: flex;
+  justify-content: space-between;
+  z-index: 2;
+  position: fixed;
+
+  min-width: 100%;
+  min-height: 40px;
+
+  top: 0; /* Stay at the top */
+  left: 187px;
+  background: #fff;
+
+  padding: 5px;
+}
+
+// .widget {
+//   border-top: 2px solid rgba(255, 255, 255, .5);
+//   border-bottom: 2px solid rgba(255, 255, 255, .5);
+//   height: 200px;
+//   width: 100%;
+//   overflow: hidden;
+// }
+//
+// .blur {
+//   z-index: -1;
+//   position: fixed;
+//   margin-top: -10px;
+//   min-width: 100%;
+//   min-height: 40px;
+//   // margin-left: 50%;
+//
+//   top: 0; /* Stay at the top */
+//   left: 187px;
+//
+//   // background-color: #282828;
+//   background-color: #000;
+//   filter: blur(13px);
+// }
 /*=======================================================*/
 
 //

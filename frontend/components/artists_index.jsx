@@ -49,7 +49,13 @@ class artistsIndex extends React.Component {
     return (
       <section className='entity-index-container'>
 
-        <UserSessionNavContainer/>
+        <header id='main-header'>
+          <div className='header-search-parent'>
+            SEARCH
+          </div>
+          
+          <UserSessionNavContainer/>
+        </header>
 
         <h1>Artists</h1>
         <br/>

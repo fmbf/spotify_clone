@@ -64,6 +64,7 @@ Artist.create(name: 'Adele', img_path: 'http://cdn.beggars.com.s3-eu-west-1.amaz
 Artist.create(name: 'Beyonce', img_path: 'https://i.scdn.co/image/673cd94546df0536954198867516fee18cee1605')
 Artist.create(name: 'Bruno Mars', img_path: 'https://i.scdn.co/image/aa32d6d4ca2467974403518dd3ebfe8831c5ced1')
 Artist.create(name: 'Daft Punk', img_path: 'https://yt3.ggpht.com/a-/AK162_4YZ0GmJIn1KfAHHs_XUxuZbfFWHxkdb6nl9w=s900-mo-c-c0xffffffff-rj-k-no')
+Artist.create(name: 'Dillon Francis', img_path: 'https://i.scdn.co/image/1dfa207083157e1cd10767bd6e80e0dbcbb4609e')
 Artist.create(name: 'Drake', img_path: 'https://i.scdn.co/image/cb080366dc8af1fe4dc90c4b9959794794884c66')
 Artist.create(name: 'Ed Sheeran', img_path: 'https://images.shazam.com/artistart/a40769350_s400.jpg')
 Artist.create(name: 'French Montana', img_path: 'https://upload.wikimedia.org/wikipedia/commons/e/e9/FM_PRESS03-A.png')
