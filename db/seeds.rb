@@ -116,7 +116,7 @@ Album.create(title: 'Starboy', artist_id: 18, img_path: 'https://upload.wikimedi
 Album.create(title: '21', artist_id: 1, img_path: 'https://upload.wikimedia.org/wikipedia/en/1/1b/Adele_-_21.png')
 Album.create(title: '25', artist_id: 1, img_path: 'https://upload.wikimedia.org/wikipedia/en/9/96/Adele_-_25_%28Official_Album_Cover%29.png')
 
-Album.create(title: 'Beyoncé', artist_id: 2, img_path: 'https://upload.wikimedia.org/wikipedia/commons/2/21/Beyonc%C3%A9_-_Beyonc%C3%A9.svg')
+Album.create(title: 'Beyonce', artist_id: 2, img_path: 'https://upload.wikimedia.org/wikipedia/commons/2/21/Beyonc%C3%A9_-_Beyonc%C3%A9.svg')
 Album.create(title: 'Lemonade', artist_id: 2, img_path: 'https://upload.wikimedia.org/wikipedia/en/5/53/Beyonce_-_Lemonade_%28Official_Album_Cover%29.png')
 
 Album.create(title: 'Unorthodox Jukebox', artist_id: 3, img_path: 'https://upload.wikimedia.org/wikipedia/en/7/77/BrunoMarsUJAlbumCover.png')
