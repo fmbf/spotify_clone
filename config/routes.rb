@@ -22,13 +22,13 @@ Rails.application.routes.draw do
 
     # Search entitites by Artist:
     resources :artists, only: [:show] do
-      resources :albums, only: [:index]
+      resources :albums, only: [:index, :index_by_artist]
       resources :songs, only: [:index]
     end
 
     # Search entitites by Album:
     resources :albums, only: [:show] do
-      resources :songs, only: [:index]
+      resources :songs, only: [:index_by_album]
     end
 
     resources :playlists, only: [:show, :update, :destroy, :create] do
