@@ -4,45 +4,54 @@ import { Link, withRouter, Redirect } from 'react-router-dom';
 import EntityIndexContainer from '../entity_index_container';
 import UserSessionNavContainer from '../user_session_nav/user_session_nav_container';
 
+import SongsIndexContainer from '../songs/songs_index_container';
+
 
 class albumProfile extends React.Component {
   constructor(props) {
     super(props);
     this.currentUser = this.props.currentUser;
 
-    this.modalToggle = this.modalToggle.bind(this);
     this.state = {
       clickedNewPlaylist: false,
-      // album: {}
+      album: this.props.album,
+      songs: this.props.songs
     };
   }
 
   componentDidMount() {
-    if (!this.props.albums[this.props.match.params.albumId]){
-      this.props.fetchAlbum(this.props.match.params.albumId);
-    }
-
+    this.props.fetchAlbum(this.props.match.params.albumId);
+      // .then(newAlbum => this.setState({album: newAlbum}));
 
     this.props.fetchAlbumSongs(this.props.match.params.albumId);
-
+      // .then(newSongs => this.setState({songs: newSongs}));
   }
 
-  modalToggle() {
-    this.setState({clickedNewPlaylist: !this.state.clickedNewPlaylist});
-  }
+  // componentWillReceiveProps(newProps) {
+  //   if(this.props.match.location !== newProps.match.location) {
+  //     this.props.fetchAlbum(newProps.match.params.albumId)
+  //       .then(newAlbum => this.setState({album: newAlbum}));
+  //
+  //     this.props.fetchAlbumSongs(newProps.match.params.albumId)
+  //       .then(newSongs => this.setState({songs: newSongs}));
+  //   }
+  // }
+
 
   render() {
-    let randomTime = () => Math.floor(Math.random()*49 + 10).toString();
-
-
-    if(!this.props || !this.props.album || !this.props.songs) {
+    if(!this.props || !this.props.album) {
       return null;
+    }
+
+    if (!this.props.songs) {
+      this.songs = [];
+    } else {
+      this.songs = this.props.songs;
     }
 
     this.profilePic = this.props.album.img_path;
     this.profileTitle = this.props.album.title;
     this.profileAuthor = this.props.album.artist;
-    debugger
 
     return (
       <div>
@@ -82,20 +91,9 @@ class albumProfile extends React.Component {
           </header>
 
           <span className='song-list-fields'><h3>TITLE</h3><h3>ARTIST</h3><h3>ALBUM</h3></span>
-          <ul className='song-list'>
 
+          <SongsIndexContainer album={this.props.album} songs={this.songs}/>
 
-            <li><a>Cut To Black | 4:49</a></li>
-            <li><a>Closer | 4:{randomTime()}</a></li>
-            <li><a>Continuum | 4:{randomTime()}</a></li>
-            <li><a>Higher | 1:{randomTime()}</a></li>
-            <li><a>Blue Shift | 2:49</a></li>
-            <li><a>Stepping Stone | 4:{randomTime()}</a></li>
-            <li><a>Time To Realize | 3:{randomTime()}</a></li>
-            <li><a>We Got U | 2:49</a></li>
-            <li><a>Last Night On Earth | 4:{randomTime()}</a></li>
-            <li><a>Playing To Lose | 3:{randomTime()}</a></li>
-          </ul>
         </div>
 
         <br/>
@@ -103,9 +101,6 @@ class albumProfile extends React.Component {
         <EntityIndexContainer/>
       </div>
     );
-
-
-
   }
 
 

@@ -10,10 +10,10 @@ import {
 
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
-// MAIN COMPONENTS
+//--------------------MAIN COMPONENTS--------------------//
 import PlayerMain from './main_player';
 import SidebarContainer from './sidebar_container';
-//--------------------------------------------------//
+//-------------------------------------------------------//
 
 import SessionFormContainer from './session_form/session_form_container';
 

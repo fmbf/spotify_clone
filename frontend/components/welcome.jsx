@@ -5,16 +5,9 @@ import { Link, withRouter, Redirect } from 'react-router-dom';
 
 class welcomeComponent extends React.Component {
 
-  // componentWillReceiveProps(newProps){
-  //   if (newProps.location.pathname !== "/welcome" || this.props.location.pathname !== "/welcome"){
-  //     return <Redirect to="/" />;
-  //   }
-  // }
-
   render() {
     return (
       <div>
-        {/*<Redirect to="/welcome" />*/}
         <div className="splash-main">
           {/*<img src={}></img>*/}
           <div className="splash-main-text">

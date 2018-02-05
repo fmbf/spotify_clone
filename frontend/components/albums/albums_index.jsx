@@ -42,7 +42,7 @@ class albumsIndex extends React.Component {
       img.style.opacity = '0.5';
     } else {
       playButton.style.opacity = '0.0';
-      img.style.borderColor = '#ddd';
+      img.style.borderColor = '#fff';
       img.style.opacity = '1.0';
     }
   }
@@ -76,9 +76,9 @@ class albumsIndex extends React.Component {
               }
 
               let randomAnimateSpeed = Math.floor(Math.random() * 5) + 1;
-              
+
               return (
-              <div className={`entity-index-item animated fadeInUp speed-${randomAnimateSpeed}`} key={album.id}>
+              <div className={`entity-index-item animated fadeInLeft speed-${randomAnimateSpeed}`} key={album.id}>
                 <div className='entity-index-item-hide'
                   onMouseOver={() => this.hideSwitch('show', album.id)}
                   onMouseOut={() => this.hideSwitch('hide', album.id)}>

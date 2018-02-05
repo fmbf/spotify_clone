@@ -19,7 +19,7 @@ class Sidebar extends React.Component {
     this.props.fetchPlaylists(this.currentUser.id);
     this.props.fetchArtists(this.currentUser.id);
     // this.props.fetchUserAlbums(this.currentUser.id);
-    this.props.fetchArtistAlbums(this.currentUser.id);
+    // this.props.fetchArtistAlbums(this.currentUser.id);
   }
 
   modalToggle() {
