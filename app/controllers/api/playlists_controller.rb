@@ -43,7 +43,7 @@ class Api::PlaylistsController < ApplicationController
   def destroy
     playlist = Playlist.find_by(id: params[:id])
     playlist.destroy
-    render json: "playlist destroyed, now do something in rails"
+    render json: {}
   end
 
   private

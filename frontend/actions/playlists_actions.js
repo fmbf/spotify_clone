@@ -50,6 +50,5 @@ export const updatePlaylist = playlist => dispatch => (
 
 export const deletePlaylist = playlistId => dispatch => (
   PlaylistApiUtil.deletePlaylist(playlistId)
-    .then(playlist => dispatch(removePlaylist(playlistId)),
-          err =>  dispatch(receiveErrors(err.responseJSON)))
+    .then(playlist => dispatch(removePlaylist(playlistId)))
 );

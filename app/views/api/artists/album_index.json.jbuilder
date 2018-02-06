@@ -1,7 +1,7 @@
 @albums.each do |album|
 
   json.set! album.id do
-    json.extract! album, :id, :title, :img_path
+    json.extract! album, :id, :title, :img_path, :artist_id
 
     # fture stuff
     json.current_user_follows x = true # current_user.folows include? or album.followers.include?(current_user)

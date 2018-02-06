@@ -1,6 +1,7 @@
 import {
   RECEIVE_PLAYLIST_ERRORS,
-  RECEIVE_PLAYLIST
+  RECEIVE_PLAYLIST,
+  REMOVE_PLAYLIST
 } from '../actions/playlists_actions';
 
 
@@ -13,6 +14,9 @@ const playlistErrorsReducer = (state = [], action) => {
       return action.errors;
 
     case RECEIVE_PLAYLIST:
+      return [];
+
+    case REMOVE_PLAYLIST:
       return [];
 
     default:

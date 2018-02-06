@@ -13,13 +13,13 @@ class entityIndex extends React.Component {
     this.props.fetchPlaylists(this.currentUser.id);
   }
 
-  componentWillReceiveProps(newProps){
-    if (newProps && newProps.location) {
-      if (newProps.location.pathname !== this.props.location.pathname){
-        {/*return window.scrollTo(0, 0);*/}
-      }
-    }
-  }
+  // componentWillReceiveProps(newProps){
+  //   if (newProps && newProps.match) {
+  //     if (newProps.match.params.playlistId !== this.props.match.params.playlistId){
+  //       window.scrollTo(0, 0);
+  //     }
+  //   }
+  // }
 
   playBubble(playlistId){
     console.log(`now playing playlist ${playlistId}`);

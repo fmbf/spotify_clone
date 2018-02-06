@@ -90,12 +90,12 @@ class artistsIndex extends React.Component {
                 </div>
 
                 <Link to={`/library/artists/${artist.id}/albums`} className='entity-index-item-title'>
-                  <h3>{abbreviatedTitle}</h3>
+                  <h3 className='bubble-title'>{abbreviatedTitle}</h3>
                 </Link>
 
-                <h3 className='entity-index-item-followcount'>
+                {/*<h3 className='entity-index-item-followcount'>
                   {Math.floor(Math.random()*10000)} Followers
-                </h3>
+                </h3>*/}
               </div>
               );
             })

@@ -11,6 +11,7 @@ class playlistProfile extends React.Component {
     super(props);
     this.currentUser = this.props.currentUser;
     this.logout = this.logout.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
 
     this.modalToggle = this.modalToggle.bind(this);
     this.state = {clickedNewPlaylist: false};
@@ -20,6 +21,20 @@ class playlistProfile extends React.Component {
   componentDidMount() {
     this.playlist = this.props.playlists[this.props.match.params.playlistId];
   }
+
+  // componentWillReceiveProps(newProps){
+  //   if (newProps && newProps.match) {
+  //     if (newProps.match.params.playlistId !== this.props.match.params.playlistId){
+  //       window.scrollTo(0, 0);
+  //     }
+  //   }
+  // }
+  handleDelete() {
+    const playlist = this.props.playlists[this.props.match.params.playlistId];
+    this.props.deletePlaylist(playlist.id).then(() => this.props.history.push('/library/artists'));
+
+  }
+
 
   modalToggle() {
     this.setState({clickedNewPlaylist: !this.state.clickedNewPlaylist});
@@ -70,7 +85,11 @@ class playlistProfile extends React.Component {
               <div className="profile-button-box">
                 <button className='button-green'>PLAY</button>
                 <button className='button-mono'>SAVE</button>
-                <button className='button-mono header-button-more'>+</button>
+
+                <button className='button-mono header-button-more'
+                        onClick={() => this.handleDelete()} >
+                  +
+                </button>
               </div>
 
             </div>

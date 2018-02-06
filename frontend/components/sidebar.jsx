@@ -18,9 +18,25 @@ class Sidebar extends React.Component {
   componentDidMount() {
     this.props.fetchPlaylists(this.currentUser.id);
     this.props.fetchArtists(this.currentUser.id);
+    this.props.fetchArtistAlbums(this.currentUser.id);
+
     // this.props.fetchUserAlbums(this.currentUser.id);
-    // this.props.fetchArtistAlbums(this.currentUser.id);
+
+
+
+    // TEMP: ///////////////////////////////
+    this.props.userAlbums.forEach(album => (
+      this.props.fetchAlbum(album)
+    ));
+    this.props.userSongs.forEach(song => (
+      this.props.fetchSong(song)
+    ));
+    // TEMP: ///////////////////////////////
+
   }
+
+  // componentWillReceiveProps(newProps) {
+  // }
 
   modalToggle() {
     this.setState({clickedNewPlaylist: !this.state.clickedNewPlaylist});

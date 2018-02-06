@@ -12,7 +12,8 @@ class albumsIndex extends React.Component {
 
   componentDidMount() {
     if (this.props.match.path === '/library/albums') {
-      this.props.fetchUserAlbums(this.currentUser.id);
+      // this.props.fetchUserAlbums(this.currentUser.id);
+      this.props.fetchArtistAlbums(this.currentUser.id);
     }
     // debugger
     if (this.props.match.path === '/library/artists/:artistId/albums') {
@@ -52,6 +53,12 @@ class albumsIndex extends React.Component {
       return null;
     }
 
+    let albumArray = this.props.userAlbums;
+
+    if (this.props.match.params.artistId) {
+      albumArray = this.props.albums;
+    }
+    // debugger
     return (
       <section className='entity-index-container'>
 
@@ -68,7 +75,7 @@ class albumsIndex extends React.Component {
         <br/>
         <ul className='entity-index'>
           {
-            this.props.albums.map(album => {
+            albumArray.map(album => {
 
               let abbreviatedTitle = album.title;
               if (abbreviatedTitle && abbreviatedTitle.length > 14) {
@@ -78,7 +85,7 @@ class albumsIndex extends React.Component {
               let randomAnimateSpeed = Math.floor(Math.random() * 5) + 1;
 
               return (
-              <div className={`entity-index-item animated fadeInLeft speed-${randomAnimateSpeed}`} key={album.id}>
+              <div className={`entity-index-item animated fadeInDown`} key={album.id}> {/*speed-${randomAnimateSpeed}*/}
                 <div className='entity-index-item-hide'
                   onMouseOver={() => this.hideSwitch('show', album.id)}
                   onMouseOut={() => this.hideSwitch('hide', album.id)}>
@@ -93,7 +100,7 @@ class albumsIndex extends React.Component {
                 </div>
 
                 <Link to={`/library/albums/${album.id}`} className='entity-index-item-title'>
-                  <h3>{abbreviatedTitle}</h3>
+                  <h3 className='bubble-title'>{abbreviatedTitle}</h3>
                 </Link>
 
                 <h3 className='entity-index-item-followcount'>
