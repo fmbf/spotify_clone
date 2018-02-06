@@ -9,7 +9,13 @@ class Playlist < ApplicationRecord
   foreign_key: :author_id,
   class_name: :User
 
-  # has_many :songs
+  has_many :song_members,
+  foreign_key: :playlist_id,
+  class_name: :PlaylistSong
+
+  has_many :songs,
+  through: :song_members,
+  source: :song
 
   private
   def ensure_img

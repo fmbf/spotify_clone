@@ -7,10 +7,9 @@ class Api::PlaylistsController < ApplicationController
     # @playlists = Playlist.find_by(author_id: params[:user_id])
   end
 
-  def song_index
-    # needs joins table
-    # @songs = PlaylistSongs.where('playlist_id = ?', params[:id])
-  end
+  # def song_index
+  #   @songs = Playlist.songs.where('playlist_id = ?', params[:id])
+  # end
 
   def create
     @playlist = Playlist.new(playlist_params)

@@ -1,5 +1,25 @@
 Rails.application.routes.draw do
   # namespace :api do
+  #   get 'playlist_songs/index'
+  # end
+  #
+  # namespace :api do
+  #   get 'playlist_songs/create'
+  # end
+  #
+  # namespace :api do
+  #   get 'playlist_songs/show'
+  # end
+  #
+  # namespace :api do
+  #   get 'playlist_songs/update'
+  # end
+  #
+  # namespace :api do
+  #   get 'playlist_songs/destroy'
+  # end
+
+  # namespace :api do
   #   get 'songs/index'
   # end
   #
@@ -43,14 +63,13 @@ end
 
 
 
-    resources :playlists, only: [:show, :update, :destroy, :create] do
-      # resources :songs, only: [:index]
-    end
 
     # Search entitites by ID:
 
+    # resources :playlist_songs, only: [:index, :show, :update, :destroy, :create]
 
     # resources :playlists, only: [:show, :update, :destroy, :create]
+    resources :playlists, only: [:index, :show, :update, :destroy, :create]
     resources :songs, only: [:show, :index]
     resources :artists, only: [:show, :index]
     resources :albums, only: [:show, :index]

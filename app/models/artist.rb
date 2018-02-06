@@ -4,6 +4,8 @@ class Artist < ApplicationRecord
 
   after_initialize :ensure_img
 
+  has_many :albums
+  has_many :songs
 
   private
   def ensure_img
