@@ -43,13 +43,13 @@ class welcomeComponent extends React.Component {
 
         <div>
           <div className="albums-grid">
-            <img className="speed-1 animated fadeInUp"
+            <img className="speed-1 animated fadeInUp floatInnerPic"
                  id='speed-1'
                  src="http://payload170.cargocollective.com/1/12/391611/5705300/10271482_711133358945257_7454391078460532252_n.jpg"/>
-            <img className="speed-2 animated fadeInUp"
+            <img className="speed-2 animated fadeInUp floatInnerPic"
                  id='speed-2'
                  src="https://charts-static.billboard.com/img/1840/12/drake-zwl.jpg"/>
-            <img className="speed-3 animated fadeInUp"
+            <img className="speed-3 animated fadeInUp floatInnerPic"
                  id='speed-3'
                  src="https://upload.wikimedia.org/wikipedia/en/2/20/Dua_Lipa_%28album%29.png"/>
           </div>

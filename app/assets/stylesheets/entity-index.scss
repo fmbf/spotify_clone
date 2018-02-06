@@ -41,6 +41,9 @@
   // -webkit-transform: translateZ(0) scale(1.0, 1.0);
   // transform: translateZ(0);
 
+
+  // background-color: red;
+
 }
 
 .entity-index-item-img:hover {
@@ -50,6 +53,7 @@
   // filter: blur(2px);
 }
 
+
 .index-img-big {
   border: 1px solid #fff;
   height: 180px;
@@ -58,6 +62,10 @@
 
 .index-img-big:hover {
 
+}
+
+.big-scale:hover {
+  transform: scale(1.2);
 }
 
 
@@ -106,6 +114,7 @@
   opacity: 0;
 }
 
+
 .playlist-ball-play-button{
   border: 0;
   position: absolute;
@@ -121,10 +130,10 @@
   z-index: 1;
   width: 99px;
   margin-left: 56px;
-  margin-top: -1px;
-  transition: opacity
-  i {
-    // margin-left: 100px;
-  }
-  transition: opacity .9s ease;
+  // margin-top: -1px; // original size
+  margin-top: -14px;
+  // transition: opacity;
+
+  // transition: opacity .9s ease;
+  // border: 5px solid red;
 }

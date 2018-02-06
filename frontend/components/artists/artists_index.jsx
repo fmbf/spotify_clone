@@ -2,9 +2,9 @@ import React from 'react';
 import { Link, withRouter, Redirect } from 'react-router-dom';
 import UserSessionNavContainer from '../user_session_nav/user_session_nav_container';
 
-import AlbumIndexItem from './album_index_item';
+import ArtistIndexItem from './artist_index_item';
 
-class albumsIndex extends React.Component {
+class artistsIndex extends React.Component {
   constructor(props) {
     super(props);
     this.currentUser = this.props.currentUser;
@@ -13,7 +13,7 @@ class albumsIndex extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchUserAlbums(this.currentUser.id);
+    this.props.fetchArtists(this.currentUser.id);
   }
 
   componentWillReceiveProps(newProps){
@@ -49,7 +49,7 @@ class albumsIndex extends React.Component {
   }
 
   render() {
-    if (!this.props.albums) {
+    if (!this.props.artists) {
       return null;
     }
 
@@ -65,11 +65,11 @@ class albumsIndex extends React.Component {
           <UserSessionNavContainer/>
         </header>
 
-        <h1>Albums</h1>
+        <h1>Artists</h1>
         <br/>
         <ul className='entity-index'>
           {
-            <AlbumIndexItem albums={this.props.albums}/>
+            <ArtistIndexItem artists={this.props.artists}/>
           }
         </ul>
       </section>
@@ -78,4 +78,4 @@ class albumsIndex extends React.Component {
 }
 
 
-export default albumsIndex;
+export default artistsIndex;

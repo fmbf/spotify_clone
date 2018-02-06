@@ -13,6 +13,9 @@
   -webkit-animation-duration: 0.9s;
 }
 
+.grow:hover {
+  transform: scale(1.01);
+}
 
 .speed-1 {
   -moz-animation-duration: 0.3s;

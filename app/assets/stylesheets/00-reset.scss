@@ -64,7 +64,7 @@ li {
   flex-direction: row;
   min-height: 100vh;
 
-  // background-color: rgb(24, 24, 24); color-flip
+  // background-color: rgb(24, 24, 24); //color-flip
 }
 /*------------------SIDEBAR----------------*/
 #sidebar-parent {
@@ -231,8 +231,10 @@ button {
   transition: all .2s ease-in;
 }
 
+
 button:hover {
   letter-spacing: 1.5px;
+  transform: scale(1.01);
 }
 
 a {
@@ -243,7 +245,7 @@ a {
 }
 
 a:hover {
-  text-decoration: underline;
+  text-decoration: none;
   letter-spacing: 0.2px;
 }
 
@@ -259,6 +261,7 @@ a:hover button {
 
 .button-green:hover{
   background-color: #1ED760;
+  transform: scale(1.01);
   /* font-size: 12px; */
 }
 
@@ -273,6 +276,7 @@ a:hover button {
   color: #222;
   border-color: #222;
   /* font-size: 10px; */
+  transform: scale(1.01);
 }
 
 ul {
@@ -306,3 +310,10 @@ textarea {
   display: block;
   clear: both;
 }
+
+
+
+//font awesome
+// i {
+//   transform: scale(1.5);
+// }

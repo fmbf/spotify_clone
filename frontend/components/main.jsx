@@ -21,7 +21,7 @@ import playlistProfileContainer from './playlist/playlist_profile_container';
 import albumProfileContainer from './albums/album_profile_container';
 
 import entityIndexContainer from './entity_index_container';
-import artistsIndexContainer from './artists_index_container';
+import artistsIndexContainer from './artists/artists_index_container';
 import albumIndexContainer from './albums/album_index_container';
 
 const main = () => (

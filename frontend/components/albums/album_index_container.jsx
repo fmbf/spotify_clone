@@ -3,10 +3,6 @@ import albumsIndex from './albums_index';
 
 import { fetchAlbum, fetchArtistAlbums, fetchUserAlbums } from '../../actions/albums_actions';
 
-// const mapStateToProps = (state, ownProps) => ({
-//   albums: Object.values(state.entities.albums),
-//   currentUser: state.session.currentUser
-// });
 
 const mapStateToProps = (state, ownProps) => {
   // debugger
