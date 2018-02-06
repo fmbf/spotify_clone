@@ -3,10 +3,11 @@
 json.extract! @artist, :id, :name, :img_path
 
 # fture stuff
-json.current_user_follows x = false; # @playlist.followers.include?(current_user)
-json.albums_ids albums_ids = [923, 401, 14]
-json.songs_ids songs_ids = [12, 423, 491] #@playlist.songs.map { |song| song.id }
-json.followers followers = 948542
+json.current_user_follows @artist.followers.include?(current_user);
+
+json.albums_ids @artist.albums.ids
+json.songs_ids @artist.songs.ids
+json.followers followers = @artist.followers.count
 
 
 # playlists this artist is featured on:

@@ -53,6 +53,7 @@ end
     # Search entitites by User:
     resources :users, only: [:index, :create, :show, :update] do
       resources :playlists, only: [:index]
+      resources :follows, only: [:index]
       resources :artists, only: [:index]
       resources :albums, only: [:index]
       resources :songs, only: [:index]
@@ -73,5 +74,7 @@ end
     resources :songs, only: [:show, :index]
     resources :artists, only: [:show, :index]
     resources :albums, only: [:show, :index]
+
+    resources :follows, only: [:index]
   end
 end
