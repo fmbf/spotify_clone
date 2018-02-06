@@ -39,24 +39,21 @@ Playlist.create(title: 'Workout', img_path: "https://picsum.photos/200/200/?imag
     description: Faker::Hipster.paragraph(1), author_id: 1)
 end
 
-#---------------------------------------User_2----------------------------------------#
-12.times do
-  Playlist.create(title: Faker::Book.title,
-    img_path: "https://picsum.photos/200/200/?image=#{rand(100)}",
-    description: Faker::Hipster.paragraph(1), author_id: 2)
-end
-#---------------------------------------User_3----------------------------------------#
-12.times do
-  Playlist.create(title: Faker::Book.title,
-    img_path: "https://picsum.photos/200/200/?image=#{rand(100)}",
-    description: Faker::Hipster.paragraph(1),
-    author_id: 3)
-end
-#---------------------------------------User_4----------------------------------------#
-12.times do
-  Playlist.create(title: Faker::Book.title,
-    img_path: "https://picsum.photos/200/200/?image=#{rand(100)}",
-    description: Faker::Hipster.paragraph(1), author_id: 4)
+#---------------------------------------Playlists----------------------------------------#
+titles = [
+  Faker::Dessert.variety.titleize, Faker::Dessert.topping.titleize, Faker::Dessert.flavor.titleize,
+  Faker::Hipster.word.titleize, Faker::Book.title.titleize
+]
+
+User.all.each do |user|
+
+  7.times do
+    Playlist.create(title: titles.sample,
+      img_path: "https://picsum.photos/200/200/?image=#{rand(100)}",
+      description: Faker::Hipster.paragraph(1), author_id: user.id
+    )
+  end
+
 end
 
 #=====================================Artists=======================================#
@@ -176,7 +173,41 @@ Song.create(title: "Doin' It Right", artist_id: 4, album_id: 3, song_path: 'defa
 #=====================================================================================#
 
 #=====================================FOLLOWS=======================================#
-# Follow.create(user_id: 4, followable_id: 1, followable_type: 'Artist')
+# follow_types = [
+#   "User", "Artist", "Album", "Song", "Playlist"
+# ]
+
+users = User.all
+
+Artist.all.each do |artist|
+  30.times do
+    Follow.create(user_id: users.sample.id, followable_id: artist.id, followable_type: "Artist")
+  end
+end
+
+Playlist.all.each do |playlist|
+  30.times do
+    Follow.create(user_id: users.sample.id, followable_id: playlist.id, followable_type: "Playlist")
+  end
+end
+
+Song.all.each do |song|
+  20.times do
+    Follow.create(user_id: users.sample.id, followable_id: song.id, followable_type: "Song")
+  end
+end
+
+User.all.each do |user|
+  20.times do
+    Follow.create(user_id: users.sample.id, followable_id: user.id, followable_type: "User")
+  end
+end
+
+Album.all.each do |album|
+  20.times do
+    Follow.create(user_id: users.sample.id, followable_id: album.id, followable_type: "Album")
+  end
+end
 
 
 #-------------------------------------------------------------------------------------#
