@@ -46,7 +46,7 @@ class albumIndexItem extends React.Component {
 
         return (
 
-            <div className={`entity-index-item animated fadeInDown speed-${randomAnimateSpeed}`} key={album.id}>
+            <div className={`entity-index-item animated fadeInDown`} key={album.id}>
 
               <div className='entity-index-item-hide'
                 onMouseOver={() => this.hideSwitch('show', album.id)}

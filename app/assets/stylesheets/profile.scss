@@ -86,9 +86,17 @@ a {
 
 .sign-out-button {
   // background-color: red;
+  color: #aaa;
   border: 0;
   width: auto;
   margin-left: 10px;
+}
+
+.sign-out-button:hover {
+  color: #282828;
+  // -webkit-transform: rotateX(70deg); /* Safari */
+  // transform: rotateX(70deg);
+  // transform: scale(1.5px);
 }
 
 
@@ -96,6 +104,12 @@ a {
   font-size: 14px;
   // font-weight: 700;
   width: 30px;
+  display: flex;
+}
+
+#ellipsis {
+  margin: 0;
+  color: black;
 }
 
 

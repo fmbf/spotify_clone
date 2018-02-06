@@ -86,7 +86,10 @@ class albumProfile extends React.Component {
               <div className="profile-button-box">
                 <button className='button-green'>PLAY</button>
                 <button className='button-mono'>SAVE</button>
-                <button className='button-mono header-button-more'>+</button>
+
+                <button className='button-mono header-button-more'>
+                  <i class="fas fa-caret-down fa-xs"></i>
+                </button>
               </div>
 
             </div>

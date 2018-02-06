@@ -46,7 +46,7 @@ class artistIndexItem extends React.Component {
 
         return (
 
-            <div className={`entity-index-item animated fadeInUp speed-${randomAnimateSpeed}`} key={artist.id}>
+            <div className={`entity-index-item animated fadeIn`} id='speed-3' key={artist.id}>
 
               <div className='entity-index-item-hide'
                 onMouseOver={() => this.hideSwitch('show', artist.id)}
