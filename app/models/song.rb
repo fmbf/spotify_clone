@@ -13,6 +13,15 @@ class Song < ApplicationRecord
   through: :playlist_memberships,
   source: :playlist
 
+
+  has_many :followships, as: :followable,
+  foreign_key: :followable_id,
+  class_name: :Follow
+
+  has_many :followers,
+  through: :followships,
+  source: :user
+
   private
   def ensure_song_path
   end

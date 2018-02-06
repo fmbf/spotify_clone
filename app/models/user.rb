@@ -10,6 +10,47 @@ class User < ApplicationRecord
   foreign_key: :author_id,
   class_name: :Playlist
 
+  # Polymorphic Follow
+  has_many :followed,
+  foreign_key: :user_id,
+  class_name: :Follow
+
+  has_many :followed_users,
+  through: :followed,
+  source: :followable,
+  source_type: 'User'
+
+  has_many :followed_artists,
+  through: :followed,
+  source: :followable,
+  source_type: 'Artist'
+
+  has_many :followed_albums,
+  through: :followed,
+  source: :followable,
+  source_type: 'Album'
+
+  has_many :followed_songs,
+  through: :followed,
+  source: :followable,
+  source_type: 'Song'
+
+  has_many :followed_playlists,
+  through: :followed,
+  source: :followable,
+  source_type: 'Playlist'
+
+
+
+  has_many :followships, as: :followable,
+  foreign_key: :followable_id,
+  class_name: :Follow
+
+  has_many :followers,
+  through: :followships,
+  source: :user
+
+
   def self.find_by_credentials(credential, password)
     user = User.find_by(username: credential) || User.find_by(email: credential)
     return nil unless user && user.valid_password?(password)
