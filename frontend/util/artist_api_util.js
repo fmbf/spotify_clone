@@ -1,5 +1,5 @@
 
-export const fetchArtists = (userId) => (
+export const fetchUserArtists = (userId) => (
   $.ajax({
     method: 'GET',
     url: `api/users/${userId}/artists`,

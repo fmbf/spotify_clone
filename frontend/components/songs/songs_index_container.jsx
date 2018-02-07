@@ -7,7 +7,9 @@ const mapStateToProps = (state, ownProps) => {
 
   return {
     // songs: Object.values(state.entities.songs).filter(song => song.album_id === parseInt(ownProps.album.id)),
-    songs: ownProps.album.songs,
+
+    songs: ownProps.songs,
+    // songs: ownProps.album.songs,
     album: ownProps.album,
     // albums: Object.values(state.entities.albums),
     currentUser: state.session.currentUser

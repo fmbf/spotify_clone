@@ -161,6 +161,19 @@ Song.create(title: "Lose Yourself to Dance", artist_id: 4, album_id: 3, song_pat
 Song.create(title: 'Get Lucky', artist_id: 4, album_id: 3, song_path: 'default song_path')
 Song.create(title: "Doin' It Right", artist_id: 4, album_id: 3, song_path: 'default song_path')
 
+
+
+
+ # Fake Songs
+# Artist.all.each do |artist|
+#   artist.albums.each do |album|
+#     5.times do
+#       Follow.create(user_id: users.sample.id, followable_id: artist.id, followable_type: "Artist")
+#       Song.create(title: Faker::Hipster.word.titleize, artist_id: artist.id, album_id: album.id, song_path: 'default song_path')
+#     end
+#   end
+# end
+
 #---------------------------------------Daft_Punk----------------------------------------#
 
 

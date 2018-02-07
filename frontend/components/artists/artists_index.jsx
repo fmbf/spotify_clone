@@ -13,7 +13,7 @@ class artistsIndex extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchArtists(this.currentUser.id);
+    this.props.fetchUserArtists(this.currentUser.id);
   }
 
   componentWillReceiveProps(newProps){

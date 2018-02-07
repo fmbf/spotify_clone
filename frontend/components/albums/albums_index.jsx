@@ -13,16 +13,20 @@ class albumsIndex extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchAlbumsByIds(this.props.albums);
-    this.props.fetchArtistAlbums(this.props.match.params.artistId);
+    if (this.props && this.props.match.params.artistId) {
+      this.props.fetchArtistAlbums(this.props.match.params.artistId);
+    } else {
+      this.props.fetchUserAlbums(this.props.currentUser.id);
+    }
   }
 
   componentWillReceiveProps(newProps){
-    if (newProps && newProps.location) {
-      if (newProps.location.pathname !== this.props.location.pathname){
-        {/*return window.scrollTo(0, 0);*/}
-      }
+    if (this.props.location.pathname !== newProps.location.pathname &&
+        newProps.match.params.artistId){
+
+      this.props.fetchArtistAlbums(newProps.match.params.artistId);
     }
+
   }
 
   playBubble(playlistId){

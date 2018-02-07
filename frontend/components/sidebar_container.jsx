@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import sidebar from './sidebar';
 
 import { fetchPlaylist, fetchPlaylists } from '../actions/playlists_actions';
-import { fetchArtist, fetchArtists, fetchArtistsByIds } from '../actions/artists_actions';
+import { fetchArtist, fetchUserArtists, fetchArtistsByIds } from '../actions/artists_actions';
 import { fetchAlbum, fetchArtistAlbums, fetchUserAlbums, fetchAlbumsByIds } from '../actions/albums_actions';
 import { fetchSong } from '../actions/songs_actions';
 
@@ -24,7 +24,7 @@ const mapStateToProps = (state, ownProps) => ({
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
   fetchPlaylists: (userId) => dispatch(fetchPlaylists(userId)),
-  fetchArtists: (userId) => dispatch(fetchArtists(userId)),
+  fetchUserArtists: (userId) => dispatch(fetchUserArtists(userId)),
   fetchArtistsByIds: (idsArr) => dispatch(fetchArtistsByIds(idsArr)),
   fetchArtistAlbums: (userId) => dispatch(fetchArtistAlbums(userId)),
   fetchUserAlbums: (userId) => dispatch(fetchUserAlbums(userId)),

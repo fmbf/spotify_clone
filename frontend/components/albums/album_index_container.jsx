@@ -16,6 +16,7 @@ const mapStateToProps = (state, ownProps) => {
       albums = Object.values(state.entities.albums).filter(
         album => state.session.currentUser.albums_ids.includes(album)
       );
+      // albums = Object.values(state.entities.albums);
     }
 
   return {

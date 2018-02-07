@@ -19,8 +19,7 @@ class songsIndex extends React.Component {
 
   render() {
     if (!this.songs) {
-
-      return [];
+      return null;
     }
 
     return (

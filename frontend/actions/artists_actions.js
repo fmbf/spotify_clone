@@ -19,8 +19,8 @@ export const loading = () => ({
 });
 
 
-export const fetchArtists = (userId) => dispatch => (
-  ArtistApiUtil.fetchArtists(userId)
+export const fetchUserArtists = (userId) => dispatch => (
+  ArtistApiUtil.fetchUserArtists(userId)
     .then(serverArtists => dispatch(receiveArtists(serverArtists)))
 );
 

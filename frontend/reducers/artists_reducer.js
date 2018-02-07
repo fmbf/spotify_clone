@@ -1,6 +1,6 @@
 import merge from 'lodash/merge';
 
-import { RECEIVE_ALL_ARTISTS,
+import { RECEIVE_ARTISTS,
          RECEIVE_ARTIST
 } from '../actions/artists_actions';
 
@@ -10,7 +10,7 @@ const artistsReducer = (oldState = {}, action) => {
   let newState;
 
   switch (action.type) {
-    case RECEIVE_ALL_ARTISTS:
+    case RECEIVE_ARTISTS:
       return merge({}, oldState, action.artists);
 
     case RECEIVE_ARTIST:
