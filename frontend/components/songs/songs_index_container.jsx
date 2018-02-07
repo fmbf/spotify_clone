@@ -1,17 +1,20 @@
 import { connect } from 'react-redux';
 import songsIndex from './songs_index';
-
+import { withRouter } from 'react-router-dom';
 
 
 const mapStateToProps = (state, ownProps) => {
+  let songs;
+
+  if (ownProps.match.params.playlistId) {
+    songs = Object.values(state.entities.playlists).filter(song => song.playlists_ids === parseInt(ownProps.match.params.playlistId));
+    debugger
+  } else {
+    songs = Object.values(state.entities.songs).filter(song => song.album_id === parseInt(ownProps.match.params.albumId));
+  }
 
   return {
-    // songs: Object.values(state.entities.songs).filter(song => song.album_id === parseInt(ownProps.album.id)),
-
-    songs: ownProps.songs,
-    // songs: ownProps.album.songs,
-    album: ownProps.album,
-    // albums: Object.values(state.entities.albums),
+    songs,
     currentUser: state.session.currentUser
   };
 };
@@ -21,4 +24,4 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(songsIndex);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(songsIndex));

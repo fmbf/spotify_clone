@@ -21,6 +21,7 @@ a {
 }
 
 .song-list {
+  // display: flex;
   /* Disable horizontal scroll */
   border: 1px solid #f3f3f3;
   overflow-x: scroll;
@@ -47,9 +48,39 @@ a {
   border-top: 1px solid #ddd;
 }
 
+.song-list li a {
+  margin-left: 10px;
+}
+
 .song-list li:hover, .song-list a:hover {
   letter-spacing: 0;
   background: #eee;
+  // text-decoration: underline;
+  button {
+    color: #000;
+  }
+}
+
+// .song-list-row {
+//   // display: flex;
+//   // flex-direction: column;
+// }
+.song-list-button {
+  font-size: 8px;
+  margin: 0;
+  margin-right: 2px;
+  margin-left: 2px;
+  border-radius: 50%;
+  border-color: transparent;
+  width: 22px;
+  height: 22px;
+}
+// .song-list-button:hover {
+//   border-color: #1bc156;
+// }
+
+.song-list-play {
+  color: #eee;
 }
 
 .user-session-nav {

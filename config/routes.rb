@@ -1,38 +1,5 @@
 Rails.application.routes.draw do
-  # namespace :api do
-  #   get 'playlist_songs/index'
-  # end
-  #
-  # namespace :api do
-  #   get 'playlist_songs/create'
-  # end
-  #
-  # namespace :api do
-  #   get 'playlist_songs/show'
-  # end
-  #
-  # namespace :api do
-  #   get 'playlist_songs/update'
-  # end
-  #
-  # namespace :api do
-  #   get 'playlist_songs/destroy'
-  # end
 
-  # namespace :api do
-  #   get 'songs/index'
-  # end
-  #
-  # namespace :api do
-  #   get 'songs/show'
-  # end
-  #
-  # namespace :api do
-  #   get 'songs/index_by_artist'
-  # end
-  # namespace :api do
-  #   get 'artists/album_index'
-  # end
 
 namespace :api, defaults: {format: :json} do
   # Search by Artist:
@@ -45,6 +12,7 @@ namespace :api, defaults: {format: :json} do
 
   # Search songs by Album:
   get 'albums/:id/songs', to: 'albums#song_index', as: 'album_songs'
+  get 'playlists/:id/songs', to: 'songs#index_by_playlist', as: 'playlist_songs'
 end
 
 

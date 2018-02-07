@@ -3,19 +3,22 @@ import albumProfile from './album_profile';
 
 import { fetchAlbum } from '../../actions/albums_actions';
 import { fetchArtistSongs, fetchAlbumSongs } from '../../actions/songs_actions';
+import { stateSongsArr } from '../../reducers/selectors';
 
 
 
 const mapStateToProps = (state, ownProps) => {
   let album = state.entities.albums[ownProps.match.params.albumId];
   let artist = null;
-  let songs = [];
+  let songs = null;
 
   if (album) {
-    artist = state.entities.artists[album.artist_id].name;
-    // songs = album.songs.song_ids.map(id => state.entities.tracks[id]);
-    songs = Object.values(state.entities.songs).filter(song => song.album_id === parseInt(ownProps.match.params.albumId));
-  } //else {}
+
+    songs = stateSongsArr(state.entities.songs);
+
+  // } else {
+
+  }
 
   return {
     album,

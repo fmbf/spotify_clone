@@ -11,6 +11,11 @@ class Api::SongsController < ApplicationController
     @songs = Song.where('album_id = ?', params[:album_id])
   end
 
+  def index_by_playlist
+    # @songs = Playlist.where('playlist_id = ?', params[:playlist_id]).songs
+    @songs = Playlist.find(params[:id]).songs
+  end
+
   def index_by_user
     @songs = User.find(params[:id]).followed_songs
   end

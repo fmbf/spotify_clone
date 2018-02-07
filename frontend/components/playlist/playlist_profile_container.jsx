@@ -1,24 +1,38 @@
 import { connect } from 'react-redux';
 import playlistProfile from './playlist_profile';
+import { withRouter } from 'react-router-dom';
 
 import { fetchPlaylist, updatePlaylist, deletePlaylist } from '../../actions/playlists_actions';
+import { fetchPlaylistSongs } from '../../actions/songs_actions';
 import { logout } from '../../actions/session_actions';
 
-// let path = "/library/playlists/:playlistId";
 
-const mapStateToProps = (state, ownProps) => ({
-  songs: [1, 2, 3, 4, 5, 6, 7],
-  playlists: state.entities.playlists,
-  currentUser: state.session.currentUser
-});
+
+const mapStateToProps = (state, ownProps) => {
+  let songs = Object.values(state.entities.songs).filter(
+    song => {
+      if (state.entities.playlists[ownProps.match.params.playlistId].songs_ids) {
+        return state.entities.playlists[ownProps.match.params.playlistId].songs_ids.includes(song.id);
+      }
+    }
+  );
+
+  return {
+    songs,
+    playlists: state.entities.playlists,
+    playlist: state.entities.playlists[ownProps.match.params.playlistId],
+    currentUser: state.session.currentUser
+  };
+};
 
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
   fetchPlaylist: (id) => dispatch(fetchPlaylist(id)),
+  fetchPlaylistSongs: (playlistId) => dispatch(fetchPlaylistSongs(playlistId)),
   updatePlaylist: (playlist) => dispatch(updatePlaylist(playlist)),
   deletePlaylist: (id) => dispatch(deletePlaylist(id)),
   logout: () => dispatch(logout())
 });
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(playlistProfile);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(playlistProfile));

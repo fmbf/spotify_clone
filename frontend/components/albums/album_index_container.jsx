@@ -14,7 +14,7 @@ const mapStateToProps = (state, ownProps) => {
     );
   } else {
       albums = Object.values(state.entities.albums).filter(
-        album => state.session.currentUser.albums_ids.includes(album)
+        album => state.session.currentUser.albums_ids.includes(album.id)
       );
       // albums = Object.values(state.entities.albums);
     }

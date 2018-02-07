@@ -3,32 +3,40 @@ import { Link, withRouter, Redirect } from 'react-router-dom';
 import UserSessionNavContainer from '../user_session_nav/user_session_nav_container';
 
 class songsIndex extends React.Component {
-  constructor(props) {
-    super(props);
-    // this.currentUser = this.props.currentUser;
-    this.songs = this.props.songs;
-    this.album = this.props.album;
+
+
+  toggleDropdown() {
+
   }
-
-  componentWillReceiveProps(newProps) {
-    this.songs = newProps.album.songs;
-    this.album = newProps.album;
-  }
-
-
 
   render() {
-    if (!this.songs) {
+    if (!this.props.songs) {
       return null;
     }
 
     return (
       <ul className='song-list'>
         {
-          this.songs.map(albumSong => (
-            <li key={albumSong.id}>
-              <a>{albumSong.title} | 4:00</a>
-            </li>
+          this.props.songs.map(albumSong => (
+              <li key={albumSong.id}>
+
+                <button className='song-list-button song-list-play button-mono'>
+                  <i className="fas fa-play"></i>
+                </button>
+
+                <button className='song-list-button button-mono' onClick={this.toggleDropdown()}>
+                  +
+                  <div id='add-dropdown'>
+
+                  </div>
+                </button>
+
+
+
+                <a>
+                  {albumSong.title} {/*| 4:00*/}
+                </a>
+              </li>
           ))
         }
       </ul>
