@@ -1,5 +1,6 @@
 class Api::SongsController < ApplicationController
   def index
+    @songs = User.where(id: params[:song_ids])
   end
 
   def index_by_artist
@@ -11,11 +12,11 @@ class Api::SongsController < ApplicationController
   end
 
   def index_by_user
-    # FIXME: NEEDS FOLLOWS
-    # @songs = Song.where('user_id = ?', params[:user_id])
+    @songs = User.find(params[:id]).followed_songs
   end
 
   def show
-    @song = Song.find_by(id: params[:id])
+    @song = Song.find(params[:id])
+    render :show
   end
 end

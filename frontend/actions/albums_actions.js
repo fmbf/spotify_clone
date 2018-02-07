@@ -2,6 +2,7 @@ import * as AlbumApiUtil from '../util/album_api_util';
 
 export const RECEIVE_ALBUMS = "RECEIVE_ALBUMS";
 export const RECEIVE_ALBUM = "RECEIVE_ALBUM";
+export const LOADING = "LOADING";
 
 
 export const receiveAlbums = albums => ({

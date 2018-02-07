@@ -41,6 +41,7 @@ namespace :api, defaults: {format: :json} do
 
   get 'users/:id/albums', to: 'albums#index_by_user', as: 'user_albums'
   get 'users/:id/artists', to: 'artists#index_by_user', as: 'user_artists'
+  get 'users/:id/songs', to: 'songs#index_by_user', as: 'user_songs'
 
   # Search songs by Album:
   get 'albums/:id/songs', to: 'albums#song_index', as: 'album_songs'
@@ -58,7 +59,7 @@ end
       resources :follows, only: [:index]
       resources :artists, only: [:index]
       resources :albums, only: [:index, :show]
-      resources :songs, only: [:index]
+      # resources :songs, only: [:index]
     end
 
     # Search entitites by Artist:

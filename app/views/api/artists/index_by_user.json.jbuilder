@@ -6,6 +6,7 @@
     # fture stuff
 
     json.song_ids artist.songs.ids
+    json.album_ids artist.albums.ids
     json.current_user_follows current_user.followed_artists.include?(artist.id)
     json.followers artist.followers.ids
   end

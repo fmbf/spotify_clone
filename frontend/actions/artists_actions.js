@@ -14,6 +14,10 @@ export const receiveArtist = artist => ({
   artist
 });
 
+export const loading = () => ({
+  type: LOADING,
+});
+
 
 export const fetchArtists = (userId) => dispatch => (
   ArtistApiUtil.fetchArtists(userId)
