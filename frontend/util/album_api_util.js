@@ -19,3 +19,13 @@ export const fetchAlbum = id => (
     url: `api/albums/${id}`
   })
 );
+
+export const fetchAlbumsByIds = (albumIds) => (
+  $.ajax({
+    method: 'GET',
+    url: `api/albums`,
+    data: {
+      album_ids: albumIds
+    }
+  })
+);

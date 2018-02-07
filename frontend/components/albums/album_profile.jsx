@@ -88,7 +88,7 @@ class albumProfile extends React.Component {
                 <button className='button-mono'>SAVE</button>
 
                 <button className='button-mono header-button-more'>
-                  <i class="fas fa-caret-down fa-xs"></i>
+                  <i className="fas fa-caret-down fa-xs"></i>
                 </button>
               </div>
 

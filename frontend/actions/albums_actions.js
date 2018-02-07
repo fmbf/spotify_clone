@@ -34,3 +34,8 @@ export const fetchAlbum = id => dispatch => {
   return AlbumApiUtil.fetchAlbum(id)
     .then(serverAlbum => dispatch(receiveAlbum(serverAlbum)));
 };
+
+export const fetchAlbumsByIds = (IDsArr) => dispatch => (
+  AlbumApiUtil.fetchAlbumsByIds(IDsArr)
+    .then(serverAlbums => dispatch(receiveAlbums(serverAlbums)))
+);

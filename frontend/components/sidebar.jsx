@@ -21,17 +21,8 @@ class Sidebar extends React.Component {
     this.props.fetchArtistAlbums(this.currentUser.id);
 
     // this.props.fetchUserAlbums(this.currentUser.id);
+    this.props.fetchAlbumsByIds(this.currentUser.albums_ids);
 
-
-
-    // TEMP: ///////////////////////////////
-    this.props.userAlbums.forEach(album => (
-      this.props.fetchAlbum(album)
-    ));
-    this.props.userSongs.forEach(song => (
-      this.props.fetchSong(song)
-    ));
-    // TEMP: ///////////////////////////////
 
   }
 

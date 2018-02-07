@@ -1,14 +1,25 @@
 import { connect } from 'react-redux';
 import albumsIndex from './albums_index';
 
-import { fetchAlbum, fetchArtistAlbums, fetchUserAlbums } from '../../actions/albums_actions';
+import { fetchAlbum, fetchArtistAlbums, fetchUserAlbums, fetchAlbumsByIds } from '../../actions/albums_actions';
 
 
 const mapStateToProps = (state, ownProps) => {
-  // debugger
+
+  let albums;
+
+  if (ownProps.match.params.artistId) {
+    albums = Object.values(state.entities.albums).filter(
+      album => album.artist_id === parseInt(ownProps.match.params.artistId)
+    );
+  } else {
+      albums = Object.values(state.entities.albums).filter(
+        album => state.session.currentUser.albums_ids.includes(album)
+      );
+    }
+
   return {
-    albums: Object.values(state.entities.albums).filter(album => album.artist_id === parseInt(ownProps.match.params.artistId)),
-    userAlbums: Object.values(state.entities.albums).filter(album => [1, 2, 6, 10, 15, 29].includes(album.id)), // TEMP
+    albums,
     album: ownProps.album,
     currentUser: state.session.currentUser
   };
@@ -17,6 +28,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => ({
   fetchArtistAlbums: (artistId) => dispatch(fetchArtistAlbums(artistId)),
   fetchUserAlbums: (userId) => dispatch(fetchUserAlbums(userId)),
+  fetchAlbumsByIds: (IDsArr) => dispatch(fetchAlbumsByIds(IDsArr)),
   fetchAlbum: (albumId) => dispatch(fetchAlbum(albumId)),
 });
 

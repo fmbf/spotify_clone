@@ -8,6 +8,7 @@ class albumIndexItem extends React.Component {
     this.playBubble = this.playBubble.bind(this);
   }
 
+
   playBubble(playlistId){
     console.log(`now playing playlist ${playlistId}`);
   }
@@ -33,7 +34,6 @@ class albumIndexItem extends React.Component {
   }
 
   render() {
-
     return (
       this.props.albums.map(album => {
 
@@ -43,7 +43,6 @@ class albumIndexItem extends React.Component {
         }
 
         let randomAnimateSpeed = Math.floor(Math.random() * 5) + 1;
-
         return (
 
             <div className={`entity-index-item animated fadeInDown`} key={album.id}>

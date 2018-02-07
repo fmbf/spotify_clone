@@ -13,7 +13,7 @@ class albumsIndex extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchUserAlbums(this.currentUser.id);
+    this.props.fetchAlbumsByIds(this.props.albums);
   }
 
   componentWillReceiveProps(newProps){
@@ -53,6 +53,7 @@ class albumsIndex extends React.Component {
       return null;
     }
 
+    // debugger
     return (
       <section className='entity-index-container'>
 
