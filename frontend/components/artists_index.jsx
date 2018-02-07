@@ -69,7 +69,7 @@ class artistsIndex extends React.Component {
         <br/>
         <ul className='entity-index'>
           {
-            <ArtistIndexItem artists={this.props.artists}/>
+            <ArtistIndexItem artists={this.props.artists} fetchAlbumsByIds={this.props.fetchAlbumsByIds}/>
           }
         </ul>
       </section>

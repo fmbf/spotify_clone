@@ -6,11 +6,19 @@ class songsIndex extends React.Component {
   constructor(props) {
     super(props);
     // this.currentUser = this.props.currentUser;
-    // this.songs = this.props.songs;
+    this.songs = this.props.songs;
+    this.album = this.props.album;
   }
 
+  componentWillReceiveProps(newProps) {
+    this.songs = newProps.album.songs;
+    this.album = newProps.album;
+  }
+
+
+
   render() {
-    if (!this.props.songs) {
+    if (!this.songs) {
 
       return [];
     }
@@ -18,7 +26,7 @@ class songsIndex extends React.Component {
     return (
       <ul className='song-list'>
         {
-          this.props.songs.map(albumSong => (
+          this.songs.map(albumSong => (
             <li key={albumSong.id}>
               <a>{albumSong.title} | 4:00</a>
             </li>

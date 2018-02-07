@@ -8,7 +8,7 @@ const mapStateToProps = (state, ownProps) => {
 
   let albums;
 
-  if (ownProps.match.params.artistId) {
+  if (ownProps && ownProps.match.params.artistId) {
     albums = Object.values(state.entities.albums).filter(
       album => album.artist_id === parseInt(ownProps.match.params.artistId)
     );

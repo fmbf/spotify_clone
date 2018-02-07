@@ -135,7 +135,7 @@ class PlaylistModal extends React.Component {
           style={customStyles}
         >
 
-        <form onSubmit={this.handleSubmit} className="login-form">
+        <form onSubmit={this.handleSubmit} className="login-form animated fadeIn">
           <div className="playlist-form-inner-box">
 
             <div className='form-type-title'>

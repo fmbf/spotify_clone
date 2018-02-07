@@ -19,6 +19,7 @@ import SessionFormContainer from './session_form/session_form_container';
 
 import playlistProfileContainer from './playlist/playlist_profile_container';
 import albumProfileContainer from './albums/album_profile_container';
+import artistProfileContainer from './artists/artist_profile_container';
 
 import entityIndexContainer from './entity_index_container';
 import artistsIndexContainer from './artists/artists_index_container';
@@ -42,6 +43,10 @@ const main = () => (
             <Switch>
               <ProtectedRoute exact path="/library/artists/:artistId/albums"
                               component={albumIndexContainer}
+              />
+
+              <ProtectedRoute exact path="/library/artists/:artistId"
+                              component={artistProfileContainer}
               />
 
               <ProtectedRoute exact path="/library/artists"

@@ -12,3 +12,14 @@ export const fetchArtist = id => (
     url: `api/artists/${id}`
   })
 );
+
+
+export const fetchArtistsByIds = (artistIds) => (
+  $.ajax({
+    method: 'GET',
+    url: `api/artists`,
+    data: {
+      artist_ids: artistIds
+    }
+  })
+);

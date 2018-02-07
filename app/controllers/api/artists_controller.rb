@@ -1,10 +1,8 @@
 class Api::ArtistsController < ApplicationController
   def index
-    @artists = Artist.all.order(:name)
+    # @artists = Artist.all.order(:name)
 
-    # FIXME:
-    # should ony fetch the artist current user follows
-    # @artists = Artist.where('follower_id = ?', params[:user_id])
+    @artists = Artist.where(id: params[:artist_ids])
   end
 
   def album_index

@@ -19,6 +19,11 @@ export const fetchArtists = (userId) => dispatch => (
     .then(serverArtists => dispatch(receiveAllArtists(serverArtists)))
 );
 
+export const fetchArtistsByIds = (IDsArr) => dispatch => (
+  ArtistApiUtil.fetchArtistsByIds(IDsArr)
+    .then(serverArtists => dispatch(receiveAllArtists(serverArtists)))
+);
+
 export const fetchArtist = id => dispatch => (
   ArtistApiUtil.fetchArtist(id)
     .then(serverArtist => dispatch(receiveArtist(serverArtist)))

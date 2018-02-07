@@ -8,6 +8,12 @@ class artistIndexItem extends React.Component {
     this.playBubble = this.playBubble.bind(this);
   }
 
+  componentDidMount(){
+    if (this.props && this.props.fetchAlbumsByIds) {
+      this.props.fetchAlbumsByIds(this.props.artists);
+    }
+  }
+
   playBubble(playlistId){
     console.log(`now playing playlist ${playlistId}`);
   }
@@ -60,7 +66,7 @@ class artistIndexItem extends React.Component {
                     ></i>
                 </button>
 
-                <Link to={`/library/artists/${artist.id}/albums`}>
+                <Link to={`/library/artists/${artist.id}`}>
                   <img className='entity-index-item-img index-img-big'
                        src={artist.img_path} id={artist.id}
                   />
@@ -68,7 +74,7 @@ class artistIndexItem extends React.Component {
 
               </div>
 
-              <Link to={`/library/artists/${artist.id}/albums`} className='entity-index-item-title'>
+              <Link to={`/library/artists/${artist.id}`} className='entity-index-item-title'>
                 <h3 className='bubble-title'>{abbreviatedTitle}</h3>
               </Link>
 
