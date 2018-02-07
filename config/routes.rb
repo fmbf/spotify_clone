@@ -12,7 +12,14 @@ namespace :api, defaults: {format: :json} do
 
   # Search songs by Album:
   get 'albums/:id/songs', to: 'albums#song_index', as: 'album_songs'
+
+
+
   get 'playlists/:id/songs', to: 'songs#index_by_playlist', as: 'playlist_songs'
+  get 'playlists/:id/songs/:song_id', to: 'playlist_songs#show', as: 'playlist_song'
+  patch 'playlists/:id/songs/:song_id', to: 'playlist_songs#update', as: 'update_playlist_song'
+  delete 'playlists/:id/songs/:song_id', to: 'playlist_songs#destroy', as: 'delete_playlist_song'
+
 end
 
 
@@ -42,6 +49,7 @@ end
 
     # resources :playlists, only: [:show, :update, :destroy, :create]
     resources :playlists, only: [:index, :show, :update, :destroy, :create]
+
     resources :songs, only: [:show, :index]
     resources :artists, only: [:show, :index]
     resources :albums, only: [:show, :index]

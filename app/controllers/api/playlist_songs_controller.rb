@@ -16,7 +16,8 @@ class Api::PlaylistSongsController < ApplicationController
   end
 
   def show
-    @playlist_song = PlaylistSong.find_by(id: params[:id])
+    # @playlist_song = PlaylistSong.find_by(id: params[:id])
+    @playlist_song = PlaylistSong.find_by(playlist_id: params[:id], song_id: params[:song_id])
     render :show
   end
 
@@ -25,13 +26,13 @@ class Api::PlaylistSongsController < ApplicationController
   end
 
   def destroy
-    playlist_song = PlaylistSong.find_by(id: params[:id])
+    playlist_song = PlaylistSong.find_by(playlist_id: params[:id], song_id: params[:song_id])
     playlist_song.destroy
     render json: {}
   end
 
   private
   def playlist_song_params
-    params.require(:playlist_song).permit(:playlist_id, :song_id)
+    params.require(:playlist).permit(:id, :playlist_id, :song_id)
   end
 end
