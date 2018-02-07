@@ -2,6 +2,7 @@ import * as SongApiUtil from '../util/song_api_util';
 
 export const RECEIVE_SONGS = "RECEIVE_SONGS";
 export const RECEIVE_SONG = "RECEIVE_SONG";
+export const RECEIVE_PLAYLIST_SONG_ADD = 'RECEIVE_PLAYLIST_SONG_ADD';
 
 
 export const receiveSongs = songs => ({
@@ -13,6 +14,13 @@ export const receiveSong = song => ({
   type: RECEIVE_SONG,
   song
 });
+
+export const receivePlaylistSongAdd = stuffff => ({
+  type: RECEIVE_PLAYLIST_SONG_ADD,
+  stuffff
+});
+
+
 
 export const fetchUserSongs = (userId) => dispatch => (
   SongApiUtil.fetchUserSongs(userId)
@@ -32,4 +40,9 @@ export const fetchAlbumSongs = (albumId) => dispatch => (
 export const fetchSong = id => dispatch => (
   SongApiUtil.fetchSong(id)
     .then(serverSong => dispatch(receiveSong(serverSong)))
+);
+
+export const addSongtoPlaylist = (songId, playlistId) => dispatch => (
+  SongApiUtil.addSongtoPlaylist(songId, playlistId)
+    .then(serverPlaylist => dispatch(receivePlaylistSongAdd(serverPlaylist)))
 );

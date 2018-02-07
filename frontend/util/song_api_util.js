@@ -25,3 +25,18 @@ export const fetchSong = id => (
     url: `api/songs/${id}`
   })
 );
+
+export const addSongToPlaylist = (songId, playlistId) => (
+  $.ajax({
+    method: 'POST',
+    url: `api/playlists/${playlistId}/songs`,
+    data: { songId }
+  })
+);
+
+export const removeSongFromPlaylist = id => (
+  $.ajax({
+    method: 'DELETE',
+    url: `api/playlists/${id}/songs`,
+  })
+);
