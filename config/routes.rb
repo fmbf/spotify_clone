@@ -40,6 +40,7 @@ namespace :api, defaults: {format: :json} do
   get 'artists/:id/songs', to: 'artists#song_index', as: 'artist_songs'
 
   get 'users/:id/albums', to: 'albums#index_by_user', as: 'user_albums'
+  get 'users/:id/artists', to: 'artists#index_by_user', as: 'user_artists'
 
   # Search songs by Album:
   get 'albums/:id/songs', to: 'albums#song_index', as: 'album_songs'

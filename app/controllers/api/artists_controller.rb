@@ -1,8 +1,10 @@
 class Api::ArtistsController < ApplicationController
   def index
-    # @artists = Artist.all.order(:name)
-
     @artists = Artist.where(id: params[:artist_ids])
+  end
+
+  def index_by_user
+    @artists = User.find(params[:id]).followed_artists
   end
 
   def album_index

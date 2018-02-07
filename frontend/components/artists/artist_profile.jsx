@@ -16,21 +16,23 @@ class artistProfile extends React.Component {
   }
 
   componentDidMount() {
+
+
     this.props.fetchArtist(this.props.match.params.artistId);
     this.props.fetchArtistSongs(this.props.match.params.artistId);
     this.props.fetchArtistAlbums(this.props.match.params.artistId);
 
-
-    this.recentAlbum = this.props.albums[this.props.albums.length - 1];
+    this.artist = this.props.artists[this.props.match.params.artistId];
+    // this.recentAlbum = this.props.albums[this.props.albums.length - 1];
   }
 
 
 
   componentWillReceiveProps(newProps) {
     if(this.props.match.params.artistId !== newProps.match.params.artistId) {
-      this.props.fetchArtist(this.props.match.params.artistId);
-
-      this.props.fetchArtistSongs(this.props.match.params.artistId);
+      this.props.fetchArtist(newProps.match.params.artistId);
+      this.props.fetchArtistAlbums(newProps.match.params.artistId);
+      this.props.fetchArtistSongs(newProps.match.params.artistId);
     }
   }
 
@@ -40,13 +42,20 @@ class artistProfile extends React.Component {
 
 
   render() {
-    if(!this.props || !this.props.artist || !this.recentAlbum) {
-      return null;
-    }
+    // if(!this.props || !this.props.artist || !this.recentAlbum) {
+    //   return null;
+    // }
 
-    this.profilePic = this.props.artist.img_path;
-    this.profileTitle = this.props.artist.name;
+    // this.profilePic = this.props.artist.img_path;
+    // this.profileTitle = this.props.artist.name;
     // this.profileAuthor = this.props.artist.artist;
+
+
+
+    if (this.props.artists && this.props.artists[this.props.match.params.artistId]) {
+      this.profilePic = this.props.artists[this.props.match.params.artistId].img_path;
+      this.profileTitle = this.props.artists[this.props.match.params.artistId].name;
+    }
 
 
     return (
@@ -91,7 +100,7 @@ class artistProfile extends React.Component {
 
           <span className='song-list-fields'><h3>TITLE</h3><h3>ARTIST</h3><h3>ALBUM</h3></span>
 
-            <ul className='song-list'>
+            {/*<ul className='song-list'>
               {
                 this.props.songs.map(albumSong => (
                   <li key={albumSong.id}>
@@ -99,6 +108,19 @@ class artistProfile extends React.Component {
                   </li>
                 ))
               }
+            </ul>*/}
+
+            <ul className='song-list'>
+              <li><a>Cut To Black | 4:49</a></li>
+              <li><a>Closer | 4:00</a></li>
+              <li><a>Continuum | 4:00</a></li>
+              <li><a>Higher | 1:00</a></li>
+              <li><a>Blue Shift | 2:49</a></li>
+              <li><a>Stepping Stone | 4:00</a></li>
+              <li><a>Time To Realize | 3:00</a></li>
+              <li><a>We Got U | 2:49</a></li>
+              <li><a>Last Night On Earth | 4:00</a></li>
+              <li><a>Playing To Lose | 3:00</a></li>
             </ul>
 
           {/*<SongsIndexContainer album={this.recentAlbum} songs={this.recentAlbum.songs}/>*/}
