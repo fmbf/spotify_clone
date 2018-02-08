@@ -88,11 +88,11 @@ class SessionForm extends React.Component {
       />
     );
 
-    let buttonText = 'Sign Up'
+    let buttonText = 'Sign Up';
 
     if(this.props.formType === 'login') {
       emailInput = null;
-      buttonText = 'Log In'
+      buttonText = 'Log In';
     }
 
 

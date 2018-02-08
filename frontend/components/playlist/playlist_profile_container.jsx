@@ -3,8 +3,10 @@ import playlistProfile from './playlist_profile';
 import { withRouter } from 'react-router-dom';
 
 import { fetchPlaylist, updatePlaylist, deletePlaylist } from '../../actions/playlists_actions';
+import { removeSongFromPlaylist } from '../../actions/songs_actions';
 import { fetchPlaylistSongs } from '../../actions/songs_actions';
 import { logout } from '../../actions/session_actions';
+
 
 
 
@@ -27,6 +29,8 @@ const mapStateToProps = (state, ownProps) => {
 
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
+
+  removeSongFromPlaylist: (songId, playlistId) => dispatch(removeSongFromPlaylist(songId, playlistId)),
   fetchPlaylist: (id) => dispatch(fetchPlaylist(id)),
   fetchPlaylistSongs: (playlistId) => dispatch(fetchPlaylistSongs(playlistId)),
   updatePlaylist: (playlist) => dispatch(updatePlaylist(playlist)),

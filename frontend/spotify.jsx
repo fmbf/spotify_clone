@@ -10,7 +10,7 @@ import {
 } from './actions/playlists_actions';
 
 import { fetchAlbum } from './actions/albums_actions';
-import { addSongToPlaylist } from './actions/songs_actions';
+import { addSongToPlaylist, removeSongFromPlaylist } from './actions/songs_actions';
 import { fetchSearchResults } from './actions/search_actions';
 
 
@@ -38,6 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.logout = () => store.dispatch(logout());
     window.fetchPlaylists = (userId) => store.dispatch(fetchPlaylists(userId));
     window.addSongToPlaylist = (songId, playlistId) => store.dispatch(addSongToPlaylist(songId, playlistId));
+    window.removeSongFromPlaylist = (songId, playlistId) => store.dispatch(removeSongFromPlaylist(songId, playlistId));
     window.fetchAlbum = (albumId) => store.dispatch(fetchAlbum(albumId));
     window.createPlaylist = (playlist) => store.dispatch(createPlaylist(playlist));
     window.updatePlaylist = (playlist) => store.dispatch(updatePlaylist(playlist));

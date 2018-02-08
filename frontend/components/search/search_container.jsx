@@ -1,11 +1,12 @@
 import { connect } from 'react-redux';
-import Search from './search';
+import SearchIndex from './search_index';
 
-import { fetchSearch } from '../../actions/search_actions';
+import { receiveSearchResults, fetchSearchResults } from '../../actions/search_actions';
 import { fetchArtist, fetchUserArtists } from '../../actions/artists_actions';
 import { fetchAlbum, fetchArtistAlbums, fetchUserAlbums, fetchAlbumsByIds } from '../../actions/albums_actions';
 
 const mapStateToProps = (state, ownProps) => {
+  // debugger
   return {
     searchResults: state.entities.searchResults,
     currentUser: state.session.currentUser
@@ -14,8 +15,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchSearch: searchTerm => dispatch(fetchSearch(searchTerm))
+    fetchSearch: (searchTerm) => dispatch(fetchSearchResults(searchTerm)),
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Search);
+export default connect(mapStateToProps, mapDispatchToProps)(SearchIndex);

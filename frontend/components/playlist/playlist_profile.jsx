@@ -12,6 +12,7 @@ class playlistProfile extends React.Component {
     this.currentUser = this.props.currentUser;
     this.logout = this.logout.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
+    this.handleRemoveSong = this.handleRemoveSong.bind(this);
 
     this.modalToggle = this.modalToggle.bind(this);
     this.state = {clickedNewPlaylist: false};
@@ -50,6 +51,10 @@ class playlistProfile extends React.Component {
 
   logout() {
     this.props.logout();
+  }
+
+  handleRemoveSong(songId, playlistId){
+    this.props.removeSongFromPlaylist(songId, playlistId);
   }
 
   render() {
@@ -111,33 +116,19 @@ class playlistProfile extends React.Component {
 
           <span className='song-list-fields'><h3>TITLE</h3><h3>ARTIST</h3><h3>ALBUM</h3></span>
 
-          {/*<ul className='song-list'>
-            <li><a>Cut To Black | 4:49</a></li>
-            <li><a>Closer | 4:{randomTime()}</a></li>
-            <li><a>Continuum | 4:{randomTime()}</a></li>
-            <li><a>Higher | 1:{randomTime()}</a></li>
-            <li><a>Blue Shift | 2:49</a></li>
-            <li><a>Stepping Stone | 4:{randomTime()}</a></li>
-            <li><a>Time To Realize | 3:{randomTime()}</a></li>
-            <li><a>We Got U | 2:49</a></li>
-            <li><a>Last Night On Earth | 4:{randomTime()}</a></li>
-            <li><a>Playing To Lose | 3:{randomTime()}</a></li>
-          </ul>*/}
-
           <ul className='song-list'>
             {
               this.props.songs.map(playlistSong => (
-                  <li key={playlistSong.id}>
+                  <li key={playlistSong.id} className='track-li'>
 
                     <button className='song-list-button song-list-play button-mono'>
                       <i className="fas fa-play"></i>
                     </button>
 
-                    <button className='song-list-button button-mono' onClick={this.toggleDropdown()}>
-                      +
-                      <div id='add-dropdown'>
-
-                      </div>
+                    <button className={`song-list-button button-mono plus-circle`}
+                            onClick={() => this.props.removeSongFromPlaylist(playlistSong.id, this.props.playlist.id)}
+                            >
+                            -
                     </button>
 
 

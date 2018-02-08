@@ -26,9 +26,19 @@ class Api::PlaylistSongsController < ApplicationController
 
 
   def destroy
-    playlist_song = PlaylistSong.find_by(playlist_id: params[:id], song_id: params[:song_id])
-    playlist_song.destroy
-    render json: {}
+    playlist_id = params[:id]
+    song_id = params[:song_id]
+
+    @playlist_song = PlaylistSong.find_by(song_id: song_id, playlist_id: playlist_id)
+    @playlist = @playlist_song.playlist
+
+
+    if @playlist_song.playlist.author
+      @playlist_song.destroy
+      render "api/playlist_songs/destroy"
+    else
+      render json: @playlist_song.errors.full_messages, status: 422
+    end
   end
 
   private

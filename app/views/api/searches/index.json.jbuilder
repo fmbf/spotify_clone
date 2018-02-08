@@ -4,4 +4,4 @@ json.songs @search_result['songs']
 json.playlists @search_result['playlists']
 json.users @search_result['users']
 
-json.query @query
+# json.query @query

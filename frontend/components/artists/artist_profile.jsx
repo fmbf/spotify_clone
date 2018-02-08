@@ -127,26 +127,8 @@ class artistProfile extends React.Component {
           <span className='song-list-fields'><h3>TITLE</h3><h3>ARTIST</h3><h3>ALBUM</h3></span>
 
 
+            <Route path="/library/artists/:artistId" component={albumIndexContainer}/>
 
-            {/*<ul className='song-list'>
-              <li><a>Cut To Black | 4:49</a></li>
-              <li><a>Closer | 4:00</a></li>
-              <li><a>Continuum | 4:00</a></li>
-              <li><a>Higher | 1:00</a></li>
-              <li><a>Blue Shift | 2:49</a></li>
-              <li><a>Stepping Stone | 4:00</a></li>
-              <li><a>Time To Realize | 3:00</a></li>
-              <li><a>We Got U | 2:49</a></li>
-              <li><a>Last Night On Earth | 4:00</a></li>
-              <li><a>Playing To Lose | 3:00</a></li>
-            </ul>*/}
-
-          {/*<SongsIndexContainer album={this.recentAlbum} songs={this.recentAlbum.songs}/>*/}
-          {/*<AlbumsIndexContainer album={this.props.album} songs={this.props.songs}/>*/}
-            <Route path="/library/artists/:artistId"
-                            component={albumIndexContainer}
-            />
-          {/*<AlbumsIndexContainer artist={this.props.artist}/>*/}
           <EntityIndexContainer />
         </div>
 

@@ -7,7 +7,9 @@ import UserSessionNavContainer from '../user_session_nav/user_session_nav_contai
 
 import SongsIndexContainer from '../songs/songs_index_container';
 import albumIndexContainer from '../albums/album_index_container';
+
 import artistsIndexContainer from '../artists/artists_index_container';
+import ArtistsIndex from '../artists/artists_index_container';
 
 
 
@@ -23,24 +25,22 @@ class SearchIndex extends React.Component {
     this.users = this.props.searchResults.users;
 
     this.state = { searchTerm: '' };
+    this.handleSearchSubmit = this.handleSearchSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
 
   }
 
   componentDidMount() {
-    if (this.props.searchResults.artists) //or any other key in Obj
-    // this.props.fetchArtist(this.props.searchResults.artists);
-    this.props.fetchArtistSongs(this.props.match.params.artistId);
-    this.props.fetchAlbumsByIds(this.props.match.params.artistId);
+    // if (this.props.searchResults.artists) //or any other key in Obj
+    // this.props.fetchArtistSongs(this.props.match.params.artistId);
+    // this.props.fetchAlbumsByIds(this.props.match.params.artistId);
   }
 
 
 
   componentWillReceiveProps(newProps) {
-    if(this.props.match.params.artistId !== newProps.match.params.artistId) {
-      this.props.fetchArtist(newProps.match.params.artistId);
-      this.props.fetchArtistAlbums(newProps.match.params.artistId);
-      this.props.fetchArtistSongs(newProps.match.params.artistId);
+    if(newProps) {
+
     }
   }
 
@@ -57,10 +57,11 @@ class SearchIndex extends React.Component {
 
   /*-------------------------------------------------------------------*/
   handleSearchSubmit(e) {
+    // debugger
     e.preventDefault();
-    // let searchTerm = this.state.searchTerm.split(' ').join('+');
+    // // let searchTerm = this.state.searchTerm.split(' ').join('+');
     this.props.fetchSearch(this.state.searchTerm);
-    this.props.history.push('/search');
+    // this.props.history.push('/search');
   }
 
   handleChange(e) {
@@ -71,13 +72,14 @@ class SearchIndex extends React.Component {
   /*-------------------------------------------------------------------*/
 
   render() {
-    if(!this.props.artist || !this.props.artist.songs_ids) {
+    if(!this.props.searchResults) {
       return null;
     }
+    //
+    // this.profilePic = this.props.artist.img_path;
+    // this.profileTitle = this.props.artist.name;
+    // this.profileAuthor = this.props.artist.artist;
 
-    this.profilePic = this.props.artist.img_path;
-    this.profileTitle = this.props.artist.name;
-    this.profileAuthor = this.props.artist.artist;
     this.searchResults = this.props.searchResults;
 
     return (
@@ -88,26 +90,29 @@ class SearchIndex extends React.Component {
             {/*----------------------SEARCHBAR---------------------*/}
             <div id='header-search-parent'>
               <i className="fas fa-search fa-sm"></i>
-
-              <input type='search' placeholder=" search"
-                value={this.state.searchTerm} onChange={this.handleChange}
-                className="login-input" id='header-search'
-                name="query"
-                onSubmit={this.handleSearchSubmit}/>
+              <form onSubmit={this.handleSearchSubmit}>
+                {/*<input type='search' placeholder=" search"
+                  value={this.state.searchTerm} onChange={this.handleChange}
+                  className="login-input" id='header-search'
+                  name="query"
+                  onSubmit={this.handleSearchSubmit}/>*/}
+                <input type='text' placeholder=" searchNormal"
+                  value={this.state.searchTerm} onChange={this.handleChange}
+                  className="login-input" id='header-search'/>
+                <button className="button-green" type="submit">search</button>
+              </form>
             </div>
             {/*----------------------------------------------------*/}
-
-
-
 
             <UserSessionNavContainer/>
           </header>
 
 
           {/*-----------------Artist_Index---------------------*/}
-          <ProtectedRoute exact path="/library/artists"
-            component={artistsIndexContainer}
-          />
+            {/*<Route path="/library/artists"
+              component={artistsIndexContainer}
+            />*/}
+                          <ArtistsIndex />
           {/*-----------------Album_Index---------------------*/}
             <Route path="/library/artists/:artistId"
               component={albumIndexContainer}

@@ -14,9 +14,11 @@ class songsIndex extends React.Component {
   buildDropdown(albumSongId) {
     // console.log("built dropdown for", albumSongId);
     return this.props.playlists.map((playlist) => (
+
       <li key={playlist.id} id={`hidden-playlist-li-${albumSongId}`}
         className='hidden-playlist-li'
-        onClick={() => this.props.addSongToPlaylist(albumSongId, playlist.id)}>{playlist.title}</li>
+        onClick={() => this.props.addSongToPlaylist(albumSongId, playlist.id)}>{playlist.title}
+      </li>
     ));
   }
 
@@ -27,24 +29,24 @@ class songsIndex extends React.Component {
   hideSwitch(action, id) {
     let dropDownUL = document.getElementById(`playlist-select-ul-${id}`);
     // let plusCircle = document.getElementsByClassName('plus-circle')[0];
-    // let img = document.getElementById(id);
+    let songRow = document.getElementById(id);
 
     if (action === 'show') {
       // dropDownUL.style.opacity = '1.0';
       dropDownUL.style.transform = 'none';
       dropDownUL.style.display = 'block';
       dropDownUL.style.color = '#282828'; // button color main
-      // img.style.borderColor = '#1bc156';
-      // img.style.opacity = '0.5';
-      // img.style.filter = 'blur(3px);';
+      // songRow.style.borderColor = '#1bc156';
+      // songRow.style.opacity = '0.5';
+      // songRow.style.filter = 'blur(3px);';
     } else {
       // dropDownUL.style.opacity = '0.0';
       dropDownUL.style.display = 'none';
       dropDownUL.style.color = '#ccc'; // button color transitional
-      // img.style.borderColor = '#ddd';
-      // img.style.borderColor = '#fff';
-      // img.style.opacity = '1.0';
-      // img.style.filter = 'blur(0px);';
+      // songRow.style.borderColor = '#ddd';
+      // songRow.style.borderColor = '#fff';
+      // songRow.style.opacity = '1.0';
+      // songRow.style.filter = 'blur(0px);';
     }
   }
 

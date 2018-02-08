@@ -3,6 +3,10 @@ import * as SongApiUtil from '../util/song_api_util';
 export const RECEIVE_SONGS = "RECEIVE_SONGS";
 export const RECEIVE_SONG = "RECEIVE_SONG";
 export const RECEIVE_PLAYLIST_SONG_ADD = 'RECEIVE_PLAYLIST_SONG_ADD';
+export const REMOVE_PLAYLIST_SONG = 'REMOVE_PLAYLIST_SONG';
+
+// export const RECEIVE_PLAYLIST = "RECEIVE_PLAYLIST"; //from playlist actions
+import { fetchPlaylist } from './playlists_actions';
 
 
 export const receiveSongs = songs => ({
@@ -15,11 +19,10 @@ export const receiveSong = song => ({
   song
 });
 
-// export const receivePlaylistSongAdd = stuffff => ({
-//   type: RECEIVE_PLAYLIST_SONG_ADD,
-//   stuffff
+// export const refreshPlaylist = song => ({
+//   type: RECEIVE_PLAYLIST,
+//   song
 // });
-
 
 
 export const fetchUserSongs = (userId) => dispatch => (
@@ -49,4 +52,9 @@ export const fetchSong = id => dispatch => (
 
 export const addSongToPlaylist = (songId, playlistId) => dispatch => (
   SongApiUtil.addSongToPlaylist(songId, playlistId)
+);
+
+export const removeSongFromPlaylist = (songId, playlistId) => dispatch => (
+  SongApiUtil.removeSongFromPlaylist(songId, playlistId)
+    .then(() => dispatch(fetchPlaylist(playlistId)))
 );
