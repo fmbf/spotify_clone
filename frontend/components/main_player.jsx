@@ -8,6 +8,8 @@ const mainPlayer = () => {
 
     <footer className="footer-all">
 
+
+
       <div className="footer-left">
         <img src="https://is2-ssl.mzstatic.com/image/thumb/Music127/v4/36/42/af/3642afa1-26ec-ea06-8ecd-59b38ea5ed1f/UMG_cvrart_00602557684964_01_RGB72_1800x1800_17UMGIM97853.jpg/1200x630bb.jpg"/>
       </div>

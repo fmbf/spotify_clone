@@ -76,7 +76,8 @@ const main = () => (
       </div>
 
 
-      <PlayerMain id="player"/>
+      <PlayerMain id="player" className='animated fadeInUp'/>
+      {/*<div id='smokedglass'>.</div>*/}
 
     </div>
   </div>
