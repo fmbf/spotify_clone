@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
 
+  namespace :api do
+    get 'searches/index'
+  end
+
 namespace :api, defaults: {format: :json} do
   # Search by Artist:
   get 'artists/:id/albums', to: 'artists#album_index', as: 'artist_albums'
@@ -13,6 +17,7 @@ namespace :api, defaults: {format: :json} do
   # Search songs by Album:
   get 'albums/:id/songs', to: 'albums#song_index', as: 'album_songs'
 
+  get 'search/:query', to: 'searches#index', as: 'search_index'
 
 
   get 'playlists/:id/songs', to: 'songs#index_by_playlist', as: 'playlist_songs'

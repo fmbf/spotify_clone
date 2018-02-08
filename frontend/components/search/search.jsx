@@ -6,26 +6,32 @@ import EntityIndexContainer from '../entity_index_container';
 import UserSessionNavContainer from '../user_session_nav/user_session_nav_container';
 
 import SongsIndexContainer from '../songs/songs_index_container';
-import AlbumsIndexContainer from '../albums/album_index_container';
 import albumIndexContainer from '../albums/album_index_container';
+import artistsIndexContainer from '../artists/artists_index_container';
 
 
-class artistProfile extends React.Component {
+
+class SearchIndex extends React.Component {
   constructor(props) {
     super(props);
+
     this.currentUser = this.props.currentUser;
+    this.artists = this.props.searchResults.artists;
+    this.albums = this.props.searchResults.albums;
+    this.songs = this.props.searchResults.songs;
+    this.playlists = this.props.searchResults.playlists;
+    this.users = this.props.searchResults.users;
+
     this.state = { searchTerm: '' };
     this.handleChange = this.handleChange.bind(this);
 
   }
 
   componentDidMount() {
-
-    this.props.fetchArtist(this.props.match.params.artistId);
+    if (this.props.searchResults.artists) //or any other key in Obj
+    // this.props.fetchArtist(this.props.searchResults.artists);
     this.props.fetchArtistSongs(this.props.match.params.artistId);
-    this.props.fetchArtistAlbums(this.props.match.params.artistId);
-
-    // this.recentAlbum = this.props.albums[this.props.albums.length - 1];
+    this.props.fetchAlbumsByIds(this.props.match.params.artistId);
   }
 
 
@@ -54,6 +60,7 @@ class artistProfile extends React.Component {
     e.preventDefault();
     // let searchTerm = this.state.searchTerm.split(' ').join('+');
     this.props.fetchSearch(this.state.searchTerm);
+    this.props.history.push('/search');
   }
 
   handleChange(e) {
@@ -78,14 +85,15 @@ class artistProfile extends React.Component {
         <div className="main-window main">
           <header id='main-header'>
 
-            {/*-------------------------SEARCH---------------------*/}
+            {/*----------------------SEARCHBAR---------------------*/}
             <div id='header-search-parent'>
               <i className="fas fa-search fa-sm"></i>
 
               <input type='search' placeholder=" search"
                 value={this.state.searchTerm} onChange={this.handleChange}
                 className="login-input" id='header-search'
-                onSubmit={() => this.handleSearchSubmit}/>
+                name="query"
+                onSubmit={this.handleSearchSubmit}/>
             </div>
             {/*----------------------------------------------------*/}
 
@@ -95,58 +103,18 @@ class artistProfile extends React.Component {
             <UserSessionNavContainer/>
           </header>
 
-          <header className="profile-header">
 
-            <div id='profile-pic-div'>
-              <img id='profile-pic' src={this.profilePic}/>
-            </div>
-
-
-            <div className="profile-info">
-
-              <h3>ARTIST</h3>
-              <h1>{this.profileTitle}</h1>
-              <h3 className='profile-description'>{this.profileDescription}</h3>
-              {/*<h3>Created by: <strong><a href="#">{this.profileAuthor}</a></strong>  |  14 songs, 55min </h3>*/}
-              <h3><strong>12376123 Followers</strong>  |  {`${this.props.artist.songs_ids.length}`} songs, 55min </h3>
-
-              <div className="profile-button-box">
-                <button className='button-green'>PLAY</button>
-                <button className='button-mono'>FOLLOW</button>
-
-                <button className='button-mono header-button-more'>
-                  <i className="fas fa-caret-down fa-xs"></i>
-                </button>
-              </div>
-
-            </div>
-
-
-          </header>
-
-          <span className='song-list-fields'><h3>TITLE</h3><h3>ARTIST</h3><h3>ALBUM</h3></span>
-
-
-
-            {/*<ul className='song-list'>
-              <li><a>Cut To Black | 4:49</a></li>
-              <li><a>Closer | 4:00</a></li>
-              <li><a>Continuum | 4:00</a></li>
-              <li><a>Higher | 1:00</a></li>
-              <li><a>Blue Shift | 2:49</a></li>
-              <li><a>Stepping Stone | 4:00</a></li>
-              <li><a>Time To Realize | 3:00</a></li>
-              <li><a>We Got U | 2:49</a></li>
-              <li><a>Last Night On Earth | 4:00</a></li>
-              <li><a>Playing To Lose | 3:00</a></li>
-            </ul>*/}
-
-          {/*<SongsIndexContainer album={this.recentAlbum} songs={this.recentAlbum.songs}/>*/}
-          {/*<AlbumsIndexContainer album={this.props.album} songs={this.props.songs}/>*/}
+          {/*-----------------Artist_Index---------------------*/}
+          <ProtectedRoute exact path="/library/artists"
+            component={artistsIndexContainer}
+          />
+          {/*-----------------Album_Index---------------------*/}
             <Route path="/library/artists/:artistId"
-                            component={albumIndexContainer}
+              component={albumIndexContainer}
             />
-          {/*<AlbumsIndexContainer artist={this.props.artist}/>*/}
+          {/*-------------------------------------------------*/}
+
+
           <EntityIndexContainer />
         </div>
 
@@ -158,4 +126,4 @@ class artistProfile extends React.Component {
 
 }
 
-export default withRouter(artistProfile);
+export default withRouter(SearchIndex);

@@ -10,7 +10,8 @@ import {
 } from './actions/playlists_actions';
 
 import { fetchAlbum } from './actions/albums_actions';
-import {addSongToPlaylist} from './actions/songs_actions';
+import { addSongToPlaylist } from './actions/songs_actions';
+import { fetchSearchResults } from './actions/search_actions';
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -41,6 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.createPlaylist = (playlist) => store.dispatch(createPlaylist(playlist));
     window.updatePlaylist = (playlist) => store.dispatch(updatePlaylist(playlist));
     window.deletePlaylist = (playlistId) => store.dispatch(deletePlaylist(playlistId));
+    window.fetchSearchResults = (query) => store.dispatch(fetchSearchResults(query));
 
   //-----------------------------------------//
 

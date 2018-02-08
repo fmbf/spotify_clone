@@ -18,3 +18,8 @@ export const stateSongsArr = (songs, filter) => {
   // debugger
 
 };
+
+
+export const selectSearchedArtists = () => {
+
+};
