@@ -17,7 +17,7 @@ namespace :api, defaults: {format: :json} do
 
   get 'playlists/:id/songs', to: 'songs#index_by_playlist', as: 'playlist_songs'
   get 'playlists/:id/songs/:song_id', to: 'playlist_songs#show', as: 'playlist_song'
-  patch 'playlists/:id/songs/:song_id', to: 'playlist_songs#update', as: 'update_playlist_song'
+  post 'playlists/:id/songs/:song_id', to: 'playlist_songs#create', as: 'add_playlist_song'
   delete 'playlists/:id/songs/:song_id', to: 'playlist_songs#destroy', as: 'delete_playlist_song'
 
 end

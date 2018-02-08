@@ -34,6 +34,7 @@ class playlistProfile extends React.Component {
   handleDelete() {
     const playlist = this.props.playlists[this.props.match.params.playlistId];
     this.props.deletePlaylist(playlist.id).then(() => this.props.history.push('/library/artists'));
+    this.props.history.push('/library/artists');
 
   }
 

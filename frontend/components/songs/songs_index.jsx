@@ -3,11 +3,52 @@ import { Link, withRouter, Redirect } from 'react-router-dom';
 import UserSessionNavContainer from '../user_session_nav/user_session_nav_container';
 
 class songsIndex extends React.Component {
+  constructor(props) {
+    super(props);
+    console.log(this.props);
+    this.toggleDropdown = this.toggleDropdown.bind(this);
+    this.buildDropdown = this.buildDropdown.bind(this);
+    this.hideSwitch = this.hideSwitch.bind(this);
+  }
 
+  buildDropdown(albumSongId) {
+    // console.log("built dropdown for", albumSongId);
+    return this.props.playlists.map((playlist) => (
+      <li key={playlist.id} id={`hidden-playlist-li-${albumSongId}`}
+        className='hidden-playlist-li'
+        onClick={() => this.props.addSongToPlaylist(albumSongId, playlist.id)}>{playlist.title}</li>
+    ));
+  }
 
   toggleDropdown() {
 
   }
+
+  hideSwitch(action, id) {
+    let dropDownUL = document.getElementById(`playlist-select-ul-${id}`);
+    // let plusCircle = document.getElementsByClassName('plus-circle')[0];
+    // let img = document.getElementById(id);
+
+    if (action === 'show') {
+      // dropDownUL.style.opacity = '1.0';
+      dropDownUL.style.transform = 'none';
+      dropDownUL.style.display = 'block';
+      dropDownUL.style.color = '#282828'; // button color main
+      // img.style.borderColor = '#1bc156';
+      // img.style.opacity = '0.5';
+      // img.style.filter = 'blur(3px);';
+    } else {
+      // dropDownUL.style.opacity = '0.0';
+      dropDownUL.style.display = 'none';
+      dropDownUL.style.color = '#ccc'; // button color transitional
+      // img.style.borderColor = '#ddd';
+      // img.style.borderColor = '#fff';
+      // img.style.opacity = '1.0';
+      // img.style.filter = 'blur(0px);';
+    }
+  }
+
+
 
   render() {
     if (!this.props.songs) {
@@ -18,18 +59,21 @@ class songsIndex extends React.Component {
       <ul className='song-list'>
         {
           this.props.songs.map(albumSong => (
-              <li key={albumSong.id}>
+              <li key={albumSong.id} className='track-li'>
 
                 <button className='song-list-button song-list-play button-mono'>
                   <i className="fas fa-play"></i>
                 </button>
 
-                <button className='song-list-button button-mono' onClick={this.toggleDropdown()}>
-                  +
-                  <div id='add-dropdown'>
-
-                  </div>
+                <button className={`song-list-button button-mono plus-circle`}
+                        onClick={() => this.hideSwitch('show', albumSong.id)}
+                        >
+                        <i className="fas fa-plus"></i>
+                        <ul id={`playlist-select-ul-${albumSong.id}`} className='playlist-select-ul' onMouseLeave={() => this.hideSwitch('hide', albumSong.id)}>
+                          {this.buildDropdown(albumSong.id)}
+                        </ul>
                 </button>
+
 
 
 

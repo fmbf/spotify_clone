@@ -36,8 +36,7 @@ export const fetchSong = id => (
 export const addSongToPlaylist = (songId, playlistId) => (
   $.ajax({
     method: 'POST',
-    url: `api/playlists/${playlistId}/songs`,
-    data: { songId }
+    url: `api/playlists/${playlistId}/songs/${songId}`,
   })
 );
 

@@ -26,7 +26,7 @@ a {
   border: 1px solid #f3f3f3;
   overflow-x: scroll;
   // height: 260px;
-  height: 100%;
+  height: 100%; // this WAS ON
 }
 
 .song-list li:first-child{
@@ -66,7 +66,7 @@ a {
 //   // flex-direction: column;
 // }
 .song-list-button {
-  font-size: 8px;
+  font-size: 12px;
   margin: 0;
   margin-right: 2px;
   margin-left: 2px;
@@ -79,8 +79,13 @@ a {
 //   border-color: #1bc156;
 // }
 
-.song-list-play {
+.plus-circle{
   color: #eee;
+  // font-size: 14px;
+}
+
+.song-list-play {
+  color: #fff;
 }
 
 .user-session-nav {
@@ -342,6 +347,7 @@ a:hover {
 }
 .new-playlist:hover{
   border-color: #aaa;
+  transform: none;
 }
 
 

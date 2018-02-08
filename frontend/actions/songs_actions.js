@@ -15,10 +15,10 @@ export const receiveSong = song => ({
   song
 });
 
-export const receivePlaylistSongAdd = stuffff => ({
-  type: RECEIVE_PLAYLIST_SONG_ADD,
-  stuffff
-});
+// export const receivePlaylistSongAdd = stuffff => ({
+//   type: RECEIVE_PLAYLIST_SONG_ADD,
+//   stuffff
+// });
 
 
 
@@ -47,7 +47,6 @@ export const fetchSong = id => dispatch => (
     .then(serverSong => dispatch(receiveSong(serverSong)))
 );
 
-export const addSongtoPlaylist = (songId, playlistId) => dispatch => (
-  SongApiUtil.addSongtoPlaylist(songId, playlistId)
-    .then(serverPlaylist => dispatch(receivePlaylistSongAdd(serverPlaylist)))
+export const addSongToPlaylist = (songId, playlistId) => dispatch => (
+  SongApiUtil.addSongToPlaylist(songId, playlistId)
 );

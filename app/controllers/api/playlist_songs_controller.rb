@@ -4,10 +4,13 @@ class Api::PlaylistSongsController < ApplicationController
   end
 
   def create
-    @playlist_song = PlaylistSong.new(playlist_song_params)
-    @playlist_song.author = current_user
+    playlist_id = params[:id]
+    song_id = params[:song_id]
+    # Play
+    @playlist_song = PlaylistSong.new(song_id: song_id, playlist_id: playlist_id)
+    # @playlist_song.author = current_user
 
-    if @playlist_song.save
+    if @playlist_song.playlist.author == current_user && @playlist_song.save
       render "api/playlist_songs/show"
     else
       render json: @playlist_song.errors.full_messages, status: 422
@@ -21,9 +24,6 @@ class Api::PlaylistSongsController < ApplicationController
     render :show
   end
 
-  def update
-    # to change ord??
-  end
 
   def destroy
     playlist_song = PlaylistSong.find_by(playlist_id: params[:id], song_id: params[:song_id])
