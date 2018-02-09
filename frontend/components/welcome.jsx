@@ -10,9 +10,10 @@ class welcomeComponent extends React.Component {
       <div>
         <div className="splash-main">
           {/*<img src={}></img>*/}
-          <div className="splash-main-text">
-
-            <h1 className='welcome-h1'>Music for everyone.</h1>
+          <div className="splash-main-text animated fadeIn" id='speed-6'>
+            <strong>
+              <h1 className='welcome-h1'>Music for everyone.</h1>
+            </strong>
 
             <h3>A clone by<strong className='splash-fmbf'>FMBF</strong>|
               <a href="https://github.com/fmbf"><i className="fab fa-github"></i></a>
@@ -31,6 +32,7 @@ class welcomeComponent extends React.Component {
               <Link to={"/signup"}>
                 <button type="button"
                         name="button"
+                        id='welcome-mono'
                         className='button-mono'>
                   SIGN UP
                 </button>
@@ -44,15 +46,19 @@ class welcomeComponent extends React.Component {
         <div>
           <div className="albums-grid">
             <img className="speed-1 animated fadeInUp floatInnerPic"
-                 id='speed-1'
-                 src="http://payload170.cargocollective.com/1/12/391611/5705300/10271482_711133358945257_7454391078460532252_n.jpg"/>
+                 id='speed-4'
+                 src={ window.staticImages.havana }/>
             <img className="speed-2 animated fadeInUp floatInnerPic"
-                 id='speed-2'
-                 src="https://charts-static.billboard.com/img/1840/12/drake-zwl.jpg"/>
+                 id='speed-5'
+                 src='https://www.billboard.com/files/styles/900_wide/public/media/Joy-Division-Unknown-Pleasures-album-covers-billboard-1000x1000.jpg'/>
             <img className="speed-3 animated fadeInUp floatInnerPic"
-                 id='speed-3'
-                 src="https://upload.wikimedia.org/wikipedia/en/2/20/Dua_Lipa_%28album%29.png"/>
+                 id='speed-6'
+                 src="https://upload.wikimedia.org/wikipedia/en/a/a5/MajorLazerPeaceIstheMission.png"/>
           </div>
+        </div>
+
+        <div id='orange-container'>
+          <img src={ window.staticImages.orange_abstract } id='orange_abstract'/>
         </div>
 
 

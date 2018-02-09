@@ -121,6 +121,7 @@ Album.create(title: '24K Magic', artist_id: 3, img_path: 'https://upload.wikimed
 
 Album.create(title: 'Nothing Was The Same', artist_id: 6, img_path: 'https://upload.wikimedia.org/wikipedia/en/b/b9/Nothing_Was_the_Same_cover_2.png')
 Album.create(title: 'Views', artist_id: 6, img_path: 'https://upload.wikimedia.org/wikipedia/en/a/af/Drake_-_Views_cover.jpg')
+Album.create(title: 'More Life', artist_id: 6, img_path: 'https://upload.wikimedia.org/wikipedia/en/7/70/Drake_-_More_Life_cover.jpg')
 
 # 20.times do
 #   Artist.create(name: Faker::Hipster.word.titleize, img_path: "https://picsum.photos/200/200/?image=#{rand(100)}")
@@ -174,8 +175,12 @@ Song.create(title: "Doin' It Right", artist_id: 4, album_id: 3, song_path: 'defa
 #   end
 # end
 
-#---------------------------------------Daft_Punk----------------------------------------#
-
+#---------------------------------------Drake----------------------------------------#
+Song.create(title: "Hold On, We're Going Home", artist_id: Artist.where(name: 'Drake'), album_id: Album.where(title: "Nothing Was The Same"), song_path: 'default song_path')
+Song.create(title: "Controlla", artist_id: Artist.where(name: 'Drake'), album_id: Album.where(title: "Views"), song_path: 'default song_path')
+Song.create(title: "One Dance", artist_id: Artist.where(name: 'Drake'), album_id: Album.where(title: "Views"), song_path: 'default song_path')
+Song.create(title: "Hotline Bling", artist_id: Artist.where(name: 'Drake'), album_id: Album.where(title: "Views"), song_path: 'default song_path')
+Song.create(title: "Fake Love", artist_id: Artist.where(name: 'Drake'), album_id: Album.where(title: "More Life"), song_path: 'default song_path')
 
 
 # Song.create(title: 'You da One', artist_id: 17, album_id:,  img_path: 'https://upload.wikimedia.org/wikipedia/en/8/8e/Rihanna_-_Talk_That_Talk_%28standard%29.png')

@@ -15,12 +15,6 @@ const mapStateToProps = (state, ownProps) => {
   return {
     currentUser: state.session.currentUser,
     artist: state.entities.artists[ownProps.match.params.artistId],
-
-    // songs: Object.values(state.entities.songs).filter(song => song.artist_id === parseInt(ownProps.match.params.artistId)),
-    // albums: Object.values(state.entities.albums).filter(album => album.artist_id === parseInt(ownProps.match.params.artistId)),
-
-    // songs: state.entities.songs,
-    // albums: state.entities.albums,
   };
 
 };

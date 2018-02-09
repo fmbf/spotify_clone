@@ -1,22 +1,22 @@
 import { connect } from 'react-redux';
-// import { fetchTrack, fetchTracks } from '../../actions/tracks';
-// import { togglePlay, toggleRepeat, toggleMute, nextTrack } from '../../actions/audio';
-import Player from "./player";
+import { fetchSong, fetchSongs } from '../../actions/songs_actions';
+import { togglePlay, toggleRepeat, toggleMute, nextSong } from '../../actions/player_actions';
+import MediaPlayer from "./player";
 
 const mapStateToProps = (state) => {
   return {
     audio: state.entities.audio,
-    songs: state.entities.songs,
+    tracks: state.entities.tracks,
     ui: state.entities.ui
 };};
 
 const mapDispatchToProps = (dispatch) => ({
-  // fetchTrack: (id) => dispatch(fetchTrack(id)),
-  // fetchTracks: () => dispatch(fetchTracks()),
-  // togglePlay: () => dispatch(togglePlay()),
-  // toggleMute: () => dispatch(toggleMute()),
-  // toggleRepeat: () => dispatch(toggleRepeat()),
-  // nextTrack: () => dispatch(nextTrack())
+  fetchSong: (id) => dispatch(fetchSong(id)),
+  fetchSongs: () => dispatch(fetchSongs()),
+  togglePlay: () => dispatch(togglePlay()),
+  toggleMute: () => dispatch(toggleMute()),
+  toggleRepeat: () => dispatch(toggleRepeat()),
+  nextSong: () => dispatch(nextSong())
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Player);
+export default connect(mapStateToProps,mapDispatchToProps)(MediaPlayer);

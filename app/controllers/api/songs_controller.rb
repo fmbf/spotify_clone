@@ -1,6 +1,6 @@
 class Api::SongsController < ApplicationController
   def index
-    @songs = User.where(id: params[:song_ids])
+    # @songs = User.where(id: params[:song_ids])
   end
 
   def index_by_artist
@@ -12,7 +12,6 @@ class Api::SongsController < ApplicationController
   end
 
   def index_by_playlist
-    # @songs = Playlist.where('playlist_id = ?', params[:playlist_id]).songs
     @songs = Playlist.find(params[:id]).songs
   end
 

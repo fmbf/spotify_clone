@@ -14,7 +14,7 @@ class artistProfile extends React.Component {
   constructor(props) {
     super(props);
     this.currentUser = this.props.currentUser;
-    this.state = { searchTerm: '' };
+    this.state = { followed: false };
 
   }
 
@@ -23,6 +23,7 @@ class artistProfile extends React.Component {
     this.props.fetchArtist(this.props.match.params.artistId);
     this.props.fetchArtistSongs(this.props.match.params.artistId);
     this.props.fetchArtistAlbums(this.props.match.params.artistId);
+    this.setState({ followed: this.followed });
 
     // this.recentAlbum = this.props.albums[this.props.albums.length - 1];
   }
@@ -35,10 +36,12 @@ class artistProfile extends React.Component {
       this.props.fetchArtistAlbums(newProps.match.params.artistId);
       this.props.fetchArtistSongs(newProps.match.params.artistId);
     }
+
+
   }
 
   toggleFollow(){
-    // this.props.unfollowEntity(this.props.artist.id)
+    this.setState({ followed: !this.followed });
   }
 
 
@@ -48,10 +51,12 @@ class artistProfile extends React.Component {
     }
 
     this.profilePic = this.props.artist.img_path;
+    this.followed = this.props.artist.current_user_follows;
     this.profileTitle = this.props.artist.name;
-    this.profileAuthor = this.props.artist.artist;
+
     this.searchResults = this.props.searchResults;
 
+    let followDisplayStatus = this.followed ? 'Unfollow' : 'Follow';
     return (
       <div>
         <div className="main-window main">
@@ -73,7 +78,11 @@ class artistProfile extends React.Component {
 
               <div className="profile-button-box">
                 <button className='button-green'>PLAY</button>
-                <button className='button-mono'>FOLLOW</button>
+                <button className='button-mono'
+                  onClick={() => this.toggleFollow}
+                  >
+                  FOLLOW
+                </button>
 
                 <button className='button-mono header-button-more'>
                   <i className="fas fa-caret-down fa-xs"></i>

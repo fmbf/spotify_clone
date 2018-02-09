@@ -1,9 +1,7 @@
 import React from 'react';
-import { Link, withRouter, Redirect } from 'react-router-dom';
 
-class Player extends React.Component {
+class MediaPlayer extends React.Component {
   constructor(props) {
-
     super(props);
     this.state = {
       muted: false,
@@ -11,8 +9,6 @@ class Player extends React.Component {
       duration: 0,
       currentTime: 0,
     };
-
-
     this.playAudio = this.playAudio.bind(this);
     this.pauseAudio = this.pauseAudio.bind(this);
     this.muteAudio = this.muteAudio.bind(this);
@@ -26,16 +22,14 @@ class Player extends React.Component {
   }
 
   componentDidMount() {
-
     this.setState({
       currentTime: this.audio.currentTime,
       duration: this.audio.duration
     });
-
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (prevProps.audio.currentSong !== this.props.audio.currentSong) {
+    if (prevProps.audio.currentTrack !== this.props.audio.currentTrack) {
       if (this.props.audio.playing) {
         this.audio.play();
       }
@@ -48,7 +42,7 @@ class Player extends React.Component {
         this.setState({
           currentTime: 0
         });
-      nextProps.nextSong();
+      nextProps.nextTrack();
       }
     }
   }
@@ -61,7 +55,7 @@ class Player extends React.Component {
     if (this.props.audio.repeat) {
       this.audio.currentTime = 0;
     } else {
-      this.props.nextSong();
+      this.props.nextTrack();
     }
   }
 
@@ -122,7 +116,7 @@ class Player extends React.Component {
   }
 
   setVolume(event){
-    if (this.props.audio.currentSong) {
+    if (this.props.audio.currentTrack) {
       let volume = event.target.value;
       this.audio.volume = volume;
       this.setState({
@@ -134,10 +128,10 @@ class Player extends React.Component {
   }
 
   render() {
-    let songUrl = '/';
+    let trackUrl = '/';
 
-    if (this.props.audio.currentSong) {
-      songUrl = this.props.audio.song_url;
+    if (this.props.audio.currentTrack) {
+      trackUrl = this.props.audio.song_url;
     }
 
     let playButton;
@@ -191,16 +185,19 @@ class Player extends React.Component {
       toggleOff = null;
     }
 
-    let songImage;
+    let likeOn;
+    let likeOff;
 
-    if (this.props.audio.img_path) {
-      songImage =
+    let trackImage;
+
+    if (this.props.audio.song_image) {
+      trackImage =
       <img
-        id='preview-song-image'
-        src={this.props.audio.img_path}
+        id='preview-track-image'
+        src={this.props.audio.song_image}
       />;
     } else {
-      songImage = <img/>;
+      trackImage = <img/>;
     }
 
     let sliderStyle = {
@@ -215,13 +212,13 @@ class Player extends React.Component {
       <div id="audioplayer">
         <audio
           ref={(audio) => { this.audio = audio; }}
-          src={songUrl}
+          src={trackUrl}
           onCanPlayThrough={this.getDuration}
           onTimeUpdate={this.getCurrentTime}
           onEnded={this.setEnd}
           >
         </audio>
-        {songImage}
+        {trackImage}
         <span id='media-title'>
           {this.props.audio.song_name}
         </span>
@@ -234,7 +231,7 @@ class Player extends React.Component {
           {toggleOff}
           {playButton}
           {pauseButton}
-          <span id="button-next" onClick={this.props.nextSong}>
+          <span id="button-next" onClick={this.props.nextTrack}>
             <i className="fas fa-fast-forward fa-2x next-button"></i>
           </span>
           <div id="mute-button">
@@ -254,4 +251,4 @@ class Player extends React.Component {
   }
 }
 
-export default Player;
+export default MediaPlayer;

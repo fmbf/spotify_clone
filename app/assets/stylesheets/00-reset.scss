@@ -234,7 +234,8 @@ li {
 // }
 
 button {
-  font-weight: 400;
+  // font-weight: 400;
+  font-weight: 600;
   letter-spacing: 1px;
 
   -moz-transition: all .2s ease-in;
@@ -246,7 +247,8 @@ button {
 
 button:hover {
   letter-spacing: 1.5px;
-  transform: scale(1.03);
+  // transform: scale(1.03);
+  transform: scale(1.01);
 }
 
 a {
@@ -266,7 +268,8 @@ a:hover button {
 }
 
 .button-green {
-  background-color: #1bc156;
+  // background-color: #1bc156; // old
+  background-color: rgb(29, 185, 84);
   color: white;
   border: none;
 }
@@ -357,4 +360,36 @@ textarea {
 
 .search-sections:hover {
   // background-color: rgba(30, 215, 96, 1.0);
+}
+
+#orange-container{
+  border-radius: 20px;
+}
+
+#orange_abstract {
+  position: fixed;
+  margin: 0;
+  margin-left: -12px;
+  margin-top: -900px;
+  overflow: hidden;
+  z-index: -2;
+  width: 101%;
+  height: 100%;
+}
+
+#welcome-mono {
+  color: white;
+  border: 1px solid white;
+}
+
+#welcome-mono:hover {
+  background-color: white;
+  color: black;
+  transform: none;
+}
+
+.welcome-h1 {
+  color: white;
+  // font-size: 60px;
+  font-weight: 700;
 }
