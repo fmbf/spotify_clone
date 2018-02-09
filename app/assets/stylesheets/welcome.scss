@@ -71,3 +71,11 @@
   -moz-animation-duration: 1.4s;
   -webkit-animation-duration: 1.4s;
 }
+
+.fa-github {
+  transition: color 0.2s ease-in;
+}
+
+.fa-github:hover{
+  // color: white;
+}

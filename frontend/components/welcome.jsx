@@ -16,7 +16,7 @@ class welcomeComponent extends React.Component {
             </strong>
 
             <h3>A clone by<strong className='splash-fmbf'>FMBF</strong>|
-              <a href="https://github.com/fmbf"><i className="fab fa-github"></i></a>
+              <a href="https://github.com/fmbf"><i className="fab fa-github fa-lg"></i></a>
             </h3>
 
             <div className="button-container">
