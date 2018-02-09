@@ -2,9 +2,6 @@
 <div align="center">
    : 🎵 :  🔥 :  🎵 :
    <br/>
-   ---
-   [Live Demo](https://spotify-mini.herokuapp.com/)
-   ---
 </div>
 <br/>
 <div align="center">
@@ -23,6 +20,7 @@
   <img src="https://media.giphy.com/media/l3diTgXwccE4BKIAU/giphy.gif">
 </p>
 
+
 <center>Spotify Mini is a simple clone built on Rails, React.js, Redux, PostgreSQL and AWS storage. It lets users search, discover, and listen
 to beautiful music.</center>
 <h1 align="center"><strong>Features</strong></h1>
@@ -40,6 +38,9 @@ and `SecureRandom.base64` session key in HTTP cookies
 <p align="center">
   <img src="https://media.giphy.com/media/3o6nV2x8uiJq0P7WcU/giphy.gif">
 </p>
+
+[Live Demo](https://spotify-mini.herokuapp.com/)
+
 
 ## Project Design
 Spotify Mini was designed over a 10 day period in February 2018. Designed
