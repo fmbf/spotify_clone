@@ -76,14 +76,7 @@ class playlistProfile extends React.Component {
 
       <div>
         <div className="main-window main">
-          <header id='main-header'>
-            <div id='header-search-parent'>
-              <i className="fas fa-search fa-sm"></i>
-              <input type='search' placeholder=" search" className="login-input" id='header-search'/>
-            </div>
 
-            <UserSessionNavContainer/>
-          </header>
 
           <header className="profile-header">
 
@@ -101,12 +94,13 @@ class playlistProfile extends React.Component {
 
               <div className="profile-button-box">
                 <button className='button-green'>PLAY</button>
-                <button className='button-mono'>SAVE</button>
+                {/*<button className='button-mono'>SAVE</button>*/}
+                <button className='button-mono' onClick={() => this.handleDelete()}>DELETE</button>
 
-                <button className='button-mono header-button-more'
+                {/*<button className='button-mono header-button-more'
                         onClick={() => this.handleDelete()} >
                   +
-                </button>
+                </button>*/}
               </div>
 
             </div>

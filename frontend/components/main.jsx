@@ -11,8 +11,9 @@ import {
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 //--------------------MAIN COMPONENTS--------------------//
-import PlayerMain from './main_player';
+import HeaderContainer from './header_container';
 import SidebarContainer from './sidebar_container';
+import PlayerMain from './main_player';
 //-------------------------------------------------------//
 
 import SessionFormContainer from './session_form/session_form_container';
@@ -40,6 +41,7 @@ const main = () => (
 
 
         <main id="browse-parent">
+          <Route path="/" component={HeaderContainer}/>
           <div id='browse-content'>
             <Switch>
               <ProtectedRoute exact path="/library/artists/:artistId/albums"

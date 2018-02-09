@@ -76,24 +76,6 @@ class artistProfile extends React.Component {
     return (
       <div>
         <div className="main-window main">
-          <header id='main-header'>
-
-            {/*-------------------------SEARCH---------------------*/}
-            <div id='header-search-parent'>
-              <i className="fas fa-search fa-sm"></i>
-
-              <input type='search' placeholder=" search"
-                value={this.state.searchTerm} onChange={this.handleChange}
-                className="login-input" id='header-search'
-                onSubmit={() => this.handleSearchSubmit}/>
-            </div>
-            {/*----------------------------------------------------*/}
-
-
-
-
-            <UserSessionNavContainer/>
-          </header>
 
           <header className="profile-header">
 

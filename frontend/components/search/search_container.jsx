@@ -1,4 +1,6 @@
 import { connect } from 'react-redux';
+import { Link, withRouter, Redirect } from 'react-router-dom';
+
 import SearchIndex from './search_index';
 
 import { receiveSearchResults, fetchSearchResults } from '../../actions/search_actions';
@@ -19,4 +21,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(SearchIndex);
+export default  withRouter(connect(mapStateToProps, mapDispatchToProps)(SearchIndex));

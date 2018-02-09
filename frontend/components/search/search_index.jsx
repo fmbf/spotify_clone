@@ -26,9 +26,10 @@ class SearchIndex extends React.Component {
     this.playlists = this.props.searchResults.playlists;
     this.users = this.props.searchResults.users;
 
-    this.state = { searchTerm: '' };
+    this.state = this.props.searchTerm || { searchTerm: '' };
     this.handleSearchSubmit = this.handleSearchSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    console.log(this.props);
   }
 
 
@@ -49,10 +50,7 @@ class SearchIndex extends React.Component {
       this.songs = newProps.searchResults.songs;
       this.playlists = newProps.searchResults.playlists;
       this.users = newProps.searchResults.users;
-    }
-
-    if (this.props.location.pathname !== newProps.location.pathname &&
-      newProps.match.params.artistId){
+      // this.props.history.push('/search');
     }
   }
 
@@ -124,6 +122,7 @@ class SearchIndex extends React.Component {
               <form onSubmit={this.handleSearchSubmit}>
                 <input type='text' placeholder=" search"
                   value={this.state.searchTerm} onChange={this.handleChange}
+                  autoComplete="off"
                   className="login-input" id='header-search'/>
               </form>
             </div>

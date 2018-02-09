@@ -31,10 +31,12 @@ class entityIndex extends React.Component {
 
     if (action === 'show') {
       playButton.style.opacity = '1.0';
+      playButton.style.color = '#282828'; // button color main
       img.style.borderColor = '#1bc156';
       img.style.opacity = '0.5';
     } else {
       playButton.style.opacity = '0.0';
+      playButton.style.color = '#ccc'; // button color transitional
       img.style.borderColor = '#ddd';
       img.style.opacity = '1.0';
     }
@@ -54,18 +56,24 @@ class entityIndex extends React.Component {
                 abbreviatedTitle = `${abbreviatedTitle.slice(0, 10)}...`;
               }
               return (
-              <div className='entity-index-item' key={playlist.id}>
+              <div className={`entity-index-item animated fadeIn`} key={playlist.id}>
                 <div className='entity-index-item-hide'
                   onMouseOver={() => this.hideSwitch('show', playlist.id)}
                   onMouseOut={() => this.hideSwitch('hide', playlist.id)}>
 
                   <button className='playlist-ball-play-button' onClick={() => this.playBubble(playlist.id)}>
-                    <i className="fa fa-play-circle fa-3x hidden" id={`hidden-${playlist.id}`}></i>
+                    <i
+                      className="far fa-play-circle fa-3x hidden big-scale"
+                      id={`hidden-${playlist.id}`}
+                      style={{color: '#ccc'}}
+                      ></i>
                   </button>
 
-                  <img className='entity-index-item-img'
-                       src={playlist.img_path} id={playlist.id}
-                  />
+                  <Link to={`/library/playlists/${playlist.id}`}>
+                    <img className='entity-index-item-img'
+                         src={playlist.img_path} id={playlist.id}
+                    />
+                  </Link>
                 </div>
 
                 <Link to={`/library/playlists/${playlist.id}`} className='entity-index-item-title'>

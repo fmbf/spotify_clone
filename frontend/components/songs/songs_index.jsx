@@ -13,11 +13,20 @@ class songsIndex extends React.Component {
 
   buildDropdown(albumSongId) {
     // console.log("built dropdown for", albumSongId);
+    let li = document.getElementById(`hidden-playlist-li-${albumSongId}`);
+
     return this.props.playlists.map((playlist) => (
 
       <li key={playlist.id} id={`hidden-playlist-li-${albumSongId}`}
         className='hidden-playlist-li'
-        onClick={() => this.props.addSongToPlaylist(albumSongId, playlist.id)}>{playlist.title}
+        onClick={() => {
+            this.props.addSongToPlaylist(albumSongId, playlist.id);
+          }
+        }
+        >
+
+        {playlist.title}
+
       </li>
     ));
   }
