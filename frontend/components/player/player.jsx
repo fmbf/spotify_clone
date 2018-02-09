@@ -3,13 +3,16 @@ import { Link, withRouter, Redirect } from 'react-router-dom';
 
 class Player extends React.Component {
   constructor(props) {
+
     super(props);
     this.state = {
-      volume: .5,
       muted: false,
+      volume: .8,
       duration: 0,
       currentTime: 0,
     };
+
+
     this.playAudio = this.playAudio.bind(this);
     this.pauseAudio = this.pauseAudio.bind(this);
     this.muteAudio = this.muteAudio.bind(this);
@@ -23,10 +26,12 @@ class Player extends React.Component {
   }
 
   componentDidMount() {
+
     this.setState({
       currentTime: this.audio.currentTime,
       duration: this.audio.duration
     });
+
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -129,10 +134,10 @@ class Player extends React.Component {
   }
 
   render() {
-    let trackUrl = '/';
+    let songUrl = '/';
 
     if (this.props.audio.currentSong) {
-      trackUrl = this.props.audio.song_url;
+      songUrl = this.props.audio.song_url;
     }
 
     let playButton;
@@ -186,16 +191,16 @@ class Player extends React.Component {
       toggleOff = null;
     }
 
-    let trackImage;
+    let songImage;
 
-    if (this.props.audio.song_image) {
-      trackImage =
+    if (this.props.audio.img_path) {
+      songImage =
       <img
-        id='preview-track-image'
-        src={this.props.audio.song_image}
+        id='preview-song-image'
+        src={this.props.audio.img_path}
       />;
     } else {
-      trackImage = <img/>;
+      songImage = <img/>;
     }
 
     let sliderStyle = {
@@ -210,13 +215,13 @@ class Player extends React.Component {
       <div id="audioplayer">
         <audio
           ref={(audio) => { this.audio = audio; }}
-          src={trackUrl}
+          src={songUrl}
           onCanPlayThrough={this.getDuration}
           onTimeUpdate={this.getCurrentTime}
           onEnded={this.setEnd}
           >
         </audio>
-        {trackImage}
+        {songImage}
         <span id='media-title'>
           {this.props.audio.song_name}
         </span>

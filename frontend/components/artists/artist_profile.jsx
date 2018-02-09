@@ -15,7 +15,6 @@ class artistProfile extends React.Component {
     super(props);
     this.currentUser = this.props.currentUser;
     this.state = { searchTerm: '' };
-    this.handleChange = this.handleChange.bind(this);
 
   }
 
@@ -42,26 +41,6 @@ class artistProfile extends React.Component {
     // this.props.unfollowEntity(this.props.artist.id)
   }
 
-  // handleSearchSubmit(){
-  //
-  // }
-
-
-
-
-  /*-------------------------------------------------------------------*/
-  handleSearchSubmit(e) {
-    e.preventDefault();
-    // let searchTerm = this.state.searchTerm.split(' ').join('+');
-    this.props.fetchSearch(this.state.searchTerm);
-  }
-
-  handleChange(e) {
-    this.setState({ searchTerm: e.currentTarget.value });
-  }
-
-
-  /*-------------------------------------------------------------------*/
 
   render() {
     if(!this.props.artist || !this.props.artist.songs_ids) {

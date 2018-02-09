@@ -9,6 +9,7 @@ import EntityIndexContainer from '../entity_index_container'; // playlists, this
 import ArtistSearchIndex from './artists_search_index';
 import AlbumSearchIndex from './albums_search_index';
 import PlaylistSearchIndex from './playlists_search_index';
+import UserSearchIndex from './users_search_index';
 
 
 
@@ -29,7 +30,6 @@ class SearchIndex extends React.Component {
     this.state = this.props.searchTerm || { searchTerm: '' };
     this.handleSearchSubmit = this.handleSearchSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
-    console.log(this.props);
   }
 
 
@@ -162,12 +162,18 @@ class SearchIndex extends React.Component {
             </ul>
           </div>
           <br/>
+          {/*-----------------User_Index---------------------*/}
+          <div className='entity-index-container search-sections'>
+            <h1>People</h1>
+            <ul className='entity-index'>
+              {
+                <UserSearchIndex users={this.users} hide={this.hideSwitch} play={this.playBubble}/>
+              }
+            </ul>
+          </div>
+          <br/>
           {/*-------------------------------------------------*/}
-
-
-          {/*<EntityIndexContainer />*/}
         </div>
-
         <br/>
       </div>
     );

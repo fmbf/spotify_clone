@@ -8,6 +8,8 @@ import {
   HashRouter
 } from 'react-router-dom';
 
+import ReactPlayer from 'react-player';
+
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 //--------------------MAIN COMPONENTS--------------------//
@@ -81,11 +83,8 @@ const main = () => (
           </div>
         </main>
       </div>
-
-
       <PlayerMain id="player" className='animated fadeInUp'/>
       {/*<div id='smokedglass'>.</div>*/}
-
     </div>
   </div>
 );
