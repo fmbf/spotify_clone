@@ -13,6 +13,9 @@ import { fetchAlbum } from './actions/albums_actions';
 import { addSongToPlaylist, removeSongFromPlaylist } from './actions/songs_actions';
 import { fetchSearchResults } from './actions/search_actions';
 
+import { togglePlay, toggleRepeat, toggleMute, nextSong } from './actions/player_actions';
+
+
 
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');
@@ -35,15 +38,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.getState = store.getState;
     window.dispatch = store.dispatch;
-    window.logout = () => store.dispatch(logout());
     window.fetchPlaylists = (userId) => store.dispatch(fetchPlaylists(userId));
     window.addSongToPlaylist = (songId, playlistId) => store.dispatch(addSongToPlaylist(songId, playlistId));
     window.removeSongFromPlaylist = (songId, playlistId) => store.dispatch(removeSongFromPlaylist(songId, playlistId));
     window.fetchAlbum = (albumId) => store.dispatch(fetchAlbum(albumId));
     window.createPlaylist = (playlist) => store.dispatch(createPlaylist(playlist));
     window.updatePlaylist = (playlist) => store.dispatch(updatePlaylist(playlist));
-    window.deletePlaylist = (playlistId) => store.dispatch(deletePlaylist(playlistId));
     window.fetchSearchResults = (query) => store.dispatch(fetchSearchResults(query));
+
+    window.nextSong = () => store.dispatch(nextSong());
 
   //-----------------------------------------//
 

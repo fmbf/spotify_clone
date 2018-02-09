@@ -17,9 +17,9 @@ export const toggleMute = () => ({
 });
 
 export const nextSong = () => ({
-  type: PREV_SONG
+  type: NEXT_SONG
 });
 
 export const prevSong = () => ({
-  type: NEXT_SONG
+  type: PREV_SONG
 });

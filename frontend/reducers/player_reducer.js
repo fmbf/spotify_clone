@@ -28,6 +28,7 @@ export default (state = initialState, action) => {
 
   let newState;
   let newQueue;
+  let oldQueue;
   // let tracksList;
 
   switch(action.type) {
@@ -35,8 +36,7 @@ export default (state = initialState, action) => {
     case RECEIVE_SONGS:
       newState = merge({}, state);
 
-      // tracksList = Object.keys(action.songs);
-      // newState.songImgPath = newState.queue[0].img_url;
+
       newState.queue = Object.values(action.songs);
       newState.currentSong = newState.queue[0].id;
       newState.song_path = newState.queue[0].song_path;
@@ -63,13 +63,25 @@ export default (state = initialState, action) => {
 
     case NEXT_SONG:
       newState = merge({}, state);
-      newQueue = state.queue;
+      newQueue = newState.queue;
 
-      newState.queue = newQueue;
       newState.currentSong = newQueue[0].id;
       newState.song_path = newQueue[0].song_path;
       newState.title = newQueue[0].title;
-      // newState.img_url = newQueue[0].img_url;
+      newState.artist = newState.queue[0].artist;
+      newState.album = newState.queue[0].album;
+      return newState;
+
+    case PREV_SONG:
+      newState = merge({}, state);
+      oldQueue = state.queue;
+      newQueue = newState.queue;
+
+      newState.currentSong = newQueue[0].id;
+      newState.song_path = newQueue[0].song_path;
+      newState.title = newQueue[0].title;
+      newState.artist = newState.queue[0].artist;
+      newState.album = newState.queue[0].album;
       return newState;
 
     default:

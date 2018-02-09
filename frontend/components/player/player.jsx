@@ -143,13 +143,9 @@ class MediaPlayer extends React.Component {
   // }
 
   setVolume(e){
-    if (true) {
-      let volume = e.target.value;
-      this.audio.volume = volume;
-      this.setState({volume});
-    } else {
-      return;
-    }
+    let volume = e.target.value;
+    this.audio.volume = volume;
+    this.setState({volume});
   }
 
   render() {
@@ -171,7 +167,6 @@ class MediaPlayer extends React.Component {
     } else {
       playButton =
       <div className='main-ctrls main-PLAY' onClick={this.playAudio}>
-        {/*<i className="fas fa-play"></i>*/}
         <i className="fas fa-play fa-sm"></i>
       </div>;
       pauseButton = null;
