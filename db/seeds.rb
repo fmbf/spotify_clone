@@ -8,13 +8,13 @@
 
 
 
-# User.destroy_all
-# Playlist.destroy_all
-# Artist.destroy_all
-# Album.destroy_all
-# Song.destroy_all
-# PlaylistSong.destroy_all
-# Follow.destroy_all
+User.destroy_all
+Playlist.destroy_all
+Artist.destroy_all
+Album.destroy_all
+Song.destroy_all
+PlaylistSong.destroy_all
+Follow.destroy_all
 
 #========================================Users=======================================#
 User.create(username: "bobby_tables", email: "robotables@tables.com", password: "tables")
@@ -200,6 +200,11 @@ Artist.all.each do |artist|
   end
 end
 
+
+Playlist.all.each do |playlist|
+  songId = Song.all.sample.id
+  PlaylistSong.new(song_id: songId, playlist_id: playlist.id)
+end
 
 #  Fake Songs
 # Follow.create(user_id: users.sample.id, followable_id: artist.id, followable_type: "Artist")
