@@ -6,6 +6,16 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+
+
+# User.destroy_all
+# Playlist.destroy_all
+# Artist.destroy_all
+# Album.destroy_all
+# Song.destroy_all
+# PlaylistSong.destroy_all
+# Follow.destroy_all
+
 #========================================Users=======================================#
 User.create(username: "bobby_tables", email: "robotables@tables.com", password: "tables")
 User.create(username: Faker::Internet.user_name, email: Faker::Internet.email, password: "password")
@@ -13,31 +23,27 @@ User.create(username: Faker::Internet.user_name, email: Faker::Internet.email, p
 # User.create(username: "guest_user25", email: "demo_spotifyx@email.com", password: "password123")
 User.create(username: "solo_han13", email: "falconflyer@space.com", password: "falcon")
 
-30.times do
+80.times do
   User.create(username: Faker::Internet.user_name, email: Faker::Internet.email, password: "password")
 end
 #=====================================================================================#
-
-
-# random = rand(1000)
 
 # "https://picsum.photos/200/200/?image=#{rand(1000)}"
 
 #=====================================Playlists=======================================#
 #---------------------------------------User_1---------------------------------------#
-Playlist.create(title: 'love songs', img_path: "https://picsum.photos/200/200/?image=#{rand(100)}", description: 'the staple of every library', author_id: 1)
-Playlist.create(title: 'rock stuff', img_path: "https://picsum.photos/200/200/?image=#{rand(100)}", description: 'oldies but awesome', author_id: 1)
-Playlist.create(title: 'christmas party', img_path: "https://picsum.photos/200/200/?image=#{rand(100)}", description: 'warm and fuzzy', author_id: 1)
-
-Playlist.create(title: 'Day At The Beach', img_path: "https://picsum.photos/200/200/?image=#{rand(100)}", description: 'Summer is here!', author_id: 1)
+Playlist.create(title: 'Love Songs', img_path: "https://picsum.photos/200/200/?image=#{rand(100)}", description: 'the staple of every library', author_id: 1)
+Playlist.create(title: 'Bangers', img_path: "https://picsum.photos/200/200/?image=#{rand(100)}", description: 'oldies but awesome', author_id: 1)
+Playlist.create(title: 'Pool Party', img_path: "https://picsum.photos/200/200/?image=#{rand(100)}", description: 'warm and fuzzy', author_id: 1)
 Playlist.create(title: 'Rainy Day Jams', img_path: "https://picsum.photos/200/200/?image=#{rand(100)}", description: 'drip drop', author_id: 1)
+Playlist.create(title: 'Day At The Beach', img_path: "https://picsum.photos/200/200/?image=#{rand(100)}", description: 'Summer is here!', author_id: 1)
 Playlist.create(title: 'Workout', img_path: "https://picsum.photos/200/200/?image=#{rand(100)}", description: 'For da gym!', author_id: 1)
 
-7.times do
-  Playlist.create(title: Faker::Book.title,
-    img_path: "https://picsum.photos/200/200/?image=#{rand(100)}",
-    description: Faker::Hipster.paragraph(1), author_id: 1)
-end
+# 7.times do
+#   Playlist.create(title: Faker::Book.title,
+#     img_path: "https://picsum.photos/200/200/?image=#{rand(100)}",
+#     description: Faker::Hipster.paragraph(1), author_id: 1)
+# end
 
 #---------------------------------------Playlists----------------------------------------#
 titles = [
@@ -46,12 +52,13 @@ titles = [
 ]
 
 User.all.each do |user|
-
-  7.times do
-    Playlist.create(title: titles.sample,
-      img_path: "https://picsum.photos/200/200/?image=#{rand(100)}",
-      description: Faker::Hipster.paragraph(1), author_id: user.id
-    )
+  unless user.id == 1
+    5.times do
+      Playlist.create(title: titles.sample,
+        img_path: "https://picsum.photos/200/200/?image=#{rand(100)}",
+        description: Faker::Hipster.paragraph(1), author_id: user.id
+      )
+    end
   end
 
 end
@@ -123,38 +130,46 @@ Album.create(title: 'Nothing Was The Same', artist_id: 6, img_path: 'https://upl
 Album.create(title: 'Views', artist_id: 6, img_path: 'https://upload.wikimedia.org/wikipedia/en/a/af/Drake_-_Views_cover.jpg')
 Album.create(title: 'More Life', artist_id: 6, img_path: 'https://upload.wikimedia.org/wikipedia/en/7/70/Drake_-_More_Life_cover.jpg')
 
-# 20.times do
-#   Artist.create(name: Faker::Hipster.word.titleize, img_path: "https://picsum.photos/200/200/?image=#{rand(100)}")
-# end
+20.times do
+  Artist.create(name: Faker::Hipster.word.titleize, img_path: "https://picsum.photos/200/200/?image=#{rand(100)}")
+end
 
 # Artist.create(name: '', img_path: '')
 
-#=====================================Songs=======================================#
+#=====================================Songs=======================================#d
+
+songPaths = [
+  'https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/messages.mp3',
+  'https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/forma.mp3',
+  'https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/mmfg.mp3'
+]
+
+default_song_path = 'https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/messages.mp3'
 
 #---------------------------------------Daft_Punk----------------------------------------#
 Song.create(title: 'One More Time', artist_id: 4, album_id: 1, song_path: 'https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/01+One+More+Time.mp3')
 Song.create(title: 'Aerodynamic', artist_id: 4, album_id: 1, song_path: 'https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/02+Aerodynamic.mp3')
 Song.create(title: 'Digital Love', artist_id: 4, album_id: 1, song_path: 'https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/03+Digital+love.mp3')
 Song.create(title: "Harder, Better, Faster, Stronger", artist_id: 4, album_id: 1, song_path: 'https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/04+Harder%2C+Better%2C+Faster%2C+Stronger.mp3')
-Song.create(title: 'Nightvision', artist_id: 4, album_id: 1, song_path: 'default_song_path')
-Song.create(title: 'Superheroes', artist_id: 4, album_id: 1, song_path: 'default_song_path')
-Song.create(title: 'High Life', artist_id: 4, album_id: 1, song_path: 'default_song_path')
+Song.create(title: 'Nightvision', artist_id: 4, album_id: 1, song_path: songPaths.sample)
+Song.create(title: 'Superheroes', artist_id: 4, album_id: 1, song_path: songPaths.sample)
+Song.create(title: 'High Life', artist_id: 4, album_id: 1, song_path: songPaths.sample)
 Song.create(title: 'Something About Us', artist_id: 4, album_id: 1, song_path: 'https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/09+Something+About+Us.mp3')
-Song.create(title: 'Voyager', artist_id: 4, album_id: 1, song_path: 'default_song_path')
-Song.create(title: 'Verdis Quo', artist_id: 4, album_id: 1, song_path: 'default_song_path')
-Song.create(title: 'Short Circuit', artist_id: 4, album_id: 1, song_path: 'default_song_path')
-Song.create(title: 'Face to Face', artist_id: 4, album_id: 1, song_path: 'default_song_path')
-Song.create(title: 'Too Long', artist_id: 4, album_id: 1, song_path: 'default_song_path')
+Song.create(title: 'Voyager', artist_id: 4, album_id: 1, song_path: songPaths.sample)
+Song.create(title: 'Verdis Quo', artist_id: 4, album_id: 1, song_path: songPaths.sample)
+Song.create(title: 'Short Circuit', artist_id: 4, album_id: 1, song_path: songPaths.sample)
+Song.create(title: 'Face to Face', artist_id: 4, album_id: 1, song_path: songPaths.sample)
+Song.create(title: 'Too Long', artist_id: 4, album_id: 1, song_path: songPaths.sample)
 
 Song.create(title: 'Human After All', artist_id: 4, album_id: 2, song_path: 'https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/01+Human+After+All.mp3')
 Song.create(title: 'The Prime Time of Your Life', artist_id: 4, album_id: 2, song_path: 'https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/02+The+Prime+Time+Of+Your+Life.mp3')
 Song.create(title: 'Robot Rock', artist_id: 4, album_id: 2, song_path: 'https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/03+Robot+Rock.mp3')
 Song.create(title: 'Steam Machine', artist_id: 4, album_id: 2, song_path: 'https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/04+Steam+Machine.mp3')
-Song.create(title: 'Make Love', artist_id: 4, album_id: 2, song_path: 'default_song_path')
-Song.create(title: 'The Brainwasher', artist_id: 4, album_id: 2, song_path: 'default_song_path')
-Song.create(title: 'Television Rules the Nation', artist_id: 4, album_id: 2, song_path: 'default_song_path')
-Song.create(title: 'Technologic', artist_id: 4, album_id: 2, song_path: 'default_song_path')
-Song.create(title: 'Emotion', artist_id: 4, album_id: 2, song_path: 'default_song_path')
+Song.create(title: 'Make Love', artist_id: 4, album_id: 2, song_path: songPaths.sample)
+Song.create(title: 'The Brainwasher', artist_id: 4, album_id: 2, song_path: songPaths.sample)
+Song.create(title: 'Television Rules the Nation', artist_id: 4, album_id: 2, song_path: songPaths.sample)
+Song.create(title: 'Technologic', artist_id: 4, album_id: 2, song_path: songPaths.sample)
+Song.create(title: 'Emotion', artist_id: 4, album_id: 2, song_path: songPaths.sample)
 
 Song.create(title: "Give Life Back to Music", artist_id: 4, album_id: 3, song_path: 'https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/randomaccessmemories/01+Give+Life+Back+to+Music.m4a')
 Song.create(title: "Giorgio by Moroder", artist_id: 4, album_id: 3, song_path: 'https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/randomaccessmemories/03+Giorgio+by+Moroder.m4a')
@@ -163,24 +178,27 @@ Song.create(title: 'Get Lucky', artist_id: 4, album_id: 3, song_path: "https://s
 Song.create(title: "Doin' It Right", artist_id: 4, album_id: 3, song_path: "https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/randomaccessmemories/12+Doin'+It+Right+(feat.+Panda+Bear).m4a")
 
 
+#---------------------------------------Drake----------------------------------------#
+Song.create(title: "Hold On, We're Going Home", artist_id: Artist.where(name: 'Drake'), album_id: Album.where(title: "Nothing Was The Same"), song_path: songPaths.sample)
+Song.create(title: "Controlla", artist_id: Artist.where(name: 'Drake'), album_id: Album.where(title: "Views"), song_path: songPaths.sample)
+Song.create(title: "One Dance", artist_id: Artist.where(name: 'Drake'), album_id: Album.where(title: "Views"), song_path: songPaths.sample)
+Song.create(title: "Hotline Bling", artist_id: Artist.where(name: 'Drake'), album_id: Album.where(title: "Views"), song_path: songPaths.sample)
+Song.create(title: "Fake Love", artist_id: Artist.where(name: 'Drake'), album_id: Album.where(title: "More Life"), song_path: songPaths.sample)
 
-songPaths = [
-  'https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/messages.mp3',
-  'https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/forma.mp3',
-  'https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/mmfg.mp3'
-]
 
 
 
-#  Fake Songs
-# Artist.all.each do |artist|
-#   artist.albums.each do |album|
-#     5.times do
-#       Follow.create(user_id: users.sample.id, followable_id: artist.id, followable_type: "Artist")
-#       Song.create(title: Faker::Hipster.word.titleize, artist_id: artist.id, album_id: album.id, song_path: 'default_song_path')
-#     end
-#   end
-# end
+# # Fake Songs
+Artist.all.each do |artist|
+  artist.albums.each do |album|
+    unless album.songs
+      9.times do
+        Song.create(title: Faker::Hipster.word.titleize, artist_id: artist.id, album_id: album.id, song_path: songPaths.sample)
+        Follow.create(user_id: users.sample.id, followable_id: artist.id, followable_type: "Artist")
+      end
+    end
+  end
+end
 
 
 #  Fake Songs
@@ -193,12 +211,6 @@ songPaths = [
 #   end
 # end
 
-#---------------------------------------Drake----------------------------------------#
-Song.create(title: "Hold On, We're Going Home", artist_id: Artist.where(name: 'Drake'), album_id: Album.where(title: "Nothing Was The Same"), song_path: 'default_song_path')
-Song.create(title: "Controlla", artist_id: Artist.where(name: 'Drake'), album_id: Album.where(title: "Views"), song_path: 'default_song_path')
-Song.create(title: "One Dance", artist_id: Artist.where(name: 'Drake'), album_id: Album.where(title: "Views"), song_path: 'default_song_path')
-Song.create(title: "Hotline Bling", artist_id: Artist.where(name: 'Drake'), album_id: Album.where(title: "Views"), song_path: 'default_song_path')
-Song.create(title: "Fake Love", artist_id: Artist.where(name: 'Drake'), album_id: Album.where(title: "More Life"), song_path: 'default_song_path')
 
 
 # Song.create(title: 'You da One', artist_id: 17, album_id:,  img_path: 'https://upload.wikimedia.org/wikipedia/en/8/8e/Rihanna_-_Talk_That_Talk_%28standard%29.png')
