@@ -1,6 +1,10 @@
 <h1 align="center"><strong>Spotify Mini</strong></h1>
 <div align="center">
    : 🎵 :  🔥 :  🎵 :
+   <br/>
+   ---
+   [Live Demo](https://spotify-mini.herokuapp.com/)
+   ---
 </div>
 <br/>
 <div align="center">
