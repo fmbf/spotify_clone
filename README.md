@@ -15,7 +15,7 @@
 
 <br/>
 
-![Welcome Page GIF](https://media.giphy.com/media/l3diTgXwccE4BKIAU/giphy.gif)
+<center>![Welcome Page GIF](https://media.giphy.com/media/l3diTgXwccE4BKIAU/giphy.gif)</center>
 
 
 <center>Spotify Mini is a simple clone built on Rails, React.js, Redux, PostgreSQL and AWS storage. It lets users search, discover, and listen
@@ -31,9 +31,8 @@ and `SecureRandom.base64` session key in HTTP cookies
 
 - __adorable:__ redesigned aesthetic based around a minimalist white design
 
-<p align="center">
-  ![Nav Example GIF](https://media.giphy.com/media/3o6nV2x8uiJq0P7WcU/giphy.gif)
-</p>
+
+<center>![Nav Example GIF](https://media.giphy.com/media/3o6nV2x8uiJq0P7WcU/giphy.gif)</center>
 
 
 ## Project Design
