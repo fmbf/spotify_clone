@@ -14,7 +14,7 @@ const initialState = {
   title         : null,
   artist        : null,
   album         : null,
-  playing       : false,
+  playing       : true,
   mute          : false,
   repeat        : false,
   queue         : [],

@@ -7,7 +7,9 @@
   left: 0;
   bottom: 0;
   width: 99%;
-  height: 80px;
+  // height: 80px;
+  // height: 280px; // big for testing
+  height: 60px; // smaller test
   //
   display: flex;
   flex-direction: row;
@@ -15,7 +17,8 @@
   padding: 16px;
 
   // background-color: #282828;
-  background-color: rgba(40, 40, 40, 0.97);
+  background-color: rgba(40, 40, 40, 0.98);
+  // background-color: red; // for testing
   // background-color: transparent;
 
   color: #fff;
@@ -25,52 +28,222 @@
   // border: 2px solid green;
 }
 
-.footer-left img {
-  width: 60px;
-  height: 60px;
+.footer-left {
+  // margin-bottom: 90px;
+  display: flex;
+  justify-content: left;
+  align-items:flex-start;
+  margin: 0;
+  padding: 0;
+  // border: 2px solid white;
+  width: 300px;
+
 }
 
+.footer-left img {
+  margin: auto;
+  width: 60px;
+  height: 60px;
+  padding: 0;
+
+}
+
+#footplayer-song-title, #footplayer-song-title:first-child {
+  margin-left: auto;
+  color: white;
+  margin: 0;
+  margin-right: 20px;
+}
+
+
 .footer-right {
+  // background-color: white;
   margin-right: 40px;
-  p {
-    color: #fff;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 200px;
+  // border: 2px solid white;
+}
+
+// .footer-right img {
+//   width: 60px;
+//   height: 60px;
+// }
+
+
+////////////MAIN CONTROLS BOXES /////////////////
+
+.play-controls-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  // margin-left: 60px; // to center with entity-index, optional
+  // background-color: blue;
+  width: 100%;
+}
+
+.play-controls-main-top {
+  // background-color: pink;
+
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 50%;
+  height: 80%;
+  //
+  // button {
+  //   margin: 0;
+  // }
+}
+
+.play-controls-main-bottom {
+  // background-color: orange;
+  // height: 100%; // erase
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  margin: 0;
+  // justify-content: space-between;
+  // width: 100%;
+  // height: 170px;
+  h3 {
+    margin: 0;
+    color: #aaa;
   }
 }
 
-.footer-right img {
-  width: 60px;
-  height: 60px;
+
+
+/////////////////////////////////////////
+
+
+
+////////PLAYBACK CONTROLLS////////////////
+.main-ctrls {
+  margin: auto;
+  width: 20px;
+  height: 20px;
+  color: #b3b3b3;
+  border: 0;
 }
 
-.play-controls-main {
-  margin-left: 60px; // to center with entity-index, optional
+.main-ctrls:hover {
+  color: #fff;
+  transform: none;
 }
 
 .main-PLAY{
-  width: 32px;
-  height: 32px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
   color: #fff;
-  border: 1px solid #b3b3b3;
-  border-radius: 50%;
+  // border: 1px solid #b3b3b3;
+  // border-radius: 50%;
 }
 
 .main-BACK {
-  width: 20px;
-  height: 20px;
-  color: #b3b3b3;
-  border: 0;
 
-  transition: color 0.5s ease;
 }
 
 .main-FORWARD {
-  width: 20px;
-  height: 20px;
-  color: #b3b3b3;
-  border: 0;
 
-  transition: color 0.5s ease;
 }
+
+.main-LOOP {
+
+}
+
+.main-SHUFFLE {
+
+}
+
+.fa-volume-off, .fa-volume-up {
+  color: white;
+}
+/////////////////////////////////////////
+
+
+
+#playhead-slider-bar {
+  // background-color: purple;
+  background-color: rgb(64, 64, 64);
+
+  margin:auto;
+  // width: 100%;
+  margin-left: 20px;
+  margin-right: 20px;
+  height: 4px;
+  border-radius: 15px;
+}
+
+
+#currentVolume {
+  // border: 2px solid red;
+  margin: auto;
+}
+
+#volume-bar {
+  -webkit-appearance: none;  /* Override default CSS styles */
+  outline: none; /* Remove outline */
+  background-color: rgb(64, 64, 64);
+  // background-color: green;
+
+  margin:auto;
+  margin-left: 5px;
+  width: 100%;
+  height: 4px;
+  border-radius: 15px;
+}
+
+// #volume-bar::-webkit-slider-thumb {
+//     // -webkit-appearance: none; /* Override default look */
+//     // appearance: none;
+//     width: 20px; /* Set a specific slider handle width */
+//     height: 20px; /* Slider handle height */
+//     // background: #4CAF50; /* Green background */
+//     background: #fff;
+//     color: #fff;
+//     // cursor: pointer; /* Cursor on hover */
+// }
+//
+// #volume-bar::-moz-range-thumb {
+//     width: 20px; /* Set a specific slider handle width */
+//     height: 20px; /* Slider handle height */
+//     // background: #4CAF50; /* Green background */
+//     // cursor: pointer; /* Cursor on hover */
+// }
+
+
+
+#mute-button {
+  margin: 0;
+  margin: auto;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // #smokedglass {

@@ -16,6 +16,7 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import HeaderContainer from './header_container';
 import SidebarContainer from './sidebar_container';
 import PlayerMain from './main_player';
+import PlayerContainer from './player/player_container';
 //-------------------------------------------------------//
 
 import SessionFormContainer from './session_form/session_form_container';
@@ -83,7 +84,8 @@ const main = () => (
           </div>
         </main>
       </div>
-      <PlayerMain id="player" className='animated fadeInUp'/>
+      {/*<PlayerMain id="player"/>*/}
+      <PlayerContainer id="player" />
       {/*<div id='smokedglass'>.</div>*/}
     </div>
   </div>

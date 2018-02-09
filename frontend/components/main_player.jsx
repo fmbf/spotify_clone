@@ -23,10 +23,6 @@ const mainPlayer = () => {
 
         <button className='main-PLAY'>
           <i className="fas fa-play"></i>
-            <audio
-            src={'https://soundcloud.com/bazziworldwide/mine-3'}
-            >
-          </audio>
         </button>
 
         <button className='main-FORWARD'>
@@ -39,6 +35,7 @@ const mainPlayer = () => {
         <p>Volume Controls</p>
       </div>
 
+      <PlayerContainer />
     </footer>
 
   );

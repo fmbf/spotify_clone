@@ -1,14 +1,20 @@
 import React from 'react';
 
+// import timeFormat from 'time_format_util';
+
 class MediaPlayer extends React.Component {
+
   constructor(props) {
     super(props);
+
+
     this.state = {
       muted: false,
       volume: .8,
       duration: 0,
       currentTime: 0,
     };
+
     this.playAudio = this.playAudio.bind(this);
     this.pauseAudio = this.pauseAudio.bind(this);
     this.muteAudio = this.muteAudio.bind(this);
@@ -24,12 +30,13 @@ class MediaPlayer extends React.Component {
   componentDidMount() {
     this.setState({
       currentTime: this.audio.currentTime,
-      duration: this.audio.duration
+      duration: this.audio.duration,
+      muted: false
     });
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (prevProps.audio.currentTrack !== this.props.audio.currentTrack) {
+    if (prevProps.audio.currentSong !== this.props.audio.currentSong) {
       if (this.props.audio.playing) {
         this.audio.play();
       }
@@ -42,7 +49,7 @@ class MediaPlayer extends React.Component {
         this.setState({
           currentTime: 0
         });
-      nextProps.nextTrack();
+      nextProps.nextSong();
       }
     }
   }
@@ -54,8 +61,9 @@ class MediaPlayer extends React.Component {
   setEnd () {
     if (this.props.audio.repeat) {
       this.audio.currentTime = 0;
+      // this.audio.play();
     } else {
-      this.props.nextTrack();
+      this.props.nextSong();
     }
   }
 
@@ -94,9 +102,22 @@ class MediaPlayer extends React.Component {
     this.props.togglePlay();
   }
 
-  muteAudio() {
-    this.audio.muted = !this.audio.muted;
-    this.props.toggleMute();
+  // muteAudio() {
+  //   this.audio.muted = !this.audio.muted;
+  //   this.props.toggleMute();
+  // }
+
+  muteAudio(){
+    return () => {
+      let volumeVal = 0;
+      let oldVolumeVal = 0;
+      if(this.state.muted){
+        volumeVal = this.state.oldVolume;
+      } else {
+        oldVolumeVal = this.state.volume;
+      }
+      this.setState({ muted: !this.state.muted, volume: volumeVal, oldVolume: oldVolumeVal });
+    };
   }
 
   repeatAudio() {
@@ -115,23 +136,27 @@ class MediaPlayer extends React.Component {
     });
   }
 
-  setVolume(event){
-    if (this.props.audio.currentTrack) {
-      let volume = event.target.value;
+  // setVolume(){
+  //   return e => {
+  //     this.setState({ volume: parseFloat(e.target.value) });
+  //   };
+  // }
+
+  setVolume(e){
+    if (true) {
+      let volume = e.target.value;
       this.audio.volume = volume;
-      this.setState({
-        volume
-      });
+      this.setState({volume});
     } else {
       return;
     }
   }
 
   render() {
-    let trackUrl = '/';
+    let songPath = '/';
 
-    if (this.props.audio.currentTrack) {
-      trackUrl = this.props.audio.song_url;
+    if (this.props.audio.currentSong) {
+      songPath = this.props.audio.song_path;
     }
 
     let playButton;
@@ -139,14 +164,15 @@ class MediaPlayer extends React.Component {
 
     if (this.props.audio.playing) {
       pauseButton =
-        <div id="button-pause" onClick={this.pauseAudio}>
-          <i className="fas fa-pause"></i>
+        <div className='main-ctrls main-PLAY' id="button-pause" onClick={this.pauseAudio}>
+          <i className="fas fa-pause fa-sm"></i>
         </div>;
       playButton = null;
     } else {
       playButton =
-      <div id="button-play" onClick={this.playAudio}>
-        <i className="fas fa-play"></i>
+      <div className='main-ctrls main-PLAY' onClick={this.playAudio}>
+        {/*<i className="fas fa-play"></i>*/}
+        <i className="fas fa-play fa-sm"></i>
       </div>;
       pauseButton = null;
     }
@@ -173,28 +199,26 @@ class MediaPlayer extends React.Component {
 
     if (this.props.audio.repeat) {
       toggleOff =
-      <span id="button-repeat-off" onClick={this.repeatAudio}>
-        <i className="fas fa-redo-alt fa-2x repeat"></i>
-      </span>;
+      <button className='main-ctrls main-LOOP' id="button-repeat-off" onClick={this.repeatAudio}>
+        <i className="fas fa-sync"></i>
+      </button>;
       toggleOn = null;
     } else {
       toggleOn =
-      <span id="button-repeat-on" onClick={this.repeatAudio}>
-        <i className="fas fa-redo-alt fa-2x repeat"></i>
-      </span>;
+      <button className='main-ctrls main-LOOP' id="button-repeat-on" onClick={this.repeatAudio}>
+        <i className="fas fa-sync"></i>
+      </button>;
       toggleOff = null;
     }
 
-    let likeOn;
-    let likeOff;
-
     let trackImage;
+    let albumPic = "https://is2-ssl.mzstatic.com/image/thumb/Music127/v4/36/42/af/3642afa1-26ec-ea06-8ecd-59b38ea5ed1f/UMG_cvrart_00602557684964_01_RGB72_1800x1800_17UMGIM97853.jpg/1200x630bb.jpg";
 
-    if (this.props.audio.song_image) {
+    if (this.props.audio.img_path) {
       trackImage =
       <img
         id='preview-track-image'
-        src={this.props.audio.song_image}
+        src={this.props.audio.img_path}
       />;
     } else {
       trackImage = <img/>;
@@ -208,44 +232,96 @@ class MediaPlayer extends React.Component {
       width: `${this.state.volume * 10}%`
     };
 
+
+
+
+
     return (
-      <div id="audioplayer">
+      <div id="audioplayer" className="footer-all">
+
+        {/*----------------------------------------*/}
         <audio
           ref={(audio) => { this.audio = audio; }}
-          src={trackUrl}
+          src={songPath}
           onCanPlayThrough={this.getDuration}
           onTimeUpdate={this.getCurrentTime}
           onEnded={this.setEnd}
           >
         </audio>
-        {trackImage}
-        <span id='media-title'>
-          {this.props.audio.song_name}
-        </span>
-        <div id="slider">
-          <div style={sliderStyle} id="slider-currentTime"></div>
-          <input id="slider-bar" type="range" min={0} max={1} step="any" value={this.setSlider()}></input>
+        {/*----------------------------------------*/}
+
+        <div className="footer-left">
+          {trackImage}
+            <h3 id='footplayer-song-title'>
+              {this.props.audio.title}
+            </h3>
         </div>
-        <div id="media-buttons">
-          {toggleOn}
-          {toggleOff}
-          {playButton}
-          {pauseButton}
-          <span id="button-next" onClick={this.props.nextTrack}>
-            <i className="fas fa-fast-forward fa-2x next-button"></i>
-          </span>
-          <div id="mute-button">
-            {muteOn}
-            {muteOff}
+
+
+
+        <div className="play-controls-main">
+
+          <div className="play-controls-main-top">
+
+            <button className='main-ctrls main-SHUFFLE' onClick={this.props.nextSong}>
+              <i className="fas fa-random"></i>
+            </button>
+
+            <button className='main-ctrls main-BACK' onClick={this.props.nextSong}>
+              <i className="fas fa-step-backward fa-lg"></i>
+            </button>
+
+
+            {/*-----------PLAY/PAUSE------------------*/}
+              {playButton}
+              {pauseButton}
+            {/*-----------PLAY/PAUSE------------------*/}
+
+
+
+              <button className='main-ctrls main-FORWARD' onClick={this.props.nextSong}>
+                <i className="fas fa-step-forward fa-lg"></i>
+              </button>
+
+
+              {toggleOn}
+              {toggleOff}
+
+          </div>
+
+
+        <div className="play-controls-main-bottom">
+
+          <h3 id="time-played">
+            {this.parseTime(this.state.currentTime)}
+          </h3>
+
+            <div id="playhead-slider">
+              <div style={sliderStyle} id="playhead-slider-currentTime"></div>
+              <input id="playhead-slider-bar" type="range" min={0} max={1} step="any" value={this.setSlider()}></input>
+            </div>
+
+
+            <h3 id="time-total">
+              {this.parseTime(this.state.duration)}
+            </h3>
+
           </div>
         </div>
-        <div id="volume">
-          <div style={volumeStyle} id="currentVolume"></div>
-          <input id="volume-bar" onChange={this.setVolume} type="range" min={0} max={1} step="any" value={this.state.volume}></input>
+
+
+        <div className="footer-right">
+
+            <div style={volumeStyle} id="currentVolume"></div>
+              <div id="mute-button">
+                {muteOn}
+                {muteOff}
+              </div>
+            <input id="volume-bar" onChange={this.setVolume} type="range" min={0} max={1} step="any" value={this.state.volume}></input>
+
+
         </div>
-        <span id="text-timer">
-          {this.parseTime(this.state.currentTime)}&nbsp;&nbsp;|&nbsp;&nbsp;{this.parseTime(this.state.duration)}
-        </span>
+
       </div>
     );
   }

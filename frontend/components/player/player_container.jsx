@@ -4,10 +4,12 @@ import { togglePlay, toggleRepeat, toggleMute, nextSong } from '../../actions/pl
 import MediaPlayer from "./player";
 
 const mapStateToProps = (state) => {
+  // debugger
   return {
-    audio: state.entities.audio,
-    tracks: state.entities.tracks,
-    ui: state.entities.ui
+    audio: state.playback,
+    tracks: state.entities.songs,
+    // img_path
+    // ui: state.entities.ui
 };};
 
 const mapDispatchToProps = (dispatch) => ({
@@ -17,6 +19,7 @@ const mapDispatchToProps = (dispatch) => ({
   toggleMute: () => dispatch(toggleMute()),
   toggleRepeat: () => dispatch(toggleRepeat()),
   nextSong: () => dispatch(nextSong())
+  // prevSong: () => dispatch(prevSong())
 });
 
 export default connect(mapStateToProps,mapDispatchToProps)(MediaPlayer);

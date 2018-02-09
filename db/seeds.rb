@@ -164,6 +164,13 @@ Song.create(title: "Doin' It Right", artist_id: 4, album_id: 3, song_path: 'defa
 
 
 
+songPaths = [
+  'https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/messages.mp3',
+  'https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/forma.mp3',
+  'https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/mmfg.mp3'
+]
+
+
 
 #  Fake Songs
 # Artist.all.each do |artist|
@@ -171,6 +178,17 @@ Song.create(title: "Doin' It Right", artist_id: 4, album_id: 3, song_path: 'defa
 #     5.times do
 #       Follow.create(user_id: users.sample.id, followable_id: artist.id, followable_type: "Artist")
 #       Song.create(title: Faker::Hipster.word.titleize, artist_id: artist.id, album_id: album.id, song_path: 'default song_path')
+#     end
+#   end
+# end
+
+
+#  Fake Songs
+# Follow.create(user_id: users.sample.id, followable_id: artist.id, followable_type: "Artist")
+# Artist.all.each do |artist|
+#   artist.albums.each do |album|
+#     album.songs.each do |song|
+#       song.update(song_path: "#{songPaths.sample}")
 #     end
 #   end
 # end
