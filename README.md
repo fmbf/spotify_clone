@@ -15,8 +15,9 @@
 
 <br/>
 
-<center>![Welcome Page GIF](https://media.giphy.com/media/l3diTgXwccE4BKIAU/giphy.gif)</center>
-
+<p align="center">
+  <img width="460" height="300" src="https://media.giphy.com/media/l3diTgXwccE4BKIAU/giphy.gif">
+</p>
 
 <center>Spotify Mini is a simple clone built on Rails, React.js, Redux, PostgreSQL and AWS storage. It lets users search, discover, and listen
 to beautiful music.</center>
@@ -32,8 +33,9 @@ and `SecureRandom.base64` session key in HTTP cookies
 - __adorable:__ redesigned aesthetic based around a minimalist white design
 
 
-<center>![Nav Example GIF](https://media.giphy.com/media/3o6nV2x8uiJq0P7WcU/giphy.gif)</center>
-
+<p align="center">
+  <img width="460" height="300" src="https://media.giphy.com/media/3o6nV2x8uiJq0P7WcU/giphy.gif">
+</p>
 
 ## Project Design
 Spotify Mini was designed over a 10 day period in February 2018. Designed

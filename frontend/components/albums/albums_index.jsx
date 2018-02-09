@@ -43,7 +43,7 @@ class albumsIndex extends React.Component {
   }
 
   playBubble(playlistId){
-    console.log(`now playing playlist ${playlistId}`);
+    // console.log(`now playing playlist ${playlistId}`);
     this.playAudio();
   }
 

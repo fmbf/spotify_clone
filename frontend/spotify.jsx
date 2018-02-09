@@ -36,17 +36,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
   //------------------TESTS------------------//
 
-    window.getState = store.getState;
-    window.dispatch = store.dispatch;
-    window.fetchPlaylists = (userId) => store.dispatch(fetchPlaylists(userId));
-    window.addSongToPlaylist = (songId, playlistId) => store.dispatch(addSongToPlaylist(songId, playlistId));
-    window.removeSongFromPlaylist = (songId, playlistId) => store.dispatch(removeSongFromPlaylist(songId, playlistId));
-    window.fetchAlbum = (albumId) => store.dispatch(fetchAlbum(albumId));
-    window.createPlaylist = (playlist) => store.dispatch(createPlaylist(playlist));
-    window.updatePlaylist = (playlist) => store.dispatch(updatePlaylist(playlist));
-    window.fetchSearchResults = (query) => store.dispatch(fetchSearchResults(query));
-
-    window.nextSong = () => store.dispatch(nextSong());
+    // window.getState = store.getState;
+    // window.dispatch = store.dispatch;
+    // window.fetchPlaylists = (userId) => store.dispatch(fetchPlaylists(userId));
+    // window.addSongToPlaylist = (songId, playlistId) => store.dispatch(addSongToPlaylist(songId, playlistId));
+    // window.removeSongFromPlaylist = (songId, playlistId) => store.dispatch(removeSongFromPlaylist(songId, playlistId));
+    // window.fetchAlbum = (albumId) => store.dispatch(fetchAlbum(albumId));
+    // window.createPlaylist = (playlist) => store.dispatch(createPlaylist(playlist));
+    // window.updatePlaylist = (playlist) => store.dispatch(updatePlaylist(playlist));
+    // window.fetchSearchResults = (query) => store.dispatch(fetchSearchResults(query));
+    //
+    // window.nextSong = () => store.dispatch(nextSong());
 
   //-----------------------------------------//
 

@@ -25,7 +25,7 @@ class artistsIndex extends React.Component {
   }
 
   playBubble(playlistId){
-    console.log(`now playing playlist ${playlistId}`);
+    //console.log(`now playing playlist ${playlistId}`);
   }
 
   hideSwitch(action, id) {
