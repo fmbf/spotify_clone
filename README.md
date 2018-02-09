@@ -16,7 +16,7 @@
 <br/>
 
 <p align="center">
-  <img width="460" height="300" src="https://media.giphy.com/media/l3diTgXwccE4BKIAU/giphy.gif">
+  <img src="https://media.giphy.com/media/l3diTgXwccE4BKIAU/giphy.gif">
 </p>
 
 <center>Spotify Mini is a simple clone built on Rails, React.js, Redux, PostgreSQL and AWS storage. It lets users search, discover, and listen
@@ -34,7 +34,7 @@ and `SecureRandom.base64` session key in HTTP cookies
 
 
 <p align="center">
-  <img width="460" height="300" src="https://media.giphy.com/media/3o6nV2x8uiJq0P7WcU/giphy.gif">
+  <img src="https://media.giphy.com/media/3o6nV2x8uiJq0P7WcU/giphy.gif">
 </p>
 
 ## Project Design
