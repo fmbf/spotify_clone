@@ -1,4 +1,4 @@
-<h1 align="center"><strong>Spotify Mini<strong></h1>
+<h1 align="center"><strong>Spotify Mini</strong></h1>
 <div align="center">
    : 🎵 :  🔥 :  🎵 :
 </div>
@@ -21,7 +21,7 @@
 
 <center>Spotify Mini is a simple clone built on Rails, React.js, Redux, PostgreSQL and AWS storage. It lets users search, discover, and listen
 to beautiful music.</center>
-<h1 align="center"><strong>Features<strong></h1>
+<h1 align="center"><strong>Features</strong></h1>
 
 - __Secure:__ custom-rolled auth using `BCrypt::Password` password hashing algorithm
 and `SecureRandom.base64` session key in HTTP cookies
