@@ -2,6 +2,9 @@ import React from 'react';
 
 // import timeFormat from 'time_format_util';
 
+// credit to Kelvin Cho for help with player!
+// https://github.com/Kelvin-K-Cho
+
 class MediaPlayer extends React.Component {
 
   constructor(props) {
@@ -19,7 +22,7 @@ class MediaPlayer extends React.Component {
     this.pauseAudio = this.pauseAudio.bind(this);
     this.muteAudio = this.muteAudio.bind(this);
     this.repeatAudio = this.repeatAudio.bind(this);
-    this.parseTime = this.parseTime.bind(this);
+    this.formatTime = this.formatTime.bind(this);
     this.setSlider = this.setSlider.bind(this);
     this.setEnd = this.setEnd.bind(this);
     this.getCurrentTime = this.getCurrentTime.bind(this);
@@ -31,7 +34,7 @@ class MediaPlayer extends React.Component {
     this.setState({
       currentTime: this.audio.currentTime,
       duration: this.audio.duration,
-      muted: false
+      muted: this.audio.muted
     });
   }
 
@@ -67,7 +70,7 @@ class MediaPlayer extends React.Component {
     }
   }
 
-  parseTime(value) {
+  formatTime(value) {
     let time;
     if (value) {
       time = Math.floor(value);
@@ -155,21 +158,21 @@ class MediaPlayer extends React.Component {
       songPath = this.props.audio.song_path;
     }
 
-    let playButton;
-    let pauseButton;
+    let playButtonMAIN;
+    let pauseButtonMAIN;
 
     if (this.props.audio.playing) {
-      pauseButton =
+      pauseButtonMAIN =
         <div className='main-ctrls main-PLAY' id="button-pause" onClick={this.pauseAudio}>
           <i className="fas fa-pause fa-sm"></i>
         </div>;
-      playButton = null;
+      playButtonMAIN = null;
     } else {
-      playButton =
+      playButtonMAIN =
       <div className='main-ctrls main-PLAY' onClick={this.playAudio}>
         <i className="fas fa-play fa-sm"></i>
       </div>;
-      pauseButton = null;
+      pauseButtonMAIN = null;
     }
 
     let muteOn;
@@ -209,14 +212,14 @@ class MediaPlayer extends React.Component {
     let trackImage;
     let albumPic = "https://is2-ssl.mzstatic.com/image/thumb/Music127/v4/36/42/af/3642afa1-26ec-ea06-8ecd-59b38ea5ed1f/UMG_cvrart_00602557684964_01_RGB72_1800x1800_17UMGIM97853.jpg/1200x630bb.jpg";
 
-    if (this.props.audio.img_path) {
+    if (this.props.img_path) {
       trackImage =
       <img
         id='preview-track-image'
-        src={this.props.audio.img_path}
+        src={this.props.img_path}
       />;
     } else {
-      trackImage = <img/>;
+      trackImage = <div/>;
     }
 
     let sliderStyle = {
@@ -247,9 +250,15 @@ class MediaPlayer extends React.Component {
 
         <div className="footer-left">
           {trackImage}
+          <div id="footer-left-text">
             <h3 id='footplayer-song-title'>
-              {this.props.audio.title}
+                {this.props.audio.title}
             </h3>
+            <h3 id='footplayer-song-artist'>
+              {this.props.audio.artist}
+            </h3>
+          </div>
+
         </div>
 
 
@@ -262,14 +271,14 @@ class MediaPlayer extends React.Component {
               <i className="fas fa-random"></i>
             </button>
 
-            <button className='main-ctrls main-BACK' onClick={this.props.nextSong}>
+            <button className='main-ctrls main-BACK' onClick={this.props.prevSong}>
               <i className="fas fa-step-backward fa-lg"></i>
             </button>
 
 
             {/*-----------PLAY/PAUSE------------------*/}
-              {playButton}
-              {pauseButton}
+              {playButtonMAIN}
+              {pauseButtonMAIN}
             {/*-----------PLAY/PAUSE------------------*/}
 
 
@@ -285,10 +294,10 @@ class MediaPlayer extends React.Component {
           </div>
 
 
-        <div className="play-controls-main-bottom">
+        {/*<div className="play-controls-main-bottom">
 
           <h3 id="time-played">
-            {this.parseTime(this.state.currentTime)}
+            {this.formatTime(this.state.currentTime)}
           </h3>
 
             <div id="playhead-slider">
@@ -298,10 +307,12 @@ class MediaPlayer extends React.Component {
 
 
             <h3 id="time-total">
-              {this.parseTime(this.state.duration)}
+              {this.formatTime(this.state.duration)}
             </h3>
 
-          </div>
+          </div>*/}
+
+
         </div>
 
 

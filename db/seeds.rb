@@ -132,35 +132,35 @@ Album.create(title: 'More Life', artist_id: 6, img_path: 'https://upload.wikimed
 #=====================================Songs=======================================#
 
 #---------------------------------------Daft_Punk----------------------------------------#
-Song.create(title: 'One More Time', artist_id: 4, album_id: 1, song_path: 'default song_path')
-Song.create(title: 'Aerodynamic', artist_id: 4, album_id: 1, song_path: 'default song_path')
-Song.create(title: 'Digital Love', artist_id: 4, album_id: 1, song_path: 'default song_path')
-Song.create(title: "Harder, Better, Faster, Stronger", artist_id: 4, album_id: 1, song_path: 'default song_path')
-Song.create(title: 'Nightvision', artist_id: 4, album_id: 1, song_path: 'default song_path')
-Song.create(title: 'Superheroes', artist_id: 4, album_id: 1, song_path: 'default song_path')
-Song.create(title: 'High Life', artist_id: 4, album_id: 1, song_path: 'default song_path')
-Song.create(title: 'Something About Us', artist_id: 4, album_id: 1, song_path: 'default song_path')
-Song.create(title: 'Voyager', artist_id: 4, album_id: 1, song_path: 'default song_path')
-Song.create(title: 'Verdis Quo', artist_id: 4, album_id: 1, song_path: 'default song_path')
-Song.create(title: 'Short Circuit', artist_id: 4, album_id: 1, song_path: 'default song_path')
-Song.create(title: 'Face to Face', artist_id: 4, album_id: 1, song_path: 'default song_path')
-Song.create(title: 'Too Long', artist_id: 4, album_id: 1, song_path: 'default song_path')
+Song.create(title: 'One More Time', artist_id: 4, album_id: 1, song_path: 'https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/01+One+More+Time.mp3')
+Song.create(title: 'Aerodynamic', artist_id: 4, album_id: 1, song_path: 'https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/02+Aerodynamic.mp3')
+Song.create(title: 'Digital Love', artist_id: 4, album_id: 1, song_path: 'https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/03+Digital+love.mp3')
+Song.create(title: "Harder, Better, Faster, Stronger", artist_id: 4, album_id: 1, song_path: 'https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/04+Harder%2C+Better%2C+Faster%2C+Stronger.mp3')
+Song.create(title: 'Nightvision', artist_id: 4, album_id: 1, song_path: 'default_song_path')
+Song.create(title: 'Superheroes', artist_id: 4, album_id: 1, song_path: 'default_song_path')
+Song.create(title: 'High Life', artist_id: 4, album_id: 1, song_path: 'default_song_path')
+Song.create(title: 'Something About Us', artist_id: 4, album_id: 1, song_path: 'https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/09+Something+About+Us.mp3')
+Song.create(title: 'Voyager', artist_id: 4, album_id: 1, song_path: 'default_song_path')
+Song.create(title: 'Verdis Quo', artist_id: 4, album_id: 1, song_path: 'default_song_path')
+Song.create(title: 'Short Circuit', artist_id: 4, album_id: 1, song_path: 'default_song_path')
+Song.create(title: 'Face to Face', artist_id: 4, album_id: 1, song_path: 'default_song_path')
+Song.create(title: 'Too Long', artist_id: 4, album_id: 1, song_path: 'default_song_path')
 
-Song.create(title: 'Human After All', artist_id: 4, album_id: 2, song_path: 'default song_path')
-Song.create(title: 'The Prime Time of Your Life', artist_id: 4, album_id: 2, song_path: 'default song_path')
-Song.create(title: 'Robot Rock', artist_id: 4, album_id: 2, song_path: 'default song_path')
-Song.create(title: 'Steam Machine', artist_id: 4, album_id: 2, song_path: 'default song_path')
-Song.create(title: 'Make Love', artist_id: 4, album_id: 2, song_path: 'default song_path')
-Song.create(title: 'The Brainwasher', artist_id: 4, album_id: 2, song_path: 'default song_path')
-Song.create(title: 'Television Rules the Nation', artist_id: 4, album_id: 2, song_path: 'default song_path')
-Song.create(title: 'Technologic', artist_id: 4, album_id: 2, song_path: 'default song_path')
-Song.create(title: 'Emotion', artist_id: 4, album_id: 2, song_path: 'default song_path')
+Song.create(title: 'Human After All', artist_id: 4, album_id: 2, song_path: 'https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/01+Human+After+All.mp3')
+Song.create(title: 'The Prime Time of Your Life', artist_id: 4, album_id: 2, song_path: 'https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/02+The+Prime+Time+Of+Your+Life.mp3')
+Song.create(title: 'Robot Rock', artist_id: 4, album_id: 2, song_path: 'https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/03+Robot+Rock.mp3')
+Song.create(title: 'Steam Machine', artist_id: 4, album_id: 2, song_path: 'https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/04+Steam+Machine.mp3')
+Song.create(title: 'Make Love', artist_id: 4, album_id: 2, song_path: 'default_song_path')
+Song.create(title: 'The Brainwasher', artist_id: 4, album_id: 2, song_path: 'default_song_path')
+Song.create(title: 'Television Rules the Nation', artist_id: 4, album_id: 2, song_path: 'default_song_path')
+Song.create(title: 'Technologic', artist_id: 4, album_id: 2, song_path: 'default_song_path')
+Song.create(title: 'Emotion', artist_id: 4, album_id: 2, song_path: 'default_song_path')
 
-Song.create(title: "Give Life Back to Music", artist_id: 4, album_id: 3, song_path: 'default song_path')
-Song.create(title: "Giorgio by Moroder", artist_id: 4, album_id: 3, song_path: 'default song_path')
-Song.create(title: "Lose Yourself to Dance", artist_id: 4, album_id: 3, song_path: 'default song_path')
-Song.create(title: 'Get Lucky', artist_id: 4, album_id: 3, song_path: 'default song_path')
-Song.create(title: "Doin' It Right", artist_id: 4, album_id: 3, song_path: 'default song_path')
+Song.create(title: "Give Life Back to Music", artist_id: 4, album_id: 3, song_path: 'https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/randomaccessmemories/01+Give+Life+Back+to+Music.m4a')
+Song.create(title: "Giorgio by Moroder", artist_id: 4, album_id: 3, song_path: 'https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/randomaccessmemories/03+Giorgio+by+Moroder.m4a')
+Song.create(title: "Lose Yourself to Dance", artist_id: 4, album_id: 3, song_path: "https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/randomaccessmemories/06+Lose+Yourself+to+Dance+(feat.+Pharrell+Williams).m4a")
+Song.create(title: 'Get Lucky', artist_id: 4, album_id: 3, song_path: "https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/randomaccessmemories/08+Get+Lucky+(feat.+Pharrell+Williams).m4a")
+Song.create(title: "Doin' It Right", artist_id: 4, album_id: 3, song_path: "https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/randomaccessmemories/12+Doin'+It+Right+(feat.+Panda+Bear).m4a")
 
 
 
@@ -177,7 +177,7 @@ songPaths = [
 #   artist.albums.each do |album|
 #     5.times do
 #       Follow.create(user_id: users.sample.id, followable_id: artist.id, followable_type: "Artist")
-#       Song.create(title: Faker::Hipster.word.titleize, artist_id: artist.id, album_id: album.id, song_path: 'default song_path')
+#       Song.create(title: Faker::Hipster.word.titleize, artist_id: artist.id, album_id: album.id, song_path: 'default_song_path')
 #     end
 #   end
 # end
@@ -194,11 +194,11 @@ songPaths = [
 # end
 
 #---------------------------------------Drake----------------------------------------#
-Song.create(title: "Hold On, We're Going Home", artist_id: Artist.where(name: 'Drake'), album_id: Album.where(title: "Nothing Was The Same"), song_path: 'default song_path')
-Song.create(title: "Controlla", artist_id: Artist.where(name: 'Drake'), album_id: Album.where(title: "Views"), song_path: 'default song_path')
-Song.create(title: "One Dance", artist_id: Artist.where(name: 'Drake'), album_id: Album.where(title: "Views"), song_path: 'default song_path')
-Song.create(title: "Hotline Bling", artist_id: Artist.where(name: 'Drake'), album_id: Album.where(title: "Views"), song_path: 'default song_path')
-Song.create(title: "Fake Love", artist_id: Artist.where(name: 'Drake'), album_id: Album.where(title: "More Life"), song_path: 'default song_path')
+Song.create(title: "Hold On, We're Going Home", artist_id: Artist.where(name: 'Drake'), album_id: Album.where(title: "Nothing Was The Same"), song_path: 'default_song_path')
+Song.create(title: "Controlla", artist_id: Artist.where(name: 'Drake'), album_id: Album.where(title: "Views"), song_path: 'default_song_path')
+Song.create(title: "One Dance", artist_id: Artist.where(name: 'Drake'), album_id: Album.where(title: "Views"), song_path: 'default_song_path')
+Song.create(title: "Hotline Bling", artist_id: Artist.where(name: 'Drake'), album_id: Album.where(title: "Views"), song_path: 'default_song_path')
+Song.create(title: "Fake Love", artist_id: Artist.where(name: 'Drake'), album_id: Album.where(title: "More Life"), song_path: 'default_song_path')
 
 
 # Song.create(title: 'You da One', artist_id: 17, album_id:,  img_path: 'https://upload.wikimedia.org/wikipedia/en/8/8e/Rihanna_-_Talk_That_Talk_%28standard%29.png')

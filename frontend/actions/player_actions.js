@@ -3,6 +3,7 @@ export const TOGGLE_REPEAT = "TOGGLE_REPEAT";
 export const TOGGLE_MUTE = "TOGGLE_MUTE";
 export const NEXT_SONG = "NEXT_SONG";
 export const PREV_SONG = "PREV_SONG";
+export const QUEUE_SONGS = "QUEUE_SONGS";
 
 export const togglePlay = () => ({
   type: TOGGLE_PLAY
@@ -22,4 +23,9 @@ export const nextSong = () => ({
 
 export const prevSong = () => ({
   type: PREV_SONG
+});
+
+
+export const queueSongs = () => ({
+  type: QUEUE_SONGS
 });

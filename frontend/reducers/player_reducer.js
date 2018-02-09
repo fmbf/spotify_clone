@@ -10,16 +10,21 @@ import { TOGGLE_PLAY,
 
 
 const initialState = {
-  currentSong   : null,
-  title         : null,
-  artist        : null,
-  album         : null,
-  playing       : true,
-  mute          : false,
-  repeat        : false,
-  queue         : [],
-  songImgPath   : null,
-  song_path     : null
+  prevSong          : null,
+  currentSong       : null,
+  currentSongTitle  : null,
+  nextSong          : null,
+  title             : null,
+  artist            : null,
+  album             : null,
+  albumId           : null,
+  playing           : false, // true = start playing immed for test
+  mute              : false,
+  repeat            : false,
+  queue             : [],
+  prevSongQueue     : [],
+  songImgPath       : null,
+  song_path         : null
 };
 
 export default (state = initialState, action) => {
@@ -27,8 +32,10 @@ export default (state = initialState, action) => {
   Object.freeze(state);
 
   let newState;
+  let queue;
   let newQueue;
   let oldQueue;
+  let prevSongQueue;
   // let tracksList;
 
   switch(action.type) {
@@ -36,13 +43,15 @@ export default (state = initialState, action) => {
     case RECEIVE_SONGS:
       newState = merge({}, state);
 
-
+      // newState.queue = newState.queue.concat(Object.values(action.songs)); // dont replace the queue!
       newState.queue = Object.values(action.songs);
-      newState.currentSong = newState.queue[0].id;
+      newState.currentSong = newState.queue[0];
+      newState.currentSongTitle = newState.queue[0].title;
       newState.song_path = newState.queue[0].song_path;
       newState.title = newState.queue[0].title;
       newState.artist = newState.queue[0].artist;
       newState.album = newState.queue[0].album;
+      newState.albumId = newState.queue[0].album_id;
       return newState;
 
     case TOGGLE_PLAY:
@@ -63,9 +72,11 @@ export default (state = initialState, action) => {
 
     case NEXT_SONG:
       newState = merge({}, state);
+      newState.prevSongQueue.unshift(newState.queue.shift());
       newQueue = newState.queue;
+      newState.currentSong = newQueue[0];
 
-      newState.currentSong = newQueue[0].id;
+      newState.currentSong = newQueue[0];
       newState.song_path = newQueue[0].song_path;
       newState.title = newQueue[0].title;
       newState.artist = newState.queue[0].artist;
@@ -74,10 +85,11 @@ export default (state = initialState, action) => {
 
     case PREV_SONG:
       newState = merge({}, state);
-      oldQueue = state.queue;
+      newState.queue.unshift(newState.prevSongQueue.shift());
       newQueue = newState.queue;
+      newState.currentSong = newQueue[0];
 
-      newState.currentSong = newQueue[0].id;
+      newState.currentSong = newQueue[0];
       newState.song_path = newQueue[0].song_path;
       newState.title = newQueue[0].title;
       newState.artist = newState.queue[0].artist;

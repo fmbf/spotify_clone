@@ -44,6 +44,19 @@ class artistProfile extends React.Component {
     this.setState({ followed: !this.followed });
   }
 
+  /*-------------PLAYER--------------*/
+
+  playAudio() {
+    this.audio.play();
+    this.props.togglePlay();
+  }
+
+  pauseAudio() {
+    this.audio.pause();
+    this.props.togglePlay();
+  }
+  /*----------------------------------*/
+
 
   render() {
     if(!this.props.artist || !this.props.artist.songs_ids) {

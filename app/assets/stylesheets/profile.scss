@@ -277,7 +277,7 @@ img {
     // z-index: 0; /* Stay on top */
     top: 0; /* Stay at the top */
     left: 0;
-    bottom: 120px;
+    bottom: 110px;
     width: 186px;
     // overflow-x: hidden; /* Disable horizontal scroll */
     // overflow-x: scroll;
@@ -335,7 +335,7 @@ a:hover {
 .new-playlist {
   position: fixed;
   left: 0;
-  bottom: 92px;
+  bottom: 80px;
 
   width: 187px;
   margin: 0;
@@ -344,11 +344,17 @@ a:hover {
   padding: 0;
   border-radius: 0;
   background-color: #fff;
-
+  letter-spacing: 0;
+  background-color: #f8f8f8;
 }
+
 .new-playlist:hover{
   border-color: #aaa;
+  // color: white;
+  // background-color: rgb(29, 185, 84);
+
   transform: none;
+  letter-spacing: 0.5px;
 }
 
 

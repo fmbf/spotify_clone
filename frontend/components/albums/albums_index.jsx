@@ -10,6 +10,8 @@ class albumsIndex extends React.Component {
     this.currentUser = this.props.currentUser;
     this.hideSwitch = this.hideSwitch.bind(this);
     this.playBubble = this.playBubble.bind(this);
+    this.playAudio = this.playAudio.bind(this);
+    this.pauseAudio = this.pauseAudio.bind(this);
   }
 
   componentDidMount() {
@@ -29,8 +31,20 @@ class albumsIndex extends React.Component {
 
   }
 
+
+  playAudio() {
+    this.audio.play();
+    this.props.togglePlay();
+  }
+
+  pauseAudio() {
+    this.audio.pause();
+    this.props.togglePlay();
+  }
+
   playBubble(playlistId){
     console.log(`now playing playlist ${playlistId}`);
+    this.playAudio();
   }
 
   hideSwitch(action, id) {
