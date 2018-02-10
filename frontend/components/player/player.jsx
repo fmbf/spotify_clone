@@ -96,13 +96,17 @@ class MediaPlayer extends React.Component {
   }
 
   playAudio() {
-    this.audio.play();
-    this.props.togglePlay();
+    if(this.props.audio.currentSong) {
+      this.audio.play();
+      this.props.togglePlay();
+    }
   }
 
   pauseAudio() {
-    this.audio.pause();
-    this.props.togglePlay();
+    if(this.props.audio.currentSong) {
+      this.audio.pause();
+      this.props.togglePlay();
+    }
   }
 
   // muteAudio() {
@@ -124,6 +128,10 @@ class MediaPlayer extends React.Component {
   }
 
   repeatAudio() {
+    let loopIcon = document.getElementById('loop-button');
+
+    loopIcon.style.color('green');
+
     this.props.toggleRepeat();
   }
 
@@ -138,12 +146,6 @@ class MediaPlayer extends React.Component {
       duration: this.audio.duration
     });
   }
-
-  // setVolume(){
-  //   return e => {
-  //     this.setState({ volume: parseFloat(e.target.value) });
-  //   };
-  // }
 
   setVolume(e){
     let volume = e.target.value;
@@ -198,7 +200,7 @@ class MediaPlayer extends React.Component {
     if (this.props.audio.repeat) {
       toggleOff =
       <button className='main-ctrls main-LOOP' id="button-repeat-off" onClick={this.repeatAudio}>
-        <i className="fas fa-sync"></i>
+        <i className="fas fa-sync" id='loop-button'></i>
       </button>;
       toggleOn = null;
     } else {
