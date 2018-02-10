@@ -31,37 +31,7 @@ end
 # "https://picsum.photos/200/200/?image=#{rand(1000)}"
 
 #=====================================Playlists=======================================#
-#---------------------------------------User_1---------------------------------------#
-Playlist.create(title: 'Love Songs', img_path: "https://picsum.photos/200/200/?image=#{rand(100)}", description: 'the staple of every library', author_id: 1)
-Playlist.create(title: 'Bangers', img_path: "https://picsum.photos/200/200/?image=#{rand(100)}", description: 'oldies but awesome', author_id: 1)
-Playlist.create(title: 'Pool Party', img_path: "https://picsum.photos/200/200/?image=#{rand(100)}", description: 'warm and fuzzy', author_id: 1)
-Playlist.create(title: 'Rainy Day Jams', img_path: "https://picsum.photos/200/200/?image=#{rand(100)}", description: 'drip drop', author_id: 1)
-Playlist.create(title: 'Day At The Beach', img_path: "https://picsum.photos/200/200/?image=#{rand(100)}", description: 'Summer is here!', author_id: 1)
-Playlist.create(title: 'Workout', img_path: "https://picsum.photos/200/200/?image=#{rand(100)}", description: 'For da gym!', author_id: 1)
 
-# 7.times do
-#   Playlist.create(title: Faker::Book.title,
-#     img_path: "https://picsum.photos/200/200/?image=#{rand(100)}",
-#     description: Faker::Hipster.paragraph(1), author_id: 1)
-# end
-
-#---------------------------------------Playlists----------------------------------------#
-titles = [
-  Faker::Dessert.variety.titleize, Faker::Dessert.topping.titleize, Faker::Dessert.flavor.titleize,
-  Faker::Hipster.word.titleize, Faker::Book.title.titleize
-]
-
-User.all.each do |user|
-  unless user.id == 1
-    5.times do
-      Playlist.create(title: titles.sample,
-        img_path: "https://picsum.photos/200/200/?image=#{rand(100)}",
-        description: Faker::Hipster.paragraph(1), author_id: user.id
-      )
-    end
-  end
-
-end
 
 #=====================================Artists=======================================#
 Artist.create(name: 'Adele', img_path: 'http://cdn.beggars.com.s3-eu-west-1.amazonaws.com/adele/wp-content/uploads/2015/10/01091631/adele-25-packshot.jpg')
@@ -198,6 +168,38 @@ Artist.all.each do |artist|
       end
     end
   end
+end
+
+#---------------------------------------User_1---------------------------------------#
+Playlist.create(title: 'Love Songs', img_path: "https://picsum.photos/200/200/?image=#{rand(100)}", description: 'the staple of every library', author_id: 1)
+Playlist.create(title: 'Bangers', img_path: "https://picsum.photos/200/200/?image=#{rand(100)}", description: 'oldies but awesome', author_id: 1)
+Playlist.create(title: 'Pool Party', img_path: "https://picsum.photos/200/200/?image=#{rand(100)}", description: 'warm and fuzzy', author_id: 1)
+Playlist.create(title: 'Rainy Day Jams', img_path: "https://picsum.photos/200/200/?image=#{rand(100)}", description: 'drip drop', author_id: 1)
+Playlist.create(title: 'Day At The Beach', img_path: "https://picsum.photos/200/200/?image=#{rand(100)}", description: 'Summer is here!', author_id: 1)
+Playlist.create(title: 'Workout', img_path: "https://picsum.photos/200/200/?image=#{rand(100)}", description: 'For da gym!', author_id: 1)
+
+# 7.times do
+#   Playlist.create(title: Faker::Book.title,
+#     img_path: "https://picsum.photos/200/200/?image=#{rand(100)}",
+#     description: Faker::Hipster.paragraph(1), author_id: 1)
+# end
+
+#---------------------------------------Playlists----------------------------------------#
+titles = [
+  Faker::Dessert.variety.titleize, Faker::Dessert.topping.titleize, Faker::Dessert.flavor.titleize,
+  Faker::Hipster.word.titleize, Faker::Book.title.titleize
+]
+
+User.all.each do |user|
+  unless user.id == 1
+    5.times do
+      Playlist.create(title: titles.sample,
+        img_path: "https://picsum.photos/200/200/?image=#{rand(100)}",
+        description: Faker::Hipster.paragraph(1), author_id: user.id
+      )
+    end
+  end
+
 end
 
 
