@@ -261,6 +261,11 @@ Artist.all.each do |artist|
   end
 end
 
+user = User.find(1)
+Artist.all.each do |artist|
+  Follow.create(user_id: 1, followable_id: artist.id, followable_type: "Artist") unless user.followed_artists.include?(artist)
+end
+
 Playlist.all.each do |playlist|
   30.times do
     Follow.create(user_id: users.sample.id, followable_id: playlist.id, followable_type: "Playlist")
