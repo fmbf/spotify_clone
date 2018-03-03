@@ -12,7 +12,9 @@ class welcomeComponent extends React.Component {
           {/*<img src={}></img>*/}
           <div className="splash-main-text animated fadeIn" id='speed-6'>
             <strong>
-              <h1 className='welcome-h1'>Music for everyone.</h1>
+              <h1 className='app-name'>Spotify</h1>
+              <h1 className='mini'> | mini |</h1>
+              <i className="fab fa-spotify fa-xs"></i>
             </strong>
 
             <h3>A clone by<strong className='splash-fmbf'>FMBF</strong>|
@@ -61,7 +63,15 @@ class welcomeComponent extends React.Component {
           <img src={ window.staticImages.orange_abstract } id='orange_abstract'/>
         </div>
 
-
+        <footer>
+          <i className="fab fa-spotify fa-2x welcome-header-logo"></i>
+          <a href="https://github.com/fmbf" target="_blank" className="splash-header-link">
+            <h1 className="splash-header-item">GitHub</h1>
+          </a>
+          <a href="https://www.linkedin.com/in/francesco-mbf/" target="_blank" className="splash-header-link">
+            <h1 className="splash-header-item">LinkedIn</h1>
+          </a>
+        </footer>
       </div>
     );
   }

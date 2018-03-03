@@ -65,7 +65,7 @@ button {
 .splash-main {
   display: flex;
   justify-content: center;
-  margin-top: 80px;
+  margin-top: 120px;
   margin-left: 0;
 }
 
@@ -131,6 +131,10 @@ a:hover {
   margin-left: 5px;
 }
 
+.fa-github:hover {
+  color: white;
+}
+
 .watercolor {
   // float: left;
   // width: 100%;
@@ -142,5 +146,84 @@ a:hover {
 
 
   background-repeat: no-repeat;
+
+}
+
+
+.app-name {
+  color: white;
+  font-size: 50px;
+  margin-left: -8px;
+  display: inline;
+  // letter-spacing: 4px;
+  margin-bottom: 0px;
+  font-weight: 700;
+}
+
+
+.fa-spotify{
+  // color: white;
+  margin: auto;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+footer {
+  display: flex;
+  position:absolute;
+  // bottom: 0;
+  top: 0;
+  // padding-right: 10px;
+  margin: 0;
+  width:100%;
+  height:80px;   /* Height of the footer */
+  // border-top: 1px solid #a0a0a0;
+  // background-color: #444;
+  background-color: rgba(11, 11, 11, 0.6);
+  // border: 2px solid green;
+  justify-content: left;
+}
+
+.splash-header-item{
+  // margin: auto;
+  font-size: 14px;
+  font-weight: 700;
+  margin-top: 32px;
+  color: white;
+  margin-left: 16px;
+}
+
+.splash-header-link:hover {
+  letter-spacing: normal;
+}
+
+.splash-header-item:hover {
+  color: #1ED760;
+  -moz-transition: all .1s ease-in;
+  -o-transition: all .1s ease-in;
+  -webkit-transition: all .1s ease-in;
+  transition: all .1s ease-in;
+}
+
+.welcome-header-logo {
+  color: white;
+  margin-left: 40px;
+  // border: 5px solid red;
+}
+
+.header-links {
+  display: flex;
+  position:absolute;
+  // bottom: 0;
+  // top: 0;
+  // padding-right: 10px;
+  margin: 0;
+  width:100%;
+  height:80px;   /* Height of the footer */
+  // border-top: 1px solid #a0a0a0;
+  // background-color: #444;
+  background-color: rgba(11, 11, 11, 0.6);
+  // border: 2px solid green;
+  justify-content: left;
 
 }
