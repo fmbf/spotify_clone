@@ -152,7 +152,7 @@ a:hover {
 
 .app-name {
   color: white;
-  font-size: 50px;
+  font-size: 68px;
   margin-left: -8px;
   display: inline;
   // letter-spacing: 4px;
@@ -226,4 +226,82 @@ footer {
   // border: 2px solid green;
   justify-content: left;
 
+}
+
+
+#welcome-paragraphs-div {
+  display: flex;
+  // margin: auto;
+  // background-color: teal;
+  margin-top: 100px;
+  margin-left: 150px;
+  margin-bottom: 0px;
+
+  font-weight: 700;
+}
+
+#welcome-paragraphs-div span {
+  width: 50%;
+}
+
+#welcome-paragraphs-div h1 {
+  font-size: 40px;
+  margin-bottom: 0px;
+  // letter-spacing: -.02em;
+}
+
+#welcome-paragraphs-div h2 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-top: 26px;
+  margin-bottom: 6px;
+}
+
+#welcome-paragraphs-div p {
+  font-size: 12px;
+  font-weight: 400;
+  width: 60%;
+}
+
+#welcome-paragraphs-pic1{
+  // display: inline;
+  // display: flex;
+  // width: 100%;
+  // height: 100%;
+  img {
+    margin-left: -50px;
+  }
+}
+
+.get-started {
+  background-color: red;
+}
+
+#root > div > center > div > a > button {
+  width: 140px;
+}
+
+
+.splash-main .button-container button{
+  display: inline;
+  margin-bottom: 14px;
+  width: 208px;
+  height: 36px;
+}
+
+.black-footer-splash {
+  display: flex;
+  justify-content: left;
+  align-content: center;
+  min-height:40px;
+  background-color: black;
+}
+
+.black-footer-splash a {
+  h1 {
+    font-size: 10px;
+    margin-top: 0px;
+  }
+  margin-top: auto;
+  margin-bottom: 12px;
 }

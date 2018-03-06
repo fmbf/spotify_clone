@@ -34,8 +34,8 @@ span, article, footer, time, small {
 /*=======================================================*/
 /*------------------WINDOW----------------*/
 html, body {
-  height: 99.9%;
-  width: 99.9%;
+  height: 100%;
+  width: 100%;
   margin: 0;
 }
 
@@ -367,7 +367,7 @@ textarea {
 }
 
 #orange_abstract {
-  position: fixed;
+  // position: fixed;
   margin: 0;
   margin-left: -12px;
   margin-top: -700px;

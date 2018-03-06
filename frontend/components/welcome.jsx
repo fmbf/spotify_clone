@@ -63,6 +63,9 @@ class welcomeComponent extends React.Component {
           <img src={ window.staticImages.orange_abstract } id='orange_abstract'/>
         </div>
 
+
+
+
         <footer>
           <i className="fab fa-spotify fa-2x welcome-header-logo"></i>
           <a href="https://github.com/fmbf" target="_blank" className="splash-header-link">
@@ -72,6 +75,57 @@ class welcomeComponent extends React.Component {
             <h1 className="splash-header-item">LinkedIn</h1>
           </a>
         </footer>
+
+
+
+
+
+        <div id='welcome-paragraphs-div'>
+          <span>
+            <h1>What’s playing?</h1>
+
+            <h2>MUSIC</h2>
+            <p>There are millions of songs on Spotify. Play your favorites, discover new tracks, and build the perfect collection.</p>
+
+            <h2>PLAYLISTS</h2>
+            <p>You’ll find readymade playlists to match your mood, put together by music fans and experts.</p>
+
+            <h2>NEW RELEASES</h2>
+            <p>Hear this week’s latest singles and albums, and check out what’s hot in the Top 50.</p>
+            <br/>
+
+          </span>
+
+          <div id='welcome-paragraphs-pic1'>
+            <img className="speed-3 animated fadeInUp floatInnerPic"
+                 id='speed-6'
+                 src="http://www.edmtunes.com/wp-content/uploads/2015/12/spotify-kygo-breakout-artist-2015_zpsksmvya0u-696x696.png"/>
+          </div>
+        </div>
+
+        <center>
+          <div>
+              <Link to={"/login"}>
+                <button type="button"
+                        name="button"
+                        className='button-mono'>
+                  GET STARTED
+                </button>
+              </Link>
+          </div>
+        </center>
+        <br/>
+        <br/>
+
+        <div className='black-footer-splash'>
+          <i className="fab fa-spotify welcome-header-logo"></i>
+          <a href="https://github.com/fmbf" target="_blank" className="splash-header-link">
+            <h1 className="splash-header-item">GitHub</h1>
+          </a>
+          <a href="https://www.linkedin.com/in/francesco-mbf/" target="_blank" className="splash-header-link">
+            <h1 className="splash-header-item">LinkedIn</h1>
+          </a>
+        </div>
       </div>
     );
   }
