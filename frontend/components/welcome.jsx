@@ -13,7 +13,7 @@ class welcomeComponent extends React.Component {
           <div className="splash-main-text animated fadeIn" id='speed-6'>
             <strong>
               <h1 className='app-name'>Spotify</h1>
-              <h1 className='mini'> | mini |</h1>
+              <h1 className='mini'> | mini </h1>
               <i className="fab fa-spotify fa-xs"></i>
             </strong>
 
