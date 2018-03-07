@@ -1,9 +1,5 @@
 import React from 'react';
 
-// import timeFormat from 'time_format_util';
-
-// credit to Kelvin Cho for help with player!
-// https://github.com/Kelvin-K-Cho
 
 class MediaPlayer extends React.Component {
 
@@ -30,6 +26,10 @@ class MediaPlayer extends React.Component {
     this.setVolume = this.setVolume.bind(this);
   }
 
+  //////////////////////////////////////////////////
+  // Life Cycle
+  //////////////////////////////////////////////////
+
   componentDidMount() {
     this.setState({
       currentTime: this.audio.currentTime,
@@ -42,6 +42,8 @@ class MediaPlayer extends React.Component {
     if (prevProps.audio.currentSong !== this.props.audio.currentSong) {
       if (this.props.audio.playing) {
         this.audio.play();
+      } else {
+        this.audio.pause();
       }
     }
   }
@@ -94,6 +96,10 @@ class MediaPlayer extends React.Component {
       return "00:00";
     }
   }
+
+  //////////////////////////////////////////////////
+  // Playback
+  //////////////////////////////////////////////////
 
   playAudio() {
     if(this.props.audio.currentSong) {
