@@ -14,6 +14,7 @@ class albumProfile extends React.Component {
     this.currentUser = this.props.currentUser;
     this.playAudio = this.playAudio.bind(this);
     this.pauseAudio = this.pauseAudio.bind(this);
+    this.toggleFollow = this.toggleFollow.bind(this);
   }
 
   //////////////////////////////////////////////////
@@ -49,6 +50,16 @@ class albumProfile extends React.Component {
   }
 
   //////////////////////////////////////////////////
+  // Follows
+  //////////////////////////////////////////////////
+
+  toggleFollow(){
+    console.log('before click: following?', this.props.album.current_user_follows);  
+    console.log('toggle following entityID', this.props.match.params.albumId);
+    console.log('after click: following?', this.props.album.current_user_follows);
+  }
+
+  //////////////////////////////////////////////////
   // Render
   //////////////////////////////////////////////////
 
@@ -57,6 +68,14 @@ class albumProfile extends React.Component {
       return <button className='button-green' onClick={this.pauseAudio}>PAUSE</button>
     } else {
       return <button className='button-green' onClick={this.playAudio}>PLAY</button>;
+    }
+  }
+
+  blackButton(){
+    if(this.props.album.current_user_follows) {
+      return <button className='button-mono' onClick={this.toggleFollow}>SAVED</button>;
+    } else {
+      return <button className='button-mono' onClick={this.toggleFollow}>SAVE</button>;
     }
   }
 
@@ -90,7 +109,6 @@ class albumProfile extends React.Component {
 
 
             <div className="profile-info">
-
               <h3>ALBUM</h3>
               <h1>{this.profileTitle}</h1>
               <h3 className='profile-description'>{this.profileDescription}</h3>
@@ -98,21 +116,16 @@ class albumProfile extends React.Component {
 
               <div className="profile-button-box">
                 {this.greenButton()}
-                <button className='button-mono'>SAVE</button>
+                {this.blackButton()}
 
                 <button className='button-mono header-button-more'>
                   <i className="fas fa-caret-down fa-xs"></i>
                 </button>
               </div>
-
             </div>
-
-
           </header>
 
-          {/*<span className='song-list-fields'><h3>TITLE</h3><h3>ARTIST</h3><h3>ALBUM</h3></span>*/}
 
-          {/*<Route path="library/albums/:albumId" album={this.album} songs={this.props.songs} component={SongsIndexContainer} />*/}
           <SongsIndexContainer album={this.props.album} songs={this.props.songs}/>
         </div>
 

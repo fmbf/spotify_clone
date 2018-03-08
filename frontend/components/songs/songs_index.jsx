@@ -9,7 +9,13 @@ class songsIndex extends React.Component {
     this.toggleDropdown = this.toggleDropdown.bind(this);
     this.buildDropdown = this.buildDropdown.bind(this);
     this.hideSwitch = this.hideSwitch.bind(this);
+
+    this.timeout;
   }
+
+  // addSongClick(albumSongId, playlistId){
+  //   this.props.addSongToPlaylist(albumSongId, playlistId);
+  // }
 
   buildDropdown(albumSongId) {
     // console.log("built dropdown for", albumSongId);
@@ -37,25 +43,29 @@ class songsIndex extends React.Component {
 
   hideSwitch(action, id) {
     let dropDownUL = document.getElementById(`playlist-select-ul-${id}`);
-    // let plusCircle = document.getElementsByClassName('plus-circle')[0];
     let songRow = document.getElementById(id);
 
+    // clearTimeout(this.timeout);
+
+
+
+
+
     if (action === 'show') {
+      clearTimeout(this.timeout);
       // dropDownUL.style.opacity = '1.0';
-      dropDownUL.style.transform = 'none';
       dropDownUL.style.display = 'block';
       dropDownUL.style.color = '#282828'; // button color main
-      // songRow.style.borderColor = '#1bc156';
-      // songRow.style.opacity = '0.5';
-      // songRow.style.filter = 'blur(3px);';
+
     } else {
-      // dropDownUL.style.opacity = '0.0';
-      dropDownUL.style.display = 'none';
-      dropDownUL.style.color = '#ccc'; // button color transitional
-      // songRow.style.borderColor = '#ddd';
-      // songRow.style.borderColor = '#fff';
-      // songRow.style.opacity = '1.0';
-      // songRow.style.filter = 'blur(0px);';
+      this.timeout = setTimeout(
+        () => {
+          // dropDownUL.style.opacity = '0.0';
+          dropDownUL.style.display = 'none';
+          dropDownUL.style.color = '#ccc'; // button color transitional
+        },
+        500
+      );
     }
   }
 
@@ -80,7 +90,10 @@ class songsIndex extends React.Component {
                         onClick={() => this.hideSwitch('show', albumSong.id)}
                         >
                         <i className="fas fa-plus"></i>
-                        <ul id={`playlist-select-ul-${albumSong.id}`} className='playlist-select-ul' onMouseLeave={() => this.hideSwitch('hide', albumSong.id)}>
+                        <ul id={`playlist-select-ul-${albumSong.id}`}
+                            className='playlist-select-ul'
+                            onMouseOver={() => this.hideSwitch('show', albumSong.id)}
+                            onMouseLeave={() => this.hideSwitch('hide', albumSong.id)}>
                           {this.buildDropdown(albumSong.id)}
                         </ul>
                 </button>

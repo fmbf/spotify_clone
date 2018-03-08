@@ -13,11 +13,7 @@ const mapStateToProps = (state, ownProps) => {
   let songs = null;
 
   if (album) {
-
     songs = stateSongsArr(state.entities.songs);
-
-  // } else {
-
   }
 
   return {
@@ -27,7 +23,7 @@ const mapStateToProps = (state, ownProps) => {
     audio: state.playback, // playback obj
     // songs: Object.values(state.entities.songs).filter(song => song.album_id === parseInt(ownProps.match.params.albumId)),
     // albums: Object.values(state.entities.albums),
-    // currentUser: state.session.currentUser
+    currentUser: state.session.currentUser
   };
 };
 

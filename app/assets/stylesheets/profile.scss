@@ -24,7 +24,7 @@ a {
   // display: flex;
   /* Disable horizontal scroll */
   border: 1px solid #f3f3f3;
-  overflow-x: scroll;
+  // overflow-x: scroll;
   // height: 260px;
   height: 100%; // this WAS ON
 }
@@ -76,9 +76,11 @@ a {
   height: 22px;
 
 }
-// .song-list-button:hover {
-//   border-color: #1bc156;
-// }
+.song-list-button:hover {
+  // border-color: #1bc156;
+  letter-spacing: 0;
+  transform: none;
+}
 
 .plus-circle{
   color: #eee;
