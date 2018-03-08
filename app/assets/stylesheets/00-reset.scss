@@ -242,6 +242,8 @@ button {
   -o-transition: all .2s ease-in;
   -webkit-transition: all .2s ease-in;
   transition: all .2s ease-in;
+
+  cursor: pointer;
 }
 
 
@@ -368,6 +370,7 @@ textarea {
 
 #orange_abstract {
   // position: fixed;
+  padding: 0;
   margin: 0;
   margin-left: -12px;
   margin-top: -700px;

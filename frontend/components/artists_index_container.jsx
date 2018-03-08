@@ -32,7 +32,8 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 
   // fetchSong: (id) => dispatch(fetchSong(id)),
   // fetchSongs: () => dispatch(fetchSongs()),
-  fetchArtistSongs: () => dispatch(fetchArtistSongs()),
+  fetchArtistSongs: (artistId) => dispatch(fetchArtistSongs(artistId)),
+  fetchArtistAlbums: (artistId) => dispatch(fetchArtistAlbums(artistId)),
   togglePlay: () => dispatch(togglePlay()),
   toggleMute: () => dispatch(toggleMute()),
   toggleRepeat: () => dispatch(toggleRepeat()),

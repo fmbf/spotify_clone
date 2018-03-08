@@ -1,9 +1,5 @@
 import React from 'react';
 
-// import timeFormat from 'time_format_util';
-
-// credit to Kelvin Cho for help with player!
-// https://github.com/Kelvin-K-Cho
 
 class MediaPlayer extends React.Component {
 
@@ -30,6 +26,10 @@ class MediaPlayer extends React.Component {
     this.setVolume = this.setVolume.bind(this);
   }
 
+  //////////////////////////////////////////////////
+  // Life Cycle
+  //////////////////////////////////////////////////
+
   componentDidMount() {
     this.setState({
       currentTime: this.audio.currentTime,
@@ -42,6 +42,8 @@ class MediaPlayer extends React.Component {
     if (prevProps.audio.currentSong !== this.props.audio.currentSong) {
       if (this.props.audio.playing) {
         this.audio.play();
+      } else {
+        this.audio.pause();
       }
     }
   }
@@ -94,6 +96,10 @@ class MediaPlayer extends React.Component {
       return "00:00";
     }
   }
+
+  //////////////////////////////////////////////////
+  // Playback
+  //////////////////////////////////////////////////
 
   playAudio() {
     if(this.props.audio.currentSong) {
@@ -155,9 +161,14 @@ class MediaPlayer extends React.Component {
 
   render() {
     let songPath = '/';
+    let artistPage;
+    let albumPage;
 
     if (this.props.audio.currentSong) {
       songPath = this.props.audio.song_path;
+      artistPage = <a className='' href={`/#/library/artists/${this.props.audio.currentSong.artist_id}`}>{this.props.audio.artist}</a>;
+      albumPage = <a className='' href={`/#/library/albums/${this.props.audio.albumId}`}>{this.props.audio.title}</a>;
+
     }
 
     let playButtonMAIN;
@@ -254,10 +265,10 @@ class MediaPlayer extends React.Component {
           {trackImage}
           <div id="footer-left-text">
             <h3 id='footplayer-song-title'>
-                {this.props.audio.title}
+                {albumPage}
             </h3>
             <h3 id='footplayer-song-artist'>
-              {this.props.audio.artist}
+              {artistPage}
             </h3>
           </div>
 

@@ -18,6 +18,7 @@
 
   // background-color: #282828;
   background-color: rgba(40, 40, 40, 0.98);
+  // background-color: rgba(230, 230, 230, 0.48);
   // background-color: red; // for testing
   // background-color: transparent;
 
@@ -65,10 +66,30 @@
   color: white;
   margin: 0;
   margin-right: 20px;
+  margin-bottom: 5px;
 }
 
 #footplayer-song-artist {
   color: #aaa;
+  a {
+    color: #aaa;
+  }
+  a:hover {
+    letter-spacing: 0;
+  }
+}
+
+#footplayer-song-title {
+  // color: #aaa;
+  a {
+    margin: 0;
+    margin-left: auto;
+    color: white;
+    margin-right: 20px;
+  }
+  a:hover {
+    letter-spacing: 0;
+  }
 }
 
 

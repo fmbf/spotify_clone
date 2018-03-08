@@ -12,14 +12,18 @@ class albumProfile extends React.Component {
   constructor(props) {
     super(props);
     this.currentUser = this.props.currentUser;
+    this.playAudio = this.playAudio.bind(this);
+    this.pauseAudio = this.pauseAudio.bind(this);
   }
+
+  //////////////////////////////////////////////////
+  // Life Cycle
+  //////////////////////////////////////////////////
 
   componentDidMount() {
     this.props.fetchAlbum(this.props.match.params.albumId);
     this.props.fetchAlbumSongs(this.props.match.params.albumId);
   }
-
-
 
   componentWillReceiveProps(newProps) {
     if(this.props.match.params.albumId !== newProps.match.params.albumId) {
@@ -28,6 +32,33 @@ class albumProfile extends React.Component {
     }
   }
 
+  //////////////////////////////////////////////////
+  // Playback
+  //////////////////////////////////////////////////
+
+  playAudio() {
+    if(this.props.audio.currentSong) {
+      this.props.togglePlay();
+    }
+  }
+
+  pauseAudio() {
+    if(this.props.audio.currentSong) {
+      this.props.togglePlay();
+    }
+  }
+
+  //////////////////////////////////////////////////
+  // Render
+  //////////////////////////////////////////////////
+
+  greenButton(){
+    if(this.props.audio.playing) {
+      return <button className='button-green' onClick={this.pauseAudio}>PAUSE</button>
+    } else {
+      return <button className='button-green' onClick={this.playAudio}>PLAY</button>;
+    }
+  }
 
   render() {
     if(!this.props || !this.props.album) {
@@ -66,7 +97,7 @@ class albumProfile extends React.Component {
               <h3>By <strong><a href={`/#/library/artists/${this.profileAuthorID}`}>{this.profileAuthor}</a></strong>  |  {`${this.profileSongCount}`} songs, {`${Math.ceil(this.profileSongCount*3.5)}`}min </h3>
 
               <div className="profile-button-box">
-                <button className='button-green'>PLAY</button>
+                {this.greenButton()}
                 <button className='button-mono'>SAVE</button>
 
                 <button className='button-mono header-button-more'>
@@ -79,7 +110,7 @@ class albumProfile extends React.Component {
 
           </header>
 
-          <span className='song-list-fields'><h3>TITLE</h3><h3>ARTIST</h3><h3>ALBUM</h3></span>
+          {/*<span className='song-list-fields'><h3>TITLE</h3><h3>ARTIST</h3><h3>ALBUM</h3></span>*/}
 
           {/*<Route path="library/albums/:albumId" album={this.album} songs={this.props.songs} component={SongsIndexContainer} />*/}
           <SongsIndexContainer album={this.props.album} songs={this.props.songs}/>

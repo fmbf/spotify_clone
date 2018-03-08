@@ -9,8 +9,12 @@ class artistsIndex extends React.Component {
     super(props);
     this.currentUser = this.props.currentUser;
     this.hideSwitch = this.hideSwitch.bind(this);
-    this.playBubble = this.playBubble.bind(this);
+    // this.playBubble = this.playBubble.bind(this);
   }
+
+  //////////////////////////////////////////////////
+  // Life Cycle
+  //////////////////////////////////////////////////
 
   componentDidMount() {
     this.props.fetchUserArtists(this.currentUser.id);
@@ -24,9 +28,16 @@ class artistsIndex extends React.Component {
     }
   }
 
-  playBubble(playlistId){
-    console.log(`now playing playlist ${playlistId}`);
-  }
+  //////////////////////////////////////////////////
+  // playBubble
+  //////////////////////////////////////////////////
+
+  // playBubble(entityId){
+  //   console.log(`now playing artist ${entityId}`);
+  //   // this.props.fetchArtistAlbums(entityId);
+  //   this.props.fetchArtistSongs(entityId);
+  //   this.playAudio();
+  // }
 
   hideSwitch(action, id) {
     let playButton = document.getElementById(`hidden-${id}`);
@@ -48,6 +59,26 @@ class artistsIndex extends React.Component {
     }
   }
 
+  //////////////////////////////////////////////////
+  // Playback
+  //////////////////////////////////////////////////
+
+  playAudio() {
+    if(this.props.audio.currentSong) {
+      this.props.togglePlay();
+    }
+  }
+
+  // pauseAudio() {
+  //   if(this.props.audio.currentSong) {
+  //     this.props.togglePlay();
+  //   }
+  // }
+
+  //////////////////////////////////////////////////
+  // Render
+  //////////////////////////////////////////////////
+
   render() {
     if (!this.props.artists) {
       return null;
@@ -55,14 +86,16 @@ class artistsIndex extends React.Component {
 
     return (
       <section className='entity-index-container'>
-
-
-
         <h1>Artists</h1>
         <br/>
         <ul className='entity-index'>
           {
-            <ArtistIndexItem artists={this.props.artists}/>
+            <ArtistIndexItem
+              artists={this.props.artists}
+              audio={this.props.audio}
+              fetchArtistSongs={this.props.fetchArtistSongs}
+              fetchArtistAlbums={this.props.fetchArtistAlbums}
+              togglePlay={this.props.togglePlay}/>
           }
         </ul>
       </section>

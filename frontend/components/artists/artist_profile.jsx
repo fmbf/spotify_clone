@@ -16,7 +16,13 @@ class artistProfile extends React.Component {
     this.currentUser = this.props.currentUser;
     this.state = { followed: false };
 
+    this.playAudio = this.playAudio.bind(this);
+    this.pauseAudio = this.pauseAudio.bind(this);
   }
+
+  //////////////////////////////////////////////////
+  // Life Cycle
+  //////////////////////////////////////////////////
 
   componentDidMount() {
 
@@ -44,18 +50,33 @@ class artistProfile extends React.Component {
     this.setState({ followed: !this.followed });
   }
 
-  /*-------------PLAYER--------------*/
+  //////////////////////////////////////////////////
+  // Playback
+  //////////////////////////////////////////////////
 
   playAudio() {
-    this.audio.play();
-    this.props.togglePlay();
+    if(this.props.audio.currentSong) {
+      this.props.togglePlay();
+    }
   }
 
   pauseAudio() {
-    this.audio.pause();
-    this.props.togglePlay();
+    if(this.props.audio.currentSong) {
+      this.props.togglePlay();
+    }
   }
-  /*----------------------------------*/
+
+  //////////////////////////////////////////////////
+  // Render
+  //////////////////////////////////////////////////
+
+  greenButton(){
+    if(this.props.audio.playing) {
+      return <button className='button-green' onClick={this.pauseAudio}>PAUSE</button>
+    } else {
+      return <button className='button-green' onClick={this.playAudio}>PLAY</button>;
+    }
+  }
 
 
   render() {
@@ -87,10 +108,10 @@ class artistProfile extends React.Component {
               <h1>{this.profileTitle}</h1>
               <h3 className='profile-description'>{this.profileDescription}</h3>
               {/*<h3>Created by: <strong><a href="#">{this.profileAuthor}</a></strong>  |  14 songs, 55min </h3>*/}
-              <h3><strong>12376123 Followers</strong>  |  {`${this.props.artist.songs_ids.length}`} songs, 55min </h3>
+              <h3><strong>{`${this.props.artist.followers}`} Followers</strong>  |  {`${this.props.artist.songs_ids.length}`} songs, 55min </h3>
 
               <div className="profile-button-box">
-                <button className='button-green'>PLAY</button>
+                {this.greenButton()}
                 <button className='button-mono'
                   onClick={() => this.toggleFollow}
                   >
@@ -112,7 +133,7 @@ class artistProfile extends React.Component {
 
             <Route path="/library/artists/:artistId" component={albumIndexContainer}/>
 
-          <EntityIndexContainer />
+          {/*<EntityIndexContainer/>*/}
         </div>
 
         <br/>
