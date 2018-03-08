@@ -16,7 +16,7 @@
   // overflow: show;
   // font-weight: 700;
   background-color: rgba(255, 255, 255, 0.99);
-  z-index: 50000000000000000000000000000000000000000; // floating list pop not working
+  z-index: 5; // floating list pop not working
 
   border: 1px solid #ccc;
   border-radius: 8px;
@@ -29,7 +29,6 @@
   border: none;
   // color: green;
   // border: 1px solid green;
-  z-index: 50000000000000000000000000000000000000000;
 }
 
 button ul .hidden-playlist-li:hover {

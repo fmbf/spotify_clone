@@ -3,7 +3,7 @@ import albumsIndex from './albums_index';
 
 import { fetchAlbum, fetchArtistAlbums, fetchUserAlbums, fetchAlbumsByIds } from '../../actions/albums_actions';
 import { togglePlay, toggleRepeat, toggleMute, nextSong, prevSong } from '../../actions/player_actions';
-
+import { fetchArtistSongs, fetchAlbumSongs } from '../../actions/songs_actions';
 
 const mapStateToProps = (state, ownProps) => {
   let img_path;
@@ -45,6 +45,7 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   fetchAlbum: (albumId) => dispatch(fetchAlbum(albumId)),
 
   togglePlay: () => dispatch(togglePlay()),
+  fetchAlbumSongs: (albumId) => dispatch(fetchAlbumSongs(albumId)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(albumsIndex);

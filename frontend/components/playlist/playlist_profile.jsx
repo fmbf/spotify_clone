@@ -10,14 +10,17 @@ class playlistProfile extends React.Component {
   constructor(props) {
     super(props);
     this.currentUser = this.props.currentUser;
-    this.logout = this.logout.bind(this);
+    // this.logout = this.logout.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
     this.handleRemoveSong = this.handleRemoveSong.bind(this);
 
-    this.modalToggle = this.modalToggle.bind(this);
+    // this.modalToggle = this.modalToggle.bind(this);
     this.state = {clickedNewPlaylist: false};
   }
 
+  //////////////////////////////////////////////////
+  // Life Cycle
+  //////////////////////////////////////////////////
 
   componentDidMount() {
     this.props.fetchPlaylist(this.props.match.params.playlistId);
@@ -32,6 +35,10 @@ class playlistProfile extends React.Component {
     }
   }
 
+  //////////////////////////////////////////////////
+  // Playlist Actions
+  //////////////////////////////////////////////////
+
   handleDelete() {
     const playlist = this.props.playlists[this.props.match.params.playlistId];
     this.props.deletePlaylist(playlist.id).then(() => this.props.history.push('/library/artists'));
@@ -39,22 +46,17 @@ class playlistProfile extends React.Component {
 
   }
 
+  // modalToggle() {
+  //   this.setState({clickedNewPlaylist: !this.state.clickedNewPlaylist});
+  // }
 
-  modalToggle() {
-    this.setState({clickedNewPlaylist: !this.state.clickedNewPlaylist});
-  }
-
-  toggleDropdown() {
-
-  }
-
-
-  logout() {
-    this.props.logout();
-  }
+  // logout() {
+  //   this.props.logout();
+  // }
 
   handleRemoveSong(songId, playlistId){
     this.props.removeSongFromPlaylist(songId, playlistId);
+    console.log('removed song/playlist', songId, playlistId);
   }
 
   render() {
@@ -76,8 +78,6 @@ class playlistProfile extends React.Component {
 
       <div>
         <div className="main-window main">
-
-
           <header className="profile-header">
 
             <div id='profile-pic-div'>
@@ -94,13 +94,7 @@ class playlistProfile extends React.Component {
 
               <div className="profile-button-box">
                 <button className='button-green'>PLAY</button>
-                {/*<button className='button-mono'>SAVE</button>*/}
                 <button className='button-mono' onClick={() => this.handleDelete()}>DELETE</button>
-
-                {/*<button className='button-mono header-button-more'
-                        onClick={() => this.handleDelete()} >
-                  +
-                </button>*/}
               </div>
 
             </div>
@@ -108,7 +102,7 @@ class playlistProfile extends React.Component {
 
           </header>
 
-          <span className='song-list-fields'><h3>TITLE</h3><h3>ARTIST</h3><h3>ALBUM</h3></span>
+          {/*<span className='song-list-fields'><h3>TITLE</h3><h3>ARTIST</h3><h3>ALBUM</h3></span>*/}
 
           <ul className='song-list'>
             {
@@ -126,10 +120,17 @@ class playlistProfile extends React.Component {
                     </button>
 
 
-
-                    <a>
-                      {playlistSong.title} {/*| 4:00*/}
-                    </a>
+                    <div className='song-list-track-info'>
+                      <a className='song-list-track-info-item'>
+                        {playlistSong.title}
+                      </a>
+                      <a className='song-list-track-info-item'>
+                        {playlistSong.artist}
+                      </a>
+                      <a className='song-list-track-info-item'>
+                        {playlistSong.album}
+                      </a>
+                    </div>
                   </li>
               ))
             }
@@ -137,7 +138,9 @@ class playlistProfile extends React.Component {
 
 
 
-          {/*<SongsIndexContainer album={this.props.playlist} playlist={this.props.playlist} songs={this.props.playlist.songs_ids}/>*/}
+          {/*
+            <SongsIndexContainer album={this.props.playlist} playlist={this.props.playlist} songs={this.props.playlist.songs_ids}/>
+            */}
 
         </div>
 

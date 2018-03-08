@@ -1,6 +1,7 @@
 class Api::ArtistsController < ApplicationController
   def index
-    @artists = Artist.where(id: params[:artist_ids])
+    @artists = Artist.all
+    # @artists = Artist.where(id: params[:artist_ids])
   end
 
   def index_by_user

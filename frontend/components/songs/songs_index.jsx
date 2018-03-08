@@ -45,26 +45,18 @@ class songsIndex extends React.Component {
     let dropDownUL = document.getElementById(`playlist-select-ul-${id}`);
     let songRow = document.getElementById(id);
 
-    // clearTimeout(this.timeout);
-
-
-
-
-
     if (action === 'show') {
       clearTimeout(this.timeout);
-      // dropDownUL.style.opacity = '1.0';
       dropDownUL.style.display = 'block';
       dropDownUL.style.color = '#282828'; // button color main
 
     } else {
       this.timeout = setTimeout(
         () => {
-          // dropDownUL.style.opacity = '0.0';
           dropDownUL.style.display = 'none';
           dropDownUL.style.color = '#ccc'; // button color transitional
         },
-        500
+        500 // wait time before hide
       );
     }
   }
