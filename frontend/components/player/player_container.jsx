@@ -6,8 +6,11 @@ import MediaPlayer from "./player";
 const mapStateToProps = (state) => {
   let img_path;
 
-  if (state.entities.albums[state.playback.albumId]) {
-    img_path = state.entities.albums[state.playback.albumId].img_path;
+  // if (state.entities.albums[state.playback.albumId]) {
+  //   img_path = state.entities.albums[state.playback.albumId].img_path;
+  // }
+  if (state.playback.currentSong) {
+    img_path = state.playback.currentSong.img_path;
   }
 
 

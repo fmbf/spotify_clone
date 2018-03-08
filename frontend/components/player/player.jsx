@@ -161,9 +161,14 @@ class MediaPlayer extends React.Component {
 
   render() {
     let songPath = '/';
+    let artistPage;
+    let albumPage;
 
     if (this.props.audio.currentSong) {
       songPath = this.props.audio.song_path;
+      artistPage = <a className='' href={`/#/library/artists/${this.props.audio.currentSong.artist_id}`}>{this.props.audio.artist}</a>;
+      albumPage = <a className='' href={`/#/library/albums/${this.props.audio.albumId}`}>{this.props.audio.title}</a>;
+
     }
 
     let playButtonMAIN;
@@ -260,10 +265,10 @@ class MediaPlayer extends React.Component {
           {trackImage}
           <div id="footer-left-text">
             <h3 id='footplayer-song-title'>
-                {this.props.audio.title}
+                {albumPage}
             </h3>
             <h3 id='footplayer-song-artist'>
-              {this.props.audio.artist}
+              {artistPage}
             </h3>
           </div>
 

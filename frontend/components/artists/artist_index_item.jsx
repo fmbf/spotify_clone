@@ -6,7 +6,12 @@ class artistIndexItem extends React.Component {
     super(props);
     this.hideSwitch = this.hideSwitch.bind(this);
     this.playBubble = this.playBubble.bind(this);
+    this.playAudio = this.playAudio.bind(this);
   }
+
+  //////////////////////////////////////////////////
+  // Life Cycle
+  //////////////////////////////////////////////////
 
   componentDidMount(){
     if (this.props && this.props.fetchAlbumsByIds) {
@@ -14,8 +19,15 @@ class artistIndexItem extends React.Component {
     }
   }
 
-  playBubble(playlistId){
-    console.log(`now playing playlist ${playlistId}`);
+  //////////////////////////////////////////////////
+  // playBubble
+  //////////////////////////////////////////////////
+
+  playBubble(entityId){
+    console.log(`now playing artist ${entityId}`);
+    // this.props.fetchArtistAlbums(entityId);
+    this.props.fetchArtistSongs(entityId);
+    this.playAudio();
   }
 
   hideSwitch(action, id) {
@@ -37,6 +49,32 @@ class artistIndexItem extends React.Component {
       // img.style.filter = 'blur(0px);';
     }
   }
+
+  //////////////////////////////////////////////////
+  // Playback
+  //////////////////////////////////////////////////
+
+  playAudio() {
+    // if(this.props.audio.currentSong) {
+    // }
+
+    if(!this.props.audio.playing) {
+      this.props.togglePlay();
+    } else {
+      this.props.togglePlay();
+      this.props.togglePlay();
+    }
+  }
+
+  // pauseAudio() {
+  //   if(this.props.audio.currentSong) {
+  //     this.props.togglePlay();
+  //   }
+  // }
+
+  //////////////////////////////////////////////////
+  // Render
+  //////////////////////////////////////////////////
 
   render() {
 
