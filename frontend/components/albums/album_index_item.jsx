@@ -16,9 +16,13 @@ class albumIndexItem extends React.Component {
 
   playBubble(entityId){
     console.log(`now playing artist ${entityId}`);
-    // this.props.fetchArtistAlbums(entityId);
-    this.props.fetchAlbumSongs(entityId);
-    this.playAudio();
+    let songs = Object.values(this.props.allSongs).filter(song => song.album_id === entityId);
+    this.props.queueSongsReplace(songs);
+    setTimeout( () => this.playAudio(), 100 );
+
+    // console.log(`now playing artist ${entityId}`);
+    // this.props.fetchAlbumSongs(entityId);
+    // this.playAudio();
   }
 
   hideSwitch(action, id) {

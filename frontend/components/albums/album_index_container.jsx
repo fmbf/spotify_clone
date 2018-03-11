@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import albumsIndex from './albums_index';
 
 import { fetchAlbum, fetchArtistAlbums, fetchUserAlbums, fetchAlbumsByIds } from '../../actions/albums_actions';
-import { togglePlay, toggleRepeat, toggleMute, nextSong, prevSong } from '../../actions/player_actions';
+import { togglePlay, toggleRepeat, toggleMute, nextSong, prevSong, queueSongsReplace } from '../../actions/player_actions';
 import { fetchArtistSongs, fetchAlbumSongs } from '../../actions/songs_actions';
 
 const mapStateToProps = (state, ownProps) => {
@@ -31,7 +31,7 @@ const mapStateToProps = (state, ownProps) => {
     /*--------------from player container------------*/
     artists: Object.values(state.entities.artists),
     audio: state.playback,
-    tracks: state.entities.songs,
+    allSongs: state.entities.songs,
     // img_path: ownProps.album.img_path
     /*-----------------------------------------------*/
 
@@ -45,6 +45,7 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   fetchAlbum: (albumId) => dispatch(fetchAlbum(albumId)),
 
   togglePlay: () => dispatch(togglePlay()),
+  queueSongsReplace: (songs) => dispatch(queueSongsReplace(songs)),
   fetchAlbumSongs: (albumId) => dispatch(fetchAlbumSongs(albumId)),
 });
 

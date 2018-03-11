@@ -95,6 +95,8 @@ class albumsIndex extends React.Component {
           {
             <AlbumIndexItem
               audio={this.props.audio}
+              allSongs={this.props.allSongs}
+              queueSongsReplace={this.props.queueSongsReplace}
               togglePlay={this.props.togglePlay}
               fetchAlbumSongs={this.props.fetchAlbumSongs}
               albums={this.props.albums}/>
