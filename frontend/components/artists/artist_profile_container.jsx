@@ -7,10 +7,6 @@ import { fetchArtist, fetchUserAlbums, fetchArtistsByIds } from '../../actions/a
 import { fetchArtistSongs, fetchAlbumSongs } from '../../actions/songs_actions';
 import { togglePlay, toggleRepeat, toggleMute, nextSong, prevSong } from '../../actions/player_actions';
 
-
-
-
-
 const mapStateToProps = (state, ownProps) => {
   let img_path;
   if (state.entities.albums[state.playback.albumId]) {

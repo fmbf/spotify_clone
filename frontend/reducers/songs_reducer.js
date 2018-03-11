@@ -1,7 +1,9 @@
 import merge from 'lodash/merge';
 
 import { RECEIVE_SONGS,
-         RECEIVE_SONG
+         RECEIVE_SONG,
+         RECEIVE_SONG_INTERRUPT,
+         RECEIVE_SONGS_INTERRUPT
 } from '../actions/songs_actions';
 
 const songsReducer = (oldState = {}, action) => {
