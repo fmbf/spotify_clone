@@ -25,9 +25,14 @@ class artistIndexItem extends React.Component {
 
   playBubble(entityId){
     console.log(`now playing artist ${entityId}`);
-    // this.props.fetchArtistAlbums(entityId);
-    this.props.fetchArtistSongs(entityId);
-    this.playAudio();
+    let songs = Object.values(this.props.allSongs).filter(song => song.artist_id === entityId);
+    this.props.queueSongsReplace(songs);
+    setTimeout( () => this.playAudio(), 100 );
+
+
+    // console.log(`now playing artist ${entityId}`);
+    // this.props.fetchArtistSongs(entityId);
+    // this.playAudio();
   }
 
   hideSwitch(action, id) {
@@ -58,9 +63,9 @@ class artistIndexItem extends React.Component {
     // if(this.props.audio.currentSong) {
     // }
 
-    if(!this.props.audio.playing) {
+    if(!this.props.audio.playing) { // just toggle once if nothing playing
       this.props.togglePlay();
-    } else {
+    } else {                        //
       this.props.togglePlay();
       this.props.togglePlay();
     }

@@ -1,11 +1,13 @@
 import merge from 'lodash/merge';
-import shuffle from 'lodash/shuffle';import { RECEIVE_SONGS } from '../actions/songs_actions';
+import shuffle from 'lodash/shuffle';
+import { RECEIVE_SONGS, RECEIVE_SONGS_INTERRUPT } from '../actions/songs_actions';
 
 import { TOGGLE_PLAY,
          TOGGLE_REPEAT,
          TOGGLE_MUTE,
          NEXT_SONG,
-         PREV_SONG
+         PREV_SONG,
+         QUEUE_SONGS_REPLACE
 } from '../actions/player_actions';
 
 
@@ -40,7 +42,21 @@ export default (state = initialState, action) => {
 
   switch(action.type) {
 
-    case RECEIVE_SONGS:
+    // case RECEIVE_SONGS:
+    //   newState = merge({}, state);
+    //
+    //   // newState.queue = newState.queue.concat(Object.values(action.songs)); // dont replace the queue!
+    //   newState.queue = Object.values(action.songs);
+    //   newState.currentSong = newState.queue[0];
+    //   newState.currentSongTitle = newState.queue[0].title;
+    //   newState.song_path = newState.queue[0].song_path;
+    //   newState.title = newState.queue[0].title;
+    //   newState.artist = newState.queue[0].artist;
+    //   newState.album = newState.queue[0].album;
+    //   newState.albumId = newState.queue[0].album_id;
+    //   return newState;
+
+    case QUEUE_SONGS_REPLACE:
       newState = merge({}, state);
 
       // newState.queue = newState.queue.concat(Object.values(action.songs)); // dont replace the queue!

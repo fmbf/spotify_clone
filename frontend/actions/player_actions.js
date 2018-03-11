@@ -4,6 +4,7 @@ export const TOGGLE_MUTE = "TOGGLE_MUTE";
 export const NEXT_SONG = "NEXT_SONG";
 export const PREV_SONG = "PREV_SONG";
 export const QUEUE_SONGS = "QUEUE_SONGS";
+export const QUEUE_SONGS_REPLACE = "QUEUE_SONGS_REPLACE";
 
 export const togglePlay = () => ({
   type: TOGGLE_PLAY
@@ -25,6 +26,11 @@ export const prevSong = () => ({
   type: PREV_SONG
 });
 
+
+export const queueSongsReplace = (songs) => ({
+  type: QUEUE_SONGS_REPLACE,
+  songs: songs
+});
 
 export const queueSongs = () => ({
   type: QUEUE_SONGS

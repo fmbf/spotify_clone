@@ -13,8 +13,14 @@ const songsReducer = (oldState = {}, action) => {
   switch (action.type) {
     case RECEIVE_SONGS:
       return merge({}, oldState, action.songs);
+    case RECEIVE_SONGS_INTERRUPT:
+      return merge({}, oldState, action.songs);
 
     case RECEIVE_SONG:
+      newState = merge({}, oldState);
+      newState[action.song.id] = action.song;
+      return newState;
+    case RECEIVE_SONG_INTERRUPT:
       newState = merge({}, oldState);
       newState[action.song.id] = action.song;
       return newState;

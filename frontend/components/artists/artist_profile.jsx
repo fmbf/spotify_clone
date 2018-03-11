@@ -18,6 +18,7 @@ class artistProfile extends React.Component {
 
     this.playAudio = this.playAudio.bind(this);
     this.pauseAudio = this.pauseAudio.bind(this);
+    this.replaceQueueThenPlay = this.replaceQueueThenPlay.bind(this);
   }
 
   //////////////////////////////////////////////////
@@ -54,6 +55,21 @@ class artistProfile extends React.Component {
   // Playback
   //////////////////////////////////////////////////
 
+  replaceQueueThenPlay(){
+    // this.props.audio.albumId === this.props.album.id
+    if (this.props.audio.playing) {
+      this.pauseAudio();
+    }
+
+    this.props.queueSongsReplace(this.props.songs);
+
+    // if (!this.props.audio.currentSong) {
+    //   debugger
+    // }
+
+    setTimeout( () => this.playAudio(), 100 );
+  }
+
   playAudio() {
     if(this.props.audio.currentSong) {
       this.props.togglePlay();
@@ -70,11 +86,26 @@ class artistProfile extends React.Component {
   // Render
   //////////////////////////////////////////////////
 
+  // greenButton(){
+  //   if(this.props.audio.playing) {
+  //     return <button className='button-green' onClick={this.pauseAudio}>PAUSE</button>
+  //   } else {
+  //     return <button className='button-green' onClick={this.playAudio}>PLAY</button>;
+  //   }
+  // }
+
   greenButton(){
-    if(this.props.audio.playing) {
-      return <button className='button-green' onClick={this.pauseAudio}>PAUSE</button>
+    // if currently playing album id === me, then just pause/play toggle
+    // else replace the queue
+
+    if (this.props.audio.artist === this.props.artist.name) {
+      if(this.props.audio.playing) {
+        return <button className='button-green' onClick={this.pauseAudio}>PAUSE</button>
+      } else {
+        return <button className='button-green' onClick={this.playAudio}>PLAY</button>;
+      }
     } else {
-      return <button className='button-green' onClick={this.playAudio}>PLAY</button>;
+      return <button className='button-green' onClick={this.replaceQueueThenPlay}>PLAY</button>;
     }
   }
 

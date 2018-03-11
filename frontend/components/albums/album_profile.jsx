@@ -15,6 +15,7 @@ class albumProfile extends React.Component {
     this.playAudio = this.playAudio.bind(this);
     this.pauseAudio = this.pauseAudio.bind(this);
     this.toggleFollow = this.toggleFollow.bind(this);
+    this.replaceQueueThenPlay = this.replaceQueueThenPlay.bind(this);
   }
 
   //////////////////////////////////////////////////
@@ -24,6 +25,7 @@ class albumProfile extends React.Component {
   componentDidMount() {
     this.props.fetchAlbum(this.props.match.params.albumId);
     this.props.fetchAlbumSongs(this.props.match.params.albumId);
+    // this.props.queueSongsReplace(this.props.songs);
   }
 
   componentWillReceiveProps(newProps) {
@@ -36,6 +38,21 @@ class albumProfile extends React.Component {
   //////////////////////////////////////////////////
   // Playback
   //////////////////////////////////////////////////
+
+  replaceQueueThenPlay(){
+    // this.props.audio.albumId === this.props.album.id
+    if (this.props.audio.playing) {
+      this.pauseAudio();
+    }
+
+    this.props.queueSongsReplace(this.props.songs);
+
+    // if (!this.props.audio.currentSong) {
+    //   debugger
+    // }
+
+    setTimeout( () => this.playAudio(), 100 );
+  }
 
   playAudio() {
     if(this.props.audio.currentSong) {
@@ -54,7 +71,7 @@ class albumProfile extends React.Component {
   //////////////////////////////////////////////////
 
   toggleFollow(){
-    console.log('before click: following?', this.props.album.current_user_follows);  
+    console.log('before click: following?', this.props.album.current_user_follows);
     console.log('toggle following entityID', this.props.match.params.albumId);
     console.log('after click: following?', this.props.album.current_user_follows);
   }
@@ -64,10 +81,17 @@ class albumProfile extends React.Component {
   //////////////////////////////////////////////////
 
   greenButton(){
-    if(this.props.audio.playing) {
-      return <button className='button-green' onClick={this.pauseAudio}>PAUSE</button>
+    // if currently playing album id === me, then just pause/play toggle
+    // else replace the queue
+
+    if (this.props.audio.albumId === this.props.album.id) {
+      if(this.props.audio.playing) {
+        return <button className='button-green' onClick={this.pauseAudio}>PAUSE</button>
+      } else {
+        return <button className='button-green' onClick={this.playAudio}>PLAY</button>;
+      }
     } else {
-      return <button className='button-green' onClick={this.playAudio}>PLAY</button>;
+      return <button className='button-green' onClick={this.replaceQueueThenPlay}>PLAY</button>;
     }
   }
 
