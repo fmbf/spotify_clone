@@ -1,7 +1,8 @@
 import { connect } from 'react-redux';
 import songsIndex from './songs_index';
 import { withRouter } from 'react-router-dom';
-import {addSongToPlaylist} from '../../actions/songs_actions';
+import { addSongToPlaylist } from '../../actions/songs_actions';
+import { togglePlay, toggleRepeat, toggleMute, nextSong, prevSong, queueSongsReplace } from '../../actions/player_actions';
 
 
 const mapStateToProps = (state, ownProps) => {
@@ -14,6 +15,8 @@ const mapStateToProps = (state, ownProps) => {
   }
 
   return {
+    audio: state.playback,
+    allSongs: state.entities.songs,
     songs,
     playlists: Object.values(state.entities.playlists).filter(playlist => playlist.author_id === state.session.currentUser.id),
     currentUser: state.session.currentUser
@@ -22,7 +25,10 @@ const mapStateToProps = (state, ownProps) => {
 
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  addSongToPlaylist: (songId, playlistId) => dispatch(addSongToPlaylist(songId, playlistId))
+  addSongToPlaylist: (songId, playlistId) => dispatch(addSongToPlaylist(songId, playlistId)),
+
+  togglePlay: () => dispatch(togglePlay()),
+  queueSongsReplace: (songs) => dispatch(queueSongsReplace(songs)),
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(songsIndex));

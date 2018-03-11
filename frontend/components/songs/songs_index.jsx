@@ -5,20 +5,55 @@ import UserSessionNavContainer from '../user_session_nav/user_session_nav_contai
 class songsIndex extends React.Component {
   constructor(props) {
     super(props);
-    console.log(this.props);
-    this.toggleDropdown = this.toggleDropdown.bind(this);
     this.buildDropdown = this.buildDropdown.bind(this);
     this.hideSwitch = this.hideSwitch.bind(this);
 
     this.timeout;
+
+
+    this.playBubble = this.playBubble.bind(this);
+    this.playAudio = this.playAudio.bind(this);
   }
 
-  // addSongClick(albumSongId, playlistId){
-  //   this.props.addSongToPlaylist(albumSongId, playlistId);
+  //////////////////////////////////////////////////
+  // playBubble
+  //////////////////////////////////////////////////
+
+  playBubble(entityId){
+    console.log(`now playing song ${entityId}`);
+    // let songs = Object.values(this.props.allSongs).filter(song => song.album_id === entityId);
+    this.props.queueSongsReplace(this.props.songs);
+    setTimeout( () => this.playAudio(), 100 );
+  }
+
+  //////////////////////////////////////////////////
+  // Playback
+  //////////////////////////////////////////////////
+
+  playAudio() {
+    // if(this.props.audio.currentSong) {
+    // }
+
+    if(!this.props.audio.playing) {
+      this.props.togglePlay();
+    } else {
+      this.props.togglePlay();
+      this.props.togglePlay();
+    }
+  }
+
+  // pauseAudio() {
+  //   if(this.props.audio.currentSong) {
+  //     this.props.togglePlay();
+  //   }
   // }
 
+
+  //////////////////////////////////////////////////
+  // Dropdown Menu
+  //////////////////////////////////////////////////
+
   buildDropdown(albumSongId) {
-    // console.log("built dropdown for", albumSongId);
     let li = document.getElementById(`hidden-playlist-li-${albumSongId}`);
 
     return this.props.playlists.map((playlist) => (
@@ -35,10 +70,6 @@ class songsIndex extends React.Component {
 
       </li>
     ));
-  }
-
-  toggleDropdown() {
-
   }
 
   hideSwitch(action, id) {
@@ -61,7 +92,9 @@ class songsIndex extends React.Component {
     }
   }
 
-
+  //////////////////////////////////////////////////
+  // Render
+  //////////////////////////////////////////////////
 
   render() {
     if (!this.props.songs) {
@@ -74,7 +107,8 @@ class songsIndex extends React.Component {
           this.props.songs.map(albumSong => (
               <li key={albumSong.id} className='track-li'>
 
-                <button className='song-list-button song-list-play button-mono'>
+                <button className='song-list-button song-list-play button-mono'
+                        onClick={() => this.playBubble(albumSong.id)}>
                   <i className="fas fa-play"></i>
                 </button>
 

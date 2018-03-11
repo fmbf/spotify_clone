@@ -7,7 +7,7 @@ import { removeSongFromPlaylist } from '../../actions/songs_actions';
 import { fetchPlaylistSongs } from '../../actions/songs_actions';
 import { logout } from '../../actions/session_actions';
 
-
+import { togglePlay, toggleRepeat, toggleMute, nextSong, prevSong, queueSongsReplace } from '../../actions/player_actions';
 
 
 const mapStateToProps = (state, ownProps) => {
@@ -21,6 +21,7 @@ const mapStateToProps = (state, ownProps) => {
 
   return {
     songs,
+    audio: state.playback, // playback obj
     playlists: state.entities.playlists,
     playlist: state.entities.playlists[ownProps.match.params.playlistId],
     currentUser: state.session.currentUser
@@ -29,6 +30,8 @@ const mapStateToProps = (state, ownProps) => {
 
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
+  togglePlay: () => dispatch(togglePlay()),
+  queueSongsReplace: (songs) => dispatch(queueSongsReplace(songs)),
 
   removeSongFromPlaylist: (songId, playlistId) => dispatch(removeSongFromPlaylist(songId, playlistId)),
   fetchPlaylist: (id) => dispatch(fetchPlaylist(id)),

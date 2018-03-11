@@ -1,9 +1,8 @@
 class Api::PlaylistsController < ApplicationController
   def index
-    # @playlists = Playlist.all
-    # @user = User.find_by(id: params[:user_id])
+    @playlists = Playlist.all
 
-    @playlists = Playlist.where('author_id = ?', params[:user_id])
+    # @playlists = Playlist.where('author_id = ?', params[:user_id]) # use this one!
     # @playlists = Playlist.find_by(author_id: params[:user_id])
   end
 
