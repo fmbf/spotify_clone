@@ -129,6 +129,7 @@ class artistProfile extends React.Component {
           </header>
 
           <span className='song-list-fields'><h3>TITLE</h3><h3>ARTIST</h3><h3>ALBUM</h3></span>
+
           <SongsIndexContainer album={this.props.album} songs={this.props.songs}/>
 
           <Route path="/library/artists/:artistId" component={albumIndexContainer}/>

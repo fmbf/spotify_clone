@@ -50,6 +50,11 @@ export const fetchSong = id => dispatch => (
     .then(serverSong => dispatch(receiveSong(serverSong)))
 );
 
+export const fetchAllSongs = () => dispatch => (
+  SongApiUtil.fetchAllSongs()
+    .then(serverSongs => dispatch(receiveSongs(serverSongs)))
+);
+
 export const fetchSongInterrupt = id => dispatch => (
   SongApiUtil.fetchSong(id)
     .then(serverSong => dispatch(receiveSongInterrupt(serverSong)))

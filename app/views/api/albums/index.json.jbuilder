@@ -7,5 +7,6 @@
     json.followers followers = album.followers.count
 
     json.song_ids album.songs.ids
+    json.songs album.songs
   end
 end

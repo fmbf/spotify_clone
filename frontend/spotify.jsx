@@ -10,6 +10,7 @@ import {
 } from './actions/playlists_actions';
 
 import { fetchAlbum } from './actions/albums_actions';
+import { fetchAllSongs } from './actions/songs_actions';
 import { addSongToPlaylist, removeSongFromPlaylist } from './actions/songs_actions';
 import { fetchSearchResults } from './actions/search_actions';
 
@@ -47,6 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // window.fetchSearchResults = (query) => store.dispatch(fetchSearchResults(query));
     //
     // window.nextSong = () => store.dispatch(nextSong());
+    // window.fetchAllSongs = () => store.dispatch(fetchAllSongs());
 
   //-----------------------------------------//
 

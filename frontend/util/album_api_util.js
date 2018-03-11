@@ -24,8 +24,15 @@ export const fetchAlbumsByIds = (albumIds) => (
   $.ajax({
     method: 'GET',
     url: `api/albums`,
-    data: {
-      album_ids: albumIds
-    }
   })
 );
+//
+// export const fetchAlbumsByIds = (albumIds) => (
+//   $.ajax({
+//     method: 'GET',
+//     url: `api/albums`,
+//     data: {
+//       album_ids: albumIds
+//     }
+//   })
+// );
