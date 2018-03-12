@@ -62,7 +62,7 @@ Album.create(title: 'Random Access Memories', artist_id: Artist.where(name: 'Daf
 
 Album.create(title: 'American IV: The Man Comes Around', artist_id: Artist.where(name: 'Johnny Cash'), img_path: 'https://upload.wikimedia.org/wikipedia/en/e/e0/AmericanIV.jpg')
 
-Album.create(title: 'Giant Steps', artist_id: Artist.where(name: 'John Coltrane'), img_path: 'https://upload.wikimedia.org/wikipedia/en/2/2a/Coltrane_Giant_Steps.jpg')
+Album.create(title: 'Giant Steps', artist_id: Artist.where(name: 'John Coltrane')[0].id, img_path: 'https://upload.wikimedia.org/wikipedia/en/2/2a/Coltrane_Giant_Steps.jpg')
 
 Album.create(title: 'Continuum', artist_id: Artist.where(name: 'John Mayer')[0].id, img_path: 'https://upload.wikimedia.org/wikipedia/en/8/82/Continuum_%28album%29.png')
 
@@ -116,6 +116,9 @@ Album.create(title: 'Jungle Rules', artist_id: Artist.where(name: 'French Montan
 
 
 Album.create(title: 'Multiply', artist_id: Artist.where(name: 'Ed Sheeran')[0].id, img_path: 'https://images.rapgenius.com/d7b3e41b31e03a7276fae2ed623c22f8.640x640x1.jpg')
+
+
+Album.create(title: 'American IV: The Man Comes Around', artist_id: Artist.where(name: 'Johnny Cash')[0].id, img_path: 'https://upload.wikimedia.org/wikipedia/en/e/e0/AmericanIV.jpg')
 
 
 
@@ -192,7 +195,10 @@ Song.create(title: 'Sweet Nothing (feat. Florence Welch)', artist_id: Artist.whe
 #---------------------------------------Adele----------------------------------------#
 Song.create(title: 'Rolling In The Deep', artist_id: Artist.where(name: 'Adele')[0].id, album_id: Album.where(title: "21")[0].id, song_path: "https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/21/01+Rolling+In+The+Deep.mp3")
 Song.create(title: 'Rumour Has It', artist_id: Artist.where(name: 'Adele')[0].id, album_id: Album.where(title: "21")[0].id, song_path: "https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/21/02+Rumor+Has+It.mp3")
+Song.create(title: 'Turning Tables', artist_id: Artist.where(name: 'Adele')[0].id, album_id: Album.where(title: "21")[0].id, song_path: "https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/21/03+Turning+Tabels.mp3")
+Song.create(title: "Don't You Remember", artist_id: Artist.where(name: 'Adele')[0].id, album_id: Album.where(title: "21")[0].id, song_path: "https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/21/04+Don't+You+Remember.mp3")
 Song.create(title: 'Set Fire To The Rain', artist_id: Artist.where(name: 'Adele')[0].id, album_id: Album.where(title: "21")[0].id, song_path: "https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/21/05+Set+Fire+To+The+Rain.mp3")
+Song.create(title: 'Someone Like You', artist_id: Artist.where(name: 'Adele')[0].id, album_id: Album.where(title: "21")[0].id, song_path: "https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/21/11+Someone+Like+You.mp3")
 
 Song.create(title: 'Hello', artist_id: Artist.where(name: 'Adele')[0].id, album_id: Album.where(title: "25")[0].id, song_path: "https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/25/Hello.mp3")
 Song.create(title: 'Send My Love (To Your New Lover)', artist_id: Artist.where(name: 'Adele')[0].id, album_id: Album.where(title: "25")[0].id, song_path: "https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/25/Send+My+Love+(To+Your+New+Lover).mp3")
@@ -275,16 +281,63 @@ Song.create(title: "I Feel It Coming", artist_id: Artist.where(name: 'The Weeknd
 
 Song.create(title: "Thief", artist_id: Artist.where(name: 'Ookay')[0].id, album_id: Album.where(title: "Thief - Single")[0].id, song_path: "https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/Ookay/Ookay+-+Thief.mp3")
 
+
+Song.create(title: "Hurt", artist_id: Artist.where(name: 'Johnny Cash')[0].id, album_id: Album.where(title: "American IV: The Man Comes Around")[0].id, song_path: "https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/J+Cash/Johnny+Cash+-+Hurt.mp3")
+
 #---------------------------------------User_1---------------------------------------#
-Playlist.create(title: 'Love Songs', img_path: "https://picsum.photos/200/200/?image=#{rand(100)}", description: 'the staple of every library', author_id: User.where(username: 'bobby_tables')[0].id)
-Playlist.create(title: 'Bangers', img_path: "https://picsum.photos/200/200/?image=#{rand(100)}", description: 'oldies but awesome', author_id: User.where(username: 'bobby_tables')[0].id)
-Playlist.create(title: 'Pool Party', img_path: "https://picsum.photos/200/200/?image=#{rand(100)}", description: 'warm and fuzzy', author_id: User.where(username: 'bobby_tables')[0].id)
-Playlist.create(title: 'Rainy Day Jams', img_path: "https://picsum.photos/200/200/?image=#{rand(100)}", description: 'drip drop', author_id: User.where(username: 'bobby_tables')[0].id)
-Playlist.create(title: 'Day At The Beach', img_path: "https://picsum.photos/200/200/?image=#{rand(100)}", description: 'Summer is here!', author_id: User.where(username: 'bobby_tables')[0].id)
-Playlist.create(title: 'Workout', img_path: "https://picsum.photos/200/200/?image=#{rand(100)}", description: 'For da gym!', author_id: User.where(username: 'bobby_tables')[0].id)
+# cool_pics = [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 24, 25, 28, 29, 41, 42, 43, 50, 53, 55, 56, 64, 65, 70, 76, 77]
+
+Playlist.create(title: 'Love Songs', img_path: "https://picsum.photos/200/200/?image=65", description: 'the staple of every library', author_id: User.where(username: 'bobby_tables')[0].id)
+Playlist.create(title: 'Gaming Energy', img_path: "https://picsum.photos/200/200/?image=96", description: 'oldies but awesome', author_id: User.where(username: 'bobby_tables')[0].id)
+Playlist.create(title: 'Pool Party', img_path: "https://picsum.photos/200/200/?image=87", description: 'warm and fuzzy', author_id: User.where(username: 'bobby_tables')[0].id)
+Playlist.create(title: 'Rainy Day Jams', img_path: "https://picsum.photos/200/200/?image=115", description: 'drip drop', author_id: User.where(username: 'bobby_tables')[0].id)
+Playlist.create(title: 'Day At The Beach', img_path: "https://picsum.photos/200/200/?image=108", description: 'Summer is here!', author_id: User.where(username: 'bobby_tables')[0].id)
+Playlist.create(title: 'Workout', img_path: "https://picsum.photos/200/200/?image=76", description: 'For da gym!', author_id: User.where(username: 'bobby_tables')[0].id)
 
 
-#---------------------------------------Playlists----------------------------------------#
+#---------------------------------------PlaylistSong----------------------------------------#
+
+PlaylistSong.create!(playlist_id: Playlist.where(title: 'Love Songs')[0].id, song_id: Song.where(title: "Hold On, We're Going Home")[0].id)
+PlaylistSong.create!(playlist_id: Playlist.where(title: 'Love Songs')[0].id, song_id: Song.where(title: 'Shape Of You')[0].id)
+PlaylistSong.create!(playlist_id: Playlist.where(title: 'Love Songs')[0].id, song_id: Song.where(title: 'Gravity')[0].id)
+PlaylistSong.create!(playlist_id: Playlist.where(title: 'Love Songs')[0].id, song_id: Song.where(title: 'Digital Love')[0].id)
+PlaylistSong.create!(playlist_id: Playlist.where(title: 'Love Songs')[0].id, song_id: Song.where(title: 'Hello')[0].id)
+PlaylistSong.create!(playlist_id: Playlist.where(title: 'Love Songs')[0].id, song_id: Song.where(title: 'Drunk In Love')[0].id)
+PlaylistSong.create!(playlist_id: Playlist.where(title: 'Love Songs')[0].id, song_id: Song.where(title: 'Set Fire To The Rain')[0].id)
+PlaylistSong.create!(playlist_id: Playlist.where(title: 'Love Songs')[0].id, song_id: Song.where(title: 'Feel So Close')[0].id)
+PlaylistSong.create!(playlist_id: Playlist.where(title: 'Love Songs')[0].id, song_id: Song.where(title: 'We Found Love')[0].id)
+PlaylistSong.create!(playlist_id: Playlist.where(title: 'Love Songs')[0].id, song_id: Song.where(title: 'Something About Us')[0].id)
+
+PlaylistSong.create!(playlist_id: Playlist.where(title: 'Pool Party')[0].id, song_id: Song.where(title: 'Controlla')[0].id)
+PlaylistSong.create!(playlist_id: Playlist.where(title: 'Pool Party')[0].id, song_id: Song.where(title: 'One Dance')[0].id)
+PlaylistSong.create!(playlist_id: Playlist.where(title: 'Pool Party')[0].id, song_id: Song.where(title: 'Sorry')[0].id)
+PlaylistSong.create!(playlist_id: Playlist.where(title: 'Pool Party')[0].id, song_id: Song.where(title: 'Thief')[0].id)
+PlaylistSong.create!(playlist_id: Playlist.where(title: 'Pool Party')[0].id, song_id: Song.where(title: 'Sweet Nothing (feat. Florence Welch)')[0].id)
+PlaylistSong.create!(playlist_id: Playlist.where(title: 'Pool Party')[0].id, song_id: Song.where(title: 'Uptown Funk')[0].id)
+PlaylistSong.create!(playlist_id: Playlist.where(title: 'Pool Party')[0].id, song_id: Song.where(title: '24K Magic')[0].id)
+
+PlaylistSong.create!(playlist_id: Playlist.where(title: 'Gaming Energy')[0].id, song_id: Song.where(title: 'Bangarang')[0].id)
+PlaylistSong.create!(playlist_id: Playlist.where(title: 'Gaming Energy')[0].id, song_id: Song.where(title: 'Not Butter')[0].id)
+PlaylistSong.create!(playlist_id: Playlist.where(title: 'Gaming Energy')[0].id, song_id: Song.where(title: 'Bounce')[0].id)
+PlaylistSong.create!(playlist_id: Playlist.where(title: 'Gaming Energy')[0].id, song_id: Song.where(title: 'Robot Rock')[0].id)
+PlaylistSong.create!(playlist_id: Playlist.where(title: 'Gaming Energy')[0].id, song_id: Song.where(title: 'Flicker')[0].id)
+PlaylistSong.create!(playlist_id: Playlist.where(title: 'Gaming Energy')[0].id, song_id: Song.where(title: 'Get Low feat. DJ Snake')[0].id)
+PlaylistSong.create!(playlist_id: Playlist.where(title: 'Gaming Energy')[0].id, song_id: Song.where(title: 'Right In')[0].id)
+PlaylistSong.create!(playlist_id: Playlist.where(title: 'Gaming Energy')[0].id, song_id: Song.where(title: 'Sad Machine')[0].id)
+PlaylistSong.create!(playlist_id: Playlist.where(title: 'Gaming Energy')[0].id, song_id: Song.where(title: 'Sweet Nothing (feat. Florence Welch)')[0].id)
+
+PlaylistSong.create!(playlist_id: Playlist.where(title: 'Rainy Day Jams')[0].id, song_id: Song.where(title: 'Hello')[0].id)
+PlaylistSong.create!(playlist_id: Playlist.where(title: 'Rainy Day Jams')[0].id, song_id: Song.where(title: 'Vultures')[0].id)
+PlaylistSong.create!(playlist_id: Playlist.where(title: 'Rainy Day Jams')[0].id, song_id: Song.where(title: 'Something About Us')[0].id)
+PlaylistSong.create!(playlist_id: Playlist.where(title: 'Rainy Day Jams')[0].id, song_id: Song.where(title: 'Hurt')[0].id)
+PlaylistSong.create!(playlist_id: Playlist.where(title: 'Rainy Day Jams')[0].id, song_id: Song.where(title: "Doin' It Right")[0].id)
+PlaylistSong.create!(playlist_id: Playlist.where(title: 'Rainy Day Jams')[0].id, song_id: Song.where(title: 'Fake Love')[0].id)
+PlaylistSong.create!(playlist_id: Playlist.where(title: 'Rainy Day Jams')[0].id, song_id: Song.where(title: 'Thief')[0].id)
+
+
+
+
+
 # titles = [
 #   Faker::Dessert.variety.titleize, Faker::Dessert.topping.titleize, Faker::Dessert.flavor.titleize,
 #   Faker::Hipster.word.titleize, Faker::Book.title.titleize

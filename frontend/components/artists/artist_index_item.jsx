@@ -39,7 +39,15 @@ class artistIndexItem extends React.Component {
     let playButton = document.getElementById(`hidden-${id}`);
     let img = document.getElementById(id);
 
+
     if (action === 'show') {
+      // if (this.props.audio.currentSong && this.props.audio.currentSong.id === id) {
+      //   playButton.classList.add("fa-pause-circle");
+      //   playButton.classList.remove("fa-play-circle");
+      // }
+
+
+
       playButton.style.opacity = '1.0';
       playButton.style.color = '#282828'; // button color main
       img.style.borderColor = '#1bc156';
@@ -54,6 +62,25 @@ class artistIndexItem extends React.Component {
       // img.style.filter = 'blur(0px);';
     }
   }
+
+
+
+  // playbackButton(){
+  //   if (true) {
+  //     return <i
+  //       className="far fa-play-circle fa-5x hidden"
+  //       id={`hidden-${artist.id}`}
+  //       style={{color: '#ccc'}}
+  //       ></i>;
+  //   } else {
+  //     return <i
+  //       className="far fa-pause-circle fa-5x hidden"
+  //       id={`hidden-${artist.id}`}
+  //       style={{color: '#ccc'}}
+  //       ></i>;
+  //   }
+  //
+  // }
 
   //////////////////////////////////////////////////
   // Playback
