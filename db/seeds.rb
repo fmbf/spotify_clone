@@ -72,6 +72,8 @@ Album.create(title: 'Fancy Footwork', artist_id: Artist.where(name: 'Chromeo')[0
 Album.create(title: 'Believe', artist_id: Artist.where(name: 'Justin Bieber')[0].id, img_path: 'https://upload.wikimedia.org/wikipedia/en/0/01/Believe-JB-Album.jpg')
 Album.create(title: 'Purpose', artist_id: Artist.where(name: 'Justin Bieber')[0].id, img_path: 'https://upload.wikimedia.org/wikipedia/en/2/27/Justin_Bieber_-_Purpose_%28Official_Album_Cover%29.png')
 
+Album.create(title: 'Money Sucks, Friends Rule', artist_id: Artist.where(name: 'Dillon Francis')[0].id, img_path: 'https://upload.wikimedia.org/wikipedia/en/5/5c/Money_Sucks%2C_Friends_Rule_final.jpg')
+
 Album.create(title: 'Bitches Brew', artist_id: Artist.where(name: 'Miles Davis')[0].id, img_path: 'https://upload.wikimedia.org/wikipedia/en/7/72/Bitches_brew.jpg')
 Album.create(title: 'Blue Period', artist_id: Artist.where(name: 'Miles Davis')[0].id, img_path: 'https://upload.wikimedia.org/wikipedia/en/0/01/Blue_period.jpg')
 
@@ -165,6 +167,13 @@ Song.create(title: 'Uptown Funk', artist_id: Artist.where(name: 'Bruno Mars')[0]
 
 Song.create(title: 'Locked Out Of Heaven', artist_id: Artist.where(name: 'Bruno Mars')[0].id, album_id: Album.where(title: "Unorthodox Jukebox")[0].id, song_path: 'https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/Bruno/Bruno+Mars+Locked+Out+Of+Heaven.mp3')
 
+#---------------------------------------Swift----------------------------------------#
+Song.create(title: 'I Knew You Were Trouble', artist_id: Artist.where(name: 'Taylor Swift')[0].id, album_id: Album.where(title: "Red")[0].id, song_path: "https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/T+Swift/Taylor+Swift+-+I+Knew+You+Were+Trouble.mp3")
+Song.create(title: 'Shake It Off', artist_id: Artist.where(name: 'Taylor Swift')[0].id, album_id: Album.where(title: "1989")[0].id, song_path: "https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/T+Swift/Taylor+Swift+++Shake+It+Off.mp3")
+Song.create(title: 'Bad Blood', artist_id: Artist.where(name: 'Taylor Swift')[0].id, album_id: Album.where(title: "1989")[0].id, song_path: "https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/T+Swift/Bad+Blood.mp3")
+
+
+
 #---------------------------------------Riri----------------------------------------#
 # Album.create(title: 'Only Girl In The World', artist_id: Artist.where(name: 'Rihanna')[0].id, song_path: 'songPaths.sample')
 # Album.create(title: 'Drink To That', artist_id: Artist.where(name: 'Rihanna')[0].id, song_path: 'songPaths.sample')
@@ -177,16 +186,30 @@ Song.create(title: 'Feel So Close', artist_id: Artist.where(name: 'Calvin Harris
 Song.create(title: 'We Found Love', artist_id: Artist.where(name: 'Calvin Harris')[0].id, album_id: Album.where(title: "18 Months")[0].id, song_path: "https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/18+Months/04+We+Found+Love+(feat.+Rihanna).mp3")
 Song.create(title: 'Sweet Nothing (feat. Florence Welch)', artist_id: Artist.where(name: 'Calvin Harris')[0].id, album_id: Album.where(title: "18 Months")[0].id, song_path: "https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/18+Months/10+Sweet+Nothing+(feat.+Florence+Welch).mp3")
 
-# Song.create(title: 'Chasing Pavements', artist_id: Artist.where(name: 'Adele')[0].id, album_id: Album.where(title: "19")[0].id, song_path: "https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/19/03+Chasing+Pavements.mp3")
-# Song.create(title: 'Chasing Pavements', artist_id: Artist.where(name: 'Adele')[0].id, song_path: "https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/19/03+Chasing+Pavements.mp3")
+#---------------------------------------Adele----------------------------------------#
+Song.create(title: 'Rolling In The Deep', artist_id: Artist.where(name: 'Adele')[0].id, album_id: Album.where(title: "21")[0].id, song_path: "https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/21/01+Rolling+In+The+Deep.mp3")
+Song.create(title: 'Rumour Has It', artist_id: Artist.where(name: 'Adele')[0].id, album_id: Album.where(title: "21")[0].id, song_path: "https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/21/02+Rumor+Has+It.mp3")
+Song.create(title: 'Set Fire To The Rain', artist_id: Artist.where(name: 'Adele')[0].id, album_id: Album.where(title: "21")[0].id, song_path: "https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/21/05+Set+Fire+To+The+Rain.mp3")
 
+Song.create(title: 'Hello', artist_id: Artist.where(name: 'Adele')[0].id, album_id: Album.where(title: "25")[0].id, song_path: "https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/25/Hello.mp3")
+Song.create(title: 'Send My Love (To Your New Lover)', artist_id: Artist.where(name: 'Adele')[0].id, album_id: Album.where(title: "25")[0].id, song_path: "https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/25/Send+My+Love+(To+Your+New+Lover).mp3")
+
+#---------------------------------------Beyonce----------------------------------------#
+Song.create(title: 'Drunk In Love', artist_id: Artist.where(name: 'Beyonce')[0].id, album_id: Album.where(title: "Beyonce")[0].id, song_path: "https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/Beyonce/Beyonce+Drunk+In+Love.mp3")
+Song.create(title: 'Blow', artist_id: Artist.where(name: 'Beyonce')[0].id, album_id: Album.where(title: "Beyonce")[0].id, song_path: "https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/Beyonce/Beyonce+-+Blow.mp3")
+
+Song.create(title: 'Formation', artist_id: Artist.where(name: 'Beyonce')[0].id, album_id: Album.where(title: "Lemonade")[0].id, song_path: "https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/Beyonce/Beyonce+-+Formation.mp3")
+
+#---------------------------------------John Mayer----------------------------------------#
 Song.create(title: 'Waiting On The World To Change', artist_id: Artist.where(name: 'John Mayer')[0].id, album_id: Album.where(title: "Continuum")[0].id, song_path: 'https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/Continuum/01+Waiting+On+The+World+To+Change.m4a')
 Song.create(title: 'Gravity', artist_id: Artist.where(name: 'John Mayer')[0].id, album_id: Album.where(title: "Continuum")[0].id, song_path: 'https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/Continuum/04+Gravity.m4a')
 Song.create(title: 'Vultures', artist_id: Artist.where(name: 'John Mayer')[0].id, album_id: Album.where(title: "Continuum")[0].id, song_path: 'https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/Continuum/06+Vultures.m4a')
 
+#---------------------------------------Skrillex----------------------------------------#
 Song.create(title: 'Bangarang', artist_id: Artist.where(name: 'Skrillex')[0].id, album_id: Album.where(title: "Bangarang")[0].id, song_path: "https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/Bangarang/02+Bangarang+feat.+Sirah+(Original+Mix).mp3")
 Song.create(title: 'Right In', artist_id: Artist.where(name: 'Skrillex')[0].id, album_id: Album.where(title: "Bangarang")[0].id, song_path: "https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/Bangarang/01+Right+In+(Original+Mix).mp3")
 
+#---------------------------------------Chromeo----------------------------------------#
 Song.create(title: 'Tenderoni', artist_id: Artist.where(name: 'Chromeo')[0].id, album_id: Album.where(title: "Fancy Footwork")[0].id, song_path: 'https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/Fancy+Footwork/02+Tenderoni.mp3')
 Song.create(title: 'Fancy Footwork', artist_id: Artist.where(name: 'Chromeo')[0].id, album_id: Album.where(title: "Fancy Footwork")[0].id, song_path: 'https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/Fancy+Footwork/03+Fancy+Footwork.mp3')
 Song.create(title: "Bonafied Lovin' (Tough Guys)", artist_id: Artist.where(name: 'Chromeo')[0].id, album_id: Album.where(title: "Fancy Footwork")[0].id, song_path: "https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/Fancy+Footwork/04+Bonafied+Lovin'+(Tough+Guys).mp3")
@@ -194,11 +217,16 @@ Song.create(title: "My Girl Is Calling Me (A Liar)", artist_id: Artist.where(nam
 Song.create(title: "Momma's Boy", artist_id: Artist.where(name: 'Chromeo')[0].id, album_id: Album.where(title: "Fancy Footwork")[0].id, song_path: "https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/Fancy+Footwork/08+Momma's+Boy.mp3")
 Song.create(title: "Call Me Up", artist_id: Artist.where(name: 'Chromeo')[0].id, album_id: Album.where(title: "Fancy Footwork")[0].id, song_path: "https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/Fancy+Footwork/09+Call+Me+Up.mp3")
 
+#---------------------------------------Porter----------------------------------------#
+Song.create(title: 'Divinity', artist_id: Artist.where(name: 'Porter Robinson')[0].id, album_id: Album.where(title: "Worlds")[0].id,  song_path: "https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/Worlds/01+Divinity+(feat.+Amy+Millan).m4a")
 Song.create(title: 'Sad Machine', artist_id: Artist.where(name: 'Porter Robinson')[0].id, album_id: Album.where(title: "Worlds")[0].id,  song_path: 'https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/Worlds/02+Sad+Machine.m4a')
 Song.create(title: 'Flicker', artist_id: Artist.where(name: 'Porter Robinson')[0].id, album_id: Album.where(title: "Worlds")[0].id,  song_path: "https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/Worlds/04+Flicker.m4a")
+Song.create(title: 'Fresh Static Snow', artist_id: Artist.where(name: 'Porter Robinson')[0].id, album_id: Album.where(title: "Worlds")[0].id,  song_path: "https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/Worlds/05+Fresh+Static+Snow.m4a")
 Song.create(title: 'Natural Light', artist_id: Artist.where(name: 'Porter Robinson')[0].id, album_id: Album.where(title: "Worlds")[0].id,  song_path: 'https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/Worlds/08+Natural+Light.m4a')
 # Song.create(title: 'Lion Hearted', artist_id: Artist.where(name: 'Porter Robinson')[0].id, album_id: Album.where(title: "Worlds")[0].id,  song_path: 'https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/Worlds/02+Sad+Machine.m4a')
 
+#---------------------------------------Postal----------------------------------------#
+Song.create(title: 'The District Sleeps Alone Tonight', artist_id: Artist.where(name: 'The Postal Service')[0].id, album_id: Album.where(title: "Give Up")[0].id, song_path: "https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/Give+Up/01+The+District+Sleeps+Alone+Tonight.mp3")
 Song.create(title: 'Such Great Heights', artist_id: Artist.where(name: 'The Postal Service')[0].id, album_id: Album.where(title: "Give Up")[0].id, song_path: "https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/Give+Up/02+Such+Great+Heights.mp3")
 Song.create(title: 'Natural Anthem', artist_id: Artist.where(name: 'The Postal Service')[0].id, album_id: Album.where(title: "Give Up")[0].id, song_path: "https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/Give+Up/10+Natural+Anthem.mp3")
 
@@ -219,14 +247,31 @@ Song.create(title: 'Diamonds', artist_id: Artist.where(name: 'Rihanna')[0].id, a
 Song.create(title: 'Unforgettable (ft. Swae lee)', artist_id: Artist.where(name: 'French Montana')[0].id, album_id: Album.where(title: "Jungle Rules")[0].id, song_path: "https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/French/French+Montana+ft.+(Swae+lee)+-+Unforgettable.mp3")
 
 
+#---------------------------------------Dill----------------------------------------#
+Song.create(title: 'Get Low feat. DJ Snake', artist_id: Artist.where(name: 'Dillon Francis')[0].id, album_id: Album.where(title: "Money Sucks, Friends Rule")[0].id, song_path: "https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/Money+Sucks%2C+Friends+Rule/Get+Low+feat.+DJ+Snake.mp3")
+Song.create(title: "I can't Take It", artist_id: Artist.where(name: 'Dillon Francis')[0].id, album_id: Album.where(title: "Money Sucks, Friends Rule")[0].id, song_path: "https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/Money+Sucks%2C+Friends+Rule/I+Can't+Take+It.mp3")
+Song.create(title: 'Not Butter', artist_id: Artist.where(name: 'Dillon Francis')[0].id, album_id: Album.where(title: "Money Sucks, Friends Rule")[0].id, song_path: "https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/Money+Sucks%2C+Friends+Rule/Not+Butter.mp3")
+
+#---------------------------------------Bieber----------------------------------------#
+
+Song.create(title: 'Sorry', artist_id: Artist.where(name: 'Justin Bieber')[0].id, album_id: Album.where(title: "Purpose")[0].id, song_path: "https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/Purpose/Justin+Bieber+-+Sorry.mp3")
+
+
+#---------------------------------------Weeknd----------------------------------------#
+Song.create(title: 'Often', artist_id: Artist.where(name: 'The Weeknd')[0].id, album_id: Album.where(title: "Beauty Behind The Madness")[0].id, song_path: "https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/The+Wk/Often.mp3")
+Song.create(title: 'The Hills', artist_id: Artist.where(name: 'The Weeknd')[0].id, album_id: Album.where(title: "Beauty Behind The Madness")[0].id, song_path: "https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/The+Wk/The+Hills.mp3")
+Song.create(title: "Can't Feel My Face", artist_id: Artist.where(name: 'The Weeknd')[0].id, album_id: Album.where(title: "Beauty Behind The Madness")[0].id, song_path: "https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/The+Wk/The+Weeknd+-+Can%E2%80%99t+Feel+My+Face.mp3")
+
+Song.create(title: "Starboy", artist_id: Artist.where(name: 'The Weeknd')[0].id, album_id: Album.where(title: "Starboy")[0].id, song_path: "https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/The+Wk/The+Weeknd+feat+Daft+Punk+-+Starboy.mp3")
+Song.create(title: "I Feel It Coming", artist_id: Artist.where(name: 'The Weeknd')[0].id, album_id: Album.where(title: "Starboy")[0].id, song_path: "https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/The+Wk/The+Weeknd+-+I+Feel+It+Coming+ft.+Daft+Punk.mp3")
 
 #---------------------------------------User_1---------------------------------------#
-Playlist.create(title: 'Love Songs', img_path: "https://picsum.photos/200/200/?image=#{rand(100)}", description: 'the staple of every library', author_id: 1)
-Playlist.create(title: 'Bangers', img_path: "https://picsum.photos/200/200/?image=#{rand(100)}", description: 'oldies but awesome', author_id: 1)
-Playlist.create(title: 'Pool Party', img_path: "https://picsum.photos/200/200/?image=#{rand(100)}", description: 'warm and fuzzy', author_id: 1)
-Playlist.create(title: 'Rainy Day Jams', img_path: "https://picsum.photos/200/200/?image=#{rand(100)}", description: 'drip drop', author_id: 1)
-Playlist.create(title: 'Day At The Beach', img_path: "https://picsum.photos/200/200/?image=#{rand(100)}", description: 'Summer is here!', author_id: 1)
-Playlist.create(title: 'Workout', img_path: "https://picsum.photos/200/200/?image=#{rand(100)}", description: 'For da gym!', author_id: 1)
+Playlist.create(title: 'Love Songs', img_path: "https://picsum.photos/200/200/?image=#{rand(100)}", description: 'the staple of every library', author_id: User.where(username: 'bobby_tables')[0].id)
+Playlist.create(title: 'Bangers', img_path: "https://picsum.photos/200/200/?image=#{rand(100)}", description: 'oldies but awesome', author_id: User.where(username: 'bobby_tables')[0].id)
+Playlist.create(title: 'Pool Party', img_path: "https://picsum.photos/200/200/?image=#{rand(100)}", description: 'warm and fuzzy', author_id: User.where(username: 'bobby_tables')[0].id)
+Playlist.create(title: 'Rainy Day Jams', img_path: "https://picsum.photos/200/200/?image=#{rand(100)}", description: 'drip drop', author_id: User.where(username: 'bobby_tables')[0].id)
+Playlist.create(title: 'Day At The Beach', img_path: "https://picsum.photos/200/200/?image=#{rand(100)}", description: 'Summer is here!', author_id: User.where(username: 'bobby_tables')[0].id)
+Playlist.create(title: 'Workout', img_path: "https://picsum.photos/200/200/?image=#{rand(100)}", description: 'For da gym!', author_id: User.where(username: 'bobby_tables')[0].id)
 
 
 #---------------------------------------Playlists----------------------------------------#
@@ -285,9 +330,9 @@ Artist.all.each do |artist|
   end
 end
 
-user = User.find(1)
+user = User.first
 Artist.all.each do |artist|
-  Follow.create(user_id: 1, followable_id: artist.id, followable_type: "Artist") unless user.followed_artists.include?(artist)
+  Follow.create(user_id: User.first, followable_id: artist.id, followable_type: "Artist") unless user.followed_artists.include?(artist)
 end
 
 Playlist.all.each do |playlist|
