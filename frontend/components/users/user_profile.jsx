@@ -10,7 +10,7 @@ import AlbumsIndexContainer from '../albums/album_index_container';
 import albumIndexContainer from '../albums/album_index_container';
 
 
-class artistProfile extends React.Component {
+class userProfile extends React.Component {
   constructor(props) {
     super(props);
     this.currentUser = this.props.currentUser;
@@ -139,7 +139,7 @@ class artistProfile extends React.Component {
               <h1>{this.profileTitle}</h1>
               <h3 className='profile-description'>{this.profileDescription}</h3>
               {/*<h3>Created by: <strong><a href="#">{this.profileAuthor}</a></strong>  |  14 songs, 55min </h3>*/}
-              <h3><strong>{`${this.props.artist.followers}`} Followers</strong>  |  {`${this.props.artist.songs_ids.length}`} songs, {`${this.props.artist.songs_ids.length*3.40}`}min </h3>
+              <h3><strong>{`${this.props.artist.followers}`} Followers</strong>  |  {`${this.props.artist.songs_ids.length}`} songs, 55min </h3>
 
               <div className="profile-button-box">
                 {this.greenButton()}
@@ -165,10 +165,10 @@ class artistProfile extends React.Component {
           </section>
           <br/>
 
-          <SongsIndexContainer album={this.props.album} songs={this.props.songs}/>
+          {/*<SongsIndexContainer album={this.props.album} songs={this.props.songs}/>*/}
           <br/>
 
-          <Route path="/library/artists/:artistId" component={albumIndexContainer}/>
+          {/*<Route path="/library/artists/:artistId" component={albumIndexContainer}/>*/}
 
           {/*<EntityIndexContainer/>*/}
         </div>
@@ -181,4 +181,4 @@ class artistProfile extends React.Component {
 
 }
 
-export default withRouter(artistProfile);
+export default withRouter(userProfile);

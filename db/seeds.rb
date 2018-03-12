@@ -115,6 +115,9 @@ Album.create(title: 'Give Up', artist_id: Artist.where(name: 'The Postal Service
 Album.create(title: 'Jungle Rules', artist_id: Artist.where(name: 'French Montana')[0].id, img_path: 'https://upload.wikimedia.org/wikipedia/en/a/ae/Jungle_Rules_by_French_Montana.jpg')
 
 
+Album.create(title: 'Multiply', artist_id: Artist.where(name: 'Ed Sheeran')[0].id, img_path: 'https://images.rapgenius.com/d7b3e41b31e03a7276fae2ed623c22f8.640x640x1.jpg')
+
+
 
 #
 # 20.times do
@@ -224,6 +227,10 @@ Song.create(title: 'Flicker', artist_id: Artist.where(name: 'Porter Robinson')[0
 Song.create(title: 'Fresh Static Snow', artist_id: Artist.where(name: 'Porter Robinson')[0].id, album_id: Album.where(title: "Worlds")[0].id,  song_path: "https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/Worlds/05+Fresh+Static+Snow.m4a")
 Song.create(title: 'Natural Light', artist_id: Artist.where(name: 'Porter Robinson')[0].id, album_id: Album.where(title: "Worlds")[0].id,  song_path: 'https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/Worlds/08+Natural+Light.m4a')
 # Song.create(title: 'Lion Hearted', artist_id: Artist.where(name: 'Porter Robinson')[0].id, album_id: Album.where(title: "Worlds")[0].id,  song_path: 'https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/Worlds/02+Sad+Machine.m4a')
+
+#---------------------------------------Sheeran----------------------------------------#
+Song.create(title: 'Shape Of You', artist_id: Artist.where(name: 'Ed Sheeran')[0].id, album_id: Album.where(title: "Multiply")[0].id,  song_path: "https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/sheeran/Ed+Sheeran+-+Shape+Of+You.mp3")
+
 
 #---------------------------------------Postal----------------------------------------#
 Song.create(title: 'The District Sleeps Alone Tonight', artist_id: Artist.where(name: 'The Postal Service')[0].id, album_id: Album.where(title: "Give Up")[0].id, song_path: "https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/Give+Up/01+The+District+Sleeps+Alone+Tonight.mp3")
@@ -335,7 +342,11 @@ end
 
 user = User.first
 Artist.all.each do |artist|
-  Follow.create(user_id: User.first, followable_id: artist.id, followable_type: "Artist") unless user.followed_artists.include?(artist)
+  Follow.create(user_id: User.first.id, followable_id: artist.id, followable_type: "Artist") unless user.followed_artists.include?(artist)
+end
+
+Album.all.each do |album|
+  Follow.create(user_id: User.first.id, followable_id: album.id, followable_type: "Album") unless user.followed_albums.include?(album)
 end
 
 Playlist.all.each do |playlist|
