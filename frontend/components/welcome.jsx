@@ -66,7 +66,7 @@ class welcomeComponent extends React.Component {
 
 
 
-        <footer>
+        <footer className='animated fadeIn'>
           <i className="fab fa-spotify fa-2x welcome-header-logo"></i>
           <a href="https://github.com/fmbf" target="_blank" className="splash-header-link">
             <h1 className="splash-header-item">GitHub</h1>

@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import songsIndex from './songs_index';
 import { withRouter } from 'react-router-dom';
 import { addSongToPlaylist } from '../../actions/songs_actions';
-import { togglePlay, toggleRepeat, toggleMute, nextSong, prevSong, queueSongsReplace } from '../../actions/player_actions';
+import { togglePlay, toggleRepeat, toggleMute, nextSong, prevSong, queueSongsReplace, queueHistoryReplace } from '../../actions/player_actions';
 
 
 const mapStateToProps = (state, ownProps) => {
@@ -28,7 +28,9 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   addSongToPlaylist: (songId, playlistId) => dispatch(addSongToPlaylist(songId, playlistId)),
 
   togglePlay: () => dispatch(togglePlay()),
+  nextSong: () => dispatch(nextSong()),
   queueSongsReplace: (songs) => dispatch(queueSongsReplace(songs)),
+  queueHistoryReplace: (songs) => dispatch(queueHistoryReplace(songs)),
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(songsIndex));

@@ -7,7 +7,8 @@ import { TOGGLE_PLAY,
          TOGGLE_MUTE,
          NEXT_SONG,
          PREV_SONG,
-         QUEUE_SONGS_REPLACE
+         QUEUE_SONGS_REPLACE,
+         QUEUE_HISTORY_REPLACE
 } from '../actions/player_actions';
 
 
@@ -70,6 +71,12 @@ export default (state = initialState, action) => {
       newState.albumId = newState.queue[0].album_id;
       return newState;
 
+    case QUEUE_HISTORY_REPLACE:
+      newState = merge({}, state);
+      newState.prevSongQueue = action.songs;
+      return newState;
+
+
     case TOGGLE_PLAY:
       newState = merge({}, state);
 
@@ -88,6 +95,15 @@ export default (state = initialState, action) => {
 
     case NEXT_SONG:
       newState = merge({}, state);
+
+      if (!newState.queue || newState.queue.length < 1) { // if queue is empty, just stop playback
+        newState = merge({}, state);
+        newState.queue = [];
+        newState.playing = !state.playing;
+        return newState;
+      }
+
+
       newState.prevSongQueue.unshift(newState.queue.shift());
       newQueue = newState.queue;
       newState.currentSong = newQueue[0];

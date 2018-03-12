@@ -22,7 +22,20 @@ class songsIndex extends React.Component {
   playBubble(entityId){
     console.log(`now playing song ${entityId}`);
     // let songs = Object.values(this.props.allSongs).filter(song => song.album_id === entityId);
-    this.props.queueSongsReplace(this.props.songs);
+    // console.log('this.props.songs:', this.props.songs);
+
+
+    let prevSongs = this.props.songs.filter(song => song.id < entityId);
+
+    let nextSongs = this.props.songs.filter(song => song.id >= entityId);
+
+    this.props.queueSongsReplace(nextSongs);
+    this.props.queueHistoryReplace(prevSongs.reverse());
+
+
+    // debugger
+
+    // this.props.queueSpecificSongReplace(this.props.songs);
     setTimeout( () => this.playAudio(), 100 );
   }
 
