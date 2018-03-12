@@ -10,9 +10,20 @@ class songsIndex extends React.Component {
 
     this.timeout;
 
-
     this.playBubble = this.playBubble.bind(this);
     this.playAudio = this.playAudio.bind(this);
+    this.songs = this.props.songs;
+  }
+
+  //////////////////////////////////////////////////
+  // Life Cycle
+  //////////////////////////////////////////////////
+
+  componentDidMount(){
+    // debugger
+    if (this.props.match.params.artistId) {
+      this.songs = this.props.songs.slice(0, 5);
+    }
   }
 
   //////////////////////////////////////////////////
@@ -25,17 +36,13 @@ class songsIndex extends React.Component {
     // console.log('this.props.songs:', this.props.songs);
 
 
-    let prevSongs = this.props.songs.filter(song => song.id < entityId);
+    let prevSongs = this.songs.filter(song => song.id < entityId);
 
-    let nextSongs = this.props.songs.filter(song => song.id >= entityId);
+    let nextSongs = this.songs.filter(song => song.id >= entityId);
 
     this.props.queueSongsReplace(nextSongs);
     this.props.queueHistoryReplace(prevSongs.reverse());
 
-
-    // debugger
-
-    // this.props.queueSpecificSongReplace(this.props.songs);
     setTimeout( () => this.playAudio(), 100 );
   }
 
@@ -110,14 +117,14 @@ class songsIndex extends React.Component {
   //////////////////////////////////////////////////
 
   render() {
-    if (!this.props.songs) {
+    if (!this.songs) {
       return null;
     }
-
+    // debugger
     return (
       <ul className='song-list'>
         {
-          this.props.songs.map(albumSong => (
+          this.songs.map(albumSong => (
               <li key={albumSong.id} className='track-li'>
 
                 <button className='song-list-button song-list-play button-mono'

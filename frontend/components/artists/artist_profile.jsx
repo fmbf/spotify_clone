@@ -159,9 +159,14 @@ class artistProfile extends React.Component {
 
           </header>
 
-          <span className='song-list-fields'><h3>TITLE</h3><h3>ARTIST</h3><h3>ALBUM</h3></span>
+          {/*<span className='song-list-fields'><h3>TITLE</h3><h3>ARTIST</h3><h3>ALBUM</h3></span>*/}
+          <section className='entity-index-container'>
+            <h1>Popular</h1>
+          </section>
+          <br/>
 
           <SongsIndexContainer album={this.props.album} songs={this.props.songs}/>
+          <br/>
 
           <Route path="/library/artists/:artistId" component={albumIndexContainer}/>
 

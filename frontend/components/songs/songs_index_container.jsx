@@ -7,11 +7,16 @@ import { togglePlay, toggleRepeat, toggleMute, nextSong, prevSong, queueSongsRep
 
 const mapStateToProps = (state, ownProps) => {
   let songs;
+  // debugger
 
   if (ownProps.match.params.playlistId) {
     songs = Object.values(state.entities.playlists).filter(song => song.playlists_ids === parseInt(ownProps.match.params.playlistId));
   } else {
     songs = Object.values(state.entities.songs).filter(song => song.album_id === parseInt(ownProps.match.params.albumId));
+  }
+
+  if (ownProps.songs) {
+    songs = ownProps.songs;
   }
 
   return {
