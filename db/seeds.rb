@@ -110,6 +110,8 @@ Album.create(title: 'Bangarang', artist_id: Artist.where(name: 'Skrillex')[0].id
 
 Album.create(title: 'Give Up', artist_id: Artist.where(name: 'The Postal Service')[0].id, img_path: 'https://images-na.ssl-images-amazon.com/images/I/41VRTUJzwPL._SY300_QL70_.jpg')
 
+Album.create(title: 'Jungle Rules', artist_id: Artist.where(name: 'French Montana')[0].id, img_path: 'https://upload.wikimedia.org/wikipedia/en/a/ae/Jungle_Rules_by_French_Montana.jpg')
+
 
 
 #
@@ -201,6 +203,7 @@ Song.create(title: 'Such Great Heights', artist_id: Artist.where(name: 'The Post
 Song.create(title: 'Natural Anthem', artist_id: Artist.where(name: 'The Postal Service')[0].id, album_id: Album.where(title: "Give Up")[0].id, song_path: "https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/Give+Up/10+Natural+Anthem.mp3")
 
 
+#---------------------------------------Riri----------------------------------------#
 Song.create(title: 'S & M', artist_id: Artist.where(name: 'Rihanna')[0].id, album_id: Album.where(title: "Loud")[0].id, song_path: "https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/LOUD/01+S%26M.mp3")
 Song.create(title: 'Cheers (Drink To That)', artist_id: Artist.where(name: 'Rihanna')[0].id, album_id: Album.where(title: "Loud")[0].id, song_path: "https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/LOUD/03+Cheers+(Drink+To+That).mp3")
 Song.create(title: 'Only Girl (In The World)', artist_id: Artist.where(name: 'Rihanna')[0].id, album_id: Album.where(title: "Loud")[0].id, song_path: "https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/LOUD/05+Only+Girl+(In+The+World).mp3")
@@ -211,6 +214,9 @@ Song.create(title: 'Cockiness (Love It)', artist_id: Artist.where(name: 'Rihanna
 
 Song.create(title: 'Fresh Off The Runway', artist_id: Artist.where(name: 'Rihanna')[0].id, album_id: Album.where(title: "Unapologetic")[0].id, song_path: "https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/Unapologetic/01+Fresh+Off+The+Runway.mp3")
 Song.create(title: 'Diamonds', artist_id: Artist.where(name: 'Rihanna')[0].id, album_id: Album.where(title: "Unapologetic")[0].id, song_path: "https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/Unapologetic/02+Diamonds.mp3")
+
+#---------------------------------------French----------------------------------------#
+Song.create(title: 'Unforgettable (ft. Swae lee)', artist_id: Artist.where(name: 'French Montana')[0].id, album_id: Album.where(title: "Jungle Rules")[0].id, song_path: "https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/French/French+Montana+ft.+(Swae+lee)+-+Unforgettable.mp3")
 
 
 
