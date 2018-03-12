@@ -48,7 +48,7 @@ Artist.create(name: 'Justin Bieber', img_path: 'https://images.shazam.com/artist
 Artist.create(name: 'Miles Davis', img_path: 'https://upload.wikimedia.org/wikipedia/commons/f/fa/Miles_Davis_by_Palumbo.jpg')
 Artist.create(name: 'Skrillex', img_path: 'https://images.sk-static.com/images/media/profile_images/artists/3084961/huge_avatar')
 Artist.create(name: 'Taylor Swift', img_path: 'https://stephaniemarksbooks.com/wp-content/uploads/2017/09/TaylorSwift.jpg')
-Artist.create(name: 'Ookay', img_path: 'https://pbs.twimg.com/profile_images/952678983509852160/ncRe6CJb.jpg')
+Artist.create(name: 'Ookay', img_path: 'https://images.sk-static.com/images/media/profile_images/artists/5948934/huge_avatar')
 Artist.create(name: 'Porter Robinson', img_path: 'https://storage.googleapis.com/media-2017.somethingwonderful.com/2017/01/4f25d927-artist-porter-robinson-square-500x500.jpg')
 Artist.create(name: 'The Postal Service', img_path: 'https://media.pitchfork.com/photos/592995f2c0084474cd0bef86/1:1/w_300/4a9ce766.jpg')
 Artist.create(name: 'Rihanna', img_path: 'https://static01.nyt.com/images/2015/10/16/nytnow/the-week-on-instagram-slide-H5V3/the-week-on-instagram-slide-H5V3-superJumbo.jpg')
@@ -249,7 +249,7 @@ Song.create(title: 'Unforgettable (ft. Swae lee)', artist_id: Artist.where(name:
 
 #---------------------------------------Dill----------------------------------------#
 Song.create(title: 'Get Low feat. DJ Snake', artist_id: Artist.where(name: 'Dillon Francis')[0].id, album_id: Album.where(title: "Money Sucks, Friends Rule")[0].id, song_path: "https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/Money+Sucks%2C+Friends+Rule/Get+Low+feat.+DJ+Snake.mp3")
-Song.create(title: "I can't Take It", artist_id: Artist.where(name: 'Dillon Francis')[0].id, album_id: Album.where(title: "Money Sucks, Friends Rule")[0].id, song_path: "https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/Money+Sucks%2C+Friends+Rule/I+Can't+Take+It.mp3")
+Song.create(title: "I Can't Take It", artist_id: Artist.where(name: 'Dillon Francis')[0].id, album_id: Album.where(title: "Money Sucks, Friends Rule")[0].id, song_path: "https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/Money+Sucks%2C+Friends+Rule/I+Can't+Take+It.mp3")
 Song.create(title: 'Not Butter', artist_id: Artist.where(name: 'Dillon Francis')[0].id, album_id: Album.where(title: "Money Sucks, Friends Rule")[0].id, song_path: "https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/Money+Sucks%2C+Friends+Rule/Not+Butter.mp3")
 
 #---------------------------------------Bieber----------------------------------------#
@@ -264,6 +264,9 @@ Song.create(title: "Can't Feel My Face", artist_id: Artist.where(name: 'The Week
 
 Song.create(title: "Starboy", artist_id: Artist.where(name: 'The Weeknd')[0].id, album_id: Album.where(title: "Starboy")[0].id, song_path: "https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/The+Wk/The+Weeknd+feat+Daft+Punk+-+Starboy.mp3")
 Song.create(title: "I Feel It Coming", artist_id: Artist.where(name: 'The Weeknd')[0].id, album_id: Album.where(title: "Starboy")[0].id, song_path: "https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/The+Wk/The+Weeknd+-+I+Feel+It+Coming+ft.+Daft+Punk.mp3")
+
+
+Song.create(title: "Thief", artist_id: Artist.where(name: 'Ookay')[0].id, album_id: Album.where(title: "Thief - Single")[0].id, song_path: "https://s3-us-west-1.amazonaws.com/fmbfspotifyclone/Ookay/Ookay+-+Thief.mp3")
 
 #---------------------------------------User_1---------------------------------------#
 Playlist.create(title: 'Love Songs', img_path: "https://picsum.photos/200/200/?image=#{rand(100)}", description: 'the staple of every library', author_id: User.where(username: 'bobby_tables')[0].id)
