@@ -9,10 +9,13 @@ class albumsIndex extends React.Component {
     super(props);
     this.currentUser = this.props.currentUser;
     this.hideSwitch = this.hideSwitch.bind(this);
-    this.playBubble = this.playBubble.bind(this);
-    this.playAudio = this.playAudio.bind(this);
-    this.pauseAudio = this.pauseAudio.bind(this);
+    // this.playBubble = this.playBubble.bind(this);
+    // this.playAudio = this.playAudio.bind(this);
   }
+
+  //////////////////////////////////////////////////
+  // Life Cycle
+  //////////////////////////////////////////////////
 
   componentDidMount() {
     if (this.props && this.props.match.params.artistId) {
@@ -31,21 +34,14 @@ class albumsIndex extends React.Component {
 
   }
 
+  //////////////////////////////////////////////////
+  // playBubble
+  //////////////////////////////////////////////////
 
-  playAudio() {
-    this.audio.play();
-    this.props.togglePlay();
-  }
-
-  pauseAudio() {
-    this.audio.pause();
-    this.props.togglePlay();
-  }
-
-  playBubble(playlistId){
-    // console.log(`now playing playlist ${playlistId}`);
-    this.playAudio();
-  }
+  // playBubble(playlistId){
+  //   // console.log(`now playing playlist ${playlistId}`);
+  //   this.playAudio();
+  // }
 
   hideSwitch(action, id) {
     let playButton = document.getElementById(`hidden-${id}`);
@@ -67,6 +63,21 @@ class albumsIndex extends React.Component {
     }
   }
 
+  //////////////////////////////////////////////////
+  // Playback
+  //////////////////////////////////////////////////
+
+  playAudio() {
+    if(this.props.audio.currentSong) {
+      this.props.togglePlay();
+    }
+  }
+
+
+  //////////////////////////////////////////////////
+  // Render
+  //////////////////////////////////////////////////
+
   render() {
     if (!this.props.albums) {
       return null;
@@ -82,7 +93,13 @@ class albumsIndex extends React.Component {
         <br/>
         <ul className='entity-index'>
           {
-            <AlbumIndexItem albums={this.props.albums}/>
+            <AlbumIndexItem
+              audio={this.props.audio}
+              allSongs={this.props.allSongs}
+              queueSongsReplace={this.props.queueSongsReplace}
+              togglePlay={this.props.togglePlay}
+              fetchAlbumSongs={this.props.fetchAlbumSongs}
+              albums={this.props.albums}/>
           }
         </ul>
       </section>

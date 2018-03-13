@@ -59,9 +59,7 @@ class SearchIndex extends React.Component {
   handleSearchSubmit(e) {
     // debugger
     e.preventDefault();
-    // // let searchTerm = this.state.searchTerm.split(' ').join('+');
     this.props.fetchSearch(this.state.searchTerm);
-    // this.props.history.push('/search');
   }
 
   handleChange(e) {
@@ -91,11 +89,6 @@ class SearchIndex extends React.Component {
             <div id='header-search-parent'>
               <i className="fas fa-search fa-sm"></i>
               <form onSubmit={this.handleSearchSubmit}>
-                {/*<input type='search' placeholder=" search"
-                  value={this.state.searchTerm} onChange={this.handleChange}
-                  className="login-input" id='header-search'
-                  name="query"
-                  onSubmit={this.handleSearchSubmit}/>*/}
                 <input type='text' placeholder=" searchNormal"
                   value={this.state.searchTerm} onChange={this.handleChange}
                   className="login-input" id='header-search'/>

@@ -10,14 +10,20 @@ class playlistProfile extends React.Component {
   constructor(props) {
     super(props);
     this.currentUser = this.props.currentUser;
-    this.logout = this.logout.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
     this.handleRemoveSong = this.handleRemoveSong.bind(this);
 
-    this.modalToggle = this.modalToggle.bind(this);
     this.state = {clickedNewPlaylist: false};
+
+    this.playAudio = this.playAudio.bind(this);
+    this.pauseAudio = this.pauseAudio.bind(this);
+    this.replaceQueueThenPlay = this.replaceQueueThenPlay.bind(this);
+    this.playBubble = this.playBubble.bind(this);
   }
 
+  //////////////////////////////////////////////////
+  // Life Cycle
+  //////////////////////////////////////////////////
 
   componentDidMount() {
     this.props.fetchPlaylist(this.props.match.params.playlistId);
@@ -32,6 +38,10 @@ class playlistProfile extends React.Component {
     }
   }
 
+  //////////////////////////////////////////////////
+  // Playlist Actions
+  //////////////////////////////////////////////////
+
   handleDelete() {
     const playlist = this.props.playlists[this.props.match.params.playlistId];
     this.props.deletePlaylist(playlist.id).then(() => this.props.history.push('/library/artists'));
@@ -39,23 +49,98 @@ class playlistProfile extends React.Component {
 
   }
 
-
-  modalToggle() {
-    this.setState({clickedNewPlaylist: !this.state.clickedNewPlaylist});
-  }
-
-  toggleDropdown() {
-
-  }
-
-
-  logout() {
-    this.props.logout();
-  }
-
   handleRemoveSong(songId, playlistId){
     this.props.removeSongFromPlaylist(songId, playlistId);
+    console.log('removed song/playlist', songId, playlistId);
   }
+
+  //////////////////////////////////////////////////
+  // Playback
+  //////////////////////////////////////////////////
+
+  replaceQueueThenPlay(){
+    // this.props.audio.albumId === this.props.album.id
+    if (this.props.audio.playing) {
+      this.pauseAudio();
+    }
+    this.props.queueSongsReplace(this.props.songs);
+    setTimeout( () => this.playAudio(), 100 );
+  }
+
+  playAudio() {
+    // if(this.props.audio.currentSong) {
+    // }
+
+    if(!this.props.audio.playing) {
+      this.props.togglePlay();
+    } else {
+      this.props.togglePlay();
+      this.props.togglePlay();
+    }
+  }
+
+  pauseAudio() {
+    if(this.props.audio.currentSong) {
+      this.props.togglePlay();
+    }
+  }
+
+  //////////////////////////////////////////////////
+  // playBubble
+  //////////////////////////////////////////////////
+
+  playBubble(entityId){
+    console.log(`now playing song ${entityId}`);
+    // let songs = Object.values(this.props.allSongs).filter(song => song.album_id === entityId);
+    // console.log('this.props.songs:', this.props.songs);
+
+
+    let prevSongs = this.props.songs.filter(song => song.id < entityId);
+
+    let nextSongs = this.props.songs.filter(song => song.id >= entityId);
+
+    this.props.queueSongsReplace(nextSongs);
+    this.props.queueHistoryReplace(prevSongs.reverse());
+
+    setTimeout( () => this.playAudio(), 100 );
+  }
+
+  //////////////////////////////////////////////////
+  // Render
+  //////////////////////////////////////////////////
+
+  greenButton(){
+    // if(this.props.audio.playing) {
+    //   return <button className='button-green' onClick={this.pauseAudio}>PAUSE</button>;
+    // } else {
+    //   return <button className='button-green' onClick={this.replaceQueueThenPlay}>PLAY</button>;
+    // }
+
+    return <button className='button-green' onClick={this.replaceQueueThenPlay}>PLAY</button>;
+
+  }
+
+  blackButton(){
+    if(this.props.playlist.current_user_owns) {
+      return null;
+    }
+
+    if(this.props.playlist.current_user_follows) {
+      return <button className='button-mono' onClick={this.toggleFollow}>SAVED</button>;
+    } else {
+      return <button className='button-mono' onClick={this.toggleFollow}>SAVE</button>;
+    }
+  }
+
+  blackButtonDelete(){
+    if(this.props.playlist.current_user_owns) {
+      return <button className='button-mono' onClick={() => this.handleDelete()}>DELETE</button>;
+    } else {
+      return null;
+    }
+  }
+
+
 
   render() {
     let randomTime = () => Math.floor(Math.random()*49 + 10).toString();
@@ -76,8 +161,6 @@ class playlistProfile extends React.Component {
 
       <div>
         <div className="main-window main">
-
-
           <header className="profile-header">
 
             <div id='profile-pic-div'>
@@ -90,17 +173,14 @@ class playlistProfile extends React.Component {
               <h3>PLAYLIST</h3>
               <h1>{this.profileTitle}</h1>
               <h3 className='profile-description'>{this.profileDescription}</h3>
-              <h3>Created by <strong><a href="#">{this.profileAuthor}</a></strong>  |  {`${this.profileSongCount || '0'}`} songs, 55min </h3>
+              {/*<h3>Created by <strong><a href="#">{this.profileAuthor}</a></strong>  |  {`${this.profileSongCount || '0'}`} songs, 55min </h3>*/}
+              <h3>Created by <strong>{this.profileAuthor}</strong>  |  {`${this.profileSongCount || '0'}`} songs, 55min </h3>
 
               <div className="profile-button-box">
-                <button className='button-green'>PLAY</button>
-                {/*<button className='button-mono'>SAVE</button>*/}
-                <button className='button-mono' onClick={() => this.handleDelete()}>DELETE</button>
-
-                {/*<button className='button-mono header-button-more'
-                        onClick={() => this.handleDelete()} >
-                  +
-                </button>*/}
+                {this.greenButton()}
+                {this.blackButton()}
+                {this.blackButtonDelete()}
+                {/*<button className='button-mono' onClick={() => this.handleDelete()}>DELETE</button>*/}
               </div>
 
             </div>
@@ -108,14 +188,15 @@ class playlistProfile extends React.Component {
 
           </header>
 
-          <span className='song-list-fields'><h3>TITLE</h3><h3>ARTIST</h3><h3>ALBUM</h3></span>
+          {/*<span className='song-list-fields'><h3>TITLE</h3><h3>ARTIST</h3><h3>ALBUM</h3></span>*/}
 
           <ul className='song-list'>
             {
               this.props.songs.map(playlistSong => (
                   <li key={playlistSong.id} className='track-li'>
 
-                    <button className='song-list-button song-list-play button-mono'>
+                    <button className='song-list-button song-list-play button-mono'
+                            onClick={() => this.playBubble(playlistSong.id)}>
                       <i className="fas fa-play"></i>
                     </button>
 
@@ -126,10 +207,17 @@ class playlistProfile extends React.Component {
                     </button>
 
 
-
-                    <a>
-                      {playlistSong.title} {/*| 4:00*/}
-                    </a>
+                    <div className='song-list-track-info'>
+                      <a className='song-list-track-info-item'>
+                        {playlistSong.title}
+                      </a>
+                      <a className='song-list-track-info-item'>
+                        {playlistSong.artist}
+                      </a>
+                      <a className='song-list-track-info-item'>
+                        {playlistSong.album}
+                      </a>
+                    </div>
                   </li>
               ))
             }
@@ -137,7 +225,9 @@ class playlistProfile extends React.Component {
 
 
 
-          {/*<SongsIndexContainer album={this.props.playlist} playlist={this.props.playlist} songs={this.props.playlist.songs_ids}/>*/}
+          {/*
+            <SongsIndexContainer album={this.props.playlist} playlist={this.props.playlist} songs={this.props.playlist.songs_ids}/>
+            */}
 
         </div>
 

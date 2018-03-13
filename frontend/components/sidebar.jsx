@@ -24,6 +24,8 @@ class Sidebar extends React.Component {
     // this.props.fetchArtistAlbums(this.currentUser.id);
     this.props.fetchAlbumsByIds(this.currentUser.albums_ids);
     this.props.fetchUserAlbums(this.currentUser.id);
+
+    this.props.fetchAllSongs();
   }
 
   // componentWillReceiveProps(newProps) {
@@ -40,7 +42,9 @@ class Sidebar extends React.Component {
 
           <a className='sidebar-title' >YOUR LIBRARY</a>
           <ul>
-            <a href="/#/search"><h3 className='sidebar-library-items'>Search</h3></a>
+            {/*
+              */}
+              <a href="/#/search"><h3 className='sidebar-library-items'>Search</h3></a>
             <a href="/#/library/artists"><h3 className='sidebar-library-items'>Artists</h3></a>
             <a href="/#/library/albums"><h3 className='sidebar-library-items'>Albums</h3></a>
           </ul>

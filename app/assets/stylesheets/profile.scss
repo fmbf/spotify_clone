@@ -44,12 +44,14 @@ a {
 // }
 
 .song-list li {
+  display: flex;
   padding: 6px;
   border-top: 1px solid #ddd;
 }
 
-.song-list li a {
+.song-list li {
   margin-left: 10px;
+  margin-right: 20px;
 }
 
 .song-list li:hover, .song-list a:hover {
@@ -59,6 +61,34 @@ a {
   button {
     color: #000;
   }
+}
+
+.song-list-track-info {
+  display: flex;
+  width: 100%;
+  justify-content: flex-start;
+  overflow-x: hidden;
+
+  a {
+    display: inline;
+    // margin-right: 140px;
+    min-width: 100px;
+
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: hidden;
+  }
+
+  a:last-child {
+    // margin-right: 20px;
+  }
+
+}
+
+.song-list-track-info-item {
+  max-height: 20px;
+  // background-color: red;
+  overflow-x: hidden;
 }
 
 // .song-list-row {

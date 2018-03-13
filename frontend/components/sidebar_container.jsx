@@ -4,7 +4,7 @@ import sidebar from './sidebar';
 import { fetchPlaylist, fetchPlaylists } from '../actions/playlists_actions';
 import { fetchArtist, fetchUserArtists, fetchArtistsByIds } from '../actions/artists_actions';
 import { fetchAlbum, fetchArtistAlbums, fetchUserAlbums, fetchAlbumsByIds } from '../actions/albums_actions';
-import { fetchSong } from '../actions/songs_actions';
+import { fetchSong, fetchAllSongs } from '../actions/songs_actions';
 
 
 const mapStateToProps = (state, ownProps) => ({
@@ -31,6 +31,7 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   fetchAlbumsByIds: (idsArr) => dispatch(fetchAlbumsByIds(idsArr)),
   fetchAlbum: (albumId) => dispatch(fetchAlbum(albumId)),
   fetchSong: (songId) => dispatch(fetchSong(songId)),
+  fetchAllSongs: () => dispatch(fetchAllSongs()),
 });
 
 

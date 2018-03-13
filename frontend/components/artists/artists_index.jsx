@@ -92,9 +92,12 @@ class artistsIndex extends React.Component {
           {
             <ArtistIndexItem
               artists={this.props.artists}
+              allSongs={this.props.allSongs}
               audio={this.props.audio}
               fetchArtistSongs={this.props.fetchArtistSongs}
+              fetchArtistSongsInterrupt={this.props.fetchArtistSongsInterrupt}
               fetchArtistAlbums={this.props.fetchArtistAlbums}
+              queueSongsReplace={this.props.queueSongsReplace}
               togglePlay={this.props.togglePlay}/>
           }
         </ul>

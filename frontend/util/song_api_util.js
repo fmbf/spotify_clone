@@ -33,6 +33,13 @@ export const fetchSong = id => (
   })
 );
 
+export const fetchAllSongs = () => (
+  $.ajax({
+    method: 'GET',
+    url: `api/songs`
+  })
+);
+
 export const addSongToPlaylist = (songId, playlistId) => (
   $.ajax({
     method: 'POST',

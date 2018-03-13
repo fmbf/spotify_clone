@@ -59,6 +59,6 @@ end
     resources :artists, only: [:show, :index]
     resources :albums, only: [:show, :index]
 
-    resources :follows, only: [:index]
+    resources :follows, only: [:index, :create, :destroy]
   end
 end

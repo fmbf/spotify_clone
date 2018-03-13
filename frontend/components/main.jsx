@@ -24,6 +24,7 @@ import SessionFormContainer from './session_form/session_form_container';
 import playlistProfileContainer from './playlist/playlist_profile_container';
 import albumProfileContainer from './albums/album_profile_container';
 import artistProfileContainer from './artists/artist_profile_container';
+import userProfileContainer from './users/user_profile_container';
 
 import entityIndexContainer from './entity_index_container';
 import artistsIndexContainer from './artists/artists_index_container';
@@ -75,6 +76,10 @@ const main = () => (
               <ProtectedRoute exact path="/library/playlists/:playlistId"
                               component={playlistProfileContainer}
               />
+
+              {/*<ProtectedRoute exact path="/library/users/:userId"
+                              component={userProfileContainer}
+              />*/}
 
               <ProtectedRoute exact path="/search"
                 component={SearchContainer}

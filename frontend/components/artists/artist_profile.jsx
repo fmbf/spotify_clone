@@ -18,6 +18,8 @@ class artistProfile extends React.Component {
 
     this.playAudio = this.playAudio.bind(this);
     this.pauseAudio = this.pauseAudio.bind(this);
+    this.replaceQueueThenPlay = this.replaceQueueThenPlay.bind(this);
+    this.toggleFollow = this.toggleFollow.bind(this);
   }
 
   //////////////////////////////////////////////////
@@ -29,7 +31,7 @@ class artistProfile extends React.Component {
     this.props.fetchArtist(this.props.match.params.artistId);
     this.props.fetchArtistSongs(this.props.match.params.artistId);
     this.props.fetchArtistAlbums(this.props.match.params.artistId);
-    this.setState({ followed: this.followed });
+    // this.setState({ followed: this.followed });
 
     // this.recentAlbum = this.props.albums[this.props.albums.length - 1];
   }
@@ -47,12 +49,30 @@ class artistProfile extends React.Component {
   }
 
   toggleFollow(){
-    this.setState({ followed: !this.followed });
+    // console.log('before click: following?', this.props.album.current_user_follows);
+    // console.log('toggle following entityID', this.props.match.params.albumId);
+    this.setState({ followed: !this.state.followed });
+    // console.log('after click: following?', this.props.album.current_user_follows);
   }
 
   //////////////////////////////////////////////////
   // Playback
   //////////////////////////////////////////////////
+
+  replaceQueueThenPlay(){
+    // this.props.audio.albumId === this.props.album.id
+    if (this.props.audio.playing) {
+      this.pauseAudio();
+    }
+
+    this.props.queueSongsReplace(this.props.songs);
+
+    // if (!this.props.audio.currentSong) {
+    //   debugger
+    // }
+
+    setTimeout( () => this.playAudio(), 100 );
+  }
 
   playAudio() {
     if(this.props.audio.currentSong) {
@@ -70,11 +90,35 @@ class artistProfile extends React.Component {
   // Render
   //////////////////////////////////////////////////
 
+  // greenButton(){
+  //   if(this.props.audio.playing) {
+  //     return <button className='button-green' onClick={this.pauseAudio}>PAUSE</button>
+  //   } else {
+  //     return <button className='button-green' onClick={this.playAudio}>PLAY</button>;
+  //   }
+  // }
+
   greenButton(){
-    if(this.props.audio.playing) {
-      return <button className='button-green' onClick={this.pauseAudio}>PAUSE</button>
+    // if currently playing album id === me, then just pause/play toggle
+    // else replace the queue
+
+    if (this.props.audio.artist === this.props.artist.name) {
+      if(this.props.audio.playing) {
+        return <button className='button-green' onClick={this.pauseAudio}>PAUSE</button>;
+      } else {
+        return <button className='button-green' onClick={this.playAudio}>PLAY</button>;
+      }
     } else {
-      return <button className='button-green' onClick={this.playAudio}>PLAY</button>;
+      return <button className='button-green' onClick={this.replaceQueueThenPlay}>PLAY</button>;
+    }
+  }
+
+  blackButton(){
+    // if(this.props.album.current_user_follows) {
+    if(this.state.followed) {
+      return <button className='button-mono' onClick={this.toggleFollow}>UNFOLLOW</button>;
+    } else {
+      return <button className='button-mono' onClick={this.toggleFollow}>FOLLOW</button>;
     }
   }
 
@@ -85,7 +129,7 @@ class artistProfile extends React.Component {
     }
 
     this.profilePic = this.props.artist.img_path;
-    this.followed = this.props.artist.current_user_follows;
+    // this.followed = this.props.artist.current_user_follows;
     this.profileTitle = this.props.artist.name;
 
     this.searchResults = this.props.searchResults;
@@ -108,15 +152,16 @@ class artistProfile extends React.Component {
               <h1>{this.profileTitle}</h1>
               <h3 className='profile-description'>{this.profileDescription}</h3>
               {/*<h3>Created by: <strong><a href="#">{this.profileAuthor}</a></strong>  |  14 songs, 55min </h3>*/}
-              <h3><strong>{`${this.props.artist.followers}`} Followers</strong>  |  {`${this.props.artist.songs_ids.length}`} songs, 55min </h3>
+              <h3><strong>{`${this.props.artist.followers}`} Followers</strong>  |  {`${this.props.artist.songs_ids.length}`} songs, {`${this.props.artist.songs_ids.length*3.40}`}min </h3>
 
               <div className="profile-button-box">
                 {this.greenButton()}
-                <button className='button-mono'
+                {this.blackButton()}
+                {/*<button className='button-mono'
                   onClick={() => this.toggleFollow}
                   >
                   FOLLOW
-                </button>
+                </button>*/}
 
                 <button className='button-mono header-button-more'>
                   <i className="fas fa-caret-down fa-xs"></i>
@@ -128,10 +173,16 @@ class artistProfile extends React.Component {
 
           </header>
 
-          <span className='song-list-fields'><h3>TITLE</h3><h3>ARTIST</h3><h3>ALBUM</h3></span>
+          {/*<span className='song-list-fields'><h3>TITLE</h3><h3>ARTIST</h3><h3>ALBUM</h3></span>*/}
+          <section className='entity-index-container'>
+            <h1>Popular</h1>
+          </section>
+          <br/>
 
+          <SongsIndexContainer album={this.props.album} songs={this.props.songs}/>
+          <br/>
 
-            <Route path="/library/artists/:artistId" component={albumIndexContainer}/>
+          <Route path="/library/artists/:artistId" component={albumIndexContainer}/>
 
           {/*<EntityIndexContainer/>*/}
         </div>

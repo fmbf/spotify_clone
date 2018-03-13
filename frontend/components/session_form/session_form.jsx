@@ -98,7 +98,7 @@ class SessionForm extends React.Component {
 
     return (
 
-      <div className="login-form-container">
+      <div className="login-form-container animated fadeIn">
 
         <div className="modal-header">
           <Link to="/welcome" >

@@ -1,7 +1,7 @@
 class Api::AlbumsController < ApplicationController
   def index
-    # @albums = Album.all
-    @albums = Album.where(id: params[:album_ids])
+    @albums = Album.all
+    # @albums = Album.where(id: params[:album_ids])
   end
 
 
