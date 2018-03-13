@@ -19,6 +19,7 @@ class artistProfile extends React.Component {
     this.playAudio = this.playAudio.bind(this);
     this.pauseAudio = this.pauseAudio.bind(this);
     this.replaceQueueThenPlay = this.replaceQueueThenPlay.bind(this);
+    this.toggleFollow = this.toggleFollow.bind(this);
   }
 
   //////////////////////////////////////////////////
@@ -30,7 +31,7 @@ class artistProfile extends React.Component {
     this.props.fetchArtist(this.props.match.params.artistId);
     this.props.fetchArtistSongs(this.props.match.params.artistId);
     this.props.fetchArtistAlbums(this.props.match.params.artistId);
-    this.setState({ followed: this.followed });
+    // this.setState({ followed: this.followed });
 
     // this.recentAlbum = this.props.albums[this.props.albums.length - 1];
   }
@@ -48,7 +49,10 @@ class artistProfile extends React.Component {
   }
 
   toggleFollow(){
-    this.setState({ followed: !this.followed });
+    // console.log('before click: following?', this.props.album.current_user_follows);
+    // console.log('toggle following entityID', this.props.match.params.albumId);
+    this.setState({ followed: !this.state.followed });
+    // console.log('after click: following?', this.props.album.current_user_follows);
   }
 
   //////////////////////////////////////////////////
@@ -109,6 +113,15 @@ class artistProfile extends React.Component {
     }
   }
 
+  blackButton(){
+    // if(this.props.album.current_user_follows) {
+    if(this.state.followed) {
+      return <button className='button-mono' onClick={this.toggleFollow}>UNFOLLOW</button>;
+    } else {
+      return <button className='button-mono' onClick={this.toggleFollow}>FOLLOW</button>;
+    }
+  }
+
 
   render() {
     if(!this.props.artist || !this.props.artist.songs_ids) {
@@ -116,7 +129,7 @@ class artistProfile extends React.Component {
     }
 
     this.profilePic = this.props.artist.img_path;
-    this.followed = this.props.artist.current_user_follows;
+    // this.followed = this.props.artist.current_user_follows;
     this.profileTitle = this.props.artist.name;
 
     this.searchResults = this.props.searchResults;
@@ -143,11 +156,12 @@ class artistProfile extends React.Component {
 
               <div className="profile-button-box">
                 {this.greenButton()}
-                <button className='button-mono'
+                {this.blackButton()}
+                {/*<button className='button-mono'
                   onClick={() => this.toggleFollow}
                   >
                   FOLLOW
-                </button>
+                </button>*/}
 
                 <button className='button-mono header-button-more'>
                   <i className="fas fa-caret-down fa-xs"></i>

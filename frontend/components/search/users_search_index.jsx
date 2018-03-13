@@ -32,7 +32,8 @@ const userSearchIndex = ({users, hide, play}) => {
                 </i>
               </button>
 
-              <Link to={`/library/users/${user.id}`}>
+              {/*<Link to={`/library/users/${user.id}`}>*/}
+              <Link to={`search`}>
                 <img className='entity-index-item-img index-img-big'
                      src={user.img_path} id={user.id}/>
               </Link>

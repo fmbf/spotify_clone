@@ -11,6 +11,8 @@ import SongsIndexContainer from '../songs/songs_index_container';
 class albumProfile extends React.Component {
   constructor(props) {
     super(props);
+    this.state = { followed: false };
+
     this.currentUser = this.props.currentUser;
     this.playAudio = this.playAudio.bind(this);
     this.pauseAudio = this.pauseAudio.bind(this);
@@ -71,9 +73,10 @@ class albumProfile extends React.Component {
   //////////////////////////////////////////////////
 
   toggleFollow(){
-    console.log('before click: following?', this.props.album.current_user_follows);
-    console.log('toggle following entityID', this.props.match.params.albumId);
-    console.log('after click: following?', this.props.album.current_user_follows);
+    // console.log('before click: following?', this.props.album.current_user_follows);
+    // console.log('toggle following entityID', this.props.match.params.albumId);
+    this.setState({ followed: !this.state.followed });
+    // console.log('after click: following?', this.props.album.current_user_follows);
   }
 
   //////////////////////////////////////////////////
@@ -96,7 +99,8 @@ class albumProfile extends React.Component {
   }
 
   blackButton(){
-    if(this.props.album.current_user_follows) {
+    // if(this.props.album.current_user_follows) {
+    if(this.state.followed) {
       return <button className='button-mono' onClick={this.toggleFollow}>SAVED</button>;
     } else {
       return <button className='button-mono' onClick={this.toggleFollow}>SAVE</button>;
