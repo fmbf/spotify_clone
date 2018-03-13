@@ -173,7 +173,8 @@ class playlistProfile extends React.Component {
               <h3>PLAYLIST</h3>
               <h1>{this.profileTitle}</h1>
               <h3 className='profile-description'>{this.profileDescription}</h3>
-              <h3>Created by <strong><a href="#">{this.profileAuthor}</a></strong>  |  {`${this.profileSongCount || '0'}`} songs, 55min </h3>
+              {/*<h3>Created by <strong><a href="#">{this.profileAuthor}</a></strong>  |  {`${this.profileSongCount || '0'}`} songs, 55min </h3>*/}
+              <h3>Created by <strong>{this.profileAuthor}</strong>  |  {`${this.profileSongCount || '0'}`} songs, 55min </h3>
 
               <div className="profile-button-box">
                 {this.greenButton()}
