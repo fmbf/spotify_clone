@@ -18,6 +18,7 @@ class playlistProfile extends React.Component {
     this.playAudio = this.playAudio.bind(this);
     this.pauseAudio = this.pauseAudio.bind(this);
     this.replaceQueueThenPlay = this.replaceQueueThenPlay.bind(this);
+    this.playBubble = this.playBubble.bind(this);
   }
 
   //////////////////////////////////////////////////
@@ -67,7 +68,13 @@ class playlistProfile extends React.Component {
   }
 
   playAudio() {
-    if(this.props.audio.currentSong) {
+    // if(this.props.audio.currentSong) {
+    // }
+
+    if(!this.props.audio.playing) {
+      this.props.togglePlay();
+    } else {
+      this.props.togglePlay();
       this.props.togglePlay();
     }
   }
@@ -76,6 +83,26 @@ class playlistProfile extends React.Component {
     if(this.props.audio.currentSong) {
       this.props.togglePlay();
     }
+  }
+
+  //////////////////////////////////////////////////
+  // playBubble
+  //////////////////////////////////////////////////
+
+  playBubble(entityId){
+    console.log(`now playing song ${entityId}`);
+    // let songs = Object.values(this.props.allSongs).filter(song => song.album_id === entityId);
+    // console.log('this.props.songs:', this.props.songs);
+
+
+    let prevSongs = this.props.songs.filter(song => song.id < entityId);
+
+    let nextSongs = this.props.songs.filter(song => song.id >= entityId);
+
+    this.props.queueSongsReplace(nextSongs);
+    this.props.queueHistoryReplace(prevSongs.reverse());
+
+    setTimeout( () => this.playAudio(), 100 );
   }
 
   //////////////////////////////////////////////////
@@ -167,7 +194,8 @@ class playlistProfile extends React.Component {
               this.props.songs.map(playlistSong => (
                   <li key={playlistSong.id} className='track-li'>
 
-                    <button className='song-list-button song-list-play button-mono'>
+                    <button className='song-list-button song-list-play button-mono'
+                            onClick={() => this.playBubble(playlistSong.id)}>
                       <i className="fas fa-play"></i>
                     </button>
 

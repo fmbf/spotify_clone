@@ -7,6 +7,8 @@ class entityIndex extends React.Component {
     this.currentUser = this.props.currentUser;
     this.hideSwitch = this.hideSwitch.bind(this);
     this.playBubble = this.playBubble.bind(this);
+
+    this.playAudio = this.playAudio.bind(this);
   }
 
   componentDidMount() {
@@ -21,9 +23,28 @@ class entityIndex extends React.Component {
   //   }
   // }
 
-  playBubble(playlistId){
-    console.log(`now playing playlist ${playlistId}`);
+  playBubble(entityId){
+    let songs = Object.values(this.props.allSongs).filter(
+      song => {
+        if (this.props.playlists[entityId].songs_ids) {
+          return this.props.playlists[entityId].songs_ids.includes(song.id);
+        }
+      }
+    );
+
+
+
+
+    console.log(`now playing artist ${entityId}`);
+    // let songs = Object.values(this.props.allSongs).filter(song => song.album_id === entityId);
+    this.props.queueSongsReplace(songs);
+    setTimeout( () => this.playAudio(), 100 );
+
+    // console.log(`now playing artist ${entityId}`);
+    // this.props.fetchAlbumSongs(entityId);
+    // this.playAudio();
   }
+
 
   hideSwitch(action, id) {
     let playButton = document.getElementById(`hidden-${id}`);
@@ -39,6 +60,22 @@ class entityIndex extends React.Component {
       playButton.style.color = '#ccc'; // button color transitional
       img.style.borderColor = '#ddd';
       img.style.opacity = '1.0';
+    }
+  }
+
+  //////////////////////////////////////////////////
+  // Playback
+  //////////////////////////////////////////////////
+
+  playAudio() {
+    // if(this.props.audio.currentSong) {
+    // }
+
+    if(!this.props.audio.playing) {
+      this.props.togglePlay();
+    } else {
+      this.props.togglePlay();
+      this.props.togglePlay();
     }
   }
 
@@ -61,13 +98,13 @@ class entityIndex extends React.Component {
                   onMouseOver={() => this.hideSwitch('show', playlist.id)}
                   onMouseOut={() => this.hideSwitch('hide', playlist.id)}>
 
-                  <button className='playlist-ball-play-button' onClick={() => this.playBubble(playlist.id)}>
+                  {/*<button className='playlist-ball-play-button' onClick={() => this.playBubble(playlist.id)}>
                     <i
                       className="far fa-play-circle fa-3x hidden big-scale"
                       id={`hidden-${playlist.id}`}
                       style={{color: '#ccc'}}
                       ></i>
-                  </button>
+                  </button>*/}
 
                   <Link to={`/library/playlists/${playlist.id}`}>
                     <img className='entity-index-item-img'
@@ -81,7 +118,7 @@ class entityIndex extends React.Component {
                 </Link>
 
                 <h3 className='entity-index-item-followcount'>
-                  {Math.floor(Math.random()*10000)} Followers
+                  {/*{Math.floor(Math.random()*10000)} Followers*/}
                 </h3>
               </div>
               );

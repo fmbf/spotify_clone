@@ -287,12 +287,12 @@ Song.create(title: "Hurt", artist_id: Artist.where(name: 'Johnny Cash')[0].id, a
 #---------------------------------------User_1---------------------------------------#
 # cool_pics = [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 24, 25, 28, 29, 41, 42, 43, 50, 53, 55, 56, 64, 65, 70, 76, 77]
 
-Playlist.create(title: 'Love Songs', img_path: "https://picsum.photos/200/200/?image=65", description: 'the staple of every library', author_id: User.where(username: 'bobby_tables')[0].id)
-Playlist.create(title: 'Gaming Energy', img_path: "https://picsum.photos/200/200/?image=96", description: 'oldies but awesome', author_id: User.where(username: 'bobby_tables')[0].id)
-Playlist.create(title: 'Pool Party', img_path: "https://picsum.photos/200/200/?image=87", description: 'warm and fuzzy', author_id: User.where(username: 'bobby_tables')[0].id)
+Playlist.create(title: 'Love Songs', img_path: "https://picsum.photos/200/200/?image=65", description: 'For the one I <3', author_id: User.where(username: 'bobby_tables')[0].id)
+Playlist.create(title: 'Gaming Energy', img_path: "https://picsum.photos/200/200/?image=96", description: 'Leeerrrooooyyyyy JENKINSSSSS!!!!!!!', author_id: User.where(username: 'bobby_tables')[0].id)
+Playlist.create(title: 'Pool Party', img_path: "https://picsum.photos/200/200/?image=87", description: 'For the bbq n splash', author_id: User.where(username: 'bobby_tables')[0].id)
 Playlist.create(title: 'Rainy Day Jams', img_path: "https://picsum.photos/200/200/?image=115", description: 'drip drop', author_id: User.where(username: 'bobby_tables')[0].id)
-Playlist.create(title: 'Day At The Beach', img_path: "https://picsum.photos/200/200/?image=108", description: 'Summer is here!', author_id: User.where(username: 'bobby_tables')[0].id)
-Playlist.create(title: 'Workout', img_path: "https://picsum.photos/200/200/?image=76", description: 'For da gym!', author_id: User.where(username: 'bobby_tables')[0].id)
+Playlist.create(title: 'Day At The Beach', img_path: "https://picsum.photos/200/200/?image=108", description: 'Surf n sun is here!', author_id: User.where(username: 'bobby_tables')[0].id)
+Playlist.create(title: 'Workout', img_path: "https://picsum.photos/200/200/?image=76", description: 'For da gym! Get Motivated!', author_id: User.where(username: 'bobby_tables')[0].id)
 
 
 #---------------------------------------PlaylistSong----------------------------------------#

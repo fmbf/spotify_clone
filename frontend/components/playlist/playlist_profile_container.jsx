@@ -7,7 +7,7 @@ import { removeSongFromPlaylist } from '../../actions/songs_actions';
 import { fetchPlaylistSongs } from '../../actions/songs_actions';
 import { logout } from '../../actions/session_actions';
 
-import { togglePlay, toggleRepeat, toggleMute, nextSong, prevSong, queueSongsReplace } from '../../actions/player_actions';
+import { togglePlay, toggleRepeat, toggleMute, nextSong, prevSong, queueSongsReplace, queueHistoryReplace } from '../../actions/player_actions';
 
 
 const mapStateToProps = (state, ownProps) => {
@@ -32,6 +32,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => ({
   togglePlay: () => dispatch(togglePlay()),
   queueSongsReplace: (songs) => dispatch(queueSongsReplace(songs)),
+  queueHistoryReplace: (songs) => dispatch(queueHistoryReplace(songs)),
 
   removeSongFromPlaylist: (songId, playlistId) => dispatch(removeSongFromPlaylist(songId, playlistId)),
   fetchPlaylist: (id) => dispatch(fetchPlaylist(id)),
