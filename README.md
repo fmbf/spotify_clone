@@ -53,7 +53,7 @@ Each MVP was tracked through GitHub Issues and followed up through delivery dead
 Spotify Mini's backend is built using `Ruby on Rails 5.0`💎 connected to `PostgreSQL` for
 database management. Front to Backend communication achieved via `jQuery AJAX` requests.
 All responses are rendered as `JSON` back to the front-end to be processed by `React`, a `JavaScript` library for building
-user interfaces developed by Facebook. The `React` / `Redux` combination allows for a dynamically responsive UX
+user interfaces developed by Facebook. The `React` / `Redux` combination allows for a dynamically responsive UX.
 
 ## Future Plans
   + More diverse seed data:
