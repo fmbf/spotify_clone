@@ -245,8 +245,6 @@ class MediaPlayer extends React.Component {
 
 
 
-
-
     return (
       <div id="audioplayer" className="footer-all">
 
@@ -303,7 +301,6 @@ class MediaPlayer extends React.Component {
 
               {toggleOn}
               {toggleOff}
-
           </div>
 
 
