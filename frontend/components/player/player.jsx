@@ -308,7 +308,6 @@ class MediaPlayer extends React.Component {
 
 
         {/*<div className="play-controls-main-bottom">
-
           <h3 id="time-played">
             {this.formatTime(this.state.currentTime)}
           </h3>
@@ -322,7 +321,6 @@ class MediaPlayer extends React.Component {
             <h3 id="time-total">
               {this.formatTime(this.state.duration)}
             </h3>
-
           </div>*/}
 
 
