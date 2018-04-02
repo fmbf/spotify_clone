@@ -332,10 +332,7 @@ class MediaPlayer extends React.Component {
                 {muteOff}
               </div>
             <input id="volume-bar" onChange={this.setVolume} type="range" min={0} max={1} step="any" value={this.state.volume}></input>
-
-
         </div>
-
       </div>
     );
   }
