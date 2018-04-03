@@ -128,7 +128,6 @@ class albumProfile extends React.Component {
       <div>
         <div className="main-window main">
 
-
           <header className="profile-header">
 
             <div id='profile-pic-div'>
