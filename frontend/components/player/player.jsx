@@ -320,7 +320,6 @@ class MediaPlayer extends React.Component {
             </h3>
           </div>*/}
 
-
         </div>
 
 
