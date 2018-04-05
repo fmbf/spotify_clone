@@ -322,7 +322,6 @@ class MediaPlayer extends React.Component {
 
         </div>
 
-
         <div className="footer-right">
 
             <div style={volumeStyle} id="currentVolume"></div>
