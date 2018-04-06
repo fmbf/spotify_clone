@@ -70,7 +70,6 @@ class Header extends React.Component {
     this.searchResults = this.props.searchResults;
 
 
-
     return (
       <header id='main-header'>
 
