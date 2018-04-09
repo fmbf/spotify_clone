@@ -60,8 +60,6 @@ class Header extends React.Component {
   /*-------------------------------------------------------------------*/
 
 
-
-
   render() {
     if(!this.props.searchResults) {
       return null;
