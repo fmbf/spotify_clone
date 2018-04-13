@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link, withRouter, Redirect } from 'react-router-dom';
 
-
 import UserSessionNavContainer from './user_session_nav/user_session_nav_container';
 
 import EntityIndexContainer from './entity_index_container'; // playlists, this may break
