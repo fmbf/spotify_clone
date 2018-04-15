@@ -1,6 +1,5 @@
 // import React from 'react';
 //
-//
 // class testComponent extends React.Component {
 //   constructor(props) {
 //     super(props);
