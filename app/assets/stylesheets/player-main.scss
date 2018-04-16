@@ -7,8 +7,7 @@
   width: 99%;
   // height: 80px;
   // height: 280px; // big for testing
-  height: 60px; // smaller test
-  //
+  height: 60px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -17,16 +16,8 @@
   // background-color: #282828;
   background-color: rgba(40, 40, 40, 0.98);
   // background-color: rgba(230, 230, 230, 0.48);
-  // background-color: red; // for testing
-  // background-color: transparent;
 
   color: #fff;
-
-  // div {
-  //   border: 1px solid red;
-  // }
-
-  // border: 2px solid green;
 }
 
 .footer-left {
@@ -119,18 +110,12 @@
 }
 
 .play-controls-main-top {
-  // background-color: pink;
-
   margin: auto;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   width: 50%;
   height: 80%;
-  //
-  // button {
-  //   margin: 0;
-  // }
 }
 
 .play-controls-main-bottom {
