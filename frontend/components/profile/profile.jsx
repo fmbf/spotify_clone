@@ -18,9 +18,9 @@ class profile extends React.Component {
     this.state = {clickedNewPlaylist: false};
   }
 
-  componentDidMount() {
-
-  }
+  // componentDidMount() {
+  //
+  // }
 
   modalToggle() {
     this.setState({clickedNewPlaylist: !this.state.clickedNewPlaylist});
