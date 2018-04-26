@@ -152,7 +152,6 @@ class albumProfile extends React.Component {
             </div>
           </header>
 
-
           <SongsIndexContainer album={this.props.album} songs={this.props.songs}/>
         </div>
 
