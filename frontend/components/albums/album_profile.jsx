@@ -134,6 +134,7 @@ class albumProfile extends React.Component {
               <img id='profile-pic' src={this.profilePic}/>
             </div>
 
+
             <div className="profile-info">
               <h3>ALBUM</h3>
               <h1>{this.profileTitle}</h1>
