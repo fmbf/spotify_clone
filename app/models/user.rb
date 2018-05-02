@@ -85,4 +85,5 @@ class User < ApplicationRecord
     theme = themes.sample
     self.img_path ||= "http://www.tinygraphs.com/labs/isogrids/hexa/#{self.username + self.email}?theme=#{theme}&numcolors=4&size=220&fmt=svg"
   end
+
 end
