@@ -6,7 +6,6 @@ class MediaPlayer extends React.Component {
   constructor(props) {
     super(props);
 
-
     this.state = {
       muted: false,
       volume: .8,
