@@ -8,7 +8,6 @@ import ArtistSearchIndex from './search/artists_search_index';
 import AlbumSearchIndex from './search/albums_search_index';
 import PlaylistSearchIndex from './search/playlists_search_index';
 
-
 class Header extends React.Component {
   constructor(props){
     super(props);
