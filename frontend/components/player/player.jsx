@@ -302,7 +302,7 @@ class MediaPlayer extends React.Component {
               {toggleOff}
           </div>
 
-
+        {/*Add React slider here*/}
         {/*<div className="play-controls-main-bottom">
           <h3 id="time-played">
             {this.formatTime(this.state.currentTime)}
