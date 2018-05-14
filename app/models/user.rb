@@ -43,7 +43,6 @@ class User < ApplicationRecord
   source_type: 'Playlist'
 
 
-
   has_many :followships, as: :followable,
   foreign_key: :followable_id,
   class_name: :Follow

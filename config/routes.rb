@@ -37,7 +37,6 @@ end
     resources :users, only: [:index, :create, :show, :update] do
       resources :playlists, only: [:index]
       resources :follows, only: [:index]
-      # resources :artists, only: [:index]
       resources :albums, only: [:index, :show]
       # resources :songs, only: [:index]
     end
